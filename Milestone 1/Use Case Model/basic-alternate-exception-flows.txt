@@ -1,39 +1,90 @@
-==================================================
+============================================================
 
-Use case: Elevator floor call button up/down
+Use case: General use case
 
 
 Basic Flow:
 
-1. User presses floor call button down
+1. User presses floor call button up/down
 2. Central controller lights floor call button
 3. Central controller dispatches elevator
 	- Possible Alternate Flow A
-4. Elevator moves floors
-	- Possible Alternate Flow B
+4. Elevator moves one floor
+	- Possible Exception Flow D
 5. Local controller updates position lamps
+	- Possible Alternate Flow B
+6. GOTO Basic Flow 4 until elevator reaches users floor.
+7. Local controller stops elevator motor
+	- Possible Exception Flow B
+9. Local controller opens elevator door
+	- Possible Exception Flow C
+10. Central controller opens floor door (user enters)
+	- Possible Alternate Flow C
+11. User presses elevator button
+	- Possible Alternate Flow D
+12. Central controller closes floor door
+13. Local controller closes elevator door
+14. Central controller dispatches elevator
+	- Possible Alternate Flow A
+15. Elevator moves one floor
+	- Possible Exception Flow D
+16. Local controller updates position lamps
+	- Possible Alternate Flow B
+17. GOTO Basic Flow 15 until elevator reaches users floor.
+18. Local controller stops elevator motor
+	- Possible Exception Flow B
+19. Local controller opens elevator door
+	- Possible Exception Flow C
+20. Central controller opens floor door (user leaves)
+21. Central controller wait for next call
 
 
 Alternate Flow A (Elevator not currently moving):
 
-3a. Central controller starts elevator motor
-	-- Possible Exception Flow A
-3b. GOTO basic flow 4
+a. Central controller starts elevator motor
+	- Possible Exception Flow A
+b. Jump back to Basic Flow
 
 
 Alternate Flow B (Elevator stops at floor):
-4a. Local controller stops elevator motor
-4c. Local controller opens elevator door
-4d. Central controller opens floor door
+a. Local controller stops elevator motor
+	- Possible Exception Flow B
+b. Local controller opens elevator door
+	- Possible Exception Flow C
+c. Central controller opens floor door
+d. Central controller closes floor door
+e. Local controller closes elevator door
+f. Central controller starts elevator motor
+	- Possible Exception Flow A
+g. Jump back to Basic Flow
+
+
+Alternate Flow C (User presses elevator door button open):
+a. User presses elevator door button open
+b. GOTO Alternate Flow C a) until user wants door to close
+
+
+Alternate Flow D (User presses elevator door button close):
+a. User presses elevator door button close
+b. GOTO Basic Flow 12.
 
 
 Exception Flow A (Elevator motor could not start)
-3a. Central controller activates emergency brakes
+a. Central controller activates emergency brakes
 
 
 Exception Flow B (Elevator motor could not stop)
-3a. Central controller activates emergency brakes
+a. Central controller activates emergency brakes
 
-==================================================
+
+Exception Flow C (Elevator door could not open)
+a. Central controller activates emergency brakes
+
+
+Exception Flow D (Elevator moves up when it is at top OR
+				  Elevator moves down when it is at bottom)
+a. Central controller activates emergency brakes
+
+============================================================
 
 
