@@ -1,0 +1,39 @@
+==================================================
+
+Use case: Elevator floor call button up/down
+
+
+Basic Flow:
+
+1. User presses floor call button down
+2. Central controller lights floor call button
+3. Central controller dispatches elevator
+	- Possible Alternate Flow A
+4. Elevator moves floors
+	- Possible Alternate Flow B
+5. Local controller updates position lamps
+
+
+Alternate Flow A (Elevator not currently moving):
+
+3a. Central controller starts elevator motor
+	-- Possible Exception Flow A
+3b. GOTO basic flow 4
+
+
+Alternate Flow B (Elevator stops at floor):
+4a. Local controller stops elevator motor
+4c. Local controller opens elevator door
+4d. Central controller opens floor door
+
+
+Exception Flow A (Elevator motor could not start)
+3a. Central controller activates emergency brakes
+
+
+Exception Flow B (Elevator motor could not stop)
+3a. Central controller activates emergency brakes
+
+==================================================
+
+
