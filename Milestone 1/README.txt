@@ -1,8 +1,8 @@
 Project Specifications:
 
 There are...
-0 - * floors
-2 - * elevators
+1 - * floors
+2 elevators
 
 Each elevator has:
 > floor buttons = # floors
@@ -10,7 +10,7 @@ Each elevator has:
 > current floor lights = # floors (current floor lit)
 > elevator motor -> up, down, stop commands
 > sensor -> returns whether elevator is moving or stopped
-> emergency break
+> emergency brake
 > door -> open or close commands
 > door sensor -> clear or obstacle present
 
