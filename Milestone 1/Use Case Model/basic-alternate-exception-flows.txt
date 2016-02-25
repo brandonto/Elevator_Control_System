@@ -36,7 +36,7 @@ Basic Flow:
 19. Local controller opens elevator door
 	- Possible Exception Flow C
 20. Central controller opens floor door (user leaves)
-21. Central controller wait for next call
+21. Central controller waits for next call
 
 
 Alternate Flow A (Elevator not currently moving):
