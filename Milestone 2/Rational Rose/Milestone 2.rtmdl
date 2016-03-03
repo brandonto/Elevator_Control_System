@@ -1,0 +1,6053 @@
+
+(object PetalRT
+	version 60010
+	_written "Rose RealTime 6.5.825.0"
+	charSet 0)
+
+(object Design "Model"
+	generate_guids_all TRUE
+	is_unit TRUE
+	is_loaded TRUE
+	quid "56D857380327"
+	defaults (object defaults
+		rightMargin 0.250000
+		leftMargin 0.250000
+		topMargin 0.250000
+		bottomMargin 0.500000
+		pageOverlap 0.250000
+		clipIconLabels TRUE
+		defaultFont (object Font
+			size 8
+			face "MS Sans Serif"
+			bold FALSE
+			italics FALSE
+			underline FALSE
+			strike FALSE
+			color 16711680
+			default_color TRUE)
+		showClassOfObject TRUE
+		notation "Unified")
+	root_usecase_package (object Class_Category "Use Case View"
+		quid "3619364703C6"
+		global TRUE
+		exportControl "Public"
+		logical_models (list unit_reference_list)
+		logical_presentations (list unit_reference_list
+			(object UseCaseDiagram "Main"
+				quid "3619364703E4")))
+	root_category (object Class_Category "Logical View"
+		quid "56D857380328"
+		exportControl "Public"
+		logical_models (list unit_reference_list
+			(object Capsule "Local_Controller"
+				quid "56D858920202"
+				structure (object CapsuleCollaboration "Structure"
+					quid "56D858920206"
+					classifierRoles (list classifierRolesList
+						(object CapsuleRole "elevatorR1"
+							quid "56D85F4703E0"
+							classifier  "Logical View::Elevator"
+							quidu "56D85A2103D3"
+							genericity "fixed")
+						(object CapsuleRole "elevatorDoorR1"
+							quid "56D85F570209"
+							classifier  "Logical View::ElevatorDoor"
+							quidu "56D85A44008A"
+							genericity "fixed")
+						(object CapsuleRole "floorDoorR1"
+							quid "56D85F650082"
+							classifier  "Logical View::FloorDoor"
+							quidu "56D85A3B03DA"
+							genericity "fixed")
+						(object CapsuleRole "floorDoorR2"
+							quid "56D85F89023B"
+							classifier  "Logical View::FloorDoor"
+							quidu "56D85A3B03DA"
+							genericity "fixed")
+						(object CapsuleRole "elevatorDoorR2"
+							quid "56D866E503BC"
+							classifier  "Logical View::ElevatorDoor"
+							quidu "56D85A44008A"
+							genericity "fixed"))
+					ports (list portsList
+						(object Port "NewPort1"
+							quid "56D8725B01EA"
+							classifier  "Logical View::ControllerProtocol"
+							quidu "56D872350055"
+							isRelay FALSE)))
+				statemachine (object State_Machine
+					quid "56D858920203"
+					State (object State "TOP"
+						quid "56D858920204"
+						states (list States
+							(object InitialPt "Initial"
+								quid "56D858920205"))))
+				statediagram (object State_Diagram "State Diagram"
+					quid "56D858920207"
+					items (list diagram_item_list
+						(object StateView "Perimeter" "TOP" @1
+							quid "56D858920209"
+							pos (840,615)
+							quidu "56D858920204")
+						(object StateView "StartState" "Initial" @2
+							quid "56D85892020A"
+							pos (180,180)
+							quidu "56D858920205"))
+					filterFlags 1)
+				language "C++"
+				structureDiagram (object CollaborationDiagram "Structure Diagram"
+					quid "56D85892020B"
+					items (list diagram_item_list
+						(object CapsulePerimeterVw "Structure" @3
+							quid "56D85892020D"
+							pos (840,615)
+							quidu "56D858920206"
+							boundIcons (list boundIconsList
+								(object PortVw ":Structure:NewPort1" @4
+									quid "56D8725B01EB"
+									pos (1296,96)
+									quidu "56D8725B01EA"
+									label (object ItemLabel
+										quid "56D8725B01F0"
+										pos (1305,132)
+										nlines 2
+										max_width 216
+										label "NewPort1"))))
+						(object CapsuleRoleVw ":Structure:elevatorR1" @5
+							quid "56D85F4703E1"
+							pos (480,180)
+							quidu "56D85F4703E0"
+							label (object ItemLabel
+								quid "56D85F4703E3"
+								pos (480,139)
+								nlines 2
+								max_width 222
+								label "elevatorR1")
+							boundIcons (list boundIconsList
+								(object ConnectionPtVw ":Structure:elevatorR1:NewPort1" @6
+									quid "56D86B690356"
+									pos (580,89)
+									label (object ItemLabel
+										quid "56D86B690358"
+										pos (580,-14)
+										nlines 2
+										max_width 3
+										label "NewPort1"))
+								(object ConnectionPtVw ":Structure:elevatorR1:NewPort2" @7
+									quid "56D86BAA0351"
+									pos (599,157)
+									label (object ItemLabel
+										quid "56D86BAA0356"
+										pos (620,178)
+										nlines 2
+										max_width 3
+										label "NewPort2"))
+								(object ConnectionPtVw ":Structure:elevatorR1:NewPort3" @8
+									quid "56D86D000017"
+									pos (407,269)
+									label (object ItemLabel
+										quid "56D86D00001D"
+										pos (407,290)
+										nlines 2
+										max_width 3
+										label "NewPort3"))
+								(object ConnectionPtVw ":Structure:elevatorR1:NewPort4" @9
+									quid "56D86D19011C"
+									pos (479,89)
+									label (object ItemLabel
+										quid "56D86D190122"
+										pos (479,-14)
+										nlines 2
+										max_width 3
+										label "NewPort4"))
+								(object ConnectionPtVw ":Structure:elevatorR1:NewPort5" @10
+									quid "56D870640007"
+									pos (359,89)
+									label (object ItemLabel
+										quid "56D87064000E"
+										pos (359,-14)
+										nlines 2
+										max_width 3
+										label "NewPort5"))))
+						(object CapsuleRoleVw ":Structure:elevatorDoorR1" @11
+							quid "56D85F57020A"
+							pos (300,540)
+							quidu "56D85F570209"
+							width 302
+							label (object ItemLabel
+								quid "56D85F57020B"
+								pos (300,499)
+								nlines 2
+								max_width 284
+								label "elevatorDoorR1")
+							boundIcons (list boundIconsList
+								(object ConnectionPtVw ":Structure:elevatorDoorR1:NewPort1" @12
+									quid "56D86BA40049"
+									pos (263,449)
+									label (object ItemLabel
+										quid "56D86BA4004E"
+										pos (263,346)
+										nlines 2
+										max_width 3
+										label "NewPort1"))
+								(object ConnectionPtVw ":Structure:elevatorDoorR1:NewPort2" @13
+									quid "56D86BBF033B"
+									pos (241,450)
+									label (object ItemLabel
+										quid "56D86BBF0340"
+										pos (241,347)
+										nlines 2
+										max_width 3
+										label "NewPort2"))))
+						(object CapsuleRoleVw ":Structure:floorDoorR1" @14
+							quid "56D85F650083"
+							pos (840,540)
+							quidu "56D85F650082"
+							label (object ItemLabel
+								quid "56D85F650084"
+								pos (840,499)
+								nlines 2
+								max_width 222
+								label "floorDoorR1")
+							boundIcons (list boundIconsList
+								(object ConnectionPtVw ":Structure:floorDoorR1:NewPort1" @15
+									quid "56D86BDD0244"
+									pos (753,449)
+									label (object ItemLabel
+										quid "56D86BDD0249"
+										pos (753,346)
+										nlines 2
+										max_width 3
+										label "NewPort1"))))
+						(object CapsuleRoleVw ":Structure:floorDoorR2" @16
+							quid "56D85F89023C"
+							pos (930,180)
+							quidu "56D85F89023B"
+							label (object ItemLabel
+								quid "56D85F89023E"
+								pos (930,139)
+								nlines 2
+								max_width 222
+								label "floorDoorR2")
+							boundIcons (list boundIconsList
+								(object ConnectionPtVw ":Structure:floorDoorR2:NewPort1" @17
+									quid "56D86BDD0246"
+									pos (843,89)
+									label (object ItemLabel
+										quid "56D86BDD024A"
+										pos (843,-14)
+										nlines 2
+										max_width 3
+										label "NewPort1"))))
+						(object CapsuleRoleVw ":Structure:elevatorDoorR2" @18
+							quid "56D866E503BD"
+							pos (1290,540)
+							quidu "56D866E503BC"
+							width 302
+							label (object ItemLabel
+								quid "56D866E503BF"
+								pos (1290,499)
+								nlines 2
+								max_width 284
+								label "elevatorDoorR2")
+							boundIcons (list boundIconsList
+								(object ConnectionPtVw ":Structure:elevatorDoorR2:NewPort1" @19
+									quid "56D86BA4004B"
+									pos (1253,449)
+									label (object ItemLabel
+										quid "56D86BA4004F"
+										pos (1253,346)
+										nlines 2
+										max_width 3
+										label "NewPort1"))
+								(object ConnectionPtVw ":Structure:elevatorDoorR2:NewPort2" @20
+									quid "56D86BBF033D"
+									pos (1231,450)
+									label (object ItemLabel
+										quid "56D86BBF0341"
+										pos (1231,347)
+										nlines 2
+										max_width 3
+										label "NewPort2")))))
+					filterFlags 521))
+			(object Capsule "Central_Coordinator"
+				quid "56D858FD0025"
+				structure (object CapsuleCollaboration "Structure"
+					quid "56D858FD0029"
+					classifierRoles (list classifierRolesList
+						(object CapsuleRole "floorR1"
+							quid "56D86ADB016A"
+							classifier  "Logical View::Floor"
+							quidu "56D85BCE031B"
+							genericity "fixed")
+						(object CapsuleRole "local_ControllerR1"
+							quid "56D86ADF0103"
+							classifier  "Logical View::Local_Controller"
+							quidu "56D858920202"
+							genericity "fixed"))
+					ports (list portsList
+						(object Port "NewPort1"
+							quid "56D8710702BD"
+							classifier  "Logical View::FloorProtocol"
+							quidu "56D870FA0156"
+							isRelay FALSE)
+						(object Port "NewPort2"
+							quid "56D8725400CB"
+							classifier  "Logical View::ControllerProtocol"
+							quidu "56D872350055"
+							isRelay FALSE)))
+				statemachine (object State_Machine
+					quid "56D858FD0026"
+					State (object State "TOP"
+						quid "56D858FD0027"
+						states (list States
+							(object InitialPt "Initial"
+								quid "56D858FD0028"))))
+				statediagram (object State_Diagram "State Diagram"
+					quid "56D858FD002A"
+					items (list diagram_item_list
+						(object StateView "Perimeter" "TOP" @21
+							quid "56D858FD002C"
+							pos (840,615)
+							quidu "56D858FD0027")
+						(object StateView "StartState" "Initial" @22
+							quid "56D858FD002D"
+							pos (180,180)
+							quidu "56D858FD0028"))
+					filterFlags 1)
+				language "C++"
+				structureDiagram (object CollaborationDiagram "Structure Diagram"
+					quid "56D858FD002E"
+					items (list diagram_item_list
+						(object CapsulePerimeterVw "Structure" @23
+							quid "56D858FD0030"
+							pos (840,615)
+							quidu "56D858FD0029"
+							boundIcons (list boundIconsList
+								(object PortVw ":Structure:NewPort1" @24
+									quid "56D8710702BE"
+									pos (756,96)
+									quidu "56D8710702BD"
+									label (object ItemLabel
+										quid "56D8710702C2"
+										pos (765,132)
+										nlines 2
+										max_width 216
+										label "NewPort1"))
+								(object PortVw ":Structure:NewPort2" @25
+									quid "56D8725400CC"
+									pos (684,96)
+									quidu "56D8725400CB"
+									label (object ItemLabel
+										quid "56D8725400D3"
+										pos (693,132)
+										nlines 2
+										max_width 216
+										label "NewPort2"))))
+						(object CapsuleRoleVw ":Structure:floorR1" @26
+							quid "56D86ADB016B"
+							pos (480,180)
+							quidu "56D86ADB016A"
+							label (object ItemLabel
+								quid "56D86ADB016D"
+								pos (480,139)
+								nlines 2
+								max_width 222
+								label "floorR1")
+							boundIcons (list boundIconsList
+								(object ConnectionPtVw ":Structure:floorR1:NewPort1" @27
+									quid "56D86AFC0260"
+									pos (450,89)
+									label (object ItemLabel
+										quid "56D86AFC0262"
+										pos (450,-14)
+										nlines 2
+										max_width 3
+										label "NewPort1"))
+								(object ConnectionPtVw ":Structure:floorR1:NewPort2" @28
+									quid "56D86BD80315"
+									pos (428,90)
+									label (object ItemLabel
+										quid "56D86BD8031A"
+										pos (428,-13)
+										nlines 2
+										max_width 3
+										label "NewPort2"))
+								(object ConnectionPtVw ":Structure:floorR1:NewPort3" @29
+									quid "56D8710501ED"
+									pos (406,90)
+									label (object ItemLabel
+										quid "56D8710501F4"
+										pos (406,-13)
+										nlines 2
+										max_width 3
+										label "NewPort3"))))
+						(object CapsuleRoleVw ":Structure:local_ControllerR1" @30
+							quid "56D86ADF0104"
+							pos (300,540)
+							quidu "56D86ADF0103"
+							width 346
+							label (object ItemLabel
+								quid "56D86ADF0107"
+								pos (300,499)
+								nlines 2
+								max_width 328
+								label "local_ControllerR1")
+							boundIcons (list boundIconsList
+								(object ConnectionPtVw ":Structure:local_ControllerR1:NewPort1" @31
+									quid "56D8725B01EE"
+									pos (403,449)
+									label (object ItemLabel
+										quid "56D8725B01F1"
+										pos (403,346)
+										nlines 2
+										max_width 3
+										label "NewPort1")))))
+					filterFlags 521))
+			(object Capsule "Elevator"
+				quid "56D85A2103D3"
+				structure (object CapsuleCollaboration "Structure"
+					quid "56D85A2103D7"
+					classifierRoles (list classifierRolesList
+						(object CapsuleRole "elevatorButtonR1"
+							quid "56D85DB7002F"
+							classifier  "Logical View::ElevatorButton"
+							quidu "56D85A7F026E"
+							genericity "fixed")
+						(object CapsuleRole "motorR1"
+							quid "56D85DC103D8"
+							classifier  "Logical View::Motor"
+							quidu "56D85A2E01DB"
+							genericity "fixed")
+						(object CapsuleRole "emergencyBrakeR1"
+							quid "56D85DC60208"
+							classifier  "Logical View::EmergencyBrake"
+							quidu "56D85B010247"
+							genericity "fixed")
+						(object CapsuleRole "elevatorDoorR1"
+							quid "56D85DCB0068"
+							classifier  "Logical View::ElevatorDoor"
+							quidu "56D85A44008A"
+							genericity "fixed")
+						(object CapsuleRole "sensorR1"
+							quid "56D8633902AF"
+							classifier  "Logical View::DoorSensor"
+							quidu "56D85A34002A"
+							genericity "fixed")
+						(object CapsuleRole "lightR1"
+							quid "56D8703303E3"
+							classifier  "Logical View::Light"
+							quidu "56D85BFC00E1"
+							genericity "fixed"))
+					ports (list portsList
+						(object Port "NewPort1"
+							quid "56D86B690352"
+							classifier  "Logical View::EBrakeProtocol"
+							quidu "56D86B580109"
+							isRelay FALSE)
+						(object Port "NewPort2"
+							quid "56D86BAA034C"
+							classifier  "Logical View::DoorProtocol"
+							quidu "56D865A7017C"
+							isRelay FALSE)
+						(object Port "NewPort3"
+							quid "56D86D00000F"
+							classifier  "Logical View::EButtonProtocol"
+							quidu "56D86B90025B"
+							isRelay FALSE)
+						(object Port "NewPort4"
+							quid "56D86D190114"
+							classifier  "Logical View::MotorProtocol"
+							quidu "56D86D0B021E"
+							isRelay FALSE)
+						(object Port "NewPort5"
+							quid "56D8706303E7"
+							classifier  "Logical View::EFloorLightProtocol"
+							quidu "56D870420199"
+							isRelay FALSE)))
+				statemachine (object State_Machine
+					quid "56D85A2103D4"
+					State (object State "TOP"
+						quid "56D85A2103D5"
+						states (list States
+							(object InitialPt "Initial"
+								quid "56D85A2103D6"))))
+				statediagram (object State_Diagram "State Diagram"
+					quid "56D85A2103D8"
+					items (list diagram_item_list
+						(object StateView "Perimeter" "TOP" @32
+							quid "56D85A2103DA"
+							pos (840,615)
+							quidu "56D85A2103D5")
+						(object StateView "StartState" "Initial" @33
+							quid "56D85A2103DB"
+							pos (180,180)
+							quidu "56D85A2103D6"))
+					filterFlags 1)
+				language "C++"
+				structureDiagram (object CollaborationDiagram "Structure Diagram"
+					quid "56D85A2103DC"
+					items (list diagram_item_list
+						(object CapsulePerimeterVw "Structure" @34
+							quid "56D85A2103DE"
+							pos (840,615)
+							quidu "56D85A2103D7"
+							boundIcons (list boundIconsList
+								(object PortVw ":Structure:NewPort1" @35
+									quid "56D86B690353"
+									pos (1476,96)
+									quidu "56D86B690352"
+									label (object ItemLabel
+										quid "56D86B690357"
+										pos (1485,132)
+										nlines 2
+										max_width 216
+										label "NewPort1"))
+								(object PortVw ":Structure:NewPort2" @36
+									quid "56D86BAA034D"
+									pos (1584,486)
+									quidu "56D86BAA034C"
+									label (object ItemLabel
+										quid "56D86BAA0355"
+										pos (1593,522)
+										nlines 2
+										max_width 216
+										label "NewPort2"))
+								(object PortVw ":Structure:NewPort3" @37
+									quid "56D86D000010"
+									pos (396,1134)
+									quidu "56D86D00000F"
+									label (object ItemLabel
+										quid "56D86D00001C"
+										pos (405,1170)
+										nlines 2
+										max_width 216
+										label "NewPort3"))
+								(object PortVw ":Structure:NewPort4" @38
+									quid "56D86D190115"
+									pos (840,96)
+									quidu "56D86D190114"
+									label (object ItemLabel
+										quid "56D86D190121"
+										pos (849,132)
+										nlines 2
+										max_width 216
+										label "NewPort4"))
+								(object PortVw ":Structure:NewPort5" @39
+									quid "56D8706303E8"
+									pos (96,96)
+									quidu "56D8706303E7"
+									label (object ItemLabel
+										quid "56D87064000D"
+										pos (105,132)
+										nlines 2
+										max_width 216
+										label "NewPort5"))))
+						(object CapsuleRoleVw ":Structure:elevatorButtonR1" @40
+							quid "56D85DB70030"
+							pos (480,197)
+							quidu "56D85DB7002F"
+							width 324
+							height 189
+							label (object ItemLabel
+								quid "56D85DB70031"
+								pos (480,151)
+								nlines 2
+								max_width 306
+								label "elevatorButtonR1")
+							boundIcons (list boundIconsList
+								(object ConnectionPtVw ":Structure:elevatorButtonR1:NewPort1" @41
+									quid "56D86CFC02C3"
+									pos (362,101)
+									label (object ItemLabel
+										quid "56D86CFC02C5"
+										pos (362,-2)
+										nlines 2
+										max_width 3
+										label "NewPort1"))
+								(object ConnectionPtVw ":Structure:elevatorButtonR1:NewPort2" @42
+									quid "56D86FA103AF"
+									pos (440,101)
+									label (object ItemLabel
+										quid "56D86FA103B4"
+										pos (440,-2)
+										nlines 2
+										max_width 3
+										label "NewPort2"))))
+						(object CapsuleRoleVw ":Structure:motorR1" @43
+							quid "56D85DC103D9"
+							pos (300,630)
+							quidu "56D85DC103D8"
+							label (object ItemLabel
+								quid "56D85DC103DA"
+								pos (300,589)
+								nlines 2
+								max_width 222
+								label "motorR1")
+							boundIcons (list boundIconsList
+								(object ConnectionPtVw ":Structure:motorR1:NewPort1" @44
+									quid "56D86C56007F"
+									pos (179,622)
+									label (object ItemLabel
+										quid "56D86C560081"
+										pos (158,643)
+										nlines 2
+										max_width 3
+										label "NewPort1"))
+								(object ConnectionPtVw ":Structure:motorR1:NewPort2" @45
+									quid "56D86D200278"
+									pos (256,539)
+									label (object ItemLabel
+										quid "56D86D20027D"
+										pos (256,436)
+										nlines 2
+										max_width 3
+										label "NewPort2"))))
+						(object CapsuleRoleVw ":Structure:emergencyBrakeR1" @46
+							quid "56D85DC60209"
+							pos (750,630)
+							quidu "56D85DC60208"
+							width 358
+							label (object ItemLabel
+								quid "56D85DC6020A"
+								pos (750,589)
+								nlines 2
+								max_width 340
+								label "emergencyBrakeR1")
+							boundIcons (list boundIconsList
+								(object ConnectionPtVw ":Structure:emergencyBrakeR1:NewPort1" @47
+									quid "56D86B6602FC"
+									pos (620,539)
+									label (object ItemLabel
+										quid "56D86B6602FE"
+										pos (620,436)
+										nlines 2
+										max_width 3
+										label "NewPort1"))))
+						(object CapsuleRoleVw ":Structure:elevatorDoorR1" @48
+							quid "56D85DCB0069"
+							pos (1020,197)
+							quidu "56D85DCB0068"
+							width 302
+							height 189
+							label (object ItemLabel
+								quid "56D85DCB006A"
+								pos (1020,151)
+								nlines 2
+								max_width 284
+								label "elevatorDoorR1")
+							boundIcons (list boundIconsList
+								(object ConnectionPtVw ":Structure:elevatorDoorR1:NewPort1" @49
+									quid "56D86BA40047"
+									pos (983,101)
+									label (object ItemLabel
+										quid "56D86BA4004D"
+										pos (983,-2)
+										nlines 2
+										max_width 3
+										label "NewPort1"))
+								(object ConnectionPtVw ":Structure:elevatorDoorR1:NewPort2" @50
+									quid "56D86BBF0339"
+									pos (961,102)
+									label (object ItemLabel
+										quid "56D86BBF033F"
+										pos (961,-1)
+										nlines 2
+										max_width 3
+										label "NewPort2"))))
+						(object CapsuleRoleVw ":Structure:sensorR1" @51
+							quid "56D8633902B0"
+							pos (1290,630)
+							quidu "56D8633902AF"
+							label (object ItemLabel
+								quid "56D8633902B3"
+								pos (1290,589)
+								nlines 2
+								max_width 222
+								label "sensorR1")
+							boundIcons (list boundIconsList
+								(object ConnectionPtVw ":Structure:sensorR1:NewPort1" @52
+									quid "56D86BC201F3"
+									pos (1203,539)
+									label (object ItemLabel
+										quid "56D86BC201F8"
+										pos (1203,436)
+										nlines 2
+										max_width 3
+										label "NewPort1"))))
+						(object CapsuleRoleVw ":Structure:lightR1" @53
+							quid "56D8703303E4"
+							pos (750,990)
+							quidu "56D8703303E3"
+							label (object ItemLabel
+								quid "56D870340008"
+								pos (750,949)
+								nlines 2
+								max_width 222
+								label "lightR1")
+							boundIcons (list boundIconsList
+								(object ConnectionPtVw ":Structure:lightR1:NewPort1" @54
+									quid "56D870340003"
+									pos (663,899)
+									label (object ItemLabel
+										quid "56D870340004"
+										pos (663,796)
+										nlines 2
+										max_width 3
+										label "NewPort1"))
+								(object ConnectionPtVw ":Structure:lightR1:NewPort2" @55
+									quid "56D870340006"
+									pos (629,967)
+									label (object ItemLabel
+										quid "56D870340007"
+										pos (608,988)
+										nlines 2
+										max_width 3
+										label "NewPort2"))
+								(object ConnectionPtVw ":Structure:lightR1:NewPort3" @56
+									quid "56D870530054"
+									pos (706,899)
+									label (object ItemLabel
+										quid "56D87053005A"
+										pos (706,796)
+										nlines 2
+										max_width 3
+										label "NewPort3")))))
+					filterFlags 521))
+			(object Capsule "Motor"
+				quid "56D85A2E01DB"
+				structure (object CapsuleCollaboration "Structure"
+					quid "56D85A2E01DF"
+					classifierRoles (list classifierRolesList
+						(object CapsuleRole "statusSensorR1"
+							quid "56D8681001FA"
+							classifier  "Logical View::StatusSensor"
+							quidu "56D865F902A1"
+							genericity "fixed"))
+					ports (list portsList
+						(object Port "NewPort1"
+							quid "56D86C56007B"
+							classifier  "Logical View::MSensorProtocol"
+							quidu "56D86C400392"
+							isRelay FALSE)
+						(object Port "NewPort2"
+							quid "56D86D200273"
+							classifier  "Logical View::MotorProtocol"
+							quidu "56D86D0B021E"
+							isRelay FALSE)))
+				statemachine (object State_Machine
+					quid "56D85A2E01DC"
+					State (object State "TOP"
+						quid "56D85A2E01DD"
+						states (list States
+							(object InitialPt "Initial"
+								quid "56D85A2E01DE"))))
+				statediagram (object State_Diagram "State Diagram"
+					quid "56D85A2E01E0"
+					items (list diagram_item_list
+						(object StateView "Perimeter" "TOP" @57
+							quid "56D85A2E01E2"
+							pos (840,615)
+							quidu "56D85A2E01DD")
+						(object StateView "StartState" "Initial" @58
+							quid "56D85A2E01E3"
+							pos (180,180)
+							quidu "56D85A2E01DE"))
+					filterFlags 1)
+				language "C++"
+				structureDiagram (object CollaborationDiagram "Structure Diagram"
+					quid "56D85A2E01E4"
+					items (list diagram_item_list
+						(object CapsulePerimeterVw "Structure" @59
+							quid "56D85A2E01E6"
+							pos (840,615)
+							quidu "56D85A2E01DF"
+							boundIcons (list boundIconsList
+								(object PortVw ":Structure:NewPort1" @60
+									quid "56D86C56007C"
+									pos (96,576)
+									quidu "56D86C56007B"
+									label (object ItemLabel
+										quid "56D86C560080"
+										pos (105,612)
+										nlines 2
+										max_width 216
+										label "NewPort1"))
+								(object PortVw ":Structure:NewPort2" @61
+									quid "56D86D200274"
+									pos (576,96)
+									quidu "56D86D200273"
+									label (object ItemLabel
+										quid "56D86D20027C"
+										pos (585,132)
+										nlines 2
+										max_width 216
+										label "NewPort2"))))
+						(object CapsuleRoleVw ":Structure:statusSensorR1" @62
+							quid "56D8681001FB"
+							pos (480,197)
+							quidu "56D8681001FA"
+							width 306
+							height 189
+							label (object ItemLabel
+								quid "56D8681001FC"
+								pos (480,151)
+								nlines 2
+								max_width 288
+								label "statusSensorR1")
+							boundIcons (list boundIconsList
+								(object ConnectionPtVw ":Structure:statusSensorR1:NewPort1" @63
+									quid "56D86C530168"
+									pos (369,101)
+									label (object ItemLabel
+										quid "56D86C53016A"
+										pos (369,-2)
+										nlines 2
+										max_width 3
+										label "NewPort1")))))
+					filterFlags 521))
+			(object Capsule "DoorSensor"
+				quid "56D85A34002A"
+				structure (object CapsuleCollaboration "Structure"
+					quid "56D85A34002E"
+					ports (list portsList
+						(object Port "NewPort1"
+							quid "56D86BC201ED"
+							classifier  "Logical View::DSensorProtocol"
+							quidu "56D86BB100D5"
+							isRelay FALSE)))
+				statemachine (object State_Machine
+					quid "56D85A34002B"
+					State (object State "TOP"
+						quid "56D85A34002C"
+						states (list States
+							(object InitialPt "Initial"
+								quid "56D85A34002D"))))
+				statediagram (object State_Diagram "State Diagram"
+					quid "56D85A34002F"
+					items (list diagram_item_list
+						(object StateView "Perimeter" "TOP" @64
+							quid "56D85A340031"
+							pos (840,615)
+							quidu "56D85A34002C")
+						(object StateView "StartState" "Initial" @65
+							quid "56D85A340032"
+							pos (180,180)
+							quidu "56D85A34002D"))
+					filterFlags 1)
+				language "C++"
+				structureDiagram (object CollaborationDiagram "Structure Diagram"
+					quid "56D85A340033"
+					items (list diagram_item_list
+						(object CapsulePerimeterVw "Structure" @66
+							quid "56D85A340035"
+							pos (840,615)
+							quidu "56D85A34002E"
+							boundIcons (list boundIconsList
+								(object PortVw ":Structure:NewPort1" @67
+									quid "56D86BC201EE"
+									pos (306,96)
+									quidu "56D86BC201ED"
+									label (object ItemLabel
+										quid "56D86BC201F6"
+										pos (315,132)
+										nlines 2
+										max_width 216
+										label "NewPort1")))))
+					filterFlags 521))
+			(object Capsule "FloorDoor"
+				quid "56D85A3B03DA"
+				structure (object CapsuleCollaboration "Structure"
+					quid "56D85A3B03DE"
+					ports (list portsList
+						(object Port "NewPort1"
+							quid "56D86BDD023E"
+							classifier  "Logical View::FDoorProtocol"
+							quidu "56D86AC7020A"
+							isRelay FALSE)))
+				statemachine (object State_Machine
+					quid "56D85A3B03DB"
+					State (object State "TOP"
+						quid "56D85A3B03DC"
+						states (list States
+							(object InitialPt "Initial"
+								quid "56D85A3B03DD"))))
+				statediagram (object State_Diagram "State Diagram"
+					quid "56D85A3B03DF"
+					items (list diagram_item_list
+						(object StateView "Perimeter" "TOP" @68
+							quid "56D85A3B03E1"
+							pos (840,615)
+							quidu "56D85A3B03DC")
+						(object StateView "StartState" "Initial" @69
+							quid "56D85A3B03E2"
+							pos (180,180)
+							quidu "56D85A3B03DD"))
+					filterFlags 1)
+				language "C++"
+				structureDiagram (object CollaborationDiagram "Structure Diagram"
+					quid "56D85A3B03E3"
+					items (list diagram_item_list
+						(object CapsulePerimeterVw "Structure" @70
+							quid "56D85A3B03E5"
+							pos (840,615)
+							quidu "56D85A3B03DE"
+							boundIcons (list boundIconsList
+								(object PortVw ":Structure:NewPort1" @71
+									quid "56D86BDD023F"
+									pos (306,96)
+									quidu "56D86BDD023E"
+									label (object ItemLabel
+										quid "56D86BDD0247"
+										pos (315,132)
+										nlines 2
+										max_width 216
+										label "NewPort1")))))
+					filterFlags 521))
+			(object Capsule "ElevatorDoor"
+				quid "56D85A44008A"
+				structure (object CapsuleCollaboration "Structure"
+					quid "56D85A44008E"
+					classifierRoles (list classifierRolesList
+						(object CapsuleRole "sensorR1"
+							quid "56D85E080382"
+							classifier  "Logical View::DoorSensor"
+							quidu "56D85A34002A"
+							genericity "fixed")
+						(object CapsuleRole "sensorR2"
+							quid "56D8636902F4"
+							classifier  "Logical View::DoorSensor"
+							quidu "56D85A34002A"
+							genericity "fixed"))
+					ports (list portsList
+						(object Port "NewPort1"
+							quid "56D86BA40043"
+							classifier  "Logical View::DoorProtocol"
+							quidu "56D865A7017C"
+							isRelay FALSE)
+						(object Port "NewPort2"
+							quid "56D86BBF0334"
+							classifier  "Logical View::DSensorProtocol"
+							quidu "56D86BB100D5"
+							isRelay FALSE)))
+				statemachine (object State_Machine
+					quid "56D85A44008B"
+					State (object State "TOP"
+						quid "56D85A44008C"
+						states (list States
+							(object InitialPt "Initial"
+								quid "56D85A44008D"))))
+				statediagram (object State_Diagram "State Diagram"
+					quid "56D85A44008F"
+					items (list diagram_item_list
+						(object StateView "Perimeter" "TOP" @72
+							quid "56D85A440091"
+							pos (840,615)
+							quidu "56D85A44008C")
+						(object StateView "StartState" "Initial" @73
+							quid "56D85A440092"
+							pos (180,180)
+							quidu "56D85A44008D"))
+					filterFlags 1)
+				language "C++"
+				structureDiagram (object CollaborationDiagram "Structure Diagram"
+					quid "56D85A440093"
+					items (list diagram_item_list
+						(object CapsulePerimeterVw "Structure" @74
+							quid "56D85A440095"
+							pos (840,615)
+							quidu "56D85A44008E"
+							boundIcons (list boundIconsList
+								(object PortVw ":Structure:NewPort1" @75
+									quid "56D86BA40044"
+									pos (666,96)
+									quidu "56D86BA40043"
+									label (object ItemLabel
+										quid "56D86BA4004C"
+										pos (675,132)
+										nlines 2
+										max_width 216
+										label "NewPort1"))
+								(object PortVw ":Structure:NewPort2" @76
+									quid "56D86BBF0335"
+									pos (594,96)
+									quidu "56D86BBF0334"
+									label (object ItemLabel
+										quid "56D86BBF033E"
+										pos (603,132)
+										nlines 2
+										max_width 216
+										label "NewPort2"))))
+						(object CapsuleRoleVw ":Structure:sensorR1" @77
+							quid "56D85E080383"
+							pos (480,180)
+							quidu "56D85E080382"
+							label (object ItemLabel
+								quid "56D85E080384"
+								pos (480,139)
+								nlines 2
+								max_width 222
+								label "sensorR1")
+							boundIcons (list boundIconsList
+								(object ConnectionPtVw ":Structure:sensorR1:NewPort1" @78
+									quid "56D86BC201F1"
+									pos (393,89)
+									label (object ItemLabel
+										quid "56D86BC201F7"
+										pos (393,-14)
+										nlines 2
+										max_width 3
+										label "NewPort1"))))
+						(object CapsuleRoleVw ":Structure:sensorR2" @79
+							quid "56D8636902F5"
+							pos (300,540)
+							quidu "56D8636902F4"
+							label (object ItemLabel
+								quid "56D8636902F7"
+								pos (300,499)
+								nlines 2
+								max_width 222
+								label "sensorR2")
+							boundIcons (list boundIconsList
+								(object ConnectionPtVw ":Structure:sensorR2:NewPort1" @80
+									quid "56D86BC201F5"
+									pos (213,449)
+									label (object ItemLabel
+										quid "56D86BC201F9"
+										pos (213,346)
+										nlines 2
+										max_width 3
+										label "NewPort1")))))
+					filterFlags 521))
+			(object Capsule "FloorButton"
+				quid "56D85A73022F"
+				structure (object CapsuleCollaboration "Structure"
+					quid "56D85A730233"
+					classifierRoles (list classifierRolesList
+						(object CapsuleRole "lightR1"
+							quid "56D86E7401B3"
+							classifier  "Logical View::Light"
+							quidu "56D85BFC00E1"
+							genericity "fixed"))
+					ports (list portsList
+						(object Port "NewPort1"
+							quid "56D86B0000A4"
+							classifier  "Logical View::FButtonProtocol"
+							quidu "56D86A7F0347"
+							isRelay FALSE)
+						(object Port "NewPort2"
+							quid "56D86FB60190"
+							classifier  "Logical View::FButtonLightProtocol"
+							quidu "56D86FAB0111"
+							isRelay FALSE)))
+				statemachine (object State_Machine
+					quid "56D85A730230"
+					State (object State "TOP"
+						quid "56D85A730231"
+						states (list States
+							(object InitialPt "Initial"
+								quid "56D85A730232"))))
+				statediagram (object State_Diagram "State Diagram"
+					quid "56D85A730234"
+					items (list diagram_item_list
+						(object StateView "Perimeter" "TOP" @81
+							quid "56D85A730236"
+							pos (840,615)
+							quidu "56D85A730231")
+						(object StateView "StartState" "Initial" @82
+							quid "56D85A730237"
+							pos (180,180)
+							quidu "56D85A730232"))
+					filterFlags 1)
+				language "C++"
+				structureDiagram (object CollaborationDiagram "Structure Diagram"
+					quid "56D85A730238"
+					items (list diagram_item_list
+						(object CapsulePerimeterVw "Structure" @83
+							quid "56D85A73023A"
+							pos (840,615)
+							quidu "56D85A730233"
+							boundIcons (list boundIconsList
+								(object PortVw ":Structure:NewPort1" @84
+									quid "56D86B0000A5"
+									pos (306,96)
+									quidu "56D86B0000A4"
+									label (object ItemLabel
+										quid "56D86B0000A9"
+										pos (315,132)
+										nlines 2
+										max_width 216
+										label "NewPort1"))
+								(object PortVw ":Structure:NewPort2" @85
+									quid "56D86FB60191"
+									pos (666,96)
+									quidu "56D86FB60190"
+									label (object ItemLabel
+										quid "56D86FB60199"
+										pos (675,132)
+										nlines 2
+										max_width 216
+										label "NewPort2"))))
+						(object CapsuleRoleVw ":Structure:lightR1" @86
+							quid "56D86E7401B4"
+							pos (300,540)
+							quidu "56D86E7401B3"
+							label (object ItemLabel
+								quid "56D86E7401B9"
+								pos (300,499)
+								nlines 2
+								max_width 222
+								label "lightR1")
+							boundIcons (list boundIconsList
+								(object ConnectionPtVw ":Structure:lightR1:NewPort1" @87
+									quid "56D86F9D0110"
+									pos (213,449)
+									label (object ItemLabel
+										quid "56D86F9D0113"
+										pos (213,346)
+										nlines 2
+										max_width 3
+										label "NewPort1"))
+								(object ConnectionPtVw ":Structure:lightR1:NewPort2" @88
+									quid "56D86FBB0319"
+									pos (179,517)
+									label (object ItemLabel
+										quid "56D86FBB031E"
+										pos (158,538)
+										nlines 2
+										max_width 3
+										label "NewPort2"))
+								(object ConnectionPtVw ":Structure:lightR1:NewPort3" @89
+									quid "56D870530052"
+									pos (256,449)
+									label (object ItemLabel
+										quid "56D870530059"
+										pos (256,346)
+										nlines 2
+										max_width 3
+										label "NewPort3")))))
+					filterFlags 521))
+			(object Capsule "ElevatorButton"
+				quid "56D85A7F026E"
+				structure (object CapsuleCollaboration "Structure"
+					quid "56D85A7F0272"
+					classifierRoles (list classifierRolesList
+						(object CapsuleRole "lightR1"
+							quid "56D86E680113"
+							classifier  "Logical View::Light"
+							quidu "56D85BFC00E1"
+							genericity "fixed"))
+					ports (list portsList
+						(object Port "NewPort1"
+							quid "56D86CFC02BF"
+							classifier  "Logical View::EButtonProtocol"
+							quidu "56D86B90025B"
+							isRelay FALSE)
+						(object Port "NewPort2"
+							quid "56D86FA103AA"
+							classifier  "Logical View::EButtonLightProtocol"
+							quidu "56D86F8A00DB"
+							isRelay FALSE)))
+				statemachine (object State_Machine
+					quid "56D85A7F026F"
+					State (object State "TOP"
+						quid "56D85A7F0270"
+						states (list States
+							(object InitialPt "Initial"
+								quid "56D85A7F0271"))))
+				statediagram (object State_Diagram "State Diagram"
+					quid "56D85A7F0273"
+					items (list diagram_item_list
+						(object StateView "Perimeter" "TOP" @90
+							quid "56D85A7F0275"
+							pos (840,615)
+							quidu "56D85A7F0270")
+						(object StateView "StartState" "Initial" @91
+							quid "56D85A7F0276"
+							pos (180,180)
+							quidu "56D85A7F0271"))
+					filterFlags 1)
+				language "C++"
+				structureDiagram (object CollaborationDiagram "Structure Diagram"
+					quid "56D85A7F0277"
+					items (list diagram_item_list
+						(object CapsulePerimeterVw "Structure" @92
+							quid "56D85A7F0279"
+							pos (840,615)
+							quidu "56D85A7F0272"
+							boundIcons (list boundIconsList
+								(object PortVw ":Structure:NewPort1" @93
+									quid "56D86CFC02C0"
+									pos (306,96)
+									quidu "56D86CFC02BF"
+									label (object ItemLabel
+										quid "56D86CFC02C4"
+										pos (315,132)
+										nlines 2
+										max_width 216
+										label "NewPort1"))
+								(object PortVw ":Structure:NewPort2" @94
+									quid "56D86FA103AB"
+									pos (666,96)
+									quidu "56D86FA103AA"
+									label (object ItemLabel
+										quid "56D86FA103B3"
+										pos (675,132)
+										nlines 2
+										max_width 216
+										label "NewPort2"))))
+						(object CapsuleRoleVw ":Structure:lightR1" @95
+							quid "56D86E680114"
+							pos (300,540)
+							quidu "56D86E680113"
+							label (object ItemLabel
+								quid "56D86E68011A"
+								pos (300,499)
+								nlines 2
+								max_width 222
+								label "lightR1")
+							boundIcons (list boundIconsList
+								(object ConnectionPtVw ":Structure:lightR1:NewPort1" @96
+									quid "56D86F9D010E"
+									pos (213,449)
+									label (object ItemLabel
+										quid "56D86F9D0112"
+										pos (213,346)
+										nlines 2
+										max_width 3
+										label "NewPort1"))
+								(object ConnectionPtVw ":Structure:lightR1:NewPort2" @97
+									quid "56D86FBB0317"
+									pos (179,517)
+									label (object ItemLabel
+										quid "56D86FBB031D"
+										pos (158,538)
+										nlines 2
+										max_width 3
+										label "NewPort2"))
+								(object ConnectionPtVw ":Structure:lightR1:NewPort3" @98
+									quid "56D870530050"
+									pos (256,449)
+									label (object ItemLabel
+										quid "56D870530058"
+										pos (256,346)
+										nlines 2
+										max_width 3
+										label "NewPort3")))))
+					filterFlags 521))
+			(object Capsule "EmergencyBrake"
+				quid "56D85B010247"
+				structure (object CapsuleCollaboration "Structure"
+					quid "56D85B01024B"
+					ports (list portsList
+						(object Port "NewPort1"
+							quid "56D86B6602F8"
+							classifier  "Logical View::EBrakeProtocol"
+							quidu "56D86B580109"
+							isRelay FALSE)))
+				statemachine (object State_Machine
+					quid "56D85B010248"
+					State (object State "TOP"
+						quid "56D85B010249"
+						states (list States
+							(object InitialPt "Initial"
+								quid "56D85B01024A"))))
+				statediagram (object State_Diagram "State Diagram"
+					quid "56D85B01024C"
+					items (list diagram_item_list
+						(object StateView "Perimeter" "TOP" @99
+							quid "56D85B01024E"
+							pos (840,615)
+							quidu "56D85B010249")
+						(object StateView "StartState" "Initial" @100
+							quid "56D85B01024F"
+							pos (180,180)
+							quidu "56D85B01024A"))
+					filterFlags 1)
+				language "C++"
+				structureDiagram (object CollaborationDiagram "Structure Diagram"
+					quid "56D85B010250"
+					items (list diagram_item_list
+						(object CapsulePerimeterVw "Structure" @101
+							quid "56D85B010252"
+							pos (840,615)
+							quidu "56D85B01024B"
+							boundIcons (list boundIconsList
+								(object PortVw ":Structure:NewPort1" @102
+									quid "56D86B6602F9"
+									pos (306,96)
+									quidu "56D86B6602F8"
+									label (object ItemLabel
+										quid "56D86B6602FD"
+										pos (315,132)
+										nlines 2
+										max_width 216
+										label "NewPort1")))))
+					filterFlags 521))
+			(object Capsule "Floor"
+				quid "56D85BCE031B"
+				structure (object CapsuleCollaboration "Structure"
+					quid "56D85BCE031F"
+					classifierRoles (list classifierRolesList
+						(object CapsuleRole "floorDoorR1"
+							quid "56D85DD80378"
+							classifier  "Logical View::FloorDoor"
+							quidu "56D85A3B03DA"
+							genericity "fixed")
+						(object CapsuleRole "floorButtonR1"
+							quid "56D85DDB0260"
+							classifier  "Logical View::FloorButton"
+							quidu "56D85A73022F"
+							genericity "fixed"))
+					ports (list portsList
+						(object Port "NewPort1"
+							quid "56D86AFC025C"
+							classifier  "Logical View::FButtonProtocol"
+							quidu "56D86A7F0347"
+							isRelay FALSE)
+						(object Port "NewPort2"
+							quid "56D86BD8030F"
+							classifier  "Logical View::FDoorProtocol"
+							quidu "56D86AC7020A"
+							isRelay FALSE)
+						(object Port "NewPort3"
+							quid "56D8710501E6"
+							classifier  "Logical View::FloorProtocol"
+							quidu "56D870FA0156"
+							isRelay FALSE)))
+				statemachine (object State_Machine
+					quid "56D85BCE031C"
+					State (object State "TOP"
+						quid "56D85BCE031D"
+						states (list States
+							(object InitialPt "Initial"
+								quid "56D85BCE031E"))))
+				statediagram (object State_Diagram "State Diagram"
+					quid "56D85BCE0320"
+					items (list diagram_item_list
+						(object StateView "Perimeter" "TOP" @103
+							quid "56D85BCE0322"
+							pos (840,615)
+							quidu "56D85BCE031D")
+						(object StateView "StartState" "Initial" @104
+							quid "56D85BCE0323"
+							pos (180,180)
+							quidu "56D85BCE031E"))
+					filterFlags 1)
+				language "C++"
+				structureDiagram (object CollaborationDiagram "Structure Diagram"
+					quid "56D85BCE0324"
+					items (list diagram_item_list
+						(object CapsulePerimeterVw "Structure" @105
+							quid "56D85BCE0326"
+							pos (840,615)
+							quidu "56D85BCE031F"
+							boundIcons (list boundIconsList
+								(object PortVw ":Structure:NewPort1" @106
+									quid "56D86AFC025D"
+									pos (666,96)
+									quidu "56D86AFC025C"
+									label (object ItemLabel
+										quid "56D86AFC0261"
+										pos (675,132)
+										nlines 2
+										max_width 216
+										label "NewPort1"))
+								(object PortVw ":Structure:NewPort2" @107
+									quid "56D86BD80310"
+									pos (594,96)
+									quidu "56D86BD8030F"
+									label (object ItemLabel
+										quid "56D86BD80319"
+										pos (603,132)
+										nlines 2
+										max_width 216
+										label "NewPort2"))
+								(object PortVw ":Structure:NewPort3" @108
+									quid "56D8710501E7"
+									pos (522,96)
+									quidu "56D8710501E6"
+									label (object ItemLabel
+										quid "56D8710501F3"
+										pos (531,132)
+										nlines 2
+										max_width 216
+										label "NewPort3"))))
+						(object CapsuleRoleVw ":Structure:floorDoorR1" @109
+							quid "56D85DD80379"
+							pos (480,180)
+							quidu "56D85DD80378"
+							label (object ItemLabel
+								quid "56D85DD8037A"
+								pos (480,139)
+								nlines 2
+								max_width 222
+								label "floorDoorR1")
+							boundIcons (list boundIconsList
+								(object ConnectionPtVw ":Structure:floorDoorR1:NewPort1" @110
+									quid "56D86BDD0242"
+									pos (393,89)
+									label (object ItemLabel
+										quid "56D86BDD0248"
+										pos (393,-14)
+										nlines 2
+										max_width 3
+										label "NewPort1"))))
+						(object CapsuleRoleVw ":Structure:floorButtonR1" @111
+							quid "56D85DDB0261"
+							pos (300,540)
+							quidu "56D85DDB0260"
+							label (object ItemLabel
+								quid "56D85DDB0262"
+								pos (300,499)
+								nlines 2
+								max_width 222
+								label "floorButtonR1")
+							boundIcons (list boundIconsList
+								(object ConnectionPtVw ":Structure:floorButtonR1:NewPort1" @112
+									quid "56D86B0000A8"
+									pos (213,449)
+									label (object ItemLabel
+										quid "56D86B0000AA"
+										pos (213,346)
+										nlines 2
+										max_width 3
+										label "NewPort1"))
+								(object ConnectionPtVw ":Structure:floorButtonR1:NewPort2" @113
+									quid "56D86FB60196"
+									pos (270,449)
+									label (object ItemLabel
+										quid "56D86FB6019A"
+										pos (270,346)
+										nlines 2
+										max_width 3
+										label "NewPort2")))))
+					filterFlags 521))
+			(object Capsule "Light"
+				quid "56D85BFC00E1"
+				structure (object CapsuleCollaboration "Structure"
+					quid "56D85BFC00E5"
+					ports (list portsList
+						(object Port "NewPort1"
+							quid "56D86F9D010A"
+							classifier  "Logical View::EButtonLightProtocol"
+							quidu "56D86F8A00DB"
+							isRelay FALSE)
+						(object Port "NewPort2"
+							quid "56D86FBB0310"
+							classifier  "Logical View::FButtonLightProtocol"
+							quidu "56D86FAB0111"
+							isRelay FALSE)
+						(object Port "NewPort3"
+							quid "56D870530047"
+							classifier  "Logical View::EFloorLightProtocol"
+							quidu "56D870420199"
+							isRelay FALSE)))
+				statemachine (object State_Machine
+					quid "56D85BFC00E2"
+					State (object State "TOP"
+						quid "56D85BFC00E3"
+						states (list States
+							(object InitialPt "Initial"
+								quid "56D85BFC00E4"))))
+				statediagram (object State_Diagram "State Diagram"
+					quid "56D85BFC00E6"
+					items (list diagram_item_list
+						(object StateView "Perimeter" "TOP" @114
+							quid "56D85BFC00E8"
+							pos (840,615)
+							quidu "56D85BFC00E3")
+						(object StateView "StartState" "Initial" @115
+							quid "56D85BFC00E9"
+							pos (180,180)
+							quidu "56D85BFC00E4"))
+					filterFlags 1)
+				language "C++"
+				structureDiagram (object CollaborationDiagram "Structure Diagram"
+					quid "56D85BFC00EA"
+					items (list diagram_item_list
+						(object CapsulePerimeterVw "Structure" @116
+							quid "56D85BFC00EC"
+							pos (840,615)
+							quidu "56D85BFC00E5"
+							boundIcons (list boundIconsList
+								(object PortVw ":Structure:NewPort1" @117
+									quid "56D86F9D010B"
+									pos (306,96)
+									quidu "56D86F9D010A"
+									label (object ItemLabel
+										quid "56D86F9D0111"
+										pos (315,132)
+										nlines 2
+										max_width 216
+										label "NewPort1"))
+								(object PortVw ":Structure:NewPort2" @118
+									quid "56D86FBB0311"
+									pos (96,486)
+									quidu "56D86FBB0310"
+									label (object ItemLabel
+										quid "56D86FBB031B"
+										pos (105,522)
+										nlines 2
+										max_width 216
+										label "NewPort2"))
+								(object PortVw ":Structure:NewPort3" @119
+									quid "56D870530048"
+									pos (576,96)
+									quidu "56D870530047"
+									label (object ItemLabel
+										quid "56D870530056"
+										pos (585,132)
+										nlines 2
+										max_width 216
+										label "NewPort3")))))
+					filterFlags 521))
+			(object Capsule "StatusSensor"
+				quid "56D865F902A1"
+				structure (object CapsuleCollaboration "Structure"
+					quid "56D865F902A5"
+					ports (list portsList
+						(object Port "NewPort1"
+							quid "56D86C530164"
+							classifier  "Logical View::MSensorProtocol"
+							quidu "56D86C400392"
+							isRelay FALSE)))
+				statemachine (object State_Machine
+					quid "56D865F902A2"
+					State (object State "TOP"
+						quid "56D865F902A3"
+						states (list States
+							(object InitialPt "Initial"
+								quid "56D865F902A4"))))
+				statediagram (object State_Diagram "State Diagram"
+					quid "56D865F902A6"
+					items (list diagram_item_list
+						(object StateView "Perimeter" "TOP" @120
+							quid "56D865F902A8"
+							pos (840,615)
+							quidu "56D865F902A3")
+						(object StateView "StartState" "Initial" @121
+							quid "56D865F902A9"
+							pos (180,180)
+							quidu "56D865F902A4"))
+					filterFlags 1)
+				language "C++"
+				structureDiagram (object CollaborationDiagram "Structure Diagram"
+					quid "56D865F902AA"
+					items (list diagram_item_list
+						(object CapsulePerimeterVw "Structure" @122
+							quid "56D865F902AC"
+							pos (840,615)
+							quidu "56D865F902A5"
+							boundIcons (list boundIconsList
+								(object PortVw ":Structure:NewPort1" @123
+									quid "56D86C530165"
+									pos (306,96)
+									quidu "56D86C530164"
+									label (object ItemLabel
+										quid "56D86C530169"
+										pos (315,132)
+										nlines 2
+										max_width 216
+										label "NewPort1")))))
+					filterFlags 521))
+			(object Protocol "DoorProtocol"
+				quid "56D865A7017C"
+				statemachine (object State_Machine
+					quid "56D865A7017D"
+					State (object State "TOP"
+						quid "56D865A7017E"
+						states (list States
+							(object InitialPt "Initial"
+								quid "56D865A7017F"))))
+				collaborations (list collaborationsList
+					(object Collaboration "Collaboration1"
+						quid "56D865A70180"))
+				statediagram (object State_Diagram "State Diagram"
+					quid "56D865A70181"
+					items (list diagram_item_list
+						(object StateView "Perimeter" "TOP" @124
+							quid "56D865A70183"
+							pos (840,615)
+							quidu "56D865A7017E")
+						(object StateView "StartState" "Initial" @125
+							quid "56D865A70184"
+							pos (180,180)
+							quidu "56D865A7017F"))
+					filterFlags 1)
+				language "C++")
+			(object Protocol "FButtonProtocol"
+				quid "56D86A7F0347"
+				statemachine (object State_Machine
+					quid "56D86A7F0348"
+					State (object State "TOP"
+						quid "56D86A7F0349"
+						states (list States
+							(object InitialPt "Initial"
+								quid "56D86A7F034A"))))
+				collaborations (list collaborationsList
+					(object Collaboration "Collaboration1"
+						quid "56D86A7F034B"))
+				statediagram (object State_Diagram "State Diagram"
+					quid "56D86A7F034C"
+					items (list diagram_item_list
+						(object StateView "Perimeter" "TOP" @126
+							quid "56D86A7F034E"
+							pos (840,615)
+							quidu "56D86A7F0349")
+						(object StateView "StartState" "Initial" @127
+							quid "56D86A7F034F"
+							pos (180,180)
+							quidu "56D86A7F034A"))
+					filterFlags 1)
+				language "C++")
+			(object Protocol "FDoorProtocol"
+				quid "56D86AC7020A"
+				statemachine (object State_Machine
+					quid "56D86AC7020B"
+					State (object State "TOP"
+						quid "56D86AC7020C"
+						states (list States
+							(object InitialPt "Initial"
+								quid "56D86AC7020D"))))
+				collaborations (list collaborationsList
+					(object Collaboration "Collaboration1"
+						quid "56D86AC7020E"))
+				statediagram (object State_Diagram "State Diagram"
+					quid "56D86AC7020F"
+					items (list diagram_item_list
+						(object StateView "Perimeter" "TOP" @128
+							quid "56D86AC70211"
+							pos (840,615)
+							quidu "56D86AC7020C")
+						(object StateView "StartState" "Initial" @129
+							quid "56D86AC70212"
+							pos (180,180)
+							quidu "56D86AC7020D"))
+					filterFlags 1)
+				language "C++")
+			(object Protocol "EBrakeProtocol"
+				quid "56D86B580109"
+				statemachine (object State_Machine
+					quid "56D86B58010A"
+					State (object State "TOP"
+						quid "56D86B58010B"
+						states (list States
+							(object InitialPt "Initial"
+								quid "56D86B58010C"))))
+				collaborations (list collaborationsList
+					(object Collaboration "Collaboration1"
+						quid "56D86B58010D"))
+				statediagram (object State_Diagram "State Diagram"
+					quid "56D86B58010E"
+					items (list diagram_item_list
+						(object StateView "Perimeter" "TOP" @130
+							quid "56D86B580110"
+							pos (840,615)
+							quidu "56D86B58010B")
+						(object StateView "StartState" "Initial" @131
+							quid "56D86B580111"
+							pos (180,180)
+							quidu "56D86B58010C"))
+					filterFlags 1)
+				language "C++")
+			(object Protocol "EButtonProtocol"
+				quid "56D86B90025B"
+				statemachine (object State_Machine
+					quid "56D86B90025C"
+					State (object State "TOP"
+						quid "56D86B90025D"
+						states (list States
+							(object InitialPt "Initial"
+								quid "56D86B90025E"))))
+				collaborations (list collaborationsList
+					(object Collaboration "Collaboration1"
+						quid "56D86B90025F"))
+				statediagram (object State_Diagram "State Diagram"
+					quid "56D86B900260"
+					items (list diagram_item_list
+						(object StateView "Perimeter" "TOP" @132
+							quid "56D86B900262"
+							pos (840,615)
+							quidu "56D86B90025D")
+						(object StateView "StartState" "Initial" @133
+							quid "56D86B900263"
+							pos (180,180)
+							quidu "56D86B90025E"))
+					filterFlags 1)
+				language "C++")
+			(object Protocol "DSensorProtocol"
+				quid "56D86BB100D5"
+				statemachine (object State_Machine
+					quid "56D86BB100D6"
+					State (object State "TOP"
+						quid "56D86BB100D7"
+						states (list States
+							(object InitialPt "Initial"
+								quid "56D86BB100D8"))))
+				collaborations (list collaborationsList
+					(object Collaboration "Collaboration1"
+						quid "56D86BB100D9"))
+				statediagram (object State_Diagram "State Diagram"
+					quid "56D86BB100DA"
+					items (list diagram_item_list
+						(object StateView "Perimeter" "TOP" @134
+							quid "56D86BB100DC"
+							pos (840,615)
+							quidu "56D86BB100D7")
+						(object StateView "StartState" "Initial" @135
+							quid "56D86BB100DD"
+							pos (180,180)
+							quidu "56D86BB100D8"))
+					filterFlags 1)
+				language "C++")
+			(object Protocol "MSensorProtocol"
+				quid "56D86C400392"
+				statemachine (object State_Machine
+					quid "56D86C400393"
+					State (object State "TOP"
+						quid "56D86C400394"
+						states (list States
+							(object InitialPt "Initial"
+								quid "56D86C400395"))))
+				collaborations (list collaborationsList
+					(object Collaboration "Collaboration1"
+						quid "56D86C400396"))
+				statediagram (object State_Diagram "State Diagram"
+					quid "56D86C400397"
+					items (list diagram_item_list
+						(object StateView "Perimeter" "TOP" @136
+							quid "56D86C400399"
+							pos (840,615)
+							quidu "56D86C400394")
+						(object StateView "StartState" "Initial" @137
+							quid "56D86C40039A"
+							pos (180,180)
+							quidu "56D86C400395"))
+					filterFlags 1)
+				language "C++")
+			(object Protocol "MotorProtocol"
+				quid "56D86D0B021E"
+				statemachine (object State_Machine
+					quid "56D86D0B021F"
+					State (object State "TOP"
+						quid "56D86D0B0220"
+						states (list States
+							(object InitialPt "Initial"
+								quid "56D86D0B0221"))))
+				collaborations (list collaborationsList
+					(object Collaboration "Collaboration1"
+						quid "56D86D0B0222"))
+				statediagram (object State_Diagram "State Diagram"
+					quid "56D86D0B0223"
+					items (list diagram_item_list
+						(object StateView "Perimeter" "TOP" @138
+							quid "56D86D0B0225"
+							pos (840,615)
+							quidu "56D86D0B0220")
+						(object StateView "StartState" "Initial" @139
+							quid "56D86D0B0226"
+							pos (180,180)
+							quidu "56D86D0B0221"))
+					filterFlags 1)
+				language "C++")
+			(object Protocol "EButtonLightProtocol"
+				quid "56D86F8A00DB"
+				statemachine (object State_Machine
+					quid "56D86F8A00DC"
+					State (object State "TOP"
+						quid "56D86F8A00DD"
+						states (list States
+							(object InitialPt "Initial"
+								quid "56D86F8A00DE"))))
+				collaborations (list collaborationsList
+					(object Collaboration "Collaboration1"
+						quid "56D86F8A00DF"))
+				statediagram (object State_Diagram "State Diagram"
+					quid "56D86F8A00E0"
+					items (list diagram_item_list
+						(object StateView "Perimeter" "TOP" @140
+							quid "56D86F8A00E2"
+							pos (840,615)
+							quidu "56D86F8A00DD")
+						(object StateView "StartState" "Initial" @141
+							quid "56D86F8A00E3"
+							pos (180,180)
+							quidu "56D86F8A00DE"))
+					filterFlags 1)
+				language "C++")
+			(object Protocol "FButtonLightProtocol"
+				quid "56D86FAB0111"
+				statemachine (object State_Machine
+					quid "56D86FAB0112"
+					State (object State "TOP"
+						quid "56D86FAB0113"
+						states (list States
+							(object InitialPt "Initial"
+								quid "56D86FAB0114"))))
+				collaborations (list collaborationsList
+					(object Collaboration "Collaboration1"
+						quid "56D86FAB0115"))
+				statediagram (object State_Diagram "State Diagram"
+					quid "56D86FAB0116"
+					items (list diagram_item_list
+						(object StateView "Perimeter" "TOP" @142
+							quid "56D86FAB0118"
+							pos (840,615)
+							quidu "56D86FAB0113")
+						(object StateView "StartState" "Initial" @143
+							quid "56D86FAB0119"
+							pos (180,180)
+							quidu "56D86FAB0114"))
+					filterFlags 1)
+				language "C++")
+			(object Protocol "EFloorLightProtocol"
+				quid "56D870420199"
+				statemachine (object State_Machine
+					quid "56D87042019A"
+					State (object State "TOP"
+						quid "56D87042019B"
+						states (list States
+							(object InitialPt "Initial"
+								quid "56D87042019C"))))
+				collaborations (list collaborationsList
+					(object Collaboration "Collaboration1"
+						quid "56D87042019D"))
+				statediagram (object State_Diagram "State Diagram"
+					quid "56D87042019E"
+					items (list diagram_item_list
+						(object StateView "Perimeter" "TOP" @144
+							quid "56D8704201A0"
+							pos (840,615)
+							quidu "56D87042019B")
+						(object StateView "StartState" "Initial" @145
+							quid "56D8704201A1"
+							pos (180,180)
+							quidu "56D87042019C"))
+					filterFlags 1)
+				language "C++")
+			(object Protocol "FloorProtocol"
+				quid "56D870FA0156"
+				statemachine (object State_Machine
+					quid "56D870FA0157"
+					State (object State "TOP"
+						quid "56D870FA0158"
+						states (list States
+							(object InitialPt "Initial"
+								quid "56D870FA0159"))))
+				collaborations (list collaborationsList
+					(object Collaboration "Collaboration1"
+						quid "56D870FA015A"))
+				statediagram (object State_Diagram "State Diagram"
+					quid "56D870FA015B"
+					items (list diagram_item_list
+						(object StateView "Perimeter" "TOP" @146
+							quid "56D870FA015D"
+							pos (840,615)
+							quidu "56D870FA0158")
+						(object StateView "StartState" "Initial" @147
+							quid "56D870FA015E"
+							pos (180,180)
+							quidu "56D870FA0159"))
+					filterFlags 1)
+				language "C++")
+			(object Protocol "ControllerProtocol"
+				quid "56D872350055"
+				statemachine (object State_Machine
+					quid "56D872350056"
+					State (object State "TOP"
+						quid "56D872350057"
+						states (list States
+							(object InitialPt "Initial"
+								quid "56D872350058"))))
+				collaborations (list collaborationsList
+					(object Collaboration "Collaboration1"
+						quid "56D872350059"))
+				statediagram (object State_Diagram "State Diagram"
+					quid "56D87235005A"
+					items (list diagram_item_list
+						(object StateView "Perimeter" "TOP" @148
+							quid "56D87235005C"
+							pos (840,615)
+							quidu "56D872350057")
+						(object StateView "StartState" "Initial" @149
+							quid "56D87235005D"
+							pos (180,180)
+							quidu "56D872350058"))
+					filterFlags 1)
+				language "C++")
+			(object Class_Category "RTClasses"
+				is_unit TRUE
+				is_loaded FALSE
+				file_name "$ROSERT_HOME\\C++\\RTClasses.rtlogpkg"
+				isOwned FALSE
+				quid "37F129B10358"))
+		logical_presentations (list unit_reference_list
+			(object ClassDiagram "Main"
+				quid "3619364703D4"
+				items (list diagram_item_list
+					(object CapsuleVw "Local_Controller" @150
+						ShowCompartmentStereotypes TRUE
+						IncludeAttribute TRUE
+						IncludeOperation TRUE
+						showAggregations TRUE
+						quid "56D8589201A8"
+						pos (1433,1370)
+						label (object ItemLabel
+							quid "56D8589201A9"
+							pos (1163,1332)
+							max_width 540
+							label "Local_Controller")
+						stereotype (object ItemLabel
+							quid "56D85892020E"
+							pos (1163,1291)
+							anchor 10
+							max_width 540
+							label "<<Capsule>>")
+						icon_style "Decoration"
+						quidu "56D858920202"
+						compartment (object Compartment
+							quid "56D858920200"
+							pos (1163,1390)
+							anchor 2
+							nlines 4
+							max_width 538
+							justify 1)
+						width 558
+						height 314
+						annotation 8
+						autoResize TRUE
+						showPorts TRUE)
+					(object CapsuleVw "Central_Coordinator" @151
+						ShowCompartmentStereotypes TRUE
+						IncludeAttribute TRUE
+						IncludeOperation TRUE
+						showAggregations TRUE
+						quid "56D858FC03BA"
+						pos (1427,730)
+						label (object ItemLabel
+							quid "56D858FC03BB"
+							pos (1157,672)
+							max_width 540
+							label "Central_Coordinator")
+						stereotype (object ItemLabel
+							quid "56D858FD0031"
+							pos (1157,631)
+							anchor 10
+							max_width 540
+							label "<<Capsule>>")
+						icon_style "Decoration"
+						quidu "56D858FD0025"
+						compartment (object Compartment
+							quid "56D858FD0023"
+							pos (1157,730)
+							anchor 2
+							nlines 5
+							max_width 538
+							justify 1)
+						width 558
+						height 354
+						annotation 8
+						autoResize TRUE
+						showPorts TRUE)
+					(object CapsuleVw "Elevator" @152
+						ShowCompartmentStereotypes TRUE
+						IncludeAttribute TRUE
+						IncludeOperation TRUE
+						showAggregations TRUE
+						quid "56D85A210391"
+						pos (1435,2653)
+						label (object ItemLabel
+							quid "56D85A210392"
+							pos (1151,2534)
+							max_width 568
+							label "Elevator")
+						stereotype (object ItemLabel
+							quid "56D85A2103DF"
+							pos (1151,2493)
+							anchor 10
+							max_width 568
+							label "<<Capsule>>")
+						icon_style "Decoration"
+						quidu "56D85A2103D3"
+						compartment (object Compartment
+							quid "56D85A2103D2"
+							pos (1151,2596)
+							anchor 2
+							nlines 8
+							max_width 566
+							justify 1)
+						width 586
+						height 478
+						annotation 8
+						autoResize TRUE
+						showPorts TRUE)
+					(object CapsuleVw "Motor" @153
+						ShowCompartmentStereotypes TRUE
+						IncludeAttribute TRUE
+						IncludeOperation TRUE
+						showAggregations TRUE
+						quid "56D85A2E0181"
+						pos (298,1994)
+						label (object ItemLabel
+							quid "56D85A2E0182"
+							pos (31,1937)
+							max_width 534
+							label "Motor")
+						stereotype (object ItemLabel
+							quid "56D85A2E01E7"
+							pos (31,1896)
+							anchor 10
+							max_width 534
+							label "<<Capsule>>")
+						icon_style "Decoration"
+						quidu "56D85A2E01DB"
+						compartment (object Compartment
+							quid "56D85A2E01D9"
+							pos (31,1999)
+							anchor 2
+							nlines 5
+							max_width 531
+							justify 1)
+						width 552
+						height 354
+						annotation 8
+						autoResize TRUE
+						showPorts TRUE)
+					(object CapsuleVw "FloorDoor" @154
+						ShowCompartmentStereotypes TRUE
+						IncludeAttribute TRUE
+						IncludeOperation TRUE
+						showAggregations TRUE
+						quid "56D85A3B0388"
+						pos (2476,1369)
+						label (object ItemLabel
+							quid "56D85A3B0389"
+							pos (2229,1332)
+							max_width 494
+							label "FloorDoor")
+						stereotype (object ItemLabel
+							quid "56D85A3B03E6"
+							pos (2229,1291)
+							anchor 10
+							max_width 494
+							label "<<Capsule>>")
+						icon_style "Decoration"
+						quidu "56D85A3B03DA"
+						compartment (object Compartment
+							quid "56D85A3B03D8"
+							pos (2229,1394)
+							anchor 2
+							nlines 4
+							max_width 491
+							justify 1)
+						width 512
+						height 314
+						annotation 8
+						autoResize TRUE
+						showPorts TRUE)
+					(object CapsuleVw "ElevatorDoor" @155
+						ShowCompartmentStereotypes TRUE
+						IncludeAttribute TRUE
+						IncludeOperation TRUE
+						showAggregations TRUE
+						quid "56D85A440040"
+						pos (2770,1965)
+						label (object ItemLabel
+							quid "56D85A440041"
+							pos (2505,1908)
+							max_width 530
+							label "ElevatorDoor")
+						stereotype (object ItemLabel
+							quid "56D85A440096"
+							pos (2505,1867)
+							anchor 10
+							max_width 530
+							label "<<Capsule>>")
+						icon_style "Decoration"
+						quidu "56D85A44008A"
+						compartment (object Compartment
+							quid "56D85A440088"
+							pos (2505,1970)
+							anchor 2
+							nlines 5
+							max_width 528
+							justify 1)
+						width 548
+						height 354
+						annotation 8
+						autoResize TRUE
+						showPorts TRUE)
+					(object CapsuleVw "FloorButton" @156
+						ShowCompartmentStereotypes TRUE
+						IncludeAttribute TRUE
+						IncludeOperation TRUE
+						showAggregations TRUE
+						quid "56D85A7301DD"
+						pos (3946,1149)
+						label (object ItemLabel
+							quid "56D85A7301DE"
+							pos (3651,1092)
+							max_width 590
+							label "FloorButton")
+						stereotype (object ItemLabel
+							quid "56D85A73023B"
+							pos (3651,1051)
+							anchor 10
+							max_width 590
+							label "<<Capsule>>")
+						icon_style "Decoration"
+						quidu "56D85A73022F"
+						compartment (object Compartment
+							quid "56D85A73022D"
+							pos (3651,1154)
+							anchor 2
+							nlines 5
+							max_width 588
+							justify 1)
+						width 608
+						height 354
+						annotation 8
+						autoResize TRUE
+						showPorts TRUE)
+					(object CapsuleVw "ElevatorButton" @157
+						ShowCompartmentStereotypes TRUE
+						IncludeAttribute TRUE
+						IncludeOperation TRUE
+						showAggregations TRUE
+						quid "56D85A7F0204"
+						pos (1433,3428)
+						label (object ItemLabel
+							quid "56D85A7F0205"
+							pos (1136,3371)
+							max_width 594
+							label "ElevatorButton")
+						stereotype (object ItemLabel
+							quid "56D85A7F027A"
+							pos (1136,3330)
+							anchor 10
+							max_width 594
+							label "<<Capsule>>")
+						icon_style "Decoration"
+						quidu "56D85A7F026E"
+						compartment (object Compartment
+							quid "56D85A7F026C"
+							pos (1136,3433)
+							anchor 2
+							nlines 5
+							max_width 591
+							justify 1)
+						width 612
+						height 354
+						annotation 8
+						autoResize TRUE
+						showPorts TRUE)
+					(object CapsuleVw "EmergencyBrake" @158
+						ShowCompartmentStereotypes TRUE
+						IncludeAttribute TRUE
+						IncludeOperation TRUE
+						showAggregations TRUE
+						quid "56D85B0101E5"
+						pos (531,2659)
+						label (object ItemLabel
+							quid "56D85B0101E6"
+							pos (275,2622)
+							max_width 512
+							label "EmergencyBrake")
+						stereotype (object ItemLabel
+							quid "56D85B010253"
+							pos (275,2581)
+							anchor 10
+							max_width 512
+							label "<<Capsule>>")
+						icon_style "Decoration"
+						quidu "56D85B010247"
+						compartment (object Compartment
+							quid "56D85B010245"
+							pos (275,2684)
+							anchor 2
+							nlines 4
+							max_width 509
+							justify 1)
+						width 530
+						height 314
+						annotation 8
+						autoResize TRUE
+						showPorts TRUE)
+					(object CapsuleVw "Floor" @159
+						ShowCompartmentStereotypes TRUE
+						IncludeAttribute TRUE
+						IncludeOperation TRUE
+						showAggregations TRUE
+						quid "56D85BCE02B1"
+						pos (3167,731)
+						label (object ItemLabel
+							quid "56D85BCE02B2"
+							pos (2908,652)
+							max_width 518
+							label "Floor")
+						stereotype (object ItemLabel
+							quid "56D85BCE0327"
+							pos (2908,611)
+							anchor 10
+							max_width 518
+							label "<<Capsule>>")
+						icon_style "Decoration"
+						quidu "56D85BCE031B"
+						compartment (object Compartment
+							quid "56D85BCE0319"
+							pos (2908,710)
+							anchor 2
+							nlines 6
+							max_width 516
+							justify 1)
+						width 536
+						height 396
+						annotation 8
+						autoResize TRUE
+						showPorts TRUE)
+					(object CapsuleVw "Light" @160
+						ShowCompartmentStereotypes TRUE
+						IncludeAttribute TRUE
+						IncludeOperation TRUE
+						showAggregations TRUE
+						quid "56D85BFC006F"
+						pos (2602,3439)
+						label (object ItemLabel
+							quid "56D85BFC0070"
+							pos (2305,3361)
+							max_width 594
+							label "Light")
+						stereotype (object ItemLabel
+							quid "56D85BFC00ED"
+							pos (2305,3320)
+							anchor 10
+							max_width 594
+							label "<<Capsule>>")
+						icon_style "Decoration"
+						quidu "56D85BFC00E1"
+						compartment (object Compartment
+							quid "56D85BFC00DF"
+							pos (2305,3423)
+							anchor 2
+							nlines 6
+							max_width 591
+							justify 1)
+						width 612
+						height 396
+						annotation 8
+						autoResize TRUE
+						showPorts TRUE)
+					(object CapsuleRoleRelVw ":Structure:elevatorButtonR1" @161
+						quid "56D85DB7002E"
+						uses_fill_color FALSE
+						quidu "56D85DB7002F"
+						label (object SegLabel @162
+							quid "56D85DB70033"
+							pos (1397,3101)
+							max_width 259
+							label "elevatorButtonR1"
+							pctDist 0.415917
+							height 36)
+						client @157
+						supplier @152
+						vertices (list Points
+							(1433,3250)
+							(1434,2892))
+						line_style 6144
+						label (object SegLabel @163
+							quid "56D85DB70034"
+							pos (1386,3110)
+							hidden TRUE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist 0.390692
+							height 47))
+					(object CapsuleRoleRelVw ":Structure:motorR1" @164
+						quid "56D85DC103D7"
+						uses_fill_color FALSE
+						quidu "56D85DC103D8"
+						label (object SegLabel @165
+							quid "56D85DC103DB"
+							pos (826,2277)
+							max_width 125
+							label "motorR1"
+							pctDist 0.427832
+							height 18)
+						client @153
+						supplier @152
+						vertices (list Points
+							(574,2152)
+							(1141,2482))
+						line_style 6144
+						label (object SegLabel @166
+							quid "56D85DC103DC"
+							pos (814,2265)
+							hidden TRUE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist 0.402822
+							height 23))
+					(object CapsuleRoleRelVw ":Structure:emergencyBrakeR1" @167
+						quid "56D85DC60207"
+						uses_fill_color FALSE
+						quidu "56D85DC60208"
+						label (object SegLabel @168
+							quid "56D85DC6020B"
+							pos (930,2681)
+							positionBySuperclass FALSE
+							max_width 294
+							label "emergencyBrakeR1"
+							pctDist 0.387973
+							height 26
+							orientation 1)
+						positionBySuperclass FALSE
+						client @158
+						supplier @152
+						vertices (list Points
+							(796,2656)
+							(1141,2654))
+						line_style 6144
+						label (object SegLabel @169
+							quid "56D85DC6020C"
+							pos (896,2658)
+							hidden TRUE
+							positionBySuperclass FALSE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist 0.289812
+							height 3
+							orientation 1))
+					(object CapsuleRoleRelVw ":Structure:floorButtonR1" @170
+						quid "56D85DDB025F"
+						uses_fill_color FALSE
+						quidu "56D85DDB0260"
+						label (object SegLabel @171
+							quid "56D85DDB0263"
+							pos (3508,965)
+							max_width 203
+							label "floorButtonR1"
+							pctDist 0.540899
+							height 46)
+						client @156
+						supplier @159
+						vertices (list Points
+							(3641,985)
+							(3435,874))
+						line_style 6144
+						label (object SegLabel @172
+							quid "56D85DDB0264"
+							pos (3499,977)
+							hidden TRUE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist 0.550432
+							height 60))
+					(object CapsuleRoleRelVw ":Structure:elevatorR1" @173
+						quid "56D85F4703DF"
+						uses_fill_color FALSE
+						quidu "56D85F4703E0"
+						label (object SegLabel @174
+							quid "56D85F4703E5"
+							pos (1393,2001)
+							max_width 163
+							label "elevatorR1"
+							pctDist 0.465063
+							height 41)
+						client @152
+						supplier @150
+						vertices (list Points
+							(1434,2413)
+							(1433,1527))
+						line_style 6144
+						label (object SegLabel @175
+							quid "56D85F4703E6"
+							pos (1381,2011)
+							hidden TRUE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist 0.453792
+							height 53))
+					(object CapsuleRoleRelVw ":Structure:floorDoorR1" @176
+						quid "56D85DD80377"
+						uses_fill_color FALSE
+						quidu "56D85DD80378"
+						label (object SegLabel @177
+							quid "56D85DD8037B"
+							pos (2751,1077)
+							max_width 178
+							label "floorDoorR1"
+							pctDist 0.407311
+							height 26)
+						client @154
+						supplier @159
+						vertices (list Points
+							(2644,1211)
+							(2950,929))
+						line_style 6144
+						label (object SegLabel @178
+							quid "56D85DD8037C"
+							pos (2737,1079)
+							hidden TRUE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist 0.379314
+							height 34))
+					(object CapsuleRoleRelVw ":Structure:floorDoorR2" @179
+						quid "56D85F89023A"
+						uses_fill_color FALSE
+						quidu "56D85F89023B"
+						label (object SegLabel @180
+							quid "56D85F89023F"
+							pos (2245,1476)
+							positionBySuperclass FALSE
+							max_width 178
+							label "floorDoorR2"
+							pctDist -0.051282
+							height 107)
+						positionBySuperclass FALSE
+						client @154
+						supplier @150
+						vertices (list Points
+							(2219,1369)
+							(1712,1369))
+						line_style 6144
+						label (object SegLabel @181
+							quid "56D85F890240"
+							pos (2337,1509)
+							hidden TRUE
+							positionBySuperclass FALSE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist -0.232742
+							height 140))
+					(object CapsuleVw "DoorSensor" @182
+						ShowCompartmentStereotypes TRUE
+						IncludeAttribute TRUE
+						IncludeOperation TRUE
+						showAggregations TRUE
+						quid "56D863320137"
+						pos (2598,2485)
+						label (object ItemLabel
+							quid "56D863320138"
+							pos (2333,2448)
+							max_width 530
+							label "DoorSensor")
+						stereotype (object ItemLabel
+							quid "56D86332016D"
+							pos (2333,2407)
+							anchor 10
+							max_width 530
+							label "<<Capsule>>")
+						icon_style "Decoration"
+						quidu "56D85A34002A"
+						compartment (object Compartment
+							quid "56D86332015F"
+							pos (2333,2510)
+							anchor 2
+							nlines 4
+							max_width 528
+							justify 1)
+						width 548
+						height 314
+						annotation 8
+						autoResize TRUE
+						showPorts TRUE)
+					(object CapsuleRoleRelVw ":Structure:sensorR2" @183
+						quid "56D8636902F3"
+						uses_fill_color FALSE
+						quidu "56D8636902F4"
+						label (object SegLabel @184
+							quid "56D8636902FB"
+							pos (2641,2328)
+							max_width 141
+							label "sensorR2"
+							pctDist -0.016260
+							height 6)
+						client @182
+						supplier @155
+						vertices (list Points
+							(2648,2327)
+							(2710,2142))
+						line_style 6144
+						label (object SegLabel @185
+							quid "56D8636902FC"
+							pos (2630,2358)
+							hidden TRUE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist -0.179963
+							height 7))
+					(object ProtocolVw "DoorProtocol" @186
+						ShowCompartmentStereotypes TRUE
+						IncludeAttribute TRUE
+						IncludeOperation TRUE
+						showAggregations TRUE
+						quid "56D865A7013B"
+						pos (2022,2006)
+						label (object ItemLabel
+							quid "56D865A7013C"
+							pos (1902,2002)
+							max_width 240
+							label "DoorProtocol")
+						stereotype (object ItemLabel
+							quid "56D865A70185"
+							pos (1902,1961)
+							anchor 10
+							max_width 240
+							label "<<Protocol>>")
+						icon_style "Decoration"
+						quidu "56D865A7017C"
+						width 258
+						height 177
+						annotation 8
+						autoResize TRUE
+						showInSignals TRUE
+						showOutSignals TRUE)
+					(object CapsuleVw "StatusSensor" @187
+						ShowCompartmentStereotypes TRUE
+						IncludeAttribute TRUE
+						IncludeOperation TRUE
+						showAggregations TRUE
+						quid "56D865F9025E"
+						pos (740,897)
+						label (object ItemLabel
+							quid "56D865F9025F"
+							pos (473,860)
+							max_width 534
+							label "StatusSensor")
+						stereotype (object ItemLabel
+							quid "56D865F902AD"
+							pos (473,819)
+							anchor 10
+							max_width 534
+							label "<<Capsule>>")
+						icon_style "Decoration"
+						quidu "56D865F902A1"
+						compartment (object Compartment
+							quid "56D865F9029F"
+							pos (473,922)
+							anchor 2
+							nlines 4
+							max_width 531
+							justify 1)
+						width 552
+						height 314
+						annotation 8
+						autoResize TRUE
+						showPorts TRUE)
+					(object CapsuleRoleRelVw ":Structure:elevatorDoorR1" @188
+						quid "56D85DCB0067"
+						uses_fill_color FALSE
+						quidu "56D85DCB0068"
+						label (object SegLabel @189
+							quid "56D85DCB006B"
+							pos (2161,2370)
+							positionBySuperclass FALSE
+							max_width 234
+							label "elevatorDoorR1"
+							pctDist 0.484813
+							height 82)
+						positionBySuperclass FALSE
+						client @155
+						supplier @152
+						vertices (list Points
+							(2495,2105)
+							(1728,2500))
+						line_style 6144
+						label (object SegLabel @190
+							quid "56D85DCB006D"
+							pos (2114,2359)
+							hidden TRUE
+							positionBySuperclass FALSE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist 0.527408
+							height 52))
+					(object CapsuleRoleRelVw ":Structure:statusSensorR1" @191
+						quid "56D8681001F9"
+						uses_fill_color FALSE
+						quidu "56D8681001FA"
+						label (object SegLabel @192
+							quid "56D868100200"
+							pos (565,1377)
+							max_width 234
+							label "statusSensorR1"
+							pctDist 0.414512
+							height 19)
+						client @187
+						supplier @153
+						vertices (list Points
+							(675,1054)
+							(367,1816))
+						line_style 6144
+						label (object SegLabel @193
+							quid "56D868100201"
+							pos (578,1359)
+							hidden TRUE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist 0.388280
+							height 25))
+					(object ProtocolVw "FButtonProtocol" @194
+						ShowCompartmentStereotypes TRUE
+						IncludeAttribute TRUE
+						IncludeOperation TRUE
+						showAggregations TRUE
+						quid "56D86A7F02ED"
+						pos (4440,731)
+						label (object ItemLabel
+							quid "56D86A7F02EE"
+							pos (4304,727)
+							max_width 272
+							label "FButtonProtocol")
+						stereotype (object ItemLabel
+							quid "56D86A7F0350"
+							pos (4304,686)
+							anchor 10
+							max_width 272
+							label "<<Protocol>>")
+						icon_style "Decoration"
+						quidu "56D86A7F0347"
+						width 290
+						height 177
+						annotation 8
+						autoResize TRUE
+						showInSignals TRUE
+						showOutSignals TRUE)
+					(object ProtocolVw "FDoorProtocol" @195
+						ShowCompartmentStereotypes TRUE
+						IncludeAttribute TRUE
+						IncludeOperation TRUE
+						showAggregations TRUE
+						quid "56D86AC701C0"
+						pos (3171,1375)
+						label (object ItemLabel
+							quid "56D86AC701C1"
+							pos (3051,1371)
+							max_width 240
+							label "FDoorProtocol")
+						stereotype (object ItemLabel
+							quid "56D86AC70213"
+							pos (3051,1330)
+							anchor 10
+							max_width 240
+							label "<<Protocol>>")
+						icon_style "Decoration"
+						quidu "56D86AC7020A"
+						width 258
+						height 177
+						annotation 8
+						autoResize TRUE
+						showInSignals TRUE
+						showOutSignals TRUE)
+					(object CapsuleRoleRelVw ":Structure:floorR1" @196
+						quid "56D86ADB0169"
+						uses_fill_color FALSE
+						quidu "56D86ADB016A"
+						label (object SegLabel @197
+							quid "56D86ADB016F"
+							pos (2703,776)
+							max_width 106
+							label "floorR1"
+							pctDist 0.163591
+							height 46)
+						client @159
+						supplier @151
+						vertices (list Points
+							(2898,730)
+							(1706,730))
+						line_style 6144
+						label (object SegLabel @198
+							quid "56D86ADB0170"
+							pos (2836,790)
+							hidden TRUE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist 0.052013
+							height 60))
+					(object CapsuleRoleRelVw ":Structure:local_ControllerR1" @199
+						quid "56D86ADF0102"
+						uses_fill_color FALSE
+						quidu "56D86ADF0103"
+						label (object SegLabel @200
+							quid "56D86ADF0109"
+							pos (1388,1076)
+							max_width 269
+							label "local_ControllerR1"
+							pctDist 0.447245
+							height 42)
+						client @150
+						supplier @151
+						vertices (list Points
+							(1431,1212)
+							(1428,907))
+						line_style 6144
+						label (object SegLabel @201
+							quid "56D86ADF010B"
+							pos (1376,1082)
+							hidden TRUE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist 0.427962
+							height 54))
+					(object PortRelVw ":Structure:NewPort1" @202
+						quid "56D86AFC025B"
+						uses_fill_color FALSE
+						quidu "56D86AFC025C"
+						label (object SegLabel @203
+							quid "56D86AFC026A"
+							pos (3882,695)
+							positionBySuperclass FALSE
+							max_width 147
+							label "NewPort1"
+							pctDist 0.479627
+							height 36
+							orientation 1)
+						positionBySuperclass FALSE
+						client @194
+						supplier @159
+						vertices (list Points
+							(4294,731)
+							(3435,731))
+						line_style 6144
+						label (object SegLabel @204
+							quid "56D86AFC026C"
+							pos (3930,785)
+							hidden TRUE
+							positionBySuperclass FALSE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist 0.423749
+							height 54)
+						label (object SegLabel @205
+							quid "56D86AFC026B"
+							pos (3869,763)
+							positionBySuperclass FALSE
+							anchor 2
+							max_width 134
+							label "<<Port>>"
+							pctDist 0.494761
+							height 32))
+					(object PortRelVw ":Structure:NewPort1" @206
+						quid "56D86B0000A3"
+						uses_fill_color FALSE
+						quidu "56D86B0000A4"
+						label (object SegLabel @207
+							quid "56D86B0000B3"
+							pos (4245,866)
+							positionBySuperclass FALSE
+							max_width 147
+							label "NewPort1"
+							pctDist 0.418442
+							height 22
+							orientation 1)
+						positionBySuperclass FALSE
+						client @194
+						supplier @156
+						vertices (list Points
+							(4334,819)
+							(4155,971))
+						line_style 6144
+						label (object SegLabel @208
+							quid "56D86B0000B5"
+							pos (4327,829)
+							hidden TRUE
+							positionBySuperclass FALSE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist 0.050286
+							height 3)
+						label (object SegLabel @209
+							quid "56D86B0000B4"
+							pos (4284,910)
+							positionBySuperclass FALSE
+							anchor 2
+							max_width 134
+							label "<<Port>>"
+							pctDist 0.413129
+							height 37))
+					(object ProtocolVw "EBrakeProtocol" @210
+						ShowCompartmentStereotypes TRUE
+						IncludeAttribute TRUE
+						IncludeOperation TRUE
+						showAggregations TRUE
+						quid "56D86B5800C7"
+						pos (528,3142)
+						label (object ItemLabel
+							quid "56D86B5800C8"
+							pos (396,3138)
+							max_width 264
+							label "EBrakeProtocol")
+						stereotype (object ItemLabel
+							quid "56D86B580112"
+							pos (396,3097)
+							anchor 10
+							max_width 264
+							label "<<Protocol>>")
+						icon_style "Decoration"
+						quidu "56D86B580109"
+						width 282
+						height 177
+						annotation 8
+						autoResize TRUE
+						showInSignals TRUE
+						showOutSignals TRUE)
+					(object PortRelVw ":Structure:NewPort1" @211
+						quid "56D86B6602F7"
+						uses_fill_color FALSE
+						quidu "56D86B6602F8"
+						label (object SegLabel @212
+							quid "56D86B660306"
+							pos (479,2962)
+							max_width 147
+							label "NewPort1"
+							pctDist 0.383087
+							height 49)
+						client @210
+						supplier @158
+						vertices (list Points
+							(528,3053)
+							(529,2816))
+						line_style 6144
+						label (object SegLabel @213
+							quid "56D86B660308"
+							pos (464,2970)
+							hidden TRUE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist 0.349065
+							height 64)
+						label (object SegLabel @214
+							quid "56D86B660307"
+							pos (490,2924)
+							anchor 2
+							max_width 134
+							label "<<Port>>"
+							pctDist 0.543618
+							height 39))
+					(object PortRelVw ":Structure:NewPort1" @215
+						quid "56D86B690351"
+						uses_fill_color FALSE
+						quidu "56D86B690352"
+						label (object SegLabel @216
+							quid "56D86B69035F"
+							pos (821,2940)
+							max_width 147
+							label "NewPort1"
+							pctDist 0.359141
+							height 37)
+						client @210
+						supplier @152
+						vertices (list Points
+							(669,3064)
+							(1141,2809))
+						line_style 6144
+						label (object SegLabel @217
+							quid "56D86B690361"
+							pos (795,2942)
+							hidden TRUE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist 0.314730
+							height 48)
+						label (object SegLabel @218
+							quid "56D86B690360"
+							pos (885,2902)
+							anchor 2
+							max_width 134
+							label "<<Port>>"
+							pctDist 0.497768
+							height 40))
+					(object ProtocolVw "EButtonProtocol" @219
+						ShowCompartmentStereotypes TRUE
+						IncludeAttribute TRUE
+						IncludeOperation TRUE
+						showAggregations TRUE
+						quid "56D86B900212"
+						pos (2022,3078)
+						label (object ItemLabel
+							quid "56D86B900213"
+							pos (1885,3074)
+							max_width 274
+							label "EButtonProtocol")
+						stereotype (object ItemLabel
+							quid "56D86B900264"
+							pos (1885,3033)
+							anchor 10
+							max_width 274
+							label "<<Protocol>>")
+						icon_style "Decoration"
+						quidu "56D86B90025B"
+						width 292
+						height 177
+						annotation 8
+						autoResize TRUE
+						showInSignals TRUE
+						showOutSignals TRUE)
+					(object PortRelVw ":Structure:NewPort1" @220
+						quid "56D86BA40042"
+						uses_fill_color FALSE
+						quidu "56D86BA40043"
+						label (object SegLabel @221
+							quid "56D86BA40051"
+							pos (2264,1946)
+							positionBySuperclass FALSE
+							max_width 147
+							label "NewPort1"
+							pctDist 0.335328
+							height 45)
+						positionBySuperclass FALSE
+						client @186
+						supplier @155
+						vertices (list Points
+							(2151,1997)
+							(2495,1979))
+						line_style 6144
+						label (object SegLabel @222
+							quid "56D86BA40053"
+							pos (2244,1933)
+							hidden TRUE
+							positionBySuperclass FALSE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist 0.279319
+							height 59)
+						label (object SegLabel @223
+							quid "56D86BA40052"
+							pos (2317,2006)
+							positionBySuperclass FALSE
+							anchor 2
+							max_width 134
+							label "<<Port>>"
+							pctDist 0.479875
+							height 18
+							orientation 1))
+					(object PortRelVw ":Structure:NewPort2" @224
+						quid "56D86BAA034B"
+						uses_fill_color FALSE
+						quidu "56D86BAA034C"
+						label (object SegLabel @225
+							quid "56D86BAA035C"
+							pos (1887,2137)
+							max_width 147
+							label "NewPort2"
+							pctDist 0.155142
+							height 9
+							orientation 1)
+						client @186
+						supplier @152
+						vertices (list Points
+							(1939,2094)
+							(1650,2413))
+						line_style 6144
+						label (object SegLabel @226
+							quid "56D86BAA035E"
+							pos (1915,2098)
+							hidden TRUE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist 0.044322
+							height 15
+							orientation 1)
+						label (object SegLabel @227
+							quid "56D86BAA035D"
+							pos (1834,2269)
+							anchor 2
+							max_width 134
+							label "<<Port>>"
+							pctDist 0.465075
+							height 40))
+					(object ProtocolVw "DSensorProtocol" @228
+						ShowCompartmentStereotypes TRUE
+						IncludeAttribute TRUE
+						IncludeOperation TRUE
+						showAggregations TRUE
+						quid "56D86BB100A3"
+						pos (3225,2311)
+						label (object ItemLabel
+							quid "56D86BB100A4"
+							pos (3083,2307)
+							max_width 284
+							label "DSensorProtocol")
+						stereotype (object ItemLabel
+							quid "56D86BB100DE"
+							pos (3083,2266)
+							anchor 10
+							max_width 284
+							label "<<Protocol>>")
+						icon_style "Decoration"
+						quidu "56D86BB100D5"
+						width 302
+						height 177
+						annotation 8
+						autoResize TRUE
+						showInSignals TRUE
+						showOutSignals TRUE)
+					(object PortRelVw ":Structure:NewPort2" @229
+						quid "56D86BBF0333"
+						uses_fill_color FALSE
+						quidu "56D86BBF0334"
+						label (object SegLabel @230
+							quid "56D86BBF0346"
+							pos (3064,2252)
+							max_width 147
+							label "NewPort2"
+							pctDist 0.134384
+							height 51)
+						client @228
+						supplier @155
+						vertices (list Points
+							(3109,2222)
+							(3003,2142))
+						line_style 6144
+						label (object SegLabel @231
+							quid "56D86BBF0348"
+							pos (3069,2274)
+							hidden TRUE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist 0.004536
+							height 66)
+						label (object SegLabel @232
+							quid "56D86BBF0347"
+							pos (3026,2211)
+							anchor 2
+							max_width 134
+							label "<<Port>>"
+							pctDist 0.548764
+							height 41))
+					(object PortRelVw ":Structure:NewPort1" @233
+						quid "56D86BC201EC"
+						uses_fill_color FALSE
+						quidu "56D86BC201ED"
+						label (object SegLabel @234
+							quid "56D86BC201FD"
+							pos (2941,2349)
+							positionBySuperclass FALSE
+							max_width 147
+							label "NewPort1"
+							pctDist 0.606840
+							height 37
+							orientation 1)
+						positionBySuperclass FALSE
+						client @228
+						supplier @182
+						vertices (list Points
+							(3073,2351)
+							(2872,2407))
+						line_style 6144
+						label (object SegLabel @235
+							quid "56D86BC201FF"
+							pos (2931,2341)
+							hidden TRUE
+							positionBySuperclass FALSE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist 0.642718
+							height 48
+							orientation 1)
+						label (object SegLabel @236
+							quid "56D86BC201FE"
+							pos (2964,2417)
+							positionBySuperclass FALSE
+							anchor 2
+							max_width 134
+							label "<<Port>>"
+							pctDist 0.588120
+							height 34))
+					(object PortRelVw ":Structure:NewPort2" @237
+						quid "56D86BD8030E"
+						uses_fill_color FALSE
+						quidu "56D86BD8030F"
+						label (object SegLabel @238
+							quid "56D86BD80321"
+							pos (3113,1147)
+							max_width 147
+							label "NewPort2"
+							pctDist 0.390238
+							height 56)
+						client @195
+						supplier @159
+						vertices (list Points
+							(3170,1286)
+							(3168,929))
+						line_style 6144
+						label (object SegLabel @239
+							quid "56D86BD80323"
+							pos (3097,1160)
+							hidden TRUE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist 0.354076
+							height 72)
+						label (object SegLabel @240
+							quid "56D86BD80322"
+							pos (3130,1095)
+							anchor 2
+							max_width 134
+							label "<<Port>>"
+							pctDist 0.535625
+							height 39))
+					(object PortRelVw ":Structure:NewPort1" @241
+						quid "56D86BDD023D"
+						uses_fill_color FALSE
+						quidu "56D86BDD023E"
+						label (object SegLabel @242
+							quid "56D86BDD024C"
+							pos (2888,1413)
+							positionBySuperclass FALSE
+							max_width 147
+							label "NewPort1"
+							pctDist 0.493842
+							height 41)
+						positionBySuperclass FALSE
+						client @195
+						supplier @154
+						vertices (list Points
+							(3041,1373)
+							(2732,1370))
+						line_style 6144
+						label (object SegLabel @243
+							quid "56D86BDD024E"
+							pos (2889,1425)
+							hidden TRUE
+							positionBySuperclass FALSE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist 0.490229
+							height 53)
+						label (object SegLabel @244
+							quid "56D86BDD024D"
+							pos (2949,1340)
+							positionBySuperclass FALSE
+							anchor 2
+							max_width 134
+							label "<<Port>>"
+							pctDist 0.298743
+							height 32
+							orientation 1))
+					(object ProtocolVw "MSensorProtocol" @245
+						ShowCompartmentStereotypes TRUE
+						IncludeAttribute TRUE
+						IncludeOperation TRUE
+						showAggregations TRUE
+						quid "56D86C400351"
+						pos (174,1541)
+						label (object ItemLabel
+							quid "56D86C400352"
+							pos (31,1537)
+							max_width 286
+							label "MSensorProtocol")
+						stereotype (object ItemLabel
+							quid "56D86C40039B"
+							pos (31,1496)
+							anchor 10
+							max_width 286
+							label "<<Protocol>>")
+						icon_style "Decoration"
+						quidu "56D86C400392"
+						width 304
+						height 177
+						annotation 8
+						autoResize TRUE
+						showInSignals TRUE
+						showOutSignals TRUE)
+					(object PortRelVw ":Structure:NewPort1" @246
+						quid "56D86C530163"
+						uses_fill_color FALSE
+						quidu "56D86C530164"
+						label (object SegLabel @247
+							quid "56D86C530171"
+							pos (317,1305)
+							positionBySuperclass FALSE
+							max_width 147
+							label "NewPort1"
+							pctDist 0.291758
+							height 47)
+						positionBySuperclass FALSE
+						client @245
+						supplier @187
+						vertices (list Points
+							(250,1452)
+							(600,1054))
+						line_style 6144
+						label (object SegLabel @248
+							quid "56D86C530173"
+							pos (451,1301)
+							hidden TRUE
+							positionBySuperclass FALSE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist 0.464386
+							height 51
+							orientation 1)
+						label (object SegLabel @249
+							quid "56D86C530172"
+							pos (364,1264)
+							positionBySuperclass FALSE
+							anchor 2
+							max_width 134
+							label "<<Port>>"
+							pctDist 0.408410
+							height 38))
+					(object PortRelVw ":Structure:NewPort1" @250
+						quid "56D86C56007A"
+						uses_fill_color FALSE
+						quidu "56D86C56007B"
+						label (object SegLabel @251
+							quid "56D86C560088"
+							pos (289,1701)
+							positionBySuperclass FALSE
+							max_width 147
+							label "NewPort1"
+							pctDist 0.481900
+							height 68)
+						positionBySuperclass FALSE
+						client @245
+						supplier @153
+						vertices (list Points
+							(198,1629)
+							(249,1816))
+						line_style 6144
+						label (object SegLabel @252
+							quid "56D86C56008A"
+							pos (214,1648)
+							hidden TRUE
+							positionBySuperclass FALSE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist 0.116290
+							height 10)
+						label (object SegLabel @253
+							quid "56D86C560089"
+							pos (178,1737)
+							positionBySuperclass FALSE
+							anchor 2
+							max_width 134
+							label "<<Port>>"
+							pctDist 0.510407
+							height 48
+							orientation 1))
+					(object PortRelVw ":Structure:NewPort1" @254
+						quid "56D86CFC02BE"
+						uses_fill_color FALSE
+						quidu "56D86CFC02BF"
+						label (object SegLabel @255
+							quid "56D86CFC02CD"
+							pos (1831,3239)
+							positionBySuperclass FALSE
+							max_width 147
+							label "NewPort1"
+							pctDist 0.451427
+							height 42)
+						positionBySuperclass FALSE
+						client @219
+						supplier @157
+						vertices (list Points
+							(1875,3164)
+							(1730,3250))
+						line_style 6144
+						label (object SegLabel @256
+							quid "56D86CFC02CF"
+							pos (1839,3248)
+							hidden TRUE
+							positionBySuperclass FALSE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist 0.437845
+							height 53)
+						label (object SegLabel @257
+							quid "56D86CFC02CE"
+							pos (1783,3181)
+							positionBySuperclass FALSE
+							anchor 2
+							max_width 134
+							label "<<Port>>"
+							pctDist 0.520812
+							height 32
+							orientation 1))
+					(object PortRelVw ":Structure:NewPort3" @258
+						quid "56D86D00000E"
+						uses_fill_color FALSE
+						quidu "56D86D00000F"
+						label (object SegLabel @259
+							quid "56D86D000024"
+							pos (1823,2998)
+							positionBySuperclass FALSE
+							max_width 147
+							label "NewPort3"
+							pctDist 0.273215
+							height 53)
+						positionBySuperclass FALSE
+						client @219
+						supplier @152
+						vertices (list Points
+							(1901,2989)
+							(1728,2865))
+						line_style 6144
+						label (object SegLabel @260
+							quid "56D86D000026"
+							pos (1826,3007)
+							hidden TRUE
+							positionBySuperclass FALSE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist 0.237126
+							height 58)
+						label (object SegLabel @261
+							quid "56D86D000025"
+							pos (1789,2959)
+							positionBySuperclass FALSE
+							anchor 2
+							max_width 134
+							label "<<Port>>"
+							pctDist 0.509789
+							height 41))
+					(object ProtocolVw "MotorProtocol" @262
+						ShowCompartmentStereotypes TRUE
+						IncludeAttribute TRUE
+						IncludeOperation TRUE
+						showAggregations TRUE
+						quid "56D86D0B01D5"
+						pos (1038,1996)
+						label (object ItemLabel
+							quid "56D86D0B01D6"
+							pos (918,1992)
+							max_width 240
+							label "MotorProtocol")
+						stereotype (object ItemLabel
+							quid "56D86D0B0227"
+							pos (918,1951)
+							anchor 10
+							max_width 240
+							label "<<Protocol>>")
+						icon_style "Decoration"
+						quidu "56D86D0B021E"
+						width 258
+						height 177
+						annotation 8
+						autoResize TRUE
+						showInSignals TRUE
+						showOutSignals TRUE)
+					(object PortRelVw ":Structure:NewPort4" @263
+						quid "56D86D190113"
+						uses_fill_color FALSE
+						quidu "56D86D190114"
+						label (object SegLabel @264
+							quid "56D86D19012A"
+							pos (1195,2122)
+							max_width 147
+							label "NewPort4"
+							pctDist 0.225897
+							height 70)
+						client @262
+						supplier @152
+						vertices (list Points
+							(1090,2084)
+							(1289,2413))
+						line_style 6144
+						label (object SegLabel @265
+							quid "56D86D19012C"
+							pos (1195,2079)
+							hidden TRUE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist 0.130207
+							height 92)
+						label (object SegLabel @266
+							quid "56D86D19012B"
+							pos (1230,2238)
+							anchor 2
+							max_width 134
+							label "<<Port>>"
+							pctDist 0.531148
+							height 40))
+					(object PortRelVw ":Structure:NewPort2" @267
+						quid "56D86D200272"
+						uses_fill_color FALSE
+						quidu "56D86D200273"
+						label (object SegLabel @268
+							quid "56D86D200284"
+							pos (751,1970)
+							positionBySuperclass FALSE
+							max_width 147
+							label "NewPort2"
+							pctDist 0.470280
+							height 25
+							orientation 1)
+						positionBySuperclass FALSE
+						client @262
+						supplier @153
+						vertices (list Points
+							(908,1995)
+							(574,1994))
+						line_style 6144
+						label (object SegLabel @269
+							quid "56D86D200286"
+							pos (800,2047)
+							hidden TRUE
+							positionBySuperclass FALSE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist 0.322884
+							height 52)
+						label (object SegLabel @270
+							quid "56D86D200285"
+							pos (742,2037)
+							positionBySuperclass FALSE
+							anchor 2
+							max_width 134
+							label "<<Port>>"
+							pctDist 0.496625
+							height 42))
+					(object ProtocolVw "EButtonLightProtocol" @271
+						ShowCompartmentStereotypes TRUE
+						IncludeAttribute TRUE
+						IncludeOperation TRUE
+						showAggregations TRUE
+						quid "56D86F8A009A"
+						pos (2066,3928)
+						label (object ItemLabel
+							quid "56D86F8A009B"
+							pos (1894,3924)
+							max_width 344
+							label "EButtonLightProtocol")
+						stereotype (object ItemLabel
+							quid "56D86F8A00E4"
+							pos (1894,3883)
+							anchor 10
+							max_width 344
+							label "<<Protocol>>")
+						icon_style "Decoration"
+						quidu "56D86F8A00DB"
+						width 362
+						height 177
+						annotation 8
+						autoResize TRUE
+						showInSignals TRUE
+						showOutSignals TRUE)
+					(object PortRelVw ":Structure:NewPort1" @272
+						quid "56D86F9D0109"
+						uses_fill_color FALSE
+						quidu "56D86F9D010A"
+						label (object SegLabel @273
+							quid "56D86F9D011A"
+							pos (2174,3764)
+							max_width 147
+							label "NewPort1"
+							pctDist 0.200989
+							height 46)
+						client @271
+						supplier @160
+						vertices (list Points
+							(2160,3839)
+							(2384,3637))
+						line_style 6144
+						label (object SegLabel @274
+							quid "56D86F9D011C"
+							pos (2141,3774)
+							hidden TRUE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist 0.097538
+							height 61)
+						label (object SegLabel @275
+							quid "56D86F9D011B"
+							pos (2247,3706)
+							anchor 2
+							max_width 134
+							label "<<Port>>"
+							pctDist 0.509497
+							height 40))
+					(object PortRelVw ":Structure:NewPort2" @276
+						quid "56D86FA103A9"
+						uses_fill_color FALSE
+						quidu "56D86FA103AA"
+						label (object SegLabel @277
+							quid "56D86FA103BC"
+							pos (1857,3811)
+							max_width 147
+							label "NewPort2"
+							pctDist 0.245610
+							height 37)
+						client @271
+						supplier @157
+						vertices (list Points
+							(1953,3839)
+							(1657,3605))
+						line_style 6144
+						label (object SegLabel @278
+							quid "56D86FA103BE"
+							pos (1875,3840)
+							hidden TRUE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist 0.160523
+							height 49)
+						label (object SegLabel @279
+							quid "56D86FA103BD"
+							pos (1781,3756)
+							anchor 2
+							max_width 134
+							label "<<Port>>"
+							pctDist 0.494016
+							height 42))
+					(object ProtocolVw "FButtonLightProtocol" @280
+						ShowCompartmentStereotypes TRUE
+						IncludeAttribute TRUE
+						IncludeOperation TRUE
+						showAggregations TRUE
+						quid "56D86FAB00D8"
+						pos (4604,2443)
+						label (object ItemLabel
+							quid "56D86FAB00D9"
+							pos (4433,2439)
+							max_width 342
+							label "FButtonLightProtocol")
+						stereotype (object ItemLabel
+							quid "56D86FAB011A"
+							pos (4433,2398)
+							anchor 10
+							max_width 342
+							label "<<Protocol>>")
+						icon_style "Decoration"
+						quidu "56D86FAB0111"
+						width 360
+						height 177
+						annotation 8
+						autoResize TRUE
+						showInSignals TRUE
+						showOutSignals TRUE)
+					(object PortRelVw ":Structure:NewPort2" @281
+						quid "56D86FB6018F"
+						uses_fill_color FALSE
+						quidu "56D86FB60190"
+						label (object SegLabel @282
+							quid "56D86FB601A3"
+							pos (4418,2168)
+							max_width 147
+							label "NewPort2"
+							pctDist 0.198771
+							height 40)
+						client @280
+						supplier @156
+						vertices (list Points
+							(4558,2354)
+							(4035,1326))
+						line_style 6144
+						label (object SegLabel @283
+							quid "56D86FB601A5"
+							pos (4459,2276)
+							hidden TRUE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist 0.099195
+							height 53)
+						label (object SegLabel @284
+							quid "56D86FB601A4"
+							pos (4261,1860)
+							anchor 2
+							max_width 134
+							label "<<Port>>"
+							pctDist 0.498501
+							height 40))
+					(object PortRelVw ":Structure:NewPort2" @285
+						quid "56D86FBB030F"
+						uses_fill_color FALSE
+						quidu "56D86FBB0310"
+						label (object SegLabel @286
+							quid "56D86FBB0323"
+							pos (4719,3316)
+							positionBySuperclass FALSE
+							max_width 147
+							label "NewPort2"
+							pctDist 0.268732
+							height 178)
+						positionBySuperclass FALSE
+						client @280
+						supplier @160
+						vertices (list Points
+							(4596,2531)
+							(4507,3784)
+							(2908,3493))
+						line_style 6144
+						label (object SegLabel @287
+							quid "56D86FBB0325"
+							pos (4711,3038)
+							hidden TRUE
+							positionBySuperclass FALSE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist 0.172689
+							height 150)
+						label (object SegLabel @288
+							quid "56D86FBB0324"
+							pos (4325,3793)
+							positionBySuperclass FALSE
+							anchor 2
+							max_width 134
+							label "<<Port>>"
+							pctDist 0.497542
+							height 42))
+					(object ProtocolVw "EFloorLightProtocol" @289
+						ShowCompartmentStereotypes TRUE
+						IncludeAttribute TRUE
+						IncludeOperation TRUE
+						showAggregations TRUE
+						quid "56D870420157"
+						pos (3003,2846)
+						label (object ItemLabel
+							quid "56D870420158"
+							pos (2841,2842)
+							max_width 324
+							label "EFloorLightProtocol")
+						stereotype (object ItemLabel
+							quid "56D8704201A2"
+							pos (2841,2801)
+							anchor 10
+							max_width 324
+							label "<<Protocol>>")
+						icon_style "Decoration"
+						quidu "56D870420199"
+						width 342
+						height 177
+						annotation 8
+						autoResize TRUE
+						showInSignals TRUE
+						showOutSignals TRUE)
+					(object PortRelVw ":Structure:NewPort3" @290
+						quid "56D870530046"
+						uses_fill_color FALSE
+						quidu "56D870530047"
+						label (object SegLabel @291
+							quid "56D87053005F"
+							pos (2939,3024)
+							max_width 147
+							label "NewPort3"
+							pctDist 0.204814
+							height 48)
+						client @289
+						supplier @160
+						vertices (list Points
+							(2941,2934)
+							(2734,3240))
+						line_style 6144
+						label (object SegLabel @292
+							quid "56D870530061"
+							pos (2970,3003)
+							hidden TRUE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist 0.110715
+							height 63)
+						label (object SegLabel @293
+							quid "56D870530060"
+							pos (2871,3112)
+							anchor 2
+							max_width 134
+							label "<<Port>>"
+							pctDist 0.505242
+							height 42))
+					(object PortRelVw ":Structure:NewPort5" @294
+						quid "56D8706303E6"
+						uses_fill_color FALSE
+						quidu "56D8706303E7"
+						label (object SegLabel @295
+							quid "56D870640016"
+							pos (2621,2843)
+							max_width 147
+							label "NewPort5"
+							pctDist 0.185447
+							height 44)
+						client @289
+						supplier @152
+						vertices (list Points
+							(2831,2824)
+							(1728,2688))
+						line_style 6144
+						label (object SegLabel @296
+							quid "56D870640018"
+							pos (2734,2869)
+							hidden TRUE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist 0.081670
+							height 56)
+						label (object SegLabel @297
+							quid "56D870640017"
+							pos (2275,2798)
+							anchor 2
+							max_width 134
+							label "<<Port>>"
+							pctDist 0.499394
+							height 42))
+					(object CapsuleRoleRelVw ":Structure:lightR1" @298
+						quid "56D86E680112"
+						uses_fill_color FALSE
+						quidu "56D86E680113"
+						label (object SegLabel @299
+							quid "56D86E68011E"
+							pos (2254,3470)
+							max_width 103
+							label "lightR1"
+							pctDist 0.073169
+							height 35)
+						client @160
+						supplier @157
+						vertices (list Points
+							(2295,3435)
+							(1739,3430))
+						line_style 6144
+						label (object SegLabel @300
+							quid "56D86E68011F"
+							pos (2332,3481)
+							hidden TRUE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist -0.067285
+							height 46))
+					(object CapsuleRoleRelVw ":Structure:lightR1" @301
+						quid "56D86E7401B2"
+						uses_fill_color FALSE
+						quidu "56D86E7401B3"
+						label (object SegLabel @302
+							quid "56D86E7401BE"
+							pos (3323,3261)
+							positionBySuperclass FALSE
+							max_width 103
+							label "lightR1"
+							pctDist 0.131566
+							height 178)
+						positionBySuperclass FALSE
+						client @160
+						supplier @156
+						vertices (list Points
+							(2908,3439)
+							(3947,3440)
+							(3946,1326))
+						line_style 6144
+						label (object SegLabel @303
+							quid "56D86E7401BF"
+							pos (2978,3252)
+							hidden TRUE
+							positionBySuperclass FALSE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist 0.022144
+							height 187))
+					(object CapsuleRoleRelVw ":Structure:lightR1" @304
+						quid "56D8703303E2"
+						uses_fill_color FALSE
+						quidu "56D8703303E3"
+						label (object SegLabel @305
+							quid "56D870340009"
+							pos (2491,3016)
+							positionBySuperclass FALSE
+							max_width 103
+							label "lightR1"
+							pctDist 0.183174
+							height 112)
+						positionBySuperclass FALSE
+						client @160
+						supplier @152
+						vertices (list Points
+							(2602,3240)
+							(2603,2916)
+							(1728,2718))
+						line_style 6144
+						label (object SegLabel @306
+							quid "56D87034000A"
+							pos (2548,3069)
+							hidden TRUE
+							positionBySuperclass FALSE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist 0.139911
+							height 55))
+					(object ProtocolVw "FloorProtocol" @307
+						ShowCompartmentStereotypes TRUE
+						IncludeAttribute TRUE
+						IncludeOperation TRUE
+						showAggregations TRUE
+						quid "56D870FA0105"
+						pos (2313,322)
+						label (object ItemLabel
+							quid "56D870FA0106"
+							pos (2193,318)
+							max_width 240
+							label "FloorProtocol")
+						stereotype (object ItemLabel
+							quid "56D870FA015F"
+							pos (2193,277)
+							anchor 10
+							max_width 240
+							label "<<Protocol>>")
+						icon_style "Decoration"
+						quidu "56D870FA0156"
+						width 258
+						height 177
+						annotation 8
+						autoResize TRUE
+						showInSignals TRUE
+						showOutSignals TRUE)
+					(object PortRelVw ":Structure:NewPort3" @308
+						quid "56D8710501E5"
+						uses_fill_color FALSE
+						quidu "56D8710501E6"
+						label (object SegLabel @309
+							quid "56D8710501FB"
+							pos (2551,390)
+							max_width 147
+							label "NewPort3"
+							pctDist 0.200540
+							height 41)
+						client @307
+						supplier @159
+						vertices (list Points
+							(2442,383)
+							(2898,601))
+						line_style 6144
+						label (object SegLabel @310
+							quid "56D8710501FD"
+							pos (2511,357)
+							hidden TRUE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist 0.100979
+							height 53)
+						label (object SegLabel @311
+							quid "56D8710501FC"
+							pos (2687,455)
+							anchor 2
+							max_width 134
+							label "<<Port>>"
+							pctDist 0.500000
+							height 42))
+					(object PortRelVw ":Structure:NewPort1" @312
+						quid "56D8710702BC"
+						uses_fill_color FALSE
+						quidu "56D8710702BD"
+						label (object SegLabel @313
+							quid "56D8710702CA"
+							pos (2117,456)
+							max_width 147
+							label "NewPort1"
+							pctDist 0.174690
+							height 42)
+						client @307
+						supplier @151
+						vertices (list Points
+							(2183,380)
+							(1706,600))
+						line_style 6144
+						label (object SegLabel @314
+							quid "56D8710702CC"
+							pos (2173,444)
+							hidden TRUE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist 0.068315
+							height 54)
+						label (object SegLabel @315
+							quid "56D8710702CB"
+							pos (1963,528)
+							anchor 2
+							max_width 134
+							label "<<Port>>"
+							pctDist 0.498317
+							height 42))
+					(object ProtocolVw "ControllerProtocol" @316
+						ShowCompartmentStereotypes TRUE
+						IncludeAttribute TRUE
+						IncludeOperation TRUE
+						showAggregations TRUE
+						quid "56D87235000B"
+						pos (2026,1039)
+						label (object ItemLabel
+							quid "56D87235000C"
+							pos (1877,1035)
+							max_width 298
+							label "ControllerProtocol")
+						stereotype (object ItemLabel
+							quid "56D87235005E"
+							pos (1877,994)
+							anchor 10
+							max_width 298
+							label "<<Protocol>>")
+						icon_style "Decoration"
+						quidu "56D872350055"
+						width 316
+						height 177
+						annotation 8
+						autoResize TRUE
+						showInSignals TRUE
+						showOutSignals TRUE)
+					(object PortRelVw ":Structure:NewPort2" @317
+						quid "56D8725400CA"
+						uses_fill_color FALSE
+						quidu "56D8725400CB"
+						label (object SegLabel @318
+							quid "56D8725400DB"
+							pos (1785,967)
+							max_width 147
+							label "NewPort2"
+							pctDist 0.374550
+							height 47)
+						client @316
+						supplier @151
+						vertices (list Points
+							(1867,956)
+							(1706,873))
+						line_style 6144
+						label (object SegLabel @319
+							quid "56D8725400DD"
+							pos (1785,982)
+							hidden TRUE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist 0.336605
+							height 61)
+						label (object SegLabel @320
+							quid "56D8725400DC"
+							pos (1761,947)
+							anchor 2
+							max_width 134
+							label "<<Port>>"
+							pctDist 0.542914
+							height 41))
+					(object PortRelVw ":Structure:NewPort1" @321
+						quid "56D8725B01E9"
+						uses_fill_color FALSE
+						quidu "56D8725B01EA"
+						label (object SegLabel @322
+							quid "56D8725B01F8"
+							pos (1841,1182)
+							max_width 147
+							label "NewPort1"
+							pctDist 0.281531
+							height 37)
+						client @316
+						supplier @150
+						vertices (list Points
+							(1867,1126)
+							(1712,1212))
+						line_style 6144
+						label (object SegLabel @323
+							quid "56D8725B01FA"
+							pos (1856,1186)
+							hidden TRUE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist 0.218484
+							height 47)
+						label (object SegLabel @324
+							quid "56D8725B01F9"
+							pos (1816,1202)
+							anchor 2
+							max_width 134
+							label "<<Port>>"
+							pctDist 0.459597
+							height 41))))))
+	root_subsystem (object SubSystem "Component View"
+		quid "56D85738032A"
+		physical_models (list unit_reference_list
+			(object SubSystem "RTComponents"
+				is_unit TRUE
+				is_loaded FALSE
+				file_name "$ROSERT_HOME\\C++\\RTComponents.rtcmppkg"
+				isOwned FALSE
+				quid "37F129B1035A"))
+		physical_presentations (list unit_reference_list
+			(object Module_Diagram "Main"
+				quid "36641F810172")))
+	process_structure (object Processes "Deployment View"
+		quid "3619364703C8"
+		ProcsNDevs (list
+			(object Process_Diagram "Main"
+				quid "3619364703CA")))
+	properties (object Properties
+		attributes (list Attribute_Set
+			(object Attribute
+				tool "OT::C"
+				name "propertyId"
+				value "809135966")
+			(object Attribute
+				tool "C Version"
+				name "default__Version"
+				value (list Attribute_Set
+					(object Attribute
+						tool "C Version"
+						name "Version"
+						value 6404)))
+			(object Attribute
+				tool "OT::C"
+				name "default__Attribute"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::C"
+						name "AttributeKindSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "OT::C"
+								name "normal"
+								value 0)
+							(object Attribute
+								tool "OT::C"
+								name "constant"
+								value 2)))
+					(object Attribute
+						tool "OT::C"
+						name "AttributeKind"
+						value ("AttributeKindSet" 0))
+					(object Attribute
+						tool "OT::C"
+						name "InitializerKindSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "OT::C"
+								name "assignment"
+								value 0)
+							(object Attribute
+								tool "OT::C"
+								name "call construct function"
+								value 1)))
+					(object Attribute
+						tool "OT::C"
+						name "InitializerKind"
+						value ("InitializerKindSet" 0))
+					(object Attribute
+						tool "OT::C"
+						name "HeaderPreface"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::C"
+						name "HeaderEnding"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::C"
+						name "ImplementationPreface"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::C"
+						name "ImplementationEnding"
+						value (value Text ""))))
+			(object Attribute
+				tool "OT::C"
+				name "default__Capsule"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::C"
+						name "GenerateConstructFunction"
+						value TRUE)
+					(object Attribute
+						tool "OT::C"
+						name "GlobalPrefix"
+						value "")
+					(object Attribute
+						tool "OT::C"
+						name "HeaderPreface"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::C"
+						name "HeaderEnding"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::C"
+						name "ImplementationPreface"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::C"
+						name "ImplementationEnding"
+						value (value Text ""))))
+			(object Attribute
+				tool "OT::C"
+				name "default__Class"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::C"
+						name "GenerateClass"
+						value TRUE)
+					(object Attribute
+						tool "OT::C"
+						name "GenerateStateMachine"
+						value TRUE)
+					(object Attribute
+						tool "OT::C"
+						name "ClassKindSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "OT::C"
+								name "none (deprecated)"
+								value 4)
+							(object Attribute
+								tool "OT::C"
+								name "struct"
+								value 1)
+							(object Attribute
+								tool "OT::C"
+								name "typedef"
+								value 3)
+							(object Attribute
+								tool "OT::C"
+								name "union"
+								value 2)))
+					(object Attribute
+						tool "OT::C"
+						name "ClassKind"
+						value ("ClassKindSet" 1))
+					(object Attribute
+						tool "OT::C"
+						name "ImplementationType"
+						value "")
+					(object Attribute
+						tool "OT::C"
+						name "ConstructFunctionName"
+						value "${name}_construct")
+					(object Attribute
+						tool "OT::C"
+						name "GlobalPrefix"
+						value "")
+					(object Attribute
+						tool "OT::C"
+						name "HeaderPreface"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::C"
+						name "HeaderEnding"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::C"
+						name "ImplementationPreface"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::C"
+						name "ImplementationEnding"
+						value (value Text ""))))
+			(object Attribute
+				tool "OT::C"
+				name "default__Role"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::C"
+						name "AssociationEndKindSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "OT::C"
+								name "member"
+								value 0)
+							(object Attribute
+								tool "OT::C"
+								name "global"
+								value 1)))
+					(object Attribute
+						tool "OT::C"
+						name "AssociationEndKind"
+						value ("AssociationEndKindSet" 0))
+					(object Attribute
+						tool "OT::C"
+						name "InitializerKindSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "OT::C"
+								name "assignment"
+								value 0)
+							(object Attribute
+								tool "OT::C"
+								name "call construct function"
+								value 1)))
+					(object Attribute
+						tool "OT::C"
+						name "InitializerKind"
+						value ("InitializerKindSet" 0))
+					(object Attribute
+						tool "OT::C"
+						name "InitialValue"
+						value (value Text ""))))
+			(object Attribute
+				tool "OT::C"
+				name "default__Uses"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::C"
+						name "KindSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "OT::C"
+								name "none"
+								value 2)
+							(object Attribute
+								tool "OT::C"
+								name "forward reference"
+								value 1)
+							(object Attribute
+								tool "OT::C"
+								name "inclusion"
+								value 0)))
+					(object Attribute
+						tool "OT::C"
+						name "KindInHeader"
+						value ("KindSet" 1))
+					(object Attribute
+						tool "OT::C"
+						name "KindInImplementation"
+						value ("KindSet" 0))))
+			(object Attribute
+				tool "OT::C"
+				name "HiddenTool"
+				value FALSE)
+			(object Attribute
+				tool "OT::CExec"
+				name "propertyId"
+				value "809135966")
+			(object Attribute
+				tool "OT::CExec"
+				name "default__Capsule"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::CExec"
+						name "Capsule To Logical Thread Mapping"
+						value (value Event ""))))
+			(object Attribute
+				tool "OT::CExec"
+				name "default__Component"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::CExec"
+						name "TopCapsule"
+						value (value Event 
+|[event_ui
+|	description='<none selected>'
+|	caption='Select...']
+						))
+					(object Attribute
+						tool "OT::CExec"
+						name "PhysicalThreads"
+						value (value Event 
+|[MainThread
+|	Priority='DEFAULT_MAIN_PRIORITY'
+|	StackSize='20000'
+|	FreeMessageQueueSize='DEFAULT_FREE_MSGQ_SIZE']
+						))
+					(object Attribute
+						tool "OT::CExec"
+						name "ExecutableName"
+						value "$name$(EXEC_EXT)")
+					(object Attribute
+						tool "OT::CExec"
+						name "DefaultArguments"
+						value "")
+					(object Attribute
+						tool "OT::CExec"
+						name "LinkCommand"
+						value "$(LD)")
+					(object Attribute
+						tool "OT::CExec"
+						name "LinkArguments"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::CExec"
+						name "UserObjectFiles"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::CExec"
+						name "UserLibraries"
+						value (value Text ""))))
+			(object Attribute
+				tool "OT::CExec"
+				name "HiddenTool"
+				value FALSE)
+			(object Attribute
+				tool "OT::CExtLib"
+				name "propertyId"
+				value "809135966")
+			(object Attribute
+				tool "OT::CExtLib"
+				name "default__Component"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::CExtLib"
+						name "IncludeFilename"
+						value "")
+					(object Attribute
+						tool "OT::CExtLib"
+						name "GenerateClassInclusions"
+						value TRUE)
+					(object Attribute
+						tool "OT::CExtLib"
+						name "CodeGenDirName"
+						value "")
+					(object Attribute
+						tool "OT::CExtLib"
+						name "InclusionPaths"
+						value (value Event ""))
+					(object Attribute
+						tool "OT::CExtLib"
+						name "Libraries"
+						value (value Event ""))))
+			(object Attribute
+				tool "OT::CExtLib"
+				name "HiddenTool"
+				value FALSE)
+			(object Attribute
+				tool "OT::CLib"
+				name "propertyId"
+				value "809135966")
+			(object Attribute
+				tool "OT::CLib"
+				name "default__Component"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::CLib"
+						name "LibraryName"
+						value "$(LIB_PFX)$name$(LIB_EXT)")
+					(object Attribute
+						tool "OT::CLib"
+						name "BuildLibraryCommand"
+						value "$(AR_CMD)")
+					(object Attribute
+						tool "OT::CLib"
+						name "BuildLibraryArguments"
+						value (value Text ""))))
+			(object Attribute
+				tool "OT::CLib"
+				name "HiddenTool"
+				value FALSE)
+			(object Attribute
+				tool "OT::CTargetRSL"
+				name "propertyId"
+				value "809135966")
+			(object Attribute
+				tool "C Generation"
+				name "propertyId"
+				value "809135966")
+			(object Attribute
+				tool "C Compilation"
+				name "propertyId"
+				value "809135966")
+			(object Attribute
+				tool "OT::CTargetRSL"
+				name "default__Class"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::CTargetRSL"
+						name "GenerateDescriptorSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "OT::CTargetRSL"
+								name "True"
+								value 0)
+							(object Attribute
+								tool "OT::CTargetRSL"
+								name "DebugOnly"
+								value 1)
+							(object Attribute
+								tool "OT::CTargetRSL"
+								name "False"
+								value 2)
+							(object Attribute
+								tool "OT::CTargetRSL"
+								name "Manual"
+								value 3)))
+					(object Attribute
+						tool "OT::CTargetRSL"
+						name "GenerateDescriptor"
+						value ("GenerateDescriptorSet" 0))
+					(object Attribute
+						tool "OT::CTargetRSL"
+						name "Version"
+						value 0)
+					(object Attribute
+						tool "OT::CTargetRSL"
+						name "InitFunctionBody"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::CTargetRSL"
+						name "CopyFunctionBody"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::CTargetRSL"
+						name "DestroyFunctionBody"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::CTargetRSL"
+						name "DecodeFunctionBody"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::CTargetRSL"
+						name "EncodeFunctionBody"
+						value (value Text ""))))
+			(object Attribute
+				tool "OT::CTargetRSL"
+				name "default__Attribute"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::CTargetRSL"
+						name "GenerateDescriptor"
+						value TRUE)
+					(object Attribute
+						tool "OT::CTargetRSL"
+						name "TypeDescriptor"
+						value "")
+					(object Attribute
+						tool "OT::CTargetRSL"
+						name "GenerateTypeModifier"
+						value TRUE)
+					(object Attribute
+						tool "OT::CTargetRSL"
+						name "NumElementsFunctionBody"
+						value (value Text ""))))
+			(object Attribute
+				tool "OT::CTargetRSL"
+				name "default__Role"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::CTargetRSL"
+						name "GenerateDescriptor"
+						value TRUE)
+					(object Attribute
+						tool "OT::CTargetRSL"
+						name "TypeDescriptor"
+						value "")
+					(object Attribute
+						tool "OT::CTargetRSL"
+						name "GenerateTypeModifier"
+						value TRUE)
+					(object Attribute
+						tool "OT::CTargetRSL"
+						name "NumElementsFunctionBody"
+						value (value Text ""))))
+			(object Attribute
+				tool "C Generation"
+				name "default__Component"
+				value (list Attribute_Set
+					(object Attribute
+						tool "C Generation"
+						name "OutputDirectory"
+						value "$@/$name")
+					(object Attribute
+						tool "C Generation"
+						name "CodeGenDirName"
+						value "")
+					(object Attribute
+						tool "C Generation"
+						name "ComponentUnitDirectory"
+						value "RTSystem")
+					(object Attribute
+						tool "C Generation"
+						name "ComponentUnitName"
+						value "$name")
+					(object Attribute
+						tool "C Generation"
+						name "CommonPreface"
+						value (value Text ""))
+					(object Attribute
+						tool "C Generation"
+						name "MakeTypeSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "C Generation"
+								name "<default>"
+								value 100)
+							(object Attribute
+								tool "C Generation"
+								name "MS_nmake"
+								value 0)
+							(object Attribute
+								tool "C Generation"
+								name "Unix_make"
+								value 1)
+							(object Attribute
+								tool "C Generation"
+								name "Gnu_make"
+								value 2)
+							(object Attribute
+								tool "C Generation"
+								name "ClearCase_clearmake"
+								value 3)
+							(object Attribute
+								tool "C Generation"
+								name "ClearCase_omake"
+								value 4)))
+					(object Attribute
+						tool "C Generation"
+						name "CodeGenMakeType"
+						value ("MakeTypeSet" 100))
+					(object Attribute
+						tool "C Generation"
+						name "CodeGenMakeCommand"
+						value "$defaultMakeCommand")
+					(object Attribute
+						tool "C Generation"
+						name "CodeGenMakeArguments"
+						value "-s")
+					(object Attribute
+						tool "C Generation"
+						name "CodeGenMakeInsert"
+						value (value Text ""))
+					(object Attribute
+						tool "C Generation"
+						name "CodeSyncEnabled"
+						value TRUE)
+					(object Attribute
+						tool "C Generation"
+						name "Generate model tags"
+						value TRUE)
+					(object Attribute
+						tool "C Generation"
+						name "SingleDataCompilationUnit"
+						value FALSE)
+					(object Attribute
+						tool "C Generation"
+						name "DocumentationSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "C Generation"
+								name "do not generate"
+								value 0)
+							(object Attribute
+								tool "C Generation"
+								name "prefer in header"
+								value 1)
+							(object Attribute
+								tool "C Generation"
+								name "prefer in implementation"
+								value 2)
+							(object Attribute
+								tool "C Generation"
+								name "only in header"
+								value 3)
+							(object Attribute
+								tool "C Generation"
+								name "only in implementation"
+								value 4)))
+					(object Attribute
+						tool "C Generation"
+						name "Association end documentation"
+						value ("DocumentationSet" 0))
+					(object Attribute
+						tool "C Generation"
+						name "Attribute documentation"
+						value ("DocumentationSet" 0))
+					(object Attribute
+						tool "C Generation"
+						name "Capsule documentation"
+						value ("DocumentationSet" 0))
+					(object Attribute
+						tool "C Generation"
+						name "Capsule role documentation"
+						value ("DocumentationSet" 0))
+					(object Attribute
+						tool "C Generation"
+						name "Choice point documentation"
+						value ("DocumentationSet" 0))
+					(object Attribute
+						tool "C Generation"
+						name "Class documentation"
+						value ("DocumentationSet" 0))
+					(object Attribute
+						tool "C Generation"
+						name "Operation documentation"
+						value ("DocumentationSet" 0))
+					(object Attribute
+						tool "C Generation"
+						name "Port documentation"
+						value ("DocumentationSet" 0))
+					(object Attribute
+						tool "C Generation"
+						name "Protocol documentation"
+						value ("DocumentationSet" 0))
+					(object Attribute
+						tool "C Generation"
+						name "State documentation"
+						value ("DocumentationSet" 0))
+					(object Attribute
+						tool "C Generation"
+						name "Transition documentation"
+						value ("DocumentationSet" 0))))
+			(object Attribute
+				tool "C Compilation"
+				name "default__Component"
+				value (list Attribute_Set
+					(object Attribute
+						tool "C Compilation"
+						name "TargetServicesLibrary"
+						value "$ROSERT_HOME/C/TargetRTS")
+					(object Attribute
+						tool "C Compilation"
+						name "TargetConfiguration"
+						value (value Event 
+|[event_ui
+|	description='<none selected>'
+|	caption='Select...']
+						))
+					(object Attribute
+						tool "C Compilation"
+						name "MakeTypeSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "C Compilation"
+								name "<default>"
+								value 100)
+							(object Attribute
+								tool "C Compilation"
+								name "MS_nmake"
+								value 0)
+							(object Attribute
+								tool "C Compilation"
+								name "Unix_make"
+								value 1)
+							(object Attribute
+								tool "C Compilation"
+								name "Gnu_make"
+								value 2)
+							(object Attribute
+								tool "C Compilation"
+								name "ClearCase_clearmake"
+								value 3)
+							(object Attribute
+								tool "C Compilation"
+								name "ClearCase_omake"
+								value 4)))
+					(object Attribute
+						tool "C Compilation"
+						name "CompilationMakeType"
+						value ("MakeTypeSet" 100))
+					(object Attribute
+						tool "C Compilation"
+						name "CompilationMakeCommand"
+						value "rtperl -S rtsetup.pl $defaultMakeCommand")
+					(object Attribute
+						tool "C Compilation"
+						name "CompilationMakeArguments"
+						value "-k -s")
+					(object Attribute
+						tool "C Compilation"
+						name "CompilationMakeInsert"
+						value (value Text ""))
+					(object Attribute
+						tool "C Compilation"
+						name "CompileCommand"
+						value "$(CC)")
+					(object Attribute
+						tool "C Compilation"
+						name "CompileArguments"
+						value "$(DEBUG_TAG)")
+					(object Attribute
+						tool "C Compilation"
+						name "InclusionPaths"
+						value (value Event ""))))
+			(object Attribute
+				tool "OT::CTargetRSL"
+				name "HiddenTool"
+				value FALSE)
+			(object Attribute
+				tool "OT::Cpp"
+				name "propertyId"
+				value "809135966")
+			(object Attribute
+				tool "C++ Version"
+				name "default__Version"
+				value (list Attribute_Set
+					(object Attribute
+						tool "C++ Version"
+						name "Version"
+						value 6404)))
+			(object Attribute
+				tool "OT::Cpp"
+				name "default__Attribute"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::Cpp"
+						name "AttributeKindSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "OT::Cpp"
+								name "constant"
+								value 2)
+							(object Attribute
+								tool "OT::Cpp"
+								name "global"
+								value 1)
+							(object Attribute
+								tool "OT::Cpp"
+								name "member"
+								value 0)
+							(object Attribute
+								tool "OT::Cpp"
+								name "mutable member"
+								value 3)))
+					(object Attribute
+						tool "OT::Cpp"
+						name "AttributeKind"
+						value ("AttributeKindSet" 0))
+					(object Attribute
+						tool "OT::Cpp"
+						name "InitializerKindSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "OT::Cpp"
+								name "assignment"
+								value 0)
+							(object Attribute
+								tool "OT::Cpp"
+								name "constructor"
+								value 1)))
+					(object Attribute
+						tool "OT::Cpp"
+						name "InitializerKind"
+						value ("InitializerKindSet" 1))
+					(object Attribute
+						tool "OT::Cpp"
+						name "HeaderPreface"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::Cpp"
+						name "HeaderEnding"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::Cpp"
+						name "ImplementationPreface"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::Cpp"
+						name "ImplementationEnding"
+						value (value Text ""))))
+			(object Attribute
+				tool "OT::Cpp"
+				name "default__Capsule"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::Cpp"
+						name "HeaderPreface"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::Cpp"
+						name "HeaderEnding"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::Cpp"
+						name "ImplementationPreface"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::Cpp"
+						name "ImplementationEnding"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::Cpp"
+						name "PublicDeclarations"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::Cpp"
+						name "ProtectedDeclarations"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::Cpp"
+						name "PrivateDeclarations"
+						value (value Text ""))))
+			(object Attribute
+				tool "OT::Cpp"
+				name "default__Class"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::Cpp"
+						name "GenerateClass"
+						value TRUE)
+					(object Attribute
+						tool "OT::Cpp"
+						name "GenerateStateMachine"
+						value TRUE)
+					(object Attribute
+						tool "OT::Cpp"
+						name "ClassKindSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "OT::Cpp"
+								name "none (deprecated)"
+								value 4)
+							(object Attribute
+								tool "OT::Cpp"
+								name "class"
+								value 0)
+							(object Attribute
+								tool "OT::Cpp"
+								name "struct"
+								value 1)
+							(object Attribute
+								tool "OT::Cpp"
+								name "typedef"
+								value 3)
+							(object Attribute
+								tool "OT::Cpp"
+								name "union"
+								value 2)))
+					(object Attribute
+						tool "OT::Cpp"
+						name "ClassKind"
+						value ("ClassKindSet" 0))
+					(object Attribute
+						tool "OT::Cpp"
+						name "ImplementationType"
+						value "")
+					(object Attribute
+						tool "OT::Cpp"
+						name "HeaderPreface"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::Cpp"
+						name "HeaderEnding"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::Cpp"
+						name "ImplementationPreface"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::Cpp"
+						name "ImplementationEnding"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::Cpp"
+						name "PublicDeclarations"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::Cpp"
+						name "ProtectedDeclarations"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::Cpp"
+						name "PrivateDeclarations"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::Cpp"
+						name "VisibilitySet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "OT::Cpp"
+								name "public"
+								value 0)
+							(object Attribute
+								tool "OT::Cpp"
+								name "protected"
+								value 1)
+							(object Attribute
+								tool "OT::Cpp"
+								name "private"
+								value 2)))
+					(object Attribute
+						tool "OT::Cpp"
+						name "GenerateDefaultConstructor"
+						value TRUE)
+					(object Attribute
+						tool "OT::Cpp"
+						name "DefaultConstructorVisibility"
+						value ("VisibilitySet" 0))
+					(object Attribute
+						tool "OT::Cpp"
+						name "DefaultConstructorExplicit"
+						value FALSE)
+					(object Attribute
+						tool "OT::Cpp"
+						name "DefaultConstructorInline"
+						value FALSE)
+					(object Attribute
+						tool "OT::Cpp"
+						name "GenerateCopyConstructor"
+						value TRUE)
+					(object Attribute
+						tool "OT::Cpp"
+						name "CopyConstructorVisibility"
+						value ("VisibilitySet" 0))
+					(object Attribute
+						tool "OT::Cpp"
+						name "CopyConstructorExplicit"
+						value FALSE)
+					(object Attribute
+						tool "OT::Cpp"
+						name "CopyConstructorInline"
+						value FALSE)
+					(object Attribute
+						tool "OT::Cpp"
+						name "GenerateDestructor"
+						value TRUE)
+					(object Attribute
+						tool "OT::Cpp"
+						name "DestructorVisibility"
+						value ("VisibilitySet" 0))
+					(object Attribute
+						tool "OT::Cpp"
+						name "DestructorVirtual"
+						value TRUE)
+					(object Attribute
+						tool "OT::Cpp"
+						name "DestructorInline"
+						value FALSE)
+					(object Attribute
+						tool "OT::Cpp"
+						name "GenerateAssignmentOperator"
+						value TRUE)
+					(object Attribute
+						tool "OT::Cpp"
+						name "AssignmentOperatorVisibility"
+						value ("VisibilitySet" 0))
+					(object Attribute
+						tool "OT::Cpp"
+						name "AssignmentOperatorInline"
+						value FALSE)
+					(object Attribute
+						tool "OT::Cpp"
+						name "GenerateEqualityOperator"
+						value FALSE)
+					(object Attribute
+						tool "OT::Cpp"
+						name "EqualityOperatorsVisibility"
+						value ("VisibilitySet" 0))
+					(object Attribute
+						tool "OT::Cpp"
+						name "EqualityOperatorInline"
+						value FALSE)
+					(object Attribute
+						tool "OT::Cpp"
+						name "GenerateInequalityOperator"
+						value FALSE)
+					(object Attribute
+						tool "OT::Cpp"
+						name "InequalityOperatorsVisibility"
+						value ("VisibilitySet" 0))
+					(object Attribute
+						tool "OT::Cpp"
+						name "InequalityOperatorInline"
+						value FALSE)))
+			(object Attribute
+				tool "OT::Cpp"
+				name "default__Inherit"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::Cpp"
+						name "InstanceArguments"
+						value (value Text ""))))
+			(object Attribute
+				tool "OT::Cpp"
+				name "default__Operation"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::Cpp"
+						name "OperationKindSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "OT::Cpp"
+								name "friend"
+								value 2)
+							(object Attribute
+								tool "OT::Cpp"
+								name "global"
+								value 1)
+							(object Attribute
+								tool "OT::Cpp"
+								name "member"
+								value 0)))
+					(object Attribute
+						tool "OT::Cpp"
+						name "OperationKind"
+						value ("OperationKindSet" 0))
+					(object Attribute
+						tool "OT::Cpp"
+						name "GenerateKindSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "OT::Cpp"
+								name "declaration and definition"
+								value 0)
+							(object Attribute
+								tool "OT::Cpp"
+								name "declaration only"
+								value 1)))
+					(object Attribute
+						tool "OT::Cpp"
+						name "Generate"
+						value ("GenerateKindSet" 0))
+					(object Attribute
+						tool "OT::Cpp"
+						name "Inline"
+						value FALSE)
+					(object Attribute
+						tool "OT::Cpp"
+						name "ConstructorExplicit"
+						value FALSE)
+					(object Attribute
+						tool "OT::Cpp"
+						name "ConstructorInitializer"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::Cpp"
+						name "CallFromDestructor"
+						value FALSE)
+					(object Attribute
+						tool "OT::Cpp"
+						name "Declare exceptions"
+						value FALSE)
+					(object Attribute
+						tool "OT::Cpp"
+						name "Exceptions"
+						value (value Text ""))))
+			(object Attribute
+				tool "OT::Cpp"
+				name "default__Role"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::Cpp"
+						name "AssociationEndKindSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "OT::Cpp"
+								name "global"
+								value 1)
+							(object Attribute
+								tool "OT::Cpp"
+								name "member"
+								value 0)
+							(object Attribute
+								tool "OT::Cpp"
+								name "mutable member"
+								value 3)))
+					(object Attribute
+						tool "OT::Cpp"
+						name "AssociationEndKind"
+						value ("AssociationEndKindSet" 0))
+					(object Attribute
+						tool "OT::Cpp"
+						name "InitializerKindSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "OT::Cpp"
+								name "assignment"
+								value 0)
+							(object Attribute
+								tool "OT::Cpp"
+								name "constructor"
+								value 1)))
+					(object Attribute
+						tool "OT::Cpp"
+						name "InitializerKind"
+						value ("InitializerKindSet" 1))
+					(object Attribute
+						tool "OT::Cpp"
+						name "InitialValue"
+						value (value Text ""))))
+			(object Attribute
+				tool "OT::Cpp"
+				name "default__Uses"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::Cpp"
+						name "KindSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "OT::Cpp"
+								name "none"
+								value 2)
+							(object Attribute
+								tool "OT::Cpp"
+								name "forward reference"
+								value 1)
+							(object Attribute
+								tool "OT::Cpp"
+								name "inclusion"
+								value 0)))
+					(object Attribute
+						tool "OT::Cpp"
+						name "KindInHeader"
+						value ("KindSet" 1))
+					(object Attribute
+						tool "OT::Cpp"
+						name "KindInImplementation"
+						value ("KindSet" 0))))
+			(object Attribute
+				tool "OT::Cpp"
+				name "HiddenTool"
+				value FALSE)
+			(object Attribute
+				tool "OT::CppExec"
+				name "propertyId"
+				value "809135966")
+			(object Attribute
+				tool "OT::CppExec"
+				name "default__Component"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::CppExec"
+						name "TopCapsule"
+						value (value Event 
+|[event_ui 
+|	description='<none selected>'
+|	caption='Select...']
+						))
+					(object Attribute
+						tool "OT::CppExec"
+						name "PhysicalThreads"
+						value (value Event 
+|[MainThread
+|	Priority='DEFAULT_MAIN_PRIORITY'
+|	StackSize='20000'
+|	ImplementationClass='RTPeerController']
+|[TimerThread
+|	Priority='DEFAULT_TIMER_PRIORITY'
+|	StackSize='20000'
+|	ImplementationClass='RTTimerController']
+						))
+					(object Attribute
+						tool "OT::CppExec"
+						name "ExecutableName"
+						value "$name$(EXEC_EXT)")
+					(object Attribute
+						tool "OT::CppExec"
+						name "DefaultArguments"
+						value "")
+					(object Attribute
+						tool "OT::CppExec"
+						name "LinkCommand"
+						value "$(LD)")
+					(object Attribute
+						tool "OT::CppExec"
+						name "LinkArguments"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::CppExec"
+						name "UserObjectFiles"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::CppExec"
+						name "UserLibraries"
+						value (value Text ""))))
+			(object Attribute
+				tool "OT::CppExec"
+				name "HiddenTool"
+				value FALSE)
+			(object Attribute
+				tool "OT::CppExtLib"
+				name "propertyId"
+				value "809135966")
+			(object Attribute
+				tool "OT::CppExtLib"
+				name "default__Component"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::CppExtLib"
+						name "IncludeFilename"
+						value "")
+					(object Attribute
+						tool "OT::CppExtLib"
+						name "GenerateClassInclusions"
+						value TRUE)
+					(object Attribute
+						tool "OT::CppExtLib"
+						name "CodeGenDirName"
+						value "")
+					(object Attribute
+						tool "OT::CppExtLib"
+						name "InclusionPaths"
+						value (value Event ""))
+					(object Attribute
+						tool "OT::CppExtLib"
+						name "Libraries"
+						value (value Event ""))
+					(object Attribute
+						tool "OT::CppExtLib"
+						name "LogicalThreads"
+						value (value Text ""))))
+			(object Attribute
+				tool "OT::CppExtLib"
+				name "HiddenTool"
+				value FALSE)
+			(object Attribute
+				tool "OT::CppLib"
+				name "propertyId"
+				value "809135966")
+			(object Attribute
+				tool "OT::CppLib"
+				name "default__Component"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::CppLib"
+						name "LibraryName"
+						value "$(LIB_PFX)$name$(LIB_EXT)")
+					(object Attribute
+						tool "OT::CppLib"
+						name "BuildLibraryCommand"
+						value "$(AR_CMD)")
+					(object Attribute
+						tool "OT::CppLib"
+						name "BuildLibraryArguments"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::CppLib"
+						name "LogicalThreads"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::CppLib"
+						name "InterfaceVisibilityKindSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "OT::CppLib"
+								name "Public"
+								value 0)
+							(object Attribute
+								tool "OT::CppLib"
+								name "Limited Public"
+								value 1)
+							(object Attribute
+								tool "OT::CppLib"
+								name "Private"
+								value 2)))
+					(object Attribute
+						tool "OT::CppLib"
+						name "DefaultInterfaceVisibility"
+						value ("InterfaceVisibilityKindSet" 1))
+					(object Attribute
+						tool "OT::CppLib"
+						name "SharedLogicalViewPackageName"
+						value "")
+					(object Attribute
+						tool "OT::CppLib"
+						name "SharedComponentViewPackageName"
+						value "")
+					(object Attribute
+						tool "OT::CppLib"
+						name "SetInterface"
+						value (value Event 
+|[event_ui 
+|	caption='Edit...']
+						))
+					(object Attribute
+						tool "OT::CppLib"
+						name "InclusionPaths"
+						value (value Event ""))
+					(object Attribute
+						tool "OT::CppLib"
+						name "Libraries"
+						value (value Event ""))))
+			(object Attribute
+				tool "OT::CppLib"
+				name "HiddenTool"
+				value FALSE)
+			(object Attribute
+				tool "OT::CppTargetRTS"
+				name "propertyId"
+				value "809135966")
+			(object Attribute
+				tool "C++ Generation"
+				name "propertyId"
+				value "809135966")
+			(object Attribute
+				tool "C++ Compilation"
+				name "propertyId"
+				value "809135966")
+			(object Attribute
+				tool "OT::CppTargetRTS"
+				name "default__Class"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::CppTargetRTS"
+						name "GenerateDescriptorSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "OT::CppTargetRTS"
+								name "True"
+								value 0)
+							(object Attribute
+								tool "OT::CppTargetRTS"
+								name "DebugOnly"
+								value 1)
+							(object Attribute
+								tool "OT::CppTargetRTS"
+								name "False"
+								value 2)
+							(object Attribute
+								tool "OT::CppTargetRTS"
+								name "Manual"
+								value 3)))
+					(object Attribute
+						tool "OT::CppTargetRTS"
+						name "GenerateDescriptor"
+						value ("GenerateDescriptorSet" 0))
+					(object Attribute
+						tool "OT::CppTargetRTS"
+						name "Version"
+						value 0)
+					(object Attribute
+						tool "OT::CppTargetRTS"
+						name "InitFunctionBody"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::CppTargetRTS"
+						name "CopyFunctionBody"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::CppTargetRTS"
+						name "DestroyFunctionBody"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::CppTargetRTS"
+						name "DecodeFunctionBody"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::CppTargetRTS"
+						name "EncodeFunctionBody"
+						value (value Text ""))))
+			(object Attribute
+				tool "OT::CppTargetRTS"
+				name "default__Attribute"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::CppTargetRTS"
+						name "GenerateDescriptor"
+						value TRUE)
+					(object Attribute
+						tool "OT::CppTargetRTS"
+						name "TypeDescriptor"
+						value "")
+					(object Attribute
+						tool "OT::CppTargetRTS"
+						name "GenerateTypeModifier"
+						value TRUE)
+					(object Attribute
+						tool "OT::CppTargetRTS"
+						name "NumElementsFunctionBody"
+						value (value Text ""))))
+			(object Attribute
+				tool "OT::CppTargetRTS"
+				name "default__Role"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::CppTargetRTS"
+						name "GenerateDescriptor"
+						value TRUE)
+					(object Attribute
+						tool "OT::CppTargetRTS"
+						name "TypeDescriptor"
+						value "")
+					(object Attribute
+						tool "OT::CppTargetRTS"
+						name "GenerateTypeModifier"
+						value TRUE)
+					(object Attribute
+						tool "OT::CppTargetRTS"
+						name "NumElementsFunctionBody"
+						value (value Text ""))))
+			(object Attribute
+				tool "OT::CppTargetRTS"
+				name "default__Protocol"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::CppTargetRTS"
+						name "Version"
+						value 0)
+					(object Attribute
+						tool "OT::CppTargetRTS"
+						name "BackwardsCompatible"
+						value FALSE)
+					(object Attribute
+						tool "OT::CppTargetRTS"
+						name "RunTimeBackwardsCompatible"
+						value FALSE)
+					(object Attribute
+						tool "OT::CppTargetRTS"
+						name "TypeSafeSignals"
+						value TRUE)))
+			(object Attribute
+				tool "C++ Generation"
+				name "default__Component"
+				value (list Attribute_Set
+					(object Attribute
+						tool "C++ Generation"
+						name "OutputDirectory"
+						value "$@/$name")
+					(object Attribute
+						tool "C++ Generation"
+						name "CodeGenDirName"
+						value "")
+					(object Attribute
+						tool "C++ Generation"
+						name "ComponentUnitDirectory"
+						value "RTSystem")
+					(object Attribute
+						tool "C++ Generation"
+						name "ComponentUnitName"
+						value "$name")
+					(object Attribute
+						tool "C++ Generation"
+						name "CommonPreface"
+						value (value Text ""))
+					(object Attribute
+						tool "C++ Generation"
+						name "MakeTypeSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "C++ Generation"
+								name "<default>"
+								value 100)
+							(object Attribute
+								tool "C++ Generation"
+								name "MS_nmake"
+								value 0)
+							(object Attribute
+								tool "C++ Generation"
+								name "Unix_make"
+								value 1)
+							(object Attribute
+								tool "C++ Generation"
+								name "Gnu_make"
+								value 2)
+							(object Attribute
+								tool "C++ Generation"
+								name "ClearCase_clearmake"
+								value 3)
+							(object Attribute
+								tool "C++ Generation"
+								name "ClearCase_omake"
+								value 4)))
+					(object Attribute
+						tool "C++ Generation"
+						name "CodeGenMakeType"
+						value ("MakeTypeSet" 100))
+					(object Attribute
+						tool "C++ Generation"
+						name "CodeGenMakeCommand"
+						value "$defaultMakeCommand")
+					(object Attribute
+						tool "C++ Generation"
+						name "CodeGenMakeArguments"
+						value "-s")
+					(object Attribute
+						tool "C++ Generation"
+						name "CodeGenMakeInsert"
+						value (value Text ""))
+					(object Attribute
+						tool "C++ Generation"
+						name "CodeSyncEnabled"
+						value TRUE)
+					(object Attribute
+						tool "C++ Generation"
+						name "Generate model tags"
+						value TRUE)
+					(object Attribute
+						tool "C++ Generation"
+						name "SingleDataCompilationUnit"
+						value FALSE)
+					(object Attribute
+						tool "C++ Generation"
+						name "DocumentationSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "C++ Generation"
+								name "do not generate"
+								value 0)
+							(object Attribute
+								tool "C++ Generation"
+								name "prefer in header"
+								value 1)
+							(object Attribute
+								tool "C++ Generation"
+								name "prefer in implementation"
+								value 2)
+							(object Attribute
+								tool "C++ Generation"
+								name "only in header"
+								value 3)
+							(object Attribute
+								tool "C++ Generation"
+								name "only in implementation"
+								value 4)))
+					(object Attribute
+						tool "C++ Generation"
+						name "Association end documentation"
+						value ("DocumentationSet" 0))
+					(object Attribute
+						tool "C++ Generation"
+						name "Attribute documentation"
+						value ("DocumentationSet" 0))
+					(object Attribute
+						tool "C++ Generation"
+						name "Capsule documentation"
+						value ("DocumentationSet" 0))
+					(object Attribute
+						tool "C++ Generation"
+						name "Capsule role documentation"
+						value ("DocumentationSet" 0))
+					(object Attribute
+						tool "C++ Generation"
+						name "Choice point documentation"
+						value ("DocumentationSet" 0))
+					(object Attribute
+						tool "C++ Generation"
+						name "Class documentation"
+						value ("DocumentationSet" 0))
+					(object Attribute
+						tool "C++ Generation"
+						name "Operation documentation"
+						value ("DocumentationSet" 0))
+					(object Attribute
+						tool "C++ Generation"
+						name "Port documentation"
+						value ("DocumentationSet" 0))
+					(object Attribute
+						tool "C++ Generation"
+						name "Protocol documentation"
+						value ("DocumentationSet" 0))
+					(object Attribute
+						tool "C++ Generation"
+						name "State documentation"
+						value ("DocumentationSet" 0))
+					(object Attribute
+						tool "C++ Generation"
+						name "Transition documentation"
+						value ("DocumentationSet" 0))))
+			(object Attribute
+				tool "C++ Compilation"
+				name "default__Component"
+				value (list Attribute_Set
+					(object Attribute
+						tool "C++ Compilation"
+						name "TargetServicesLibrary"
+						value "$ROSERT_HOME/C++/TargetRTS")
+					(object Attribute
+						tool "C++ Compilation"
+						name "TargetConfiguration"
+						value (value Event 
+|[event_ui
+|	description='<none selected>'
+|	caption='Select...']
+						))
+					(object Attribute
+						tool "C++ Compilation"
+						name "MakeTypeSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "C++ Compilation"
+								name "<default>"
+								value 100)
+							(object Attribute
+								tool "C++ Compilation"
+								name "MS_nmake"
+								value 0)
+							(object Attribute
+								tool "C++ Compilation"
+								name "Unix_make"
+								value 1)
+							(object Attribute
+								tool "C++ Compilation"
+								name "Gnu_make"
+								value 2)
+							(object Attribute
+								tool "C++ Compilation"
+								name "ClearCase_clearmake"
+								value 3)
+							(object Attribute
+								tool "C++ Compilation"
+								name "ClearCase_omake"
+								value 4)))
+					(object Attribute
+						tool "C++ Compilation"
+						name "CompilationMakeType"
+						value ("MakeTypeSet" 100))
+					(object Attribute
+						tool "C++ Compilation"
+						name "CompilationMakeCommand"
+						value "rtperl -S rtsetup.pl $defaultMakeCommand")
+					(object Attribute
+						tool "C++ Compilation"
+						name "CompilationMakeArguments"
+						value "-k -s")
+					(object Attribute
+						tool "C++ Compilation"
+						name "CompilationMakeInsert"
+						value (value Text ""))
+					(object Attribute
+						tool "C++ Compilation"
+						name "CompileCommand"
+						value "$(CC)")
+					(object Attribute
+						tool "C++ Compilation"
+						name "CompileArguments"
+						value "$(DEBUG_TAG)")
+					(object Attribute
+						tool "C++ Compilation"
+						name "InclusionPaths"
+						value (value Event ""))))
+			(object Attribute
+				tool "OT::CppTargetRTS"
+				name "HiddenTool"
+				value FALSE)
+			(object Attribute
+				tool "OT::QualityArchitectRT"
+				name "propertyId"
+				value "809135966")
+			(object Attribute
+				tool "OT::QualityArchitectRT"
+				name "default__InteractionInstance"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::QualityArchitectRT"
+						name "Attributes"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::QualityArchitectRT"
+						name "Minimum Run Time"
+						value 0)
+					(object Attribute
+						tool "OT::QualityArchitectRT"
+						name "Cardinality Index Path"
+						value (value Event ""))
+					(object Attribute
+						tool "OT::QualityArchitectRT"
+						name "DependencyList"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::QualityArchitectRT"
+						name "HeaderPreface"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::QualityArchitectRT"
+						name "HeaderEnding"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::QualityArchitectRT"
+						name "ImplementationPreface"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::QualityArchitectRT"
+						name "ImplementationEnding"
+						value (value Text ""))))
+			(object Attribute
+				tool "OT::QualityArchitectRT"
+				name "default__CreateAction"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::QualityArchitectRT"
+						name "Capsule Class"
+						value "")
+					(object Attribute
+						tool "OT::QualityArchitectRT"
+						name "Initial Data"
+						value "")
+					(object Attribute
+						tool "OT::QualityArchitectRT"
+						name "Data Descriptor"
+						value "")
+					(object Attribute
+						tool "OT::QualityArchitectRT"
+						name "Thread"
+						value "")))
+			(object Attribute
+				tool "OT::QualityArchitectRT"
+				name "default__UninterpretedAction"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::QualityArchitectRT"
+						name "Code"
+						value (value Text ""))))
+			(object Attribute
+				tool "OT::QualityArchitectRT"
+				name "default__SendAction"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::QualityArchitectRT"
+						name "Sender Test Driver Code"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::QualityArchitectRT"
+						name "Receiver Test Driver Code"
+						value (value Text ""))))
+			(object Attribute
+				tool "OT::QualityArchitectRT"
+				name "HiddenTool"
+				value FALSE)
+			(object Attribute
+				tool "RTJava"
+				name "propertyId"
+				value "809135966")
+			(object Attribute
+				tool "RTJava"
+				name "default__Class"
+				value (list Attribute_Set
+					(object Attribute
+						tool "RTJava"
+						name "JavaStatic"
+						value FALSE)
+					(object Attribute
+						tool "RTJava"
+						name "JavaFinal"
+						value FALSE)
+					(object Attribute
+						tool "RTJava"
+						name "JavaStrictfp"
+						value FALSE)
+					(object Attribute
+						tool "RTJava"
+						name "GenerateDefaultConstructor"
+						value FALSE)
+					(object Attribute
+						tool "RTJava"
+						name "VisibilitySet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "RTJava"
+								name "public"
+								value 0)
+							(object Attribute
+								tool "RTJava"
+								name "protected"
+								value 1)
+							(object Attribute
+								tool "RTJava"
+								name "private"
+								value 2)
+							(object Attribute
+								tool "RTJava"
+								name "package"
+								value 3)))
+					(object Attribute
+						tool "RTJava"
+						name "DefaultConstructorVisibility"
+						value ("VisibilitySet" 0))
+					(object Attribute
+						tool "RTJava"
+						name "ClassFileHeader"
+						value (value Text ""))
+					(object Attribute
+						tool "RTJava"
+						name "StaticInitializerHeader"
+						value (value Text ""))
+					(object Attribute
+						tool "RTJava"
+						name "StaticInitializerFooter"
+						value (value Text ""))
+					(object Attribute
+						tool "RTJava"
+						name "InstanceInitializerHeader"
+						value (value Text ""))
+					(object Attribute
+						tool "RTJava"
+						name "InstanceInitializerFooter"
+						value (value Text ""))))
+			(object Attribute
+				tool "RTJava"
+				name "default__Attribute"
+				value (list Attribute_Set
+					(object Attribute
+						tool "RTJava"
+						name "JavaVolatile"
+						value FALSE)
+					(object Attribute
+						tool "RTJava"
+						name "JavaTransient"
+						value FALSE)
+					(object Attribute
+						tool "RTJava"
+						name "InitializationCode"
+						value (value Text ""))))
+			(object Attribute
+				tool "RTJava"
+				name "default__Role"
+				value (list Attribute_Set
+					(object Attribute
+						tool "RTJava"
+						name "JavaFinal"
+						value FALSE)
+					(object Attribute
+						tool "RTJava"
+						name "JavaVolatile"
+						value FALSE)
+					(object Attribute
+						tool "RTJava"
+						name "JavaTransient"
+						value FALSE)
+					(object Attribute
+						tool "RTJava"
+						name "InitialValue"
+						value "")
+					(object Attribute
+						tool "RTJava"
+						name "InitializationCode"
+						value (value Text ""))
+					(object Attribute
+						tool "RTJava"
+						name "NameScopeSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "RTJava"
+								name "fully qualify"
+								value 0)
+							(object Attribute
+								tool "RTJava"
+								name "import"
+								value 1)))
+					(object Attribute
+						tool "RTJava"
+						name "NameQualification"
+						value ("NameScopeSet" 0))))
+			(object Attribute
+				tool "RTJava"
+				name "default__Operation"
+				value (list Attribute_Set
+					(object Attribute
+						tool "RTJava"
+						name "JavaFinal"
+						value FALSE)
+					(object Attribute
+						tool "RTJava"
+						name "JavaNative"
+						value FALSE)
+					(object Attribute
+						tool "RTJava"
+						name "JavaStrictfp"
+						value FALSE)
+					(object Attribute
+						tool "RTJava"
+						name "JavaThrows"
+						value (value Text ""))))
+			(object Attribute
+				tool "RTJava"
+				name "default__Inherit"
+				value (list Attribute_Set
+					(object Attribute
+						tool "RTJava"
+						name "NameScopeSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "RTJava"
+								name "fully qualify"
+								value 0)
+							(object Attribute
+								tool "RTJava"
+								name "import"
+								value 1)))
+					(object Attribute
+						tool "RTJava"
+						name "NameQualification"
+						value ("NameScopeSet" 0))))
+			(object Attribute
+				tool "RTJava"
+				name "default__Uses"
+				value (list Attribute_Set
+					(object Attribute
+						tool "RTJava"
+						name "NameScopeSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "RTJava"
+								name "fully qualify"
+								value 0)
+							(object Attribute
+								tool "RTJava"
+								name "import"
+								value 1)))
+					(object Attribute
+						tool "RTJava"
+						name "NameQualification"
+						value ("NameScopeSet" 1))))
+			(object Attribute
+				tool "RTJava"
+				name "default__Category"
+				value (list Attribute_Set
+					(object Attribute
+						tool "RTJava"
+						name "Java Package"
+						value FALSE)))
+			(object Attribute
+				tool "RTJava"
+				name "default__StateTransition"
+				value (list Attribute_Set
+					(object Attribute
+						tool "RTJava"
+						name "GenerateDataParameter"
+						value FALSE)
+					(object Attribute
+						tool "RTJava"
+						name "GeneratePortParameter"
+						value FALSE)))
+			(object Attribute
+				tool "RTJava"
+				name "default__BinaryBranch"
+				value (list Attribute_Set
+					(object Attribute
+						tool "RTJava"
+						name "GenerateDataParameter"
+						value FALSE)
+					(object Attribute
+						tool "RTJava"
+						name "GeneratePortParameter"
+						value FALSE)))
+			(object Attribute
+				tool "RTJava"
+				name "HiddenTool"
+				value FALSE)
+			(object Attribute
+				tool "RTJava External Project"
+				name "propertyId"
+				value "809135966")
+			(object Attribute
+				tool "RTJava External Project"
+				name "default__Component"
+				value (list Attribute_Set
+					(object Attribute
+						tool "RTJava External Project"
+						name "ClassPath"
+						value "")))
+			(object Attribute
+				tool "RTJava External Project"
+				name "HiddenTool"
+				value FALSE)
+			(object Attribute
+				tool "RTJava Project"
+				name "propertyId"
+				value "809135966")
+			(object Attribute
+				tool "RTJava Project"
+				name "default__Component"
+				value (list Attribute_Set
+					(object Attribute
+						tool "RTJava Project"
+						name "JavaVersionSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "RTJava Project"
+								name "1.1"
+								value 11)
+							(object Attribute
+								tool "RTJava Project"
+								name "1.2"
+								value 12)
+							(object Attribute
+								tool "RTJava Project"
+								name "1.3"
+								value 13)
+							(object Attribute
+								tool "RTJava Project"
+								name "1.4"
+								value 14)))
+					(object Attribute
+						tool "RTJava Project"
+						name "Java Version"
+						value ("JavaVersionSet" 14))
+					(object Attribute
+						tool "RTJava Project"
+						name "BuildJar"
+						value FALSE)
+					(object Attribute
+						tool "RTJava Project"
+						name "OutputJarFilepath"
+						value "$modelDir/$compName.jar")
+					(object Attribute
+						tool "RTJava Project"
+						name "JarCommand"
+						value "jar cvf ${dq}$(JAR_TARGET)${dq} -C ${dq}$(OUTPUT_CLASS_DIR)${dq} .")
+					(object Attribute
+						tool "RTJava Project"
+						name "OutputClassDir"
+						value "$modelDir/$compName")
+					(object Attribute
+						tool "RTJava Project"
+						name "JavaCompiler"
+						value "javac -d ${dq}$(OUTPUT_CLASS_DIR)${dq}")
+					(object Attribute
+						tool "RTJava Project"
+						name "OutputDirectory"
+						value "$modelDir/$compName")
+					(object Attribute
+						tool "RTJava Project"
+						name "BootstrapCommand"
+						value "rtjavagen -makegen -model ${dq}$modelFile${dq} -component ${dq}$qualifiedName${dq}")
+					(object Attribute
+						tool "RTJava Project"
+						name "GenerateCommand"
+						value "$defaultMake RTgenerate")
+					(object Attribute
+						tool "RTJava Project"
+						name "CompileCommand"
+						value "$defaultMake RTcompile")
+					(object Attribute
+						tool "RTJava Project"
+						name "CleanAllCommand"
+						value "$defaultMake RTcleanall")
+					(object Attribute
+						tool "RTJava Project"
+						name "MakeTypeSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "RTJava Project"
+								name "DefaultMakeType"
+								value 0)
+							(object Attribute
+								tool "RTJava Project"
+								name "Gnu_make"
+								value 3)
+							(object Attribute
+								tool "RTJava Project"
+								name "MS_nmake"
+								value 4)
+							(object Attribute
+								tool "RTJava Project"
+								name "Unix_make"
+								value 5)))
+					(object Attribute
+						tool "RTJava Project"
+						name "MakeType"
+						value ("MakeTypeSet" 0))
+					(object Attribute
+						tool "RTJava Project"
+						name "ComponentMakeInsert"
+						value (value Text ""))
+					(object Attribute
+						tool "RTJava Project"
+						name "CodeGenMakeInsert"
+						value (value Text ""))
+					(object Attribute
+						tool "RTJava Project"
+						name "CompileMakeInsert"
+						value (value Text ""))))
+			(object Attribute
+				tool "RTJava Project"
+				name "HiddenTool"
+				value FALSE))
+		quid "56D85738032C"))
