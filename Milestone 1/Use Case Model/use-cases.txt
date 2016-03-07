@@ -1,0 +1,37 @@
+============================================
+
+Use Case: Press Elevator Button Up
+
+Precondition:
+Elevator call button not pressed
+
+Postcondition:
+Elevator is open on floor of the user
+
+Basic Flow:
+1. User presses elevator button up
+2. Elevator motor moves
+    - Possible Exception Flow A
+3. Floor sensor detects arrival at floor
+4. Elevator motor stops
+    - Possible Exception Flow A
+5. Elevator door opens
+6. Floor door opens
+    - Possible Exception Flow A
+
+Exception Flow A:
+a. Emergency brakes activated
+
+============================================
+
+Use Case: Press Elevator Button
+
+Precondiction:
+
+Postcondition:
+
+Basic Flow:
+
+Exception Flow:
+
+============================================
