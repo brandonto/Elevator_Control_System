@@ -1,37 +1,90 @@
-============================================
+==============================================================
 
 Use Case: Press Elevator Button Up
 
+Actor: User
+
 Precondition:
-Elevator call button not pressed
+- User is outside the elevator
+- Elevator call button not pressed
 
 Postcondition:
-Elevator is open on floor of the user
+- Elevator is open on floor of the user
+- User is inside the elevator
 
 Basic Flow:
 1. User presses elevator button up
 2. Elevator motor moves
     - Possible Exception Flow A
-3. Floor sensor detects arrival at floor
+3. Floor sensor senses arrival at floor
 4. Elevator motor stops
     - Possible Exception Flow A
 5. Elevator door opens
 6. Floor door opens
     - Possible Exception Flow A
+7. User enters elevator
 
 Exception Flow A:
 a. Emergency brakes activated
 
-============================================
+==============================================================
 
 Use Case: Press Elevator Button
 
-Precondiction:
+Actor: User
+
+Precondition:
+- User is inside the elevator
 
 Postcondition:
+- Elevator is open on floor request by user
+- User is outside the elevator
 
 Basic Flow:
+1. User presses elevator button
+	- Possible Alternate Flow A
+2. Elevator motor moves
+    - Possible Exception Flow A
+3. Floor sensor senses arrival at floor
+4. Elevator motor stops
+    - Possible Exception Flow A
+5. Elevator door opens
+6. Floor door opens
+    - Possible Exception Flow A
+7. User exits elevator
 
-Exception Flow:
+Alternate Flow A:
+a. Elevator door closes if open
+b. Floor door closes if open
+c. Return to previous step
 
-============================================
+Exception Flow A:
+a. Emergency brakes activated
+
+==============================================================
+
+Use Case: Press Elevator Button Open
+
+Actor: User
+
+Precondition:
+- User is inside the elevator
+- Elevator door is closed
+
+Postcondition:
+- Elevator door is open
+
+Basic Flow:
+1. User presses elevator button open
+	- Possible Alternative Flow A
+2. Elevator door opens if elevator motor is not moving
+3. Floor door opens if elevator motor is not moving
+    - Possible Exception Flow A
+
+Alternate Flow A:
+a. Elevator door does not open if elevator motor is moving
+
+Exception Flow A:
+a. Emergency brakes activated
+
+==============================================================
