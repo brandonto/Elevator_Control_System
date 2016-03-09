@@ -25,10 +25,6 @@ Test Case #4:
 3. While the Elevators are moving down, send another FButtonDown.pressed() signal along its path.
 4. Add a probe to make sure it receives the signal and dispatch an Elevator for the request.
 
-****************
-Alternative Path
-****************
-
 Test Case #5:
 1. Send two FButtonUp.pressed() signals to the Central Coordinator at its initial state.
 2. Add a probe to make sure both the requests are being served (two elevators got dispatched).
@@ -46,16 +42,6 @@ Test Case #6:
 done with the request.
 
 	----------------------------------------------
-    			Local Controller
-	----------------------------------------------
-Test Case #1:
-1. Send a dispatch() signal together with a direction to the Motor inside Local Controller.
-2. Add a probe to the motor sensor to ensure the motor is moving towards the requested direction.
-
-
-
-
-	----------------------------------------------
 			   Elevator
 	----------------------------------------------
 
@@ -69,3 +55,6 @@ Test Case #1:
 
 
 
+	----------------------------------------------
+    			Local Controller
+	----------------------------------------------
