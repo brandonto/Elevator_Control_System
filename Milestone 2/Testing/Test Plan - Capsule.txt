@@ -25,6 +25,10 @@ Test Case #4:
 3. While the Elevators are moving down, send another FButtonDown.pressed() signal along its path.
 4. Add a probe to make sure it receives the signal and dispatch an Elevator for the request.
 
+****************
+Alternative Path
+****************
+
 Test Case #5:
 1. Send two FButtonUp.pressed() signals to the Central Coordinator at its initial state.
 2. Add a probe to make sure both the requests are being served (two elevators got dispatched).
@@ -42,19 +46,107 @@ Test Case #6:
 done with the request.
 
 	----------------------------------------------
+    			Local Controller
+	----------------------------------------------
+Test Case #1:
+1. Send a dispatch() signal together with a direction to Local Controller.
+2. Add a probe between the Motor and Local Controller to monitor the moveUp() or moveDown()
+signal is being sent to the Motor.
+
+Test Case #2:
+1. Insert an floorDoor.open() signal to the Floor Door.
+2. Using a probe added to the door sensors to verify the Floor Door is opend.
+3. Insert an elevatorDoor.open() signal to the Elevator Door.
+4. Using a probe added to the door sensors to verify the Elevator Door is opend.
+5. Insert an ElevatorButton.closeDoor() signal from the Button Capsule.
+6. Add two probes to the Door and Elevator Door sensors to make sure two doors are closed.
+
+Test Case #3:
+1. Modify the attribute of currentFloor to, for example, 3rd floor.
+2. Send a ElevatorFloorButton.pressed(5) signal to the Local Controller.
+3. Add a probe to ensure the moveUp() signal is being sent from the Motor.
+
+Test Case #4:
+1. Modify the attribute of currentFloor to, for example, 3rd floor.
+2. Send a ElevatorFloorButton.pressed(1) signal to the Local Controller.
+3. Add a probe to ensure the moveDown() signal is being sent from the Motor.
+
+Test Case #5 (Optional depending on the implementation):
+1. Send a dispatch() signal with a Up direction to the Local Controller.
+2. Modify the attribute of currentFloor to, for example, 3rd floor.
+3. After the state of the Elevator is arrived and door is opened then closed, send a
+ElevatorFloorButton.pressed(1) to the local Controller.
+4. Add a probe to the Elevator to moniter the doors are opened and closed again, and the
+attribute of the ElevatorDirection changed from Up to Down.
+5. Monitor the state of the currentFloor to ensure the elevator is indeed going down.
+
+Test Case #6 (Optional depending on the implementation):
+1. Send a dispatch() signal with a Down direction to the Local Controller.
+2. Modify the attribute of currentFloor to, for example, 3rd floor.
+3. After the state of the Elevator is arrived and door is opened then closed, send a
+ElevatorFloorButton.pressed(5) to the local Controller.
+4. Add a probe to the Elevator to moniter the doors are opened and closed again, and the
+attribute of the ElevatorDirection changed from Down to Up.
+5. Monitor the state of the currentFloor to ensure the elevator is indeed going up.
+
+****************
+Alternative Path
+****************
+
+Test Case #7:
+1. Send a goUp() signal from the Local Controller to the Motor, without invoking moveUp()
+inside the Motor.
+2. Add a probe to the Sensor to make sure it detects this exception, and it sets its EBrake
+attribute to true.
+3. Add another probe to the Emergency Brake to make sure it got activated.
+
+Test Case #8:
+1. Send a goDown() signal from the Local Controller to the Motor, without invoking moveDown()
+inside the Motor.
+2. Add a probe to the Sensor to make sure it detects this exception, and it sets its EBrake
+attribute to true.
+3. Add another probe to the Emergency Brake to make sure it got activated.
+
+Test Case #9:
+1. Set the attributes currentFloor and desiredFloor to be equal, while the state of the Elevator
+is moving.
+2. Monitor the stop() signal is being issued from the Local Controller to the Motor, also do not
+invoke the stopMotor() inside the Motor.
+3. Add a probe to the Sensor to make sure it detects this exception, and it sets its EBrake
+attribute to true.
+4. Add another probe to the Emergency Brake to make sure it got activated.
+
+Test Case #10:
+1. Send two signals openElevatorDoor() and openFloorDoor() to the Elevator and Floor Door repectively,
+without invoking openElevatorDoor() and openFloorDoor() inside them.
+2. Add a probe to the Sensor to make sure it detects this exception, and it sets its EBrake
+attribute to true.
+3. Add another probe to the Emergency Brake to make sure it got activated.
+
+Test Case #11:
+1. Set the attribute of the currentFloor to maximum, and send a moveUp() signal to the Motor.
+2. Add a probe to the Sensor to make sure it detects this exception, and it sets its EBrake
+attribute to true.
+3. Add another probe to the Emergency Brake to make sure it got activated.
+
+Test Case #12:
+1. Set the attribute of the currentFloor to mininum, and send a moveDown() signal to the Motor.
+2. Add a probe to the Sensor to make sure it detects this exception, and it sets its EBrake
+attribute to true.
+3. Add another probe to the Emergency Brake to make sure it got activated.
+
+	----------------------------------------------
 			   Elevator
 	----------------------------------------------
 
+Test Case #1:
+1. Modify the attribute of currentFloor to, for example, 3rd floor.
+2. Send a ElevatorFloorButton.pressed(5) signal to the Local Controller.
+3. Add a probe to ensure the moveUp() signal is being sent from the Motor.
+4. Add another probe to monitor the state of the Elevator is indeed moving up.
 
-
-
-
-
-
-
-
-
-
-	----------------------------------------------
-    			Local Controller
-	----------------------------------------------
+Test Case #2:
+1. Modify the attribute of currentFloor to, for example, 3rd floor.
+2. Send a ElevatorFloorButton.pressed(1) signal to the Local Controller.
+3. Add a probe to ensure the moveDown() signal is being sent from the Motor.
+4. Add another probe to monitor the state of the Elevator is indeed moving down.
