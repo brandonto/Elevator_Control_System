@@ -205,11 +205,11 @@
 									positionBySuperclass FALSE)
 								(object PortVw ":Structure:toEButton" @9
 									quid "56DF2DD801CD"
-									pos (108,96)
+									pos (116,96)
 									quidu "56DF2DD801CA"
 									label (object ItemLabel
 										quid "56DF2DD801DC"
-										pos (117,132)
+										pos (125,132)
 										nlines 2
 										max_width 269
 										label "toEButton"))
@@ -256,7 +256,7 @@
 									pos (2096,656)
 									label (object ItemLabel
 										quid "56D86BA4004E"
-										pos (1840,665)
+										pos (2096,553)
 										positionBySuperclass FALSE
 										nlines 2
 										max_width 244
@@ -267,7 +267,7 @@
 									pos (2112,836)
 									label (object ItemLabel
 										quid "56D86BBF0340"
-										pos (2304,829)
+										pos (2112,857)
 										positionBySuperclass FALSE
 										nlines 2
 										max_width 278
@@ -293,7 +293,7 @@
 									pos (1424,656)
 									label (object ItemLabel
 										quid "56D86BDD024A"
-										pos (1216,601)
+										pos (1424,553)
 										positionBySuperclass FALSE
 										nlines 2
 										max_width 241
@@ -445,7 +445,7 @@
 									pos (368,416)
 									label (object ItemLabel
 										quid "56DF29B702DE"
-										pos (544,329)
+										pos (368,313)
 										positionBySuperclass FALSE
 										nlines 2
 										max_width 250
@@ -456,7 +456,7 @@
 									pos (480,560)
 									label (object ItemLabel
 										quid "56DF34E901E7"
-										pos (640,569)
+										pos (501,581)
 										positionBySuperclass FALSE
 										nlines 2
 										max_width 309
@@ -467,7 +467,7 @@
 									pos (240,592)
 									label (object ItemLabel
 										quid "56DF34F101CB"
-										pos (304,633)
+										pos (219,613)
 										positionBySuperclass FALSE
 										nlines 2
 										max_width 353
@@ -491,7 +491,7 @@
 									pos (1184,416)
 									label (object ItemLabel
 										quid "56DF2D8A0331"
-										pos (1339,341)
+										pos (1184,313)
 										positionBySuperclass FALSE
 										nlines 2
 										max_width 272
@@ -502,7 +502,7 @@
 									pos (1296,596)
 									label (object ItemLabel
 										quid "56DF2F990225"
-										pos (1344,637)
+										pos (1296,617)
 										positionBySuperclass FALSE
 										nlines 2
 										max_width 288
@@ -651,11 +651,13 @@
 								quidu "56DF2F99021F"
 								ends  ":Structure:local_ControllerR1:toElevator"))))
 				class_attributes (list class_attribute_list
-					(object ClassAttribute "currentDirection"
-						quid "56DF758D003D"
-						type "int")
 					(object ClassAttribute "currentFloor"
 						quid "56DF757D0232"
+						initv "0"
+						type "int")
+					(object ClassAttribute "targetFloor"
+						quid "56E05BDC00F3"
+						initv "0"
 						type "int"))
 				statemachine (object State_Machine
 					quid "56D85A2103D4"
@@ -732,7 +734,7 @@
 									pos (1440,1648)
 									label (object ItemLabel
 										quid "56D86CFC02C5"
-										pos (1616,1561)
+										pos (1440,1545)
 										positionBySuperclass FALSE
 										nlines 2
 										max_width 269
@@ -743,7 +745,7 @@
 									pos (1520,1837)
 									label (object ItemLabel
 										quid "56DF2E390370"
-										pos (1456,1846)
+										pos (1520,1858)
 										positionBySuperclass FALSE
 										nlines 2
 										max_width 341
@@ -767,7 +769,7 @@
 									pos (896,1732)
 									label (object ItemLabel
 										quid "56D86C560081"
-										pos (699,1705)
+										pos (896,1753)
 										positionBySuperclass FALSE
 										nlines 2
 										max_width 281
@@ -778,7 +780,7 @@
 									pos (1072,1552)
 									label (object ItemLabel
 										quid "56D86D20027D"
-										pos (1216,1513)
+										pos (1072,1449)
 										positionBySuperclass FALSE
 										nlines 2
 										max_width 234
@@ -803,7 +805,7 @@
 									pos (1024,1008)
 									label (object ItemLabel
 										quid "56D86B6602FE"
-										pos (848,905)
+										pos (1024,905)
 										positionBySuperclass FALSE
 										nlines 2
 										max_width 259
@@ -829,7 +831,7 @@
 									pos (2096,1648)
 									label (object ItemLabel
 										quid "56D86BA4004D"
-										pos (2208,1561)
+										pos (2096,1545)
 										positionBySuperclass FALSE
 										nlines 2
 										max_width 244
@@ -840,7 +842,7 @@
 									pos (2064,1837)
 									label (object ItemLabel
 										quid "56D86BBF033F"
-										pos (2128,1862)
+										pos (2064,1858)
 										positionBySuperclass FALSE
 										nlines 2
 										max_width 278
@@ -862,10 +864,10 @@
 							boundIcons (list boundIconsList
 								(object ConnectionPtVw ":Structure:local_ControllerR1:toMotor" @54
 									quid "56DF23FC0078"
-									pos (1346,1376)
+									pos (1347,1376)
 									label (object ItemLabel
 										quid "56DF23FC007B"
-										pos (1394,1385)
+										pos (1347,1397)
 										positionBySuperclass FALSE
 										nlines 2
 										max_width 234
@@ -873,10 +875,10 @@
 									positionBySuperclass FALSE)
 								(object ConnectionPtVw ":Structure:local_ControllerR1:toElevatorDoor" @55
 									quid "56DF24010298"
-									pos (2018,1376)
+									pos (2016,1376)
 									label (object ItemLabel
 										quid "56DF2401029B"
-										pos (2146,1385)
+										pos (2016,1397)
 										positionBySuperclass FALSE
 										nlines 2
 										max_width 275
@@ -884,10 +886,10 @@
 									positionBySuperclass FALSE)
 								(object ConnectionPtVw ":Structure:local_ControllerR1:toFloorDoor" @56
 									quid "56DF24620252"
-									pos (2412,1104)
+									pos (2413,1104)
 									label (object ItemLabel
 										quid "56DF24620255"
-										pos (2529,1125)
+										pos (2434,1125)
 										positionBySuperclass FALSE
 										nlines 2
 										max_width 241
@@ -898,7 +900,7 @@
 									pos (2413,1376)
 									label (object ItemLabel
 										quid "56DF25EA0391"
-										pos (2610,1301)
+										pos (2434,1397)
 										positionBySuperclass FALSE
 										nlines 2
 										max_width 366
@@ -906,10 +908,10 @@
 									positionBySuperclass FALSE)
 								(object ConnectionPtVw ":Structure:local_ControllerR1:toArrivalSensor" @58
 									quid "56DF2636009D"
-									pos (2412,848)
+									pos (2413,848)
 									label (object ItemLabel
 										quid "56DF263600A8"
-										pos (2684,725)
+										pos (2434,869)
 										positionBySuperclass FALSE
 										nlines 2
 										max_width 344
@@ -917,10 +919,10 @@
 									positionBySuperclass FALSE)
 								(object ConnectionPtVw ":Structure:local_ControllerR1:toEButton" @59
 									quid "56DF2DD801DA"
-									pos (1618,1376)
+									pos (1616,1376)
 									label (object ItemLabel
 										quid "56DF2DD801DD"
-										pos (1725,1381)
+										pos (1616,1397)
 										positionBySuperclass FALSE
 										nlines 2
 										max_width 269
@@ -928,10 +930,10 @@
 									positionBySuperclass FALSE)
 								(object ConnectionPtVw ":Structure:local_ControllerR1:toElevator" @60
 									quid "56DF2F93016D"
-									pos (1650,720)
+									pos (1648,720)
 									label (object ItemLabel
 										quid "56DF2F93017E"
-										pos (1874,569)
+										pos (1648,617)
 										positionBySuperclass FALSE
 										nlines 2
 										max_width 288
@@ -939,10 +941,10 @@
 									positionBySuperclass FALSE)
 								(object ConnectionPtVw ":Structure:local_ControllerR1:toEmergencyBrake" @61
 									quid "56DF321D0298"
-									pos (1346,912)
+									pos (1347,912)
 									label (object ItemLabel
 										quid "56DF321D02A5"
-										pos (1170,809)
+										pos (1326,933)
 										positionBySuperclass FALSE
 										nlines 2
 										max_width 334
@@ -968,7 +970,7 @@
 									pos (2752,1664)
 									label (object ItemLabel
 										quid "56DF25EE0389"
-										pos (2928,1561)
+										pos (2752,1561)
 										positionBySuperclass FALSE
 										nlines 2
 										max_width 366
@@ -994,7 +996,7 @@
 									pos (3296,784)
 									label (object ItemLabel
 										quid "56DF263900C7"
-										pos (3504,665)
+										pos (3275,805)
 										positionBySuperclass FALSE
 										nlines 2
 										max_width 344
@@ -1018,7 +1020,7 @@
 									pos (3328,1120)
 									label (object ItemLabel
 										quid "56DF3C6E00E2"
-										pos (3696,1145)
+										pos (3328,1017)
 										positionBySuperclass FALSE
 										nlines 2
 										max_width 241
@@ -1031,15 +1033,16 @@
 							quidu "56DF3B500028"
 							label (object SegLabel @69
 								quid "56DF3B5C0099"
-								pos (1201,1420)
+								pos (2409,2883)
 								max_width 256
-								pctDist 0.557962
-								height 40)
+								pctDist 1.316444
+								height 1843
+								orientation 1)
 							client @47
 							supplier @54
 							vertices (list Points
 								(1082,1544)
-								(1334,1382))
+								(1335,1382))
 							line_style 6144)
 						(object ConnectorVw ":Structure:C56DF3B8700FE" @70
 							quid "56DF3B86009D"
@@ -1048,14 +1051,15 @@
 							quidu "56DF3B8700FE"
 							label (object SegLabel @71
 								quid "56DF3B8801D3"
-								pos (2850,772)
+								pos (5703,1588)
 								max_width 259
-								pctDist 0.500207
-								height 43)
+								pctDist 3.726599
+								height 979
+								orientation 1)
 							client @58
 							supplier @65
 							vertices (list Points
-								(2422,847)
+								(2423,847)
 								(3284,784))
 							line_style 6144)
 						(object ConnectorVw ":Structure:C56DF3C8C031F" @72
@@ -1065,14 +1069,15 @@
 							quidu "56DF3C8C031F"
 							label (object SegLabel @73
 								quid "56DF3C8E0041"
-								pos (2872,1067)
+								pos (5742,2179)
 								max_width 259
-								pctDist 0.502520
-								height 45)
+								pctDist 3.735852
+								height 1019
+								orientation 1)
 							client @56
 							supplier @67
 							vertices (list Points
-								(2422,1104)
+								(2423,1104)
 								(3316,1119))
 							line_style 6144)
 						(object ConnectorVw ":Structure:C56DF3CD0033B" @74
@@ -1082,15 +1087,16 @@
 							quidu "56DF3CD0033B"
 							label (object SegLabel @75
 								quid "56DF3CD102DF"
-								pos (1485,1502)
+								pos (3012,3014)
 								max_width 266
-								pctDist 0.445654
-								height 42)
+								pctDist -1.046527
+								height 2061
+								orientation 1)
 							client @43
 							supplier @59
 							vertices (list Points
 								(1447,1636)
-								(1610,1386))
+								(1608,1386))
 							line_style 6144)
 						(object ConnectorVw ":Structure:C56DF3D4A00A5" @76
 							quid "56DF3D4900F4"
@@ -1099,14 +1105,14 @@
 							quidu "56DF3D4A00A5"
 							label (object SegLabel @77
 								quid "56DF3D4B0050"
-								pos (2101,1506)
+								pos (4156,3017)
 								max_width 266
-								pctDist 0.529401
-								height 45)
+								pctDist 8.325910
+								height 1587)
 							client @55
 							supplier @51
 							vertices (list Points
-								(2020,1386)
+								(2018,1386)
 								(2092,1636))
 							line_style 6144)
 						(object ConnectorVw ":Structure:C56DF3DC900DD" @78
@@ -1133,15 +1139,16 @@
 							quidu "56DF3E3E039F"
 							label (object SegLabel @81
 								quid "56DF3E400139"
-								pos (1173,918)
+								pos (2357,1878)
 								max_width 259
-								pctDist 0.504893
-								height 44)
+								pctDist 3.238599
+								height 1215
+								orientation 1)
 							client @49
 							supplier @61
 							vertices (list Points
 								(1034,1005)
-								(1334,915))
+								(1335,915))
 							line_style 6144)
 						(object ConnectorVw ":Structure:C56DF540D0038" @82
 							quid "56DF540A01E0"
@@ -1150,15 +1157,15 @@
 							quidu "56DF540D0038"
 							label (object SegLabel @83
 								quid "56DF540D03AE"
-								pos (1696,415)
+								pos (3346,835)
 								max_width 259
-								pctDist 0.491182
-								height 45)
+								pctDist 1.205127
+								height 1699)
 							client @41
 							supplier @60
 							vertices (list Points
 								(1651,132)
-								(1650,708))
+								(1648,708))
 							line_style 6144))
 					filterFlags 521))
 			(object Capsule "Motor"
@@ -1258,10 +1265,10 @@
 							boundIcons (list boundIconsList
 								(object ConnectionPtVw ":Structure:statusSensorR1:toMotor" @90
 									quid "56D86C530168"
-									pos (628,544)
+									pos (624,544)
 									label (object ItemLabel
 										quid "56D86C53016A"
-										pos (900,457)
+										pos (624,441)
 										positionBySuperclass FALSE
 										nlines 2
 										max_width 281
@@ -1274,15 +1281,15 @@
 							quidu "56DF54E9031B"
 							label (object SegLabel @92
 								quid "56DF54EA0362"
-								pos (673,328)
+								pos (1299,660)
 								max_width 259
-								pctDist 0.490000
-								height 45)
+								pctDist 1.307326
+								height 676)
 							client @87
 							supplier @90
 							vertices (list Points
-								(628,132)
-								(628,532))
+								(627,132)
+								(624,532))
 							line_style 6144))
 					filterFlags 521))
 			(object Capsule "DoorSensor"
@@ -1478,10 +1485,10 @@
 							boundIcons (list boundIconsList
 								(object ConnectionPtVw ":Structure:sensorR1:toElevatorDoor" @107
 									quid "56D86BC201F5"
-									pos (340,496)
+									pos (336,496)
 									label (object ItemLabel
 										quid "56D86BC201F9"
-										pos (564,409)
+										pos (336,393)
 										positionBySuperclass FALSE
 										nlines 2
 										max_width 278
@@ -1494,15 +1501,15 @@
 							quidu "56DF597C0291"
 							label (object SegLabel @109
 								quid "56DF597E0075"
-								pos (385,308)
+								pos (723,616)
 								max_width 256
-								pctDist 0.500000
-								height 45)
+								pctDist 1.365603
+								height 388)
 							client @105
 							supplier @107
 							vertices (list Points
-								(340,132)
-								(340,484))
+								(339,132)
+								(336,484))
 							line_style 6144))
 					filterFlags 521))
 			(object Capsule "FloorButtonDown"
@@ -1625,14 +1632,14 @@
 										boundIcons (list boundIconsList
 											(object JuncPtVw ":TOP:state:J56DF79B90119" @117
 												quid "56DF79B9011E"
-												pos (162,103)
+												pos (157,106)
 												quidu "56DF79B90119"
 												juncPtIcon (object JuncPtIcon @118
 													quid "56DF79B9011F"
-													pos (195,187)
+													pos (195,188)
 													label (object ItemLabel
 														quid "56DF79B90120"
-														pos (235,157))))
+														pos (232,159))))
 											(object JuncPtVw ":TOP:state:J56DF79BB0312" @119
 												quid "56DF79BB0313"
 												pos (1583,655)
@@ -1747,7 +1754,7 @@
 									pos (1680,528)
 									label (object ItemLabel
 										quid "56DF37BD0213"
-										pos (2048,425)
+										pos (1680,425)
 										positionBySuperclass FALSE
 										nlines 2
 										max_width 434
@@ -1866,10 +1873,10 @@
 							boundIcons (list boundIconsList
 								(object ConnectionPtVw ":Structure:eButtonLightR1:toEButton" @141
 									quid "56DF2E3101BD"
-									pos (772,448)
+									pos (768,448)
 									label (object ItemLabel
 										quid "56DF2E3101C7"
-										pos (1092,441)
+										pos (768,345)
 										positionBySuperclass FALSE
 										nlines 2
 										max_width 341
@@ -1882,15 +1889,15 @@
 							quidu "56DF5482037A"
 							label (object SegLabel @143
 								quid "56DF5483037B"
-								pos (817,283)
+								pos (1587,567)
 								max_width 256
-								pctDist 0.496711
-								height 45)
+								pctDist 1.404295
+								height 820)
 							client @139
 							supplier @141
 							vertices (list Points
-								(772,132)
-								(772,436))
+								(771,132)
+								(768,436))
 							line_style 6144))
 					filterFlags 521))
 			(object Capsule "EmergencyBrake"
@@ -2067,10 +2074,10 @@
 							boundIcons (list boundIconsList
 								(object ConnectionPtVw ":Structure:floorButtonUpR1:toFloor" @155
 									quid "56DF34ED00A0"
-									pos (1142,504)
+									pos (1136,504)
 									label (object ItemLabel
 										quid "56DF34ED00A2"
-										pos (1382,401)
+										pos (1136,401)
 										positionBySuperclass FALSE
 										nlines 2
 										max_width 309
@@ -2078,10 +2085,10 @@
 									positionBySuperclass FALSE)
 								(object ConnectionPtVw ":Structure:floorButtonUpR1:toFButtonUpLamp" @156
 									quid "56DF377402A8"
-									pos (1126,693)
+									pos (1120,693)
 									label (object ItemLabel
 										quid "56DF377402AA"
-										pos (1142,750)
+										pos (1120,714)
 										positionBySuperclass FALSE
 										nlines 2
 										max_width 391
@@ -2104,10 +2111,10 @@
 							boundIcons (list boundIconsList
 								(object ConnectionPtVw ":Structure:floorButtonDownR1:toFloor" @158
 									quid "56DF34F50011"
-									pos (484,496)
+									pos (480,496)
 									label (object ItemLabel
 										quid "56DF34F50016"
-										pos (708,409)
+										pos (480,393)
 										positionBySuperclass FALSE
 										nlines 2
 										max_width 353
@@ -2115,10 +2122,10 @@
 									positionBySuperclass FALSE)
 								(object ConnectionPtVw ":Structure:floorButtonDownR1:toFButtonDownLamp" @159
 									quid "56DF37B903EA"
-									pos (436,685)
+									pos (432,685)
 									label (object ItemLabel
 										quid "56DF37B903ED"
-										pos (484,726)
+										pos (432,706)
 										positionBySuperclass FALSE
 										nlines 2
 										max_width 434
@@ -2131,15 +2138,16 @@
 							quidu "56DF50D603C7"
 							label (object SegLabel @161
 								quid "56DF50D703D7"
-								pos (440,308)
+								pos (921,616)
 								max_width 263
-								pctDist 0.500000
-								height 44)
+								pctDist -0.364296
+								height 442
+								orientation 1)
 							client @158
 							supplier @153
 							vertices (list Points
-								(484,484)
-								(484,132))
+								(480,484)
+								(483,132))
 							line_style 6144)
 						(object ConnectorVw ":Structure:C56DF50DB01E6" @162
 							quid "56DF50DA020E"
@@ -2148,15 +2156,16 @@
 							quidu "56DF50DB01E6"
 							label (object SegLabel @163
 								quid "56DF50DC01E4"
-								pos (1097,315)
+								pos (2234,627)
 								max_width 266
-								pctDist 0.492002
-								height 44)
+								pctDist -0.349559
+								height 1099
+								orientation 1)
 							client @155
 							supplier @152
 							vertices (list Points
-								(1141,492)
-								(1140,132))
+								(1136,492)
+								(1139,132))
 							line_style 6144))
 					filterFlags 521))
 			(object Capsule "StatusSensor"
@@ -2427,14 +2436,15 @@
 										boundIcons (list boundIconsList
 											(object JuncPtVw ":TOP:state:J56DF7A820142" @183
 												quid "56DF7A820147"
-												pos (162,103)
+												pos (157,106)
 												quidu "56DF7A820142"
 												juncPtIcon (object JuncPtIcon @184
 													quid "56DF7A820148"
-													pos (195,187)
+													pos (195,188)
 													label (object ItemLabel
 														quid "56DF7A820149"
-														pos (235,157))))
+														pos (232,159)
+														max_width 75)))
 											(object JuncPtVw ":TOP:state:J56DF7A8D0003" @185
 												quid "56DF7A8D0004"
 												pos (1583,367)
@@ -2444,7 +2454,8 @@
 													pos (1493,367)
 													label (object ItemLabel
 														quid "56DF7A8D0006"
-														pos (1523,407))))
+														pos (1523,407)
+														max_width 116)))
 											(object JuncPtVw ":TOP:state:J56DF7A8D0008" @187
 												quid "56DF7A8D0009"
 												pos (1583,927)
@@ -2454,7 +2465,8 @@
 													pos (1493,927)
 													label (object ItemLabel
 														quid "56DF7A8D000B"
-														pos (1523,967))))))
+														pos (1523,967)
+														max_width 116)))))
 									(object StateView "StartState" "Initial" @189
 										quid "56DF7A820146"
 										pos (180,180)
@@ -2550,7 +2562,7 @@
 									pos (960,448)
 									label (object ItemLabel
 										quid "56DF377D010A"
-										pos (1072,649)
+										pos (960,345)
 										positionBySuperclass FALSE
 										nlines 2
 										max_width 391
@@ -2715,18 +2727,18 @@
 							boundIcons (list boundIconsList
 								(object JuncPtVw ":TOP:Unlit:J56DF796103A5" @208
 									quid "56DF796103A9"
-									pos (399,320)
+									pos (399,319)
 									quidu "56DF796103A5"
 									boundIconAutoAdjust TRUE)
 								(object JuncPtVw ":TOP:Unlit:J56DF796502CE" @209
 									quid "56DF796502D2"
-									pos (592,463)
+									pos (591,463)
 									quidu "56DF796502CE"
 									positionBySuperclass FALSE
 									boundIconAutoAdjust TRUE)
 								(object JuncPtVw ":TOP:Unlit:J56DF798A039C" @210
 									quid "56DF798A03A0"
-									pos (592,439)
+									pos (591,447)
 									quidu "56DF798A039C"
 									positionBySuperclass FALSE
 									boundIconAutoAdjust TRUE))
@@ -2790,7 +2802,7 @@
 									boundIconAutoAdjust TRUE)
 								(object JuncPtVw ":TOP:Lit:J56DF798A0397" @221
 									quid "56DF798A039B"
-									pos (819,595)
+									pos (795,571)
 									quidu "56DF798A0397"
 									positionBySuperclass FALSE
 									boundIconAutoAdjust TRUE))
@@ -2804,14 +2816,14 @@
 										boundIcons (list boundIconsList
 											(object JuncPtVw ":TOP:Lit:J56DF796502D3" @223
 												quid "56DF796502D8"
-												pos (162,103)
+												pos (157,106)
 												quidu "56DF796502D3"
 												juncPtIcon (object JuncPtIcon @224
 													quid "56DF796502D9"
-													pos (195,187)
+													pos (195,188)
 													label (object ItemLabel
 														quid "56DF796502DA"
-														pos (235,157))))
+														pos (232,159))))
 											(object JuncPtVw ":TOP:Lit:J56DF798A0397" @225
 												quid "56DF798A0398"
 												pos (319,95)
@@ -2833,15 +2845,15 @@
 							quidu "56DF796103A4"
 							label (object SegLabel @229
 								quid "56DF796103AA"
-								pos (321,217)
+								pos (322,217)
 								max_width 75
-								pctDist 0.499078
+								pctDist 0.504844
 								height 44)
 							client @206
 							supplier @208
 							vertices (list Points
 								(204,194)
-								(391,314))
+								(391,313))
 							line_style 6144)
 						(object TransView ":TOP:Unlit:J56DF796502CE:light" @230
 							quid "56DF79640375"
@@ -2849,16 +2861,16 @@
 							quidu "56DF796502CD"
 							label (object SegLabel @231
 								quid "56DF796502DC"
-								pos (769,378)
+								pos (767,378)
 								positionBySuperclass FALSE
 								max_width 59
-								pctDist 1.183571
-								height 31)
+								pctDist 1.169968
+								height 32)
 							positionBySuperclass FALSE
 							client @209
 							supplier @220
 							vertices (list Points
-								(599,460)
+								(598,460)
 								(750,416)
 								(792,562))
 							line_style 6144)
@@ -2868,18 +2880,18 @@
 							quidu "56DF798A0396"
 							label (object SegLabel @233
 								quid "56DF798A03A1"
-								pos (590,673)
+								pos (584,674)
 								positionBySuperclass FALSE
 								max_width 97
-								pctDist 1.109129
-								height 31)
+								pctDist 1.171635
+								height 27)
 							positionBySuperclass FALSE
 							client @221
 							supplier @210
 							vertices (list Points
-								(810,596)
+								(786,574)
 								(606,638)
-								(592,447))
+								(591,455))
 							line_style 6144))
 					filterFlags 1)
 				language "C++"
@@ -3036,7 +3048,7 @@
 									pos (1232,832)
 									label (object ItemLabel
 										quid "56DF4C0701C3"
-										pos (1072,713)
+										pos (1232,729)
 										positionBySuperclass FALSE
 										nlines 2
 										max_width 272
@@ -3047,7 +3059,7 @@
 									pos (1200,1018)
 									label (object ItemLabel
 										quid "56DF4C0701C6"
-										pos (1136,1059)
+										pos (1200,1039)
 										positionBySuperclass FALSE
 										nlines 2
 										max_width 288
@@ -3073,7 +3085,7 @@
 									pos (1952,557)
 									label (object ItemLabel
 										quid "56DF4C13004F"
-										pos (2080,530)
+										pos (1952,578)
 										positionBySuperclass FALSE
 										nlines 2
 										max_width 222
@@ -3084,7 +3096,7 @@
 									pos (1616,557)
 									label (object ItemLabel
 										quid "56DF4C130052"
-										pos (1451,434)
+										pos (1616,578)
 										positionBySuperclass FALSE
 										nlines 2
 										max_width 272
@@ -3108,7 +3120,7 @@
 									pos (2288,864)
 									label (object ItemLabel
 										quid "56DF4CCF0147"
-										pos (2480,773)
+										pos (2288,761)
 										positionBySuperclass FALSE
 										nlines 2
 										max_width 250
@@ -3119,7 +3131,7 @@
 									pos (2448,1040)
 									label (object ItemLabel
 										quid "56DF4CCF014A"
-										pos (2560,1049)
+										pos (2469,1061)
 										positionBySuperclass FALSE
 										nlines 2
 										max_width 309
@@ -3130,7 +3142,7 @@
 									pos (2208,1040)
 									label (object ItemLabel
 										quid "56DF4CCF014D"
-										pos (2096,1049)
+										pos (2187,1061)
 										positionBySuperclass FALSE
 										nlines 2
 										max_width 353
@@ -3272,8 +3284,8 @@
 						quid "56DF20F307B9"
 						inSignals (list inSignalsList
 							(object Signal "buttonPressed"
-								quid "56DF671000D1"
-								dataType  "void"))))
+								quid "56E0581A01AD"
+								dataType  "int"))))
 				statediagram (object State_Diagram "State Diagram"
 					quid "56D86B900260"
 					items (list diagram_item_list
@@ -3357,7 +3369,17 @@
 						quid "56D86D0B0222"))
 				protocolRoles (list protocolRolesList
 					(object ProtocolRole "base"
-						quid "56DF20F307B6"))
+						quid "56DF20F307B6"
+						inSignals (list inSignalsList
+							(object Signal "runMotorUp"
+								quid "56E06F130184"
+								dataType  "void")
+							(object Signal "runMotorDown"
+								quid "56E06F24026D"
+								dataType  "void")
+							(object Signal "stopMotor"
+								quid "56E06F540228"
+								dataType  "void"))))
 				statediagram (object State_Diagram "State Diagram"
 					quid "56D86D0B0223"
 					items (list diagram_item_list
@@ -3411,6 +3433,9 @@
 				collaborations (list collaborationsList
 					(object Collaboration "Collaboration1"
 						quid "56DF25DC03EB"))
+				protocolRoles (list protocolRolesList
+					(object ProtocolRole "base"
+						quid "56E052060790"))
 				statediagram (object State_Diagram "State Diagram"
 					quid "56DF25DC03EC"
 					items (list diagram_item_list
@@ -3436,6 +3461,9 @@
 				collaborations (list collaborationsList
 					(object Collaboration "Collaboration1"
 						quid "56DF26290042"))
+				protocolRoles (list protocolRolesList
+					(object ProtocolRole "base"
+						quid "56E05206078F"))
 				statediagram (object State_Diagram "State Diagram"
 					quid "56DF26290043"
 					items (list diagram_item_list
@@ -3461,6 +3489,9 @@
 				collaborations (list collaborationsList
 					(object Collaboration "Collaboration1"
 						quid "56DF2D7E0183"))
+				protocolRoles (list protocolRolesList
+					(object ProtocolRole "base"
+						quid "56E05206078E"))
 				statediagram (object State_Diagram "State Diagram"
 					quid "56DF2D7E0184"
 					items (list diagram_item_list
@@ -3488,7 +3519,11 @@
 						quid "56DF2E1D0258"))
 				protocolRoles (list protocolRolesList
 					(object ProtocolRole "base"
-						quid "56DF6740030C"))
+						quid "56DF6740030C"
+						outSignals (list outSignalsList
+							(object Signal "clear"
+								quid "56E05D7A004A"
+								dataType  "void"))))
 				statediagram (object State_Diagram "State Diagram"
 					quid "56DF2E1D0259"
 					items (list diagram_item_list
@@ -3514,6 +3549,9 @@
 				collaborations (list collaborationsList
 					(object Collaboration "Collaboration1"
 						quid "56DF2F8A023A"))
+				protocolRoles (list protocolRolesList
+					(object ProtocolRole "base"
+						quid "56E05206078D"))
 				statediagram (object State_Diagram "State Diagram"
 					quid "56DF2F8A023B"
 					items (list diagram_item_list
@@ -3703,7 +3741,7 @@
 						quidu "56D858920202"
 						compartment (object Compartment
 							quid "56D858920200"
-							pos (3433,3939)
+							pos (3433,3924)
 							anchor 2
 							nlines 12
 							max_width 989
@@ -3735,7 +3773,7 @@
 						quidu "56D858FD0025"
 						compartment (object Compartment
 							quid "56D858FD0023"
-							pos (7977,2104)
+							pos (7977,2089)
 							anchor 2
 							nlines 5
 							max_width 729
@@ -3751,30 +3789,30 @@
 						IncludeOperation TRUE
 						showAggregations TRUE
 						quid "56D85A210391"
-						pos (4295,1473)
+						pos (4329,1472)
 						label (object ItemLabel
 							quid "56D85A210392"
-							pos (3897,1318)
-							max_width 796
+							pos (4041,1251)
+							max_width 576
 							label "Elevator")
 						stereotype (object ItemLabel
 							quid "56D85A2103DF"
-							pos (3897,1262)
+							pos (4041,1201)
 							anchor 10
-							max_width 796
+							max_width 576
 							label "<<Capsule>>")
 						icon_style "Decoration"
 						quidu "56D85A2103D3"
 						compartment (object Compartment
 							quid "56D85A2103D2"
-							pos (3897,1376)
+							pos (4041,1322)
 							anchor 2
 							nlines 7
-							max_width 794
+							max_width 706
 							justify 1)
-						width 814
-						height 578
-						annotation 8
+						width 594
+						height 704
+						annotation 24
 						autoResize TRUE
 						showPorts TRUE)
 					(object CapsuleVw "Motor" @294
@@ -3799,7 +3837,7 @@
 						quidu "56D85A2E01DB"
 						compartment (object Compartment
 							quid "56D85A2E01D9"
-							pos (2233,2616)
+							pos (2233,2601)
 							anchor 2
 							nlines 5
 							max_width 846
@@ -3831,7 +3869,7 @@
 						quidu "56D85A3B03DA"
 						compartment (object Compartment
 							quid "56D85A3B03D8"
-							pos (3081,5688)
+							pos (3081,5673)
 							anchor 2
 							nlines 4
 							max_width 707
@@ -3863,7 +3901,7 @@
 						quidu "56D85A44008A"
 						compartment (object Compartment
 							quid "56D85A440088"
-							pos (6329,2072)
+							pos (6329,2057)
 							anchor 2
 							nlines 5
 							max_width 811
@@ -3895,7 +3933,7 @@
 						quidu "56D85A73022F"
 						compartment (object Compartment
 							quid "56D85A73022D"
-							pos (9705,4224)
+							pos (9705,4228)
 							anchor 2
 							nlines 5
 							max_width 1180
@@ -3927,14 +3965,14 @@
 						quidu "56D85A7F026E"
 						compartment (object Compartment
 							quid "56D85A7F026C"
-							pos (2057,1913)
+							pos (2057,1894)
 							anchor 2
 							nlines 5
-							max_width 920
+							max_width 818
 							justify 1)
 						width 904
 						height 592
-						annotation 24
+						annotation 8
 						autoResize TRUE
 						showPorts TRUE)
 					(object CapsuleVw "EmergencyBrake" @299
@@ -3959,7 +3997,7 @@
 						quidu "56D85B010247"
 						compartment (object Compartment
 							quid "56D85B010245"
-							pos (4377,2771)
+							pos (4377,2758)
 							anchor 2
 							nlines 4
 							max_width 733
@@ -3991,7 +4029,7 @@
 						quidu "56D85BCE031B"
 						compartment (object Compartment
 							quid "56D85BCE0319"
-							pos (7833,3704)
+							pos (7833,3689)
 							anchor 2
 							nlines 6
 							max_width 954
@@ -4007,55 +4045,55 @@
 						quidu "56D85DB7002F"
 						label (object SegLabel @302
 							quid "56D85DB70033"
-							pos (3383,1755)
+							pos (3455,1739)
 							positionBySuperclass FALSE
-							max_width 360
+							max_width 320
 							label "elevatorButtonR1"
-							pctDist 0.455415
+							pctDist 0.461382
 							height 19
 							orientation 1)
 						positionBySuperclass FALSE
 						client @298
 						supplier @293
 						vertices (list Points
-							(2952,1860)
-							(3887,1590))
+							(2952,1863)
+							(4031,1555))
 						line_style 6144
 						label (object SegLabel @303
 							quid "56D85DB70034"
-							pos (3397,1651)
+							pos (3555,1637)
 							positionBySuperclass FALSE
 							anchor 1
 							max_width 15
 							label "4"
-							pctDist 0.498883
-							height 77))
+							pctDist 0.572029
+							height 52))
 					(object CapsuleRoleRelVw ":Structure:motorR1" @304
 						quid "56D85DC103D7"
 						uses_fill_color FALSE
 						quidu "56D85DC103D8"
 						label (object SegLabel @305
 							quid "56D85DC103DB"
-							pos (3417,2040)
-							max_width 174
+							pos (3492,1999)
+							max_width 154
 							label "motorR1"
-							pctDist 0.498648
-							height 51)
+							pctDist 0.498776
+							height 50)
 						client @294
 						supplier @293
 						vertices (list Points
-							(3006,2399)
-							(3890,1762))
+							(3014,2399)
+							(4031,1680))
 						line_style 6144
 						label (object SegLabel @306
 							quid "56D85DC103DC"
-							pos (4262,4345)
+							pos (7785,6384)
 							hidden TRUE
 							anchor 1
 							max_width 15
 							label ""
-							pctDist -0.108908
-							height 2313
+							pctDist 1.280833
+							height 6008
 							orientation 1))
 					(object CapsuleRoleRelVw ":Structure:emergencyBrakeR1" @307
 						quid "56D85DC60207"
@@ -4063,29 +4101,30 @@
 						quidu "56D85DC60208"
 						label (object SegLabel @308
 							quid "56D85DC6020B"
-							pos (4491,2187)
+							pos (4516,2218)
 							positionBySuperclass FALSE
-							max_width 408
+							max_width 363
 							label "emergencyBrakeR1"
-							pctDist 0.485051
-							height 46)
+							pctDist 0.482169
+							height 45)
 						positionBySuperclass FALSE
 						client @299
 						supplier @293
 						vertices (list Points
-							(4666,2559)
-							(4393,1762))
+							(4670,2559)
+							(4439,1824))
 						line_style 6144
 						label (object SegLabel @309
 							quid "56D85DC6020C"
-							pos (5426,4819)
+							pos (9981,7011)
 							hidden TRUE
 							positionBySuperclass FALSE
 							anchor 1
 							max_width 15
 							label ""
-							pctDist -2.830199
-							height 14))
+							pctDist -7.579459
+							height 3732
+							orientation 1))
 					(object CapsuleVw "DoorSensor" @310
 						ShowCompartmentStereotypes TRUE
 						IncludeAttribute TRUE
@@ -4108,7 +4147,7 @@
 						quidu "56D85A34002A"
 						compartment (object Compartment
 							quid "56D86332015F"
-							pos (7337,2872)
+							pos (7337,2857)
 							anchor 2
 							nlines 4
 							max_width 837
@@ -4125,7 +4164,7 @@
 						label (object SegLabel @312
 							quid "56D8636902FB"
 							pos (7252,2635)
-							max_width 195
+							max_width 174
 							label "sensorR1"
 							pctDist 0.447758
 							height 99)
@@ -4192,7 +4231,7 @@
 						quidu "56D865F902A1"
 						compartment (object Compartment
 							quid "56D865F9029F"
-							pos (1609,3320)
+							pos (1609,3305)
 							anchor 2
 							nlines 4
 							max_width 690
@@ -4208,30 +4247,30 @@
 						quidu "56D85DCB0068"
 						label (object SegLabel @317
 							quid "56D85DCB006B"
-							pos (5688,1756)
+							pos (5649,1740)
 							positionBySuperclass FALSE
-							max_width 325
+							max_width 289
 							label "elevatorDoorR1"
-							pctDist 0.408111
+							pctDist 0.413083
 							height 106
 							orientation 1)
 						positionBySuperclass FALSE
 						client @296
 						supplier @293
 						vertices (list Points
-							(6319,2045)
-							(4702,1587))
+							(6319,2043)
+							(4626,1557))
 						line_style 6144
 						label (object SegLabel @318
 							quid "56D85DCB006D"
-							pos (5557,1894)
+							pos (11029,3694)
 							hidden TRUE
 							positionBySuperclass FALSE
 							anchor 1
 							max_width 15
 							label ""
-							pctDist 0.460731
-							height 62))
+							pctDist -2.828871
+							height 287))
 					(object CapsuleRoleRelVw ":Structure:statusSensorR1" @319
 						quid "56D8681001F9"
 						uses_fill_color FALSE
@@ -4239,7 +4278,7 @@
 						label (object SegLabel @320
 							quid "56D868100200"
 							pos (2289,2958)
-							max_width 325
+							max_width 289
 							label "statusSensorR1"
 							pctDist 0.770138
 							height 13)
@@ -4291,23 +4330,23 @@
 						IncludeOperation TRUE
 						showAggregations TRUE
 						quid "56D86B5800C7"
-						pos (4781,3448)
+						pos (4765,3432)
 						label (object ItemLabel
 							quid "56D86B5800C8"
-							pos (4649,3460)
-							max_width 264
+							pos (4617,3377)
+							max_width 296
 							label "EBrakeProtocol")
 						stereotype (object ItemLabel
 							quid "56D86B580112"
-							pos (4649,3406)
+							pos (4617,3313)
 							anchor 10
-							max_width 264
+							max_width 296
 							label "<<Protocol>>")
 						icon_style "Decoration"
 						quidu "56D86B580109"
-						width 282
-						height 177
-						annotation 8
+						width 314
+						height 336
+						annotation 24
 						autoResize TRUE
 						showInSignals TRUE
 						showOutSignals TRUE)
@@ -4317,67 +4356,67 @@
 						quidu "56D86B6602F8"
 						label (object SegLabel @325
 							quid "56D86B660306"
-							pos (4644,3127)
+							pos (4634,3079)
 							positionBySuperclass FALSE
-							max_width 230
+							max_width 204
 							label "toController"
-							pctDist 0.564495
+							pctDist 0.576891
 							height 112)
 						positionBySuperclass FALSE
 						client @323
 						supplier @299
 						vertices (list Points
-							(4773,3359)
-							(4743,2934))
+							(4756,3263)
+							(4739,2934))
 						line_style 6144
 						label (object SegLabel @326
 							quid "56D86B660308"
-							pos (5240,6165)
+							pos (9988,9264)
 							hidden TRUE
 							positionBySuperclass FALSE
 							anchor 1
 							max_width 15
 							label ""
-							pctDist -6.646798
-							height 269
+							pctDist -19.011084
+							height 4916
 							orientation 1)
 						label (object SegLabel @327
 							quid "56D86B660307"
-							pos (4737,3185)
+							pos (4727,3137)
 							positionBySuperclass FALSE
 							anchor 2
 							max_width 134
 							label "<<Port>>"
-							pctDist 0.413332
-							height 24))
+							pctDist 0.386501
+							height 22))
 					(object ProtocolVw "EButtonProtocol" @328
 						ShowCompartmentStereotypes TRUE
 						IncludeAttribute TRUE
 						IncludeOperation TRUE
 						showAggregations TRUE
 						quid "56D86B900212"
-						pos (1055,2626)
+						pos (1117,2615)
 						label (object ItemLabel
 							quid "56D86B900213"
-							pos (809,2578)
-							max_width 492
+							pos (953,2580)
+							max_width 328
 							label "EButtonProtocol")
 						stereotype (object ItemLabel
 							quid "56D86B900264"
-							pos (809,2522)
+							pos (953,2539)
 							anchor 10
-							max_width 492
+							max_width 328
 							label "<<Protocol>>")
 						icon_style "Decoration"
 						quidu "56D86B90025B"
 						compartment (object Compartment
-							pos (809,2636)
+							pos (953,2642)
 							anchor 2
 							nlines 2
-							max_width 490
+							max_width 402
 							justify 1)
-						width 510
-						height 292
+						width 346
+						height 238
 						annotation 8
 						autoResize TRUE
 						showInSignals TRUE
@@ -4415,7 +4454,7 @@
 						label (object SegLabel @331
 							quid "56D86BBF0346"
 							pos (6926,2981)
-							max_width 282
+							max_width 251
 							label "toDoorSensor"
 							pctDist 0.425191
 							height 10)
@@ -4450,7 +4489,7 @@
 							quid "56D86BC201FD"
 							pos (7362,3164)
 							positionBySuperclass FALSE
-							max_width 308
+							max_width 274
 							label "toElevatorDoor"
 							pctDist 0.500544
 							height 43)
@@ -4489,7 +4528,7 @@
 							quid "56D86BDD024C"
 							pos (4024,5400)
 							positionBySuperclass FALSE
-							max_width 230
+							max_width 204
 							label "toController"
 							pctDist 0.534622
 							height 36)
@@ -4553,7 +4592,7 @@
 							quid "56D86C530171"
 							pos (2185,3710)
 							positionBySuperclass FALSE
-							max_width 156
+							max_width 139
 							label "toMotor"
 							pctDist 0.575562
 							height 114)
@@ -4593,7 +4632,7 @@
 							quid "56D86C560088"
 							pos (2718,3361)
 							positionBySuperclass FALSE
-							max_width 312
+							max_width 278
 							label "toStatusSensor"
 							pctDist 0.534364
 							height 127
@@ -4631,22 +4670,28 @@
 						IncludeOperation TRUE
 						showAggregations TRUE
 						quid "56D86D0B01D5"
-						pos (2993,3608)
+						pos (3006,3616)
 						label (object ItemLabel
 							quid "56D86D0B01D6"
-							pos (2873,3620)
-							max_width 240
+							pos (2825,3539)
+							max_width 362
 							label "MotorProtocol")
 						stereotype (object ItemLabel
 							quid "56D86D0B0227"
-							pos (2873,3566)
+							pos (2825,3498)
 							anchor 10
-							max_width 240
+							max_width 362
 							label "<<Protocol>>")
 						icon_style "Decoration"
 						quidu "56D86D0B021E"
-						width 258
-						height 177
+						compartment (object Compartment
+							pos (2825,3601)
+							anchor 2
+							nlines 4
+							max_width 444
+							justify 1)
+						width 380
+						height 320
 						annotation 8
 						autoResize TRUE
 						showInSignals TRUE
@@ -4657,39 +4702,39 @@
 						quidu "56D86D200273"
 						label (object SegLabel @353
 							quid "56D86D200284"
-							pos (2860,3199)
+							pos (2852,3167)
 							positionBySuperclass FALSE
-							max_width 230
+							max_width 204
 							label "toController"
-							pctDist 0.530541
+							pctDist 0.534193
 							height 18
 							orientation 1)
 						positionBySuperclass FALSE
 						client @351
 						supplier @294
 						vertices (list Points
-							(2960,3519)
-							(2739,2928))
+							(2943,3455)
+							(2741,2928))
 						line_style 6144
 						label (object SegLabel @354
 							quid "56D86D200286"
-							pos (3650,5271)
+							pos (6492,8463)
 							hidden TRUE
 							positionBySuperclass FALSE
 							anchor 1
 							max_width 15
 							label ""
-							pctDist -2.983814
-							height 33
+							pctDist -10.536158
+							height 1522
 							orientation 1)
 						label (object SegLabel @355
 							quid "56D86D200285"
-							pos (2851,3266)
+							pos (2843,3234)
 							positionBySuperclass FALSE
 							anchor 2
 							max_width 134
 							label "<<Port>>"
-							pctDist 0.436077
+							pctDist 0.429051
 							height 14))
 					(object ProtocolVw "FloorProtocol" @356
 						ShowCompartmentStereotypes TRUE
@@ -4723,39 +4768,39 @@
 						quidu "56DF23FC0068"
 						label (object SegLabel @358
 							quid "56DF23FC007C"
-							pos (3172,3815)
+							pos (3210,3838)
 							positionBySuperclass FALSE
-							max_width 156
+							max_width 139
 							label "toMotor"
-							pctDist 0.315050
+							pctDist 0.259797
 							height 88
 							orientation 1)
 						positionBySuperclass FALSE
 						client @351
 						supplier @291
 						vertices (list Points
-							(3122,3683)
-							(3423,3860))
+							(3196,3727)
+							(3423,3861))
 						line_style 6144
 						label (object SegLabel @359
 							quid "56DF23FC0087"
-							pos (3140,3852)
+							pos (6450,7646)
 							hidden TRUE
 							positionBySuperclass FALSE
 							anchor 1
 							max_width 15
 							label ""
-							pctDist 0.289765
-							height 137
+							pctDist 18.188156
+							height 1721
 							orientation 1)
 						label (object SegLabel @360
 							quid "56DF23FC007D"
-							pos (3240,3746)
+							pos (3278,3769)
 							positionBySuperclass FALSE
 							anchor 2
 							max_width 187
 							label "<<Port>>"
-							pctDist 0.382752
+							pctDist 0.348881
 							height 6))
 					(object PortRelVw ":Structure:toFloorDoor" @361
 						quid "56DF24620241"
@@ -4765,7 +4810,7 @@
 							quid "56DF24620260"
 							pos (4337,4709)
 							positionBySuperclass FALSE
-							max_width 239
+							max_width 212
 							label "toFloorDoor"
 							pctDist 0.519775
 							height 85
@@ -4804,15 +4849,15 @@
 						IncludeOperation TRUE
 						showAggregations TRUE
 						quid "56DF259B01D1"
-						pos (5537,3099)
+						pos (5457,3163)
 						label (object ItemLabel
 							quid "56DF259B01D2"
-							pos (5113,3048)
+							pos (5033,3096)
 							max_width 848
 							label "IndicatorLights")
 						stereotype (object ItemLabel
 							quid "56DF259B020F"
-							pos (5113,2994)
+							pos (5033,3055)
 							anchor 10
 							max_width 848
 							label "<<Capsule>>")
@@ -4820,7 +4865,7 @@
 						quidu "56DF259B0203"
 						compartment (object Compartment
 							quid "56DF259B0201"
-							pos (5113,3123)
+							pos (5033,3158)
 							anchor 2
 							nlines 4
 							max_width 881
@@ -4836,41 +4881,42 @@
 						quidu "56DF25A4016A"
 						label (object SegLabel @367
 							quid "56DF25A40174"
-							pos (4845,2343)
-							max_width 356
+							pos (4838,2405)
+							max_width 316
 							label "indicatorLightsR1"
-							pctDist 0.542195
-							height 91)
+							pctDist 0.540416
+							height 94)
 						client @365
 						supplier @293
 						vertices (list Points
-							(5393,2911)
-							(4515,1762))
+							(5331,2975)
+							(4563,1824))
 						line_style 6144
 						label (object SegLabel @368
 							quid "56DF25A40175"
-							pos (4809,2346)
+							pos (9756,4745)
 							hidden TRUE
 							anchor 1
 							max_width 15
 							label ""
-							pctDist 0.555662
-							height 121))
+							pctDist -2.839026
+							height 2699
+							orientation 1))
 					(object ProtocolVw "IndicatorLightsProtocol" @369
 						ShowCompartmentStereotypes TRUE
 						IncludeAttribute TRUE
 						IncludeOperation TRUE
 						showAggregations TRUE
 						quid "56DF25DC039D"
-						pos (5393,3640)
+						pos (5457,3625)
 						label (object ItemLabel
 							quid "56DF25DC039E"
-							pos (5209,3652)
+							pos (5273,3620)
 							max_width 368
 							label "IndicatorLightsProtocol")
 						stereotype (object ItemLabel
 							quid "56DF25DD0000"
-							pos (5209,3598)
+							pos (5273,3579)
 							anchor 10
 							max_width 368
 							label "<<Protocol>>")
@@ -4888,37 +4934,37 @@
 						quidu "56DF25EA0381"
 						label (object SegLabel @371
 							quid "56DF25EA0392"
-							pos (4824,3917)
+							pos (4857,3909)
 							positionBySuperclass FALSE
-							max_width 339
+							max_width 301
 							label "toIndicatorLights"
-							pctDist 0.521941
-							height 73)
+							pctDist 0.518253
+							height 72)
 						positionBySuperclass FALSE
 						client @369
 						supplier @291
 						vertices (list Points
-							(5199,3707)
-							(4434,3978))
+							(5263,3692)
+							(4434,3979))
 						line_style 6144
 						label (object SegLabel @372
 							quid "56DF25EA0394"
-							pos (4594,3921)
+							pos (9443,7756)
 							hidden TRUE
 							positionBySuperclass FALSE
 							anchor 1
 							max_width 15
 							label ""
-							pctDist 0.790718
-							height 0)
+							pctDist -2.987035
+							height 5208)
 						label (object SegLabel @373
 							quid "56DF25EA0393"
-							pos (4794,3809)
+							pos (4827,3801)
 							positionBySuperclass FALSE
 							anchor 2
 							max_width 187
 							label "<<Port>>"
-							pctDist 0.512349
+							pctDist 0.510294
 							height 39
 							orientation 1))
 					(object PortRelVw ":Structure:toController" @374
@@ -4927,39 +4973,39 @@
 						quidu "56DF25EE037A"
 						label (object SegLabel @375
 							quid "56DF25EE038A"
-							pos (5480,3377)
+							pos (5359,3433)
 							positionBySuperclass FALSE
-							max_width 230
+							max_width 204
 							label "toController"
-							pctDist 0.673943
-							height 18
-							orientation 1)
+							pctDist 0.553763
+							height 98)
 						positionBySuperclass FALSE
 						client @369
 						supplier @365
 						vertices (list Points
-							(5415,3551)
-							(5486,3286))
+							(5457,3536)
+							(5457,3350))
 						line_style 6144
 						label (object SegLabel @376
 							quid "56DF25EE038C"
-							pos (5467,3343)
+							pos (10924,6786)
 							hidden TRUE
 							positionBySuperclass FALSE
 							anchor 1
 							max_width 15
 							label ""
-							pctDist 0.781389
-							height 3)
+							pctDist -17.473118
+							height 5467
+							orientation 1)
 						label (object SegLabel @377
 							quid "56DF25EE038B"
-							pos (5486,3431)
+							pos (5525,3455)
 							positionBySuperclass FALSE
 							anchor 2
 							max_width 187
 							label "<<Port>>"
-							pctDist 0.489477
-							height 37
+							pctDist 0.435484
+							height 68
 							orientation 1))
 					(object CapsuleVw "ArrivalSensor" @378
 						ShowCompartmentStereotypes TRUE
@@ -4983,7 +5029,7 @@
 						quidu "56DF26150011"
 						compartment (object Compartment
 							quid "56DF26150010"
-							pos (5305,2280)
+							pos (5305,2265)
 							anchor 2
 							nlines 4
 							max_width 850
@@ -4999,30 +5045,30 @@
 						quidu "56DF261D01C8"
 						label (object SegLabel @380
 							quid "56DF261D01D8"
-							pos (5157,1855)
+							pos (5125,1825)
 							positionBySuperclass FALSE
-							max_width 325
+							max_width 289
 							label "arrivalSensorR1"
-							pctDist 0.330372
+							pctDist 0.353465
 							height 107
 							orientation 1)
 						positionBySuperclass FALSE
 						client @378
 						supplier @293
 						vertices (list Points
-							(5301,2063)
-							(4702,1711))
+							(5312,2063)
+							(4626,1651))
 						line_style 6144
 						label (object SegLabel @381
 							quid "56DF261D01D9"
-							pos (4929,1695)
+							pos (9898,3552)
 							hidden TRUE
 							positionBySuperclass FALSE
 							anchor 1
 							max_width 15
 							label ""
-							pctDist 0.729978
-							height 129
+							pctDist -5.871044
+							height 1085
 							orientation 1))
 					(object ProtocolVw "ArrivalSensorProtocol" @382
 						ShowCompartmentStereotypes TRUE
@@ -5050,96 +5096,15 @@
 						autoResize TRUE
 						showInSignals TRUE
 						showOutSignals TRUE)
-					(object PortRelVw ":Structure:toArrivalSensor" @383
-						quid "56DF26360096"
-						uses_fill_color FALSE
-						quidu "56DF26360097"
-						label (object SegLabel @384
-							quid "56DF263600A9"
-							pos (5194,3969)
-							positionBySuperclass FALSE
-							max_width 308
-							label "toArrivalSensor"
-							pctDist 0.533722
-							height 44)
-						positionBySuperclass FALSE
-						client @382
-						supplier @291
-						vertices (list Points
-							(6047,3768)
-							(4434,4064))
-						line_style 6144
-						label (object SegLabel @385
-							quid "56DF263600B6"
-							pos (5179,3901)
-							hidden TRUE
-							positionBySuperclass FALSE
-							anchor 1
-							max_width 15
-							label ""
-							pctDist 0.535235
-							height 25
-							orientation 1)
-						label (object SegLabel @386
-							quid "56DF263600B5"
-							pos (5308,3855)
-							positionBySuperclass FALSE
-							anchor 2
-							max_width 187
-							label "<<Port>>"
-							pctDist 0.452802
-							height 48
-							orientation 1))
-					(object PortRelVw ":Structure:toController" @387
-						quid "56DF263900C0"
-						uses_fill_color FALSE
-						quidu "56DF263900C1"
-						label (object SegLabel @388
-							quid "56DF263900D0"
-							pos (6089,3087)
-							positionBySuperclass FALSE
-							max_width 230
-							label "toController"
-							pctDist 0.483545
-							height 86
-							orientation 1)
-						positionBySuperclass FALSE
-						client @382
-						supplier @378
-						vertices (list Points
-							(6200,3647)
-							(5802,2550))
-						line_style 6144
-						label (object SegLabel @389
-							quid "56DF263900D2"
-							pos (6052,3124)
-							hidden TRUE
-							positionBySuperclass FALSE
-							anchor 1
-							max_width 15
-							label ""
-							pctDist 0.464554
-							height 39
-							orientation 1)
-						label (object SegLabel @390
-							quid "56DF263900D1"
-							pos (6031,3129)
-							positionBySuperclass FALSE
-							anchor 2
-							max_width 187
-							label "<<Port>>"
-							pctDist 0.466663
-							height 18
-							orientation 1))
-					(object PortRelVw ":Structure:toFloor" @391
+					(object PortRelVw ":Structure:toFloor" @383
 						quid "56DF29B4007C"
 						uses_fill_color FALSE
 						quidu "56DF29B4007D"
-						label (object SegLabel @392
+						label (object SegLabel @384
 							quid "56DF29B4008B"
 							pos (8878,2543)
 							positionBySuperclass FALSE
-							max_width 139
+							max_width 123
 							label "toFloor"
 							pctDist 0.466155
 							height 60
@@ -5151,7 +5116,7 @@
 							(8980,2703)
 							(8680,2460))
 						line_style 6144
-						label (object SegLabel @393
+						label (object SegLabel @385
 							quid "56DF29B4008D"
 							pos (9001,2804)
 							hidden TRUE
@@ -5161,7 +5126,7 @@
 							label ""
 							pctDist -0.206932
 							height 65)
-						label (object SegLabel @394
+						label (object SegLabel @386
 							quid "56DF29B4008C"
 							pos (8803,2614)
 							positionBySuperclass FALSE
@@ -5170,15 +5135,15 @@
 							label "<<Port>>"
 							pctDist 0.501359
 							height 43))
-					(object PortRelVw ":Structure:toCoordinator" @395
+					(object PortRelVw ":Structure:toCoordinator" @387
 						quid "56DF29B702D7"
 						uses_fill_color FALSE
 						quidu "56DF29B702D8"
-						label (object SegLabel @396
+						label (object SegLabel @388
 							quid "56DF29B702E7"
 							pos (8913,3156)
 							positionBySuperclass FALSE
-							max_width 273
+							max_width 243
 							label "toCoordinator"
 							pctDist 0.359852
 							height 92)
@@ -5189,7 +5154,7 @@
 							(9017,2880)
 							(8529,3487))
 						line_style 6144
-						label (object SegLabel @397
+						label (object SegLabel @389
 							quid "56DF29B702E9"
 							pos (9020,3039)
 							hidden TRUE
@@ -5199,7 +5164,7 @@
 							label ""
 							pctDist 0.156693
 							height 102)
-						label (object SegLabel @398
+						label (object SegLabel @390
 							quid "56DF29B702E8"
 							pos (8801,3215)
 							positionBySuperclass FALSE
@@ -5208,7 +5173,7 @@
 							label "<<Port>>"
 							pctDist 0.508995
 							height 41))
-					(object CapsuleVw "FloorButtonUp" @399
+					(object CapsuleVw "FloorButtonUp" @391
 						ShowCompartmentStereotypes TRUE
 						IncludeAttribute TRUE
 						IncludeOperation TRUE
@@ -5230,7 +5195,7 @@
 						quidu "56DF2A160241"
 						compartment (object Compartment
 							quid "56DF2A160240"
-							pos (9721,3504)
+							pos (9721,3508)
 							anchor 2
 							nlines 5
 							max_width 1059
@@ -5240,27 +5205,27 @@
 						annotation 8
 						autoResize TRUE
 						showPorts TRUE)
-					(object CapsuleRoleRelVw ":Structure:floorButtonUpR1" @400
+					(object CapsuleRoleRelVw ":Structure:floorButtonUpR1" @392
 						quid "56DF2A380258"
 						uses_fill_color FALSE
 						quidu "56DF2A380259"
-						label (object SegLabel @401
+						label (object SegLabel @393
 							quid "56DF2A380268"
 							pos (9303,3602)
 							positionBySuperclass FALSE
-							max_width 343
+							max_width 305
 							label "floorButtonUpR1"
 							pctDist 0.423203
 							height 50
 							orientation 1)
 						positionBySuperclass FALSE
-						client @399
+						client @391
 						supplier @300
 						vertices (list Points
 							(9711,3600)
 							(8762,3722))
 						line_style 6144
-						label (object SegLabel @402
+						label (object SegLabel @394
 							quid "56DF2A380269"
 							pos (9582,3816)
 							hidden TRUE
@@ -5270,7 +5235,7 @@
 							label ""
 							pctDist 0.162507
 							height 198))
-					(object ProtocolVw "ElevatorProtocol" @403
+					(object ProtocolVw "ElevatorProtocol" @395
 						ShowCompartmentStereotypes TRUE
 						IncludeAttribute TRUE
 						IncludeOperation TRUE
@@ -5296,7 +5261,7 @@
 						autoResize TRUE
 						showInSignals TRUE
 						showOutSignals TRUE)
-					(object CapsuleVw "EButtonLight" @404
+					(object CapsuleVw "EButtonLight" @396
 						ShowCompartmentStereotypes TRUE
 						IncludeAttribute TRUE
 						IncludeOperation TRUE
@@ -5318,7 +5283,7 @@
 						quidu "56DF2DEA0278"
 						compartment (object Compartment
 							quid "56DF2DEA0277"
-							pos (521,1960)
+							pos (521,1945)
 							anchor 2
 							nlines 4
 							max_width 820
@@ -5328,27 +5293,27 @@
 						annotation 24
 						autoResize TRUE
 						showPorts TRUE)
-					(object CapsuleRoleRelVw ":Structure:eButtonLightR1" @405
+					(object CapsuleRoleRelVw ":Structure:eButtonLightR1" @397
 						quid "56DF2DF80232"
 						uses_fill_color FALSE
 						quidu "56DF2DF80233"
-						label (object SegLabel @406
+						label (object SegLabel @398
 							quid "56DF2DF80242"
 							pos (1675,2058)
 							positionBySuperclass FALSE
-							max_width 321
+							max_width 285
 							label "eButtonLightR1"
 							pctDist 0.487954
 							height 62
 							orientation 1)
 						positionBySuperclass FALSE
-						client @404
+						client @396
 						supplier @298
 						vertices (list Points
 							(1320,1997)
 							(2047,1994))
 						line_style 6144
-						label (object SegLabel @407
+						label (object SegLabel @399
 							quid "56DF2DF80243"
 							pos (1544,1890)
 							hidden TRUE
@@ -5356,113 +5321,121 @@
 							anchor 1
 							max_width 15
 							label ""
-							pctDist 0.308718
-							height 106))
-					(object ProtocolVw "EButtonLightProtocol" @408
+							pctDist 2.326197
+							height 1900
+							orientation 1))
+					(object ProtocolVw "EButtonLightProtocol" @400
 						ShowCompartmentStereotypes TRUE
 						IncludeAttribute TRUE
 						IncludeOperation TRUE
 						showAggregations TRUE
 						quid "56DF2E1D0206"
-						pos (1557,1448)
+						pos (1557,1446)
 						label (object ItemLabel
 							quid "56DF2E1D0207"
-							pos (1385,1442)
+							pos (1385,1411)
 							max_width 344
 							label "EButtonLightProtocol")
 						stereotype (object ItemLabel
 							quid "56DF2E1D025D"
-							pos (1385,1386)
+							pos (1385,1370)
 							anchor 10
 							max_width 344
 							label "<<Protocol>>")
 						icon_style "Decoration"
 						quidu "56DF2E1D0254"
+						compartment (object Compartment
+							pos (1385,1473)
+							anchor 2
+							nlines 2
+							max_width 263
+							justify 1)
 						width 362
-						height 208
+						height 236
 						annotation 8
 						autoResize TRUE
 						showInSignals TRUE
 						showOutSignals TRUE)
-					(object PortRelVw ":Structure:toEButton" @409
+					(object PortRelVw ":Structure:toEButton" @401
 						quid "56DF2E3101B8"
 						uses_fill_color FALSE
 						quidu "56DF2E3101B9"
-						label (object SegLabel @410
+						label (object SegLabel @402
 							quid "56DF2E3101C8"
-							pos (1307,1616)
+							pos (1298,1622)
 							positionBySuperclass FALSE
-							max_width 204
+							max_width 181
 							label "toEButton"
-							pctDist 0.472223
+							pctDist 0.469541
 							height 35
 							orientation 1)
 						positionBySuperclass FALSE
-						client @408
-						supplier @404
+						client @400
+						supplier @396
 						vertices (list Points
-							(1434,1552)
-							(1213,1743))
+							(1417,1564)
+							(1212,1743))
 						line_style 6144
-						label (object SegLabel @411
+						label (object SegLabel @403
 							quid "56DF2E3101CA"
-							pos (1407,1647)
+							pos (2722,3300)
 							hidden TRUE
 							positionBySuperclass FALSE
 							anchor 1
 							max_width 15
 							label ""
-							pctDist 0.282600
-							height 54)
-						label (object SegLabel @412
+							pctDist 0.583520
+							height 2167)
+						label (object SegLabel @404
 							quid "56DF2E3101C9"
-							pos (1368,1679)
+							pos (1359,1685)
 							positionBySuperclass FALSE
 							anchor 2
 							max_width 187
 							label "<<Port>>"
-							pctDist 0.455252
+							pctDist 0.452961
 							height 53))
-					(object PortRelVw ":Structure:toEButtonLight" @413
+					(object PortRelVw ":Structure:toEButtonLight" @405
 						quid "56DF2E390360"
 						uses_fill_color FALSE
 						quidu "56DF2E390361"
-						label (object SegLabel @414
+						label (object SegLabel @406
 							quid "56DF2E390371"
-							pos (1987,1582)
+							pos (1988,1581)
 							positionBySuperclass FALSE
-							max_width 304
+							max_width 270
 							label "toEButtonLight"
-							pctDist 0.647947
+							pctDist 0.647888
 							height 99)
 						positionBySuperclass FALSE
-						client @408
+						client @400
 						supplier @298
 						vertices (list Points
-							(1736,1552)
-							(2047,1731))
+							(1738,1551)
+							(2047,1730))
 						line_style 6144
-						label (object SegLabel @415
+						label (object SegLabel @407
 							quid "56DF2E390373"
-							pos (1867,1563)
+							pos (3760,3204)
 							hidden TRUE
 							positionBySuperclass FALSE
 							anchor 1
 							max_width 15
 							label ""
-							pctDist 0.331697
-							height 56)
-						label (object SegLabel @416
+							pctDist 5.432430
+							height 420
+							orientation 1)
+						label (object SegLabel @408
 							quid "56DF2E390372"
-							pos (1915,1688)
+							pos (1916,1687)
 							positionBySuperclass FALSE
 							anchor 2
 							max_width 187
 							label "<<Port>>"
-							pctDist 0.621402
-							height 29
+							pctDist 0.586881
+							height 28
 							orientation 1))
-					(object ProtocolVw "ControllerProtocol" @417
+					(object ProtocolVw "ControllerProtocol" @409
 						ShowCompartmentStereotypes TRUE
 						IncludeAttribute TRUE
 						IncludeOperation TRUE
@@ -5488,24 +5461,24 @@
 						autoResize TRUE
 						showInSignals TRUE
 						showOutSignals TRUE)
-					(object PortRelVw ":Structure:toElevator" @418
+					(object PortRelVw ":Structure:toElevator" @410
 						quid "56DF2F93015C"
 						uses_fill_color FALSE
 						quidu "56DF2F93015D"
-						label (object SegLabel @419
+						label (object SegLabel @411
 							quid "56DF2F93017F"
 							pos (3695,3053)
-							max_width 208
+							max_width 185
 							label "toElevator"
 							pctDist 0.239613
 							height 53)
-						client @417
+						client @409
 						supplier @291
 						vertices (list Points
 							(3590,2858)
 							(3816,3727))
 						line_style 6144
-						label (object SegLabel @420
+						label (object SegLabel @412
 							quid "56DF2F930181"
 							pos (3691,2973)
 							hidden TRUE
@@ -5514,7 +5487,7 @@
 							label ""
 							pctDist 0.152264
 							height 69)
-						label (object SegLabel @421
+						label (object SegLabel @413
 							quid "56DF2F930180"
 							pos (3744,3285)
 							anchor 2
@@ -5522,157 +5495,162 @@
 							label "<<Port>>"
 							pctDist 0.503409
 							height 41))
-					(object PortRelVw ":Structure:toController" @422
+					(object PortRelVw ":Structure:toController" @414
 						quid "56DF2F99021E"
 						uses_fill_color FALSE
 						quidu "56DF2F99021F"
-						label (object SegLabel @423
+						label (object SegLabel @415
 							quid "56DF2F99022D"
-							pos (3768,2455)
-							max_width 230
+							pos (3765,2485)
+							max_width 204
 							label "toController"
-							pctDist 0.239658
-							height 29
+							pctDist 0.225156
+							height 34
 							orientation 1)
-						client @417
+						client @409
 						supplier @293
 						vertices (list Points
-							(3622,2655)
-							(4128,1762))
+							(3625,2655)
+							(4119,1824))
 						line_style 6144
-						label (object SegLabel @424
+						label (object SegLabel @416
 							quid "56DF2F99022F"
-							pos (3734,2537)
+							pos (7606,4776)
 							hidden TRUE
 							anchor 1
 							max_width 15
 							label ""
-							pctDist 0.153819
-							height 39
+							pctDist 0.218343
+							height 4505
 							orientation 1)
-						label (object SegLabel @425
+						label (object SegLabel @417
 							quid "56DF2F99022E"
-							pos (3835,2199)
+							pos (3832,2229)
 							anchor 2
 							max_width 187
 							label "<<Port>>"
-							pctDist 0.488840
+							pctDist 0.488193
 							height 39))
-					(object PortRelVw ":Structure:toController" @426
+					(object PortRelVw ":Structure:toController" @418
 						quid "56D86CFC02BE"
 						uses_fill_color FALSE
 						quidu "56D86CFC02BF"
-						label (object SegLabel @427
+						label (object SegLabel @419
 							quid "56D86CFC02CD"
-							pos (1739,2399)
+							pos (1730,2413)
 							positionBySuperclass FALSE
-							max_width 230
+							max_width 204
 							label "toController"
-							pctDist 0.545037
+							pctDist 0.543680
 							height 69
 							orientation 1)
 						positionBySuperclass FALSE
 						client @328
 						supplier @298
 						vertices (list Points
-							(1310,2512)
-							(2047,2190))
+							(1290,2536)
+							(2047,2194))
 						line_style 6144
-						label (object SegLabel @428
+						label (object SegLabel @420
 							quid "56D86CFC02CF"
-							pos (3517,5599)
+							pos (5130,7990)
 							hidden TRUE
 							positionBySuperclass FALSE
 							anchor 1
 							max_width 15
 							label ""
-							pctDist 0.977881
-							height 3712
+							pctDist 1.509554
+							height 6551
 							orientation 1)
-						label (object SegLabel @429
+						label (object SegLabel @421
 							quid "56D86CFC02CE"
-							pos (1659,2325)
+							pos (1594,2365)
 							positionBySuperclass FALSE
 							anchor 2
 							max_width 134
 							label "<<Port>>"
-							pctDist 0.490725
-							height 32))
-					(object PortRelVw ":Structure:toEButton" @430
+							pctDist 0.418267
+							height 31))
+					(object PortRelVw ":Structure:toEButton" @422
 						quid "56DF2DD801C9"
 						uses_fill_color FALSE
 						quidu "56DF2DD801CA"
-						label (object SegLabel @431
+						label (object SegLabel @423
 							quid "56DF2DD801E8"
-							pos (1726,4280)
+							pos (1729,4271)
 							positionBySuperclass FALSE
-							max_width 204
+							max_width 181
 							label "toEButton"
-							pctDist 0.469580
-							height 75
+							pctDist 0.470765
+							height 77
 							orientation 1)
 						positionBySuperclass FALSE
 						client @328
 						supplier @291
 						vertices (list Points
-							(1121,2772)
+							(1167,2734)
 							(1920,4527)
 							(3423,4250))
 						line_style 6144
-						label (object SegLabel @432
+						label (object SegLabel @424
 							quid "56DF2DD801EA"
-							pos (2212,2289)
+							pos (4052,6625)
 							hidden TRUE
 							positionBySuperclass FALSE
 							anchor 1
 							max_width 15
 							label ""
-							pctDist 0.003607
-							height 1193)
-						label (object SegLabel @433
+							pctDist 1.123093
+							height 2450
+							orientation 1)
+						label (object SegLabel @425
 							quid "56DF2DD801E9"
-							pos (1878,4352)
+							pos (1881,4343)
 							positionBySuperclass FALSE
 							anchor 2
 							max_width 187
 							label "<<Port>>"
-							pctDist 0.506758
-							height 34))
-					(object PortRelVw ":Structure:toEmergencyBrake" @434
+							pctDist 0.506831
+							height 36))
+					(object PortRelVw ":Structure:toEmergencyBrake" @426
 						quid "56DF321D028B"
 						uses_fill_color FALSE
 						quidu "56DF321D028C"
-						label (object SegLabel @435
+						label (object SegLabel @427
 							quid "56DF321D02B0"
-							pos (4658,3607)
-							max_width 391
+							pos (4587,3650)
+							positionBySuperclass FALSE
+							max_width 347
 							label "toEmergencyBrake"
-							pctDist 0.184836
-							height 44)
+							pctDist 0.283828
+							height 50)
+						positionBySuperclass FALSE
 						client @323
 						supplier @291
 						vertices (list Points
-							(4674,3536)
-							(4434,3736))
+							(4607,3567)
+							(4422,3727))
 						line_style 6144
-						label (object SegLabel @436
+						label (object SegLabel @428
 							quid "56DF321D02B2"
-							pos (4721,3658)
+							pos (9236,7305)
 							hidden TRUE
+							positionBySuperclass FALSE
 							anchor 1
 							max_width 15
 							label ""
-							pctDist 0.134426
-							height 124)
-						label (object SegLabel @437
+							pctDist -4.317342
+							height 5855)
+						label (object SegLabel @429
 							quid "56DF321D02B1"
-							pos (4610,3731)
+							pos (4571,3742)
+							positionBySuperclass FALSE
 							anchor 2
 							max_width 187
 							label "<<Port>>"
-							pctDist 0.556967
-							height 109))
-					(object ProtocolVw "FButtonUpProtocol" @438
+							pctDist 0.579356
+							height 108))
+					(object ProtocolVw "FButtonUpProtocol" @430
 						ShowCompartmentStereotypes TRUE
 						IncludeAttribute TRUE
 						IncludeOperation TRUE
@@ -5694,7 +5672,7 @@
 						quidu "56DF339A0147"
 						compartment (object Compartment
 							quid "56DF339A0158"
-							pos (9113,3199)
+							pos (9113,3184)
 							anchor 2
 							nlines 3
 							max_width 303
@@ -5705,7 +5683,7 @@
 						autoResize TRUE
 						showInSignals TRUE
 						showOutSignals TRUE)
-					(object ProtocolVw "FButtonDownProtocol" @439
+					(object ProtocolVw "FButtonDownProtocol" @431
 						ShowCompartmentStereotypes TRUE
 						IncludeAttribute TRUE
 						IncludeOperation TRUE
@@ -5727,7 +5705,7 @@
 						quidu "56DF33A8012E"
 						compartment (object Compartment
 							quid "56DF33A8013C"
-							pos (9097,4463)
+							pos (9097,4448)
 							anchor 2
 							nlines 3
 							max_width 303
@@ -5738,15 +5716,15 @@
 						autoResize TRUE
 						showInSignals TRUE
 						showOutSignals TRUE)
-					(object CapsuleRoleRelVw ":Structure:floorButtonDownR1" @440
+					(object CapsuleRoleRelVw ":Structure:floorButtonDownR1" @432
 						quid "56DF34C9002D"
 						uses_fill_color FALSE
 						quidu "56DF34C9002E"
-						label (object SegLabel @441
+						label (object SegLabel @433
 							quid "56DF34C9003A"
 							pos (9386,3999)
 							positionBySuperclass FALSE
-							max_width 404
+							max_width 359
 							label "floorButtonDownR1"
 							pctDist 0.340444
 							height 38
@@ -5758,7 +5736,7 @@
 							(9695,4110)
 							(8762,3893))
 						line_style 6144
-						label (object SegLabel @442
+						label (object SegLabel @434
 							quid "56DF34C9003B"
 							pos (9543,4125)
 							hidden TRUE
@@ -5768,27 +5746,27 @@
 							label ""
 							pctDist 0.151007
 							height 49))
-					(object PortRelVw ":Structure:toFButtonUp" @443
+					(object PortRelVw ":Structure:toFButtonUp" @435
 						quid "56DF34E901DB"
 						uses_fill_color FALSE
 						quidu "56DF34E901DC"
-						label (object SegLabel @444
+						label (object SegLabel @436
 							quid "56DF34E901F1"
 							pos (8913,3377)
 							positionBySuperclass FALSE
-							max_width 260
+							max_width 231
 							label "toFButtonUp"
 							pctDist 0.499052
 							height 39
 							orientation 1)
 						positionBySuperclass FALSE
-						client @438
+						client @430
 						supplier @300
 						vertices (list Points
 							(9103,3313)
 							(8762,3510))
 						line_style 6144
-						label (object SegLabel @445
+						label (object SegLabel @437
 							quid "56DF34E901F3"
 							pos (9140,3407)
 							hidden TRUE
@@ -5798,7 +5776,7 @@
 							label ""
 							pctDist 0.038049
 							height 100)
-						label (object SegLabel @446
+						label (object SegLabel @438
 							quid "56DF34E901F2"
 							pos (8944,3452)
 							positionBySuperclass FALSE
@@ -5807,26 +5785,26 @@
 							label "<<Port>>"
 							pctDist 0.526159
 							height 40))
-					(object PortRelVw ":Structure:toFloor" @447
+					(object PortRelVw ":Structure:toFloor" @439
 						quid "56DF34ED009B"
 						uses_fill_color FALSE
 						quidu "56DF34ED009C"
-						label (object SegLabel @448
+						label (object SegLabel @440
 							quid "56DF34ED00AC"
 							pos (9548,3259)
 							positionBySuperclass FALSE
-							max_width 139
+							max_width 123
 							label "toFloor"
 							pctDist 0.298465
 							height 37)
 						positionBySuperclass FALSE
-						client @438
-						supplier @399
+						client @430
+						supplier @391
 						vertices (list Points
 							(9462,3270)
 							(9711,3352))
 						line_style 6144
-						label (object SegLabel @449
+						label (object SegLabel @441
 							quid "56DF34ED00AE"
 							pos (9534,3244)
 							hidden TRUE
@@ -5836,7 +5814,7 @@
 							label ""
 							pctDist 0.229844
 							height 47)
-						label (object SegLabel @450
+						label (object SegLabel @442
 							quid "56DF34ED00AD"
 							pos (9548,3335)
 							positionBySuperclass FALSE
@@ -5846,26 +5824,26 @@
 							pctDist 0.389145
 							height 35
 							orientation 1))
-					(object PortRelVw ":Structure:toFButtonDown" @451
+					(object PortRelVw ":Structure:toFButtonDown" @443
 						quid "56DF34F101BB"
 						uses_fill_color FALSE
 						quidu "56DF34F101BC"
-						label (object SegLabel @452
+						label (object SegLabel @444
 							quid "56DF34F101D5"
 							pos (8966,4306)
 							positionBySuperclass FALSE
-							max_width 321
+							max_width 285
 							label "toFButtonDown"
 							pctDist 0.263754
 							height 39)
 						positionBySuperclass FALSE
-						client @439
+						client @431
 						supplier @300
 						vertices (list Points
 							(9087,4343)
 							(8715,4080))
 						line_style 6144
-						label (object SegLabel @453
+						label (object SegLabel @445
 							quid "56DF34F101D7"
 							pos (9074,4358)
 							hidden TRUE
@@ -5875,7 +5853,7 @@
 							label ""
 							pctDist 0.004293
 							height 19)
-						label (object SegLabel @454
+						label (object SegLabel @446
 							quid "56DF34F101D6"
 							pos (8867,4216)
 							positionBySuperclass FALSE
@@ -5884,26 +5862,26 @@
 							label "<<Port>>"
 							pctDist 0.555237
 							height 23))
-					(object PortRelVw ":Structure:toFloor" @455
+					(object PortRelVw ":Structure:toFloor" @447
 						quid "56DF34F5000A"
 						uses_fill_color FALSE
 						quidu "56DF34F5000B"
-						label (object SegLabel @456
+						label (object SegLabel @448
 							quid "56DF34F5001D"
 							pos (9539,4373)
 							positionBySuperclass FALSE
-							max_width 139
+							max_width 123
 							label "toFloor"
 							pctDist 0.373967
 							height 42)
 						positionBySuperclass FALSE
-						client @439
+						client @431
 						supplier @297
 						vertices (list Points
 							(9460,4433)
 							(9695,4382))
 						line_style 6144
-						label (object SegLabel @457
+						label (object SegLabel @449
 							quid "56DF34F5001F"
 							pos (9527,4362)
 							hidden TRUE
@@ -5913,7 +5891,7 @@
 							label ""
 							pctDist 0.334901
 							height 55)
-						label (object SegLabel @458
+						label (object SegLabel @450
 							quid "56DF34F5001E"
 							pos (9571,4448)
 							positionBySuperclass FALSE
@@ -5923,7 +5901,7 @@
 							pctDist 0.437865
 							height 38
 							orientation 1))
-					(object CapsuleVw "FButtonDownLamp" @459
+					(object CapsuleVw "FButtonDownLamp" @451
 						ShowCompartmentStereotypes TRUE
 						IncludeAttribute TRUE
 						IncludeOperation TRUE
@@ -5945,7 +5923,7 @@
 						quidu "56DF36D7006A"
 						compartment (object Compartment
 							quid "56DF36D70068"
-							pos (11465,4240)
+							pos (11465,4244)
 							anchor 2
 							nlines 4
 							max_width 1067
@@ -5955,26 +5933,26 @@
 						annotation 8
 						autoResize TRUE
 						showPorts TRUE)
-					(object CapsuleRoleRelVw ":Structure:fButtonDownLampR1" @460
+					(object CapsuleRoleRelVw ":Structure:fButtonDownLampR1" @452
 						quid "56DF36FA0195"
 						uses_fill_color FALSE
 						quidu "56DF36FA0196"
-						label (object SegLabel @461
+						label (object SegLabel @453
 							quid "56DF36FA01A6"
 							pos (11214,4302)
 							positionBySuperclass FALSE
-							max_width 443
+							max_width 394
 							label "fButtonDownLampR1"
 							pctDist 0.431873
 							height 58)
 						positionBySuperclass FALSE
-						client @459
+						client @451
 						supplier @297
 						vertices (list Points
 							(11455,4242)
 							(10896,4246))
 						line_style 6144
-						label (object SegLabel @462
+						label (object SegLabel @454
 							quid "56DF36FA01A7"
 							pos (11418,4276)
 							hidden TRUE
@@ -5984,7 +5962,7 @@
 							label ""
 							pctDist 0.066621
 							height 34))
-					(object CapsuleVw "FButtonUpLamp" @463
+					(object CapsuleVw "FButtonUpLamp" @455
 						ShowCompartmentStereotypes TRUE
 						IncludeAttribute TRUE
 						IncludeOperation TRUE
@@ -6006,7 +5984,7 @@
 						quidu "56DF37000093"
 						compartment (object Compartment
 							quid "56DF37000092"
-							pos (11497,3572)
+							pos (11497,3557)
 							anchor 2
 							nlines 4
 							max_width 946
@@ -6016,26 +5994,26 @@
 						annotation 8
 						autoResize TRUE
 						showPorts TRUE)
-					(object CapsuleRoleRelVw ":Structure:fButtonUpLampR1" @464
+					(object CapsuleRoleRelVw ":Structure:fButtonUpLampR1" @456
 						quid "56DF370B02F0"
 						uses_fill_color FALSE
 						quidu "56DF370B02F1"
-						label (object SegLabel @465
+						label (object SegLabel @457
 							quid "56DF370B0301"
 							pos (11208,3590)
 							positionBySuperclass FALSE
-							max_width 382
+							max_width 340
 							label "fButtonUpLampR1"
 							pctDist 0.400890
 							height 53)
 						positionBySuperclass FALSE
-						client @463
-						supplier @399
+						client @455
+						supplier @391
 						vertices (list Points
 							(11487,3539)
 							(10792,3534))
 						line_style 6144
-						label (object SegLabel @466
+						label (object SegLabel @458
 							quid "56DF370B0302"
 							pos (11422,3584)
 							hidden TRUE
@@ -6045,21 +6023,21 @@
 							label ""
 							pctDist 0.093055
 							height 45))
-					(object ProtocolVw "FButtonUpLampProtocol" @467
+					(object ProtocolVw "FButtonUpLampProtocol" @459
 						ShowCompartmentStereotypes TRUE
 						IncludeAttribute TRUE
 						IncludeOperation TRUE
 						showAggregations TRUE
 						quid "56DF37670349"
-						pos (11166,2827)
+						pos (11166,2822)
 						label (object ItemLabel
 							quid "56DF3767034A"
-							pos (10969,2738)
+							pos (10969,2755)
 							max_width 394
 							label "FButtonUpLampProtocol")
 						stereotype (object ItemLabel
 							quid "56DF376703AF"
-							pos (10969,2682)
+							pos (10969,2714)
 							anchor 10
 							max_width 394
 							label "<<Protocol>>")
@@ -6067,100 +6045,100 @@
 						quidu "56DF376703A6"
 						compartment (object Compartment
 							quid "56DF376703B0"
-							pos (10969,2815)
+							pos (10969,2813)
 							anchor 2
 							nlines 3
-							max_width 277
+							max_width 247
 							justify 1)
 						width 412
-						height 374
+						height 300
 						annotation 8
 						autoResize TRUE
 						showInSignals TRUE
 						showOutSignals TRUE)
-					(object PortRelVw ":Structure:toFButtonUpLamp" @468
+					(object PortRelVw ":Structure:toFButtonUpLamp" @460
 						quid "56DF37740298"
 						uses_fill_color FALSE
 						quidu "56DF37740299"
-						label (object SegLabel @469
+						label (object SegLabel @461
 							quid "56DF377402B7"
-							pos (10851,3128)
-							max_width 373
+							pos (10855,3121)
+							max_width 332
 							label "toFButtonUpLamp"
-							pctDist 0.324539
+							pctDist 0.327990
 							height 48)
-						client @467
-						supplier @399
+						client @459
+						supplier @391
 						vertices (list Points
-							(10959,2984)
-							(10536,3311))
+							(10969,2972)
+							(10532,3311))
 						line_style 6144
-						label (object SegLabel @470
+						label (object SegLabel @462
 							quid "56DF377402B9"
-							pos (10884,3120)
+							pos (21574,6261)
 							hidden TRUE
 							anchor 1
 							max_width 15
 							label ""
-							pctDist 0.266555
-							height 62)
-						label (object SegLabel @471
+							pctDist -11.505489
+							height 9098)
+						label (object SegLabel @463
 							quid "56DF377402B8"
-							pos (10771,3183)
+							pos (10775,3176)
 							anchor 2
 							max_width 187
 							label "<<Port>>"
-							pctDist 0.505835
-							height 43))
-					(object PortRelVw ":Structure:toFButtonUp" @472
+							pctDist 0.503233
+							height 42))
+					(object PortRelVw ":Structure:toFButtonUp" @464
 						quid "56DF377D0103"
 						uses_fill_color FALSE
 						quidu "56DF377D0104"
-						label (object SegLabel @473
+						label (object SegLabel @465
 							quid "56DF377D0113"
-							pos (11520,3096)
-							max_width 260
+							pos (11500,3075)
+							max_width 231
 							label "toFButtonUp"
-							pctDist 0.326333
-							height 40)
-						client @467
-						supplier @463
+							pctDist 0.343822
+							height 39)
+						client @459
+						supplier @455
 						vertices (list Points
-							(11371,3014)
-							(11746,3355))
+							(11330,2972)
+							(11748,3355))
 						line_style 6144
-						label (object SegLabel @474
+						label (object SegLabel @466
 							quid "56DF377D0115"
-							pos (11506,3067)
+							pos (21563,6231)
 							hidden TRUE
 							anchor 1
 							max_width 15
 							label ""
-							pctDist 0.267405
-							height 52)
-						label (object SegLabel @475
+							pctDist 17.191561
+							height 4510)
+						label (object SegLabel @467
 							quid "56DF377D0114"
-							pos (11587,3154)
+							pos (11567,3133)
 							anchor 2
 							max_width 187
 							label "<<Port>>"
-							pctDist 0.501117
+							pctDist 0.500070
 							height 42))
-					(object ProtocolVw "FButtonDownLampProtocol" @476
+					(object ProtocolVw "FButtonDownLampProtocol" @468
 						ShowCompartmentStereotypes TRUE
 						IncludeAttribute TRUE
 						IncludeOperation TRUE
 						showAggregations TRUE
 						quid "56DF37AD0207"
-						pos (11235,4875)
+						pos (11235,4870)
 						label (object ItemLabel
 							quid "56DF37AD0208"
-							pos (11017,4786)
+							pos (11017,4803)
 							max_width 436
 							label "FButtonDownLampProtocol")
 						stereotype (object ItemLabel
 							quid "56DF37AD028D"
-							pos (11017,4730)
+							pos (11017,4762)
 							anchor 10
 							max_width 436
 							label "<<Protocol>>")
@@ -6168,169 +6146,107 @@
 						quidu "56DF37AD0284"
 						compartment (object Compartment
 							quid "56DF37AD028E"
-							pos (11017,4863)
+							pos (11017,4861)
 							anchor 2
 							nlines 3
-							max_width 277
+							max_width 247
 							justify 1)
 						width 454
-						height 374
+						height 300
 						annotation 8
 						autoResize TRUE
 						showInSignals TRUE
 						showOutSignals TRUE)
-					(object PortRelVw ":Structure:toFButtonDownLamp" @477
+					(object PortRelVw ":Structure:toFButtonDownLamp" @469
 						quid "56DF37B903D8"
 						uses_fill_color FALSE
 						quidu "56DF37B903D9"
-						label (object SegLabel @478
+						label (object SegLabel @470
 							quid "56DF37BA000F"
-							pos (10704,4664)
+							pos (10706,4662)
 							positionBySuperclass FALSE
-							max_width 434
+							max_width 386
 							label "toFButtonDownLamp"
-							pctDist 0.627394
+							pctDist 0.628777
 							height 118)
 						positionBySuperclass FALSE
-						client @476
+						client @468
 						supplier @297
 						vertices (list Points
-							(11007,4723)
-							(10628,4472))
+							(11007,4719)
+							(10631,4472))
 						line_style 6144
-						label (object SegLabel @479
+						label (object SegLabel @471
 							quid "56DF37BA0011"
-							pos (10881,4707)
+							pos (21574,9302)
 							hidden TRUE
 							positionBySuperclass FALSE
 							anchor 1
 							max_width 15
 							label ""
-							pctDist 0.250530
-							height 56)
-						label (object SegLabel @480
+							pctDist -25.225155
+							height 1971
+							orientation 1)
+						label (object SegLabel @472
 							quid "56DF37BA0010"
-							pos (10890,4583)
+							pos (10892,4581)
 							positionBySuperclass FALSE
 							anchor 2
 							max_width 187
 							label "<<Port>>"
-							pctDist 0.384641
-							height 52
+							pctDist 0.382074
+							height 53
 							orientation 1))
-					(object PortRelVw ":Structure:toFButtonDown" @481
+					(object PortRelVw ":Structure:toFButtonDown" @473
 						quid "56DF37BD01FD"
 						uses_fill_color FALSE
 						quidu "56DF37BD01FE"
-						label (object SegLabel @482
+						label (object SegLabel @474
 							quid "56DF37BD021D"
-							pos (11520,4589)
-							max_width 321
+							pos (11498,4604)
+							max_width 285
 							label "toFButtonDown"
-							pctDist 0.273278
+							pctDist 0.301700
 							height 36)
-						client @476
-						supplier @459
+						client @468
+						supplier @451
 						vertices (list Points
-							(11459,4687)
-							(11767,4430))
+							(11415,4719)
+							(11766,4430))
 						line_style 6144
-						label (object SegLabel @483
+						label (object SegLabel @475
 							quid "56DF37BD021F"
-							pos (11489,4600)
+							pos (21562,9174)
 							hidden TRUE
 							anchor 1
 							max_width 15
 							label ""
-							pctDist 0.196373
-							height 48)
-						label (object SegLabel @484
+							pctDist 11.000774
+							height 9889
+							orientation 1)
+						label (object SegLabel @476
 							quid "56DF37BD021E"
-							pos (11586,4529)
+							pos (11564,4544)
 							anchor 2
 							max_width 187
 							label "<<Port>>"
-							pctDist 0.495435
+							pctDist 0.497644
 							height 40))
-					(object CapsuleRoleRelVw ":Structure:floorDoorR1" @485
-						quid "56D85F89023A"
-						uses_fill_color FALSE
-						quidu "56D85F89023B"
-						label (object SegLabel @486
-							quid "56D85F89023F"
-							pos (3818,5073)
-							positionBySuperclass FALSE
-							max_width 247
-							label "floorDoorR1"
-							pctDist 0.510435
-							height 173
-							orientation 1)
-						positionBySuperclass FALSE
-						client @295
-						supplier @291
-						vertices (list Points
-							(3509,5471)
-							(3791,4588))
-						line_style 6144
-						label (object SegLabel @487
-							quid "56D85F890240"
-							pos (5987,6539)
-							hidden TRUE
-							positionBySuperclass FALSE
-							anchor 1
-							max_width 15
-							label ""
-							pctDist -0.284269
-							height 2685
-							orientation 1))
-					(object CapsuleRoleRelVw ":Structure:floorDoorR1" @488
-						quid "56DF3C6E00D3"
-						uses_fill_color FALSE
-						quidu "56DF3C6E00D4"
-						label (object SegLabel @489
-							quid "56DF3C6E00E7"
-							pos (2500,3606)
-							positionBySuperclass FALSE
-							max_width 247
-							label "floorDoorR1"
-							pctDist 0.312941
-							height 1740
-							orientation 1)
-						positionBySuperclass FALSE
-						client @295
-						supplier @293
-						vertices (list Points
-							(3071,5638)
-							(1135,5022)
-							(397,2789)
-							(414,1239)
-							(2972,1239)
-							(3887,1399))
-						line_style 6144
-						label (object SegLabel @490
-							quid "56DF3C6E00E8"
-							pos (344,2537)
-							positionBySuperclass FALSE
-							anchor 1
-							max_width 15
-							label "4"
-							pctDist 0.492027
-							height 56))
-					(object CapsuleVw "ElevatorSystem" @491
+					(object CapsuleVw "ElevatorSystem" @477
 						ShowCompartmentStereotypes TRUE
 						IncludeAttribute TRUE
 						IncludeOperation TRUE
 						showAggregations TRUE
 						quid "56DF4BDB022A"
-						pos (5621,483)
+						pos (5621,611)
 						label (object ItemLabel
 							quid "56DF4BDB022B"
-							pos (5401,411)
+							pos (5401,540)
 							max_width 440
 							label "ElevatorSystem")
 						stereotype (object ItemLabel
 							quid "56DF4BDB0280"
-							pos (5401,355)
+							pos (5401,483)
 							anchor 10
 							max_width 440
 							label "<<Capsule>>")
@@ -6341,132 +6257,134 @@
 						annotation 24
 						autoResize TRUE
 						showPorts TRUE)
-					(object CapsuleRoleRelVw ":Structure:central_CoordinatorR1" @492
+					(object CapsuleRoleRelVw ":Structure:central_CoordinatorR1" @478
 						quid "56DF4C130048"
 						uses_fill_color FALSE
 						quidu "56DF4C130049"
-						label (object SegLabel @493
+						label (object SegLabel @479
 							quid "56DF4C130054"
-							pos (8947,1408)
+							pos (8947,1431)
 							positionBySuperclass FALSE
-							max_width 460
+							max_width 409
 							label "central_CoordinatorR1"
-							pctDist 0.216337
-							height 11
+							pctDist 0.211782
+							height 12
 							orientation 1)
 						positionBySuperclass FALSE
 						client @292
-						supplier @491
+						supplier @477
 						vertices (list Points
 							(8684,2215)
 							(8927,2245)
 							(8944,583)
-							(5850,489))
+							(5850,608))
 						line_style 6144
-						label (object SegLabel @494
+						label (object SegLabel @480
 							quid "56DF4C130055"
-							pos (8961,1882)
+							pos (17311,2470)
 							hidden TRUE
 							positionBySuperclass FALSE
 							anchor 1
 							max_width 15
 							label ""
-							pctDist 0.121613
-							height 30
-							orientation 1))
-					(object CapsuleRoleRelVw ":Structure:local_ControllerR1" @495
+							pctDist 35.096684
+							height 804))
+					(object CapsuleRoleRelVw ":Structure:local_ControllerR1" @481
 						quid "56DF217402B8"
 						uses_fill_color FALSE
 						quidu "56DF217402B9"
-						label (object SegLabel @496
+						label (object SegLabel @482
 							quid "56DF217402BF"
-							pos (4162,2478)
-							max_width 373
+							pos (4176,2508)
+							max_width 332
 							label "local_ControllerR1"
-							pctDist 0.636009
-							height 6
+							pctDist 0.640775
+							height 3
 							orientation 1)
 						client @291
 						supplier @293
 						vertices (list Points
-							(3986,3727)
-							(4254,1762))
+							(3992,3727)
+							(4275,1824))
 						line_style 6144
-						label (object SegLabel @497
+						label (object SegLabel @483
 							quid "56DF217402C0"
-							pos (4174,2391)
+							pos (8308,5166)
 							hidden TRUE
 							anchor 1
 							max_width 15
 							label ""
-							pctDist 0.680293
-							height 6
+							pctDist -0.409831
+							height 4481
 							orientation 1))
-					(object CapsuleRoleRelVw ":Structure:elevatorR1" @498
+					(object CapsuleRoleRelVw ":Structure:elevatorR1" @484
 						quid "56DF2CAE028A"
 						uses_fill_color FALSE
 						quidu "56DF2CAE028B"
-						label (object SegLabel @499
+						label (object SegLabel @485
 							quid "56DF2CAE029B"
-							pos (6388,1610)
+							pos (6350,1605)
 							positionBySuperclass FALSE
-							max_width 226
+							max_width 201
 							label "elevatorR1"
-							pctDist 0.507126
+							pctDist 0.506938
 							height 59)
 						positionBySuperclass FALSE
 						client @293
 						supplier @292
 						vertices (list Points
-							(4702,1510)
+							(4626,1499)
 							(7504,1775)
 							(7967,1999))
 						line_style 6144
-						label (object SegLabel @500
+						label (object SegLabel @486
 							quid "56DF2CAE029C"
-							pos (6504,1647)
+							pos (12825,3309)
 							hidden TRUE
 							positionBySuperclass FALSE
 							anchor 1
 							max_width 15
 							label ""
-							pctDist 0.542870
-							height 33))
-					(object CapsuleRoleRelVw ":Structure:elevatorR1" @501
+							pctDist 10.611574
+							height 937))
+					(object CapsuleRoleRelVw ":Structure:elevatorR1" @487
 						quid "56DF4C0701B8"
 						uses_fill_color FALSE
 						quidu "56DF4C0701B9"
-						label (object SegLabel @502
+						label (object SegLabel @488
 							quid "56DF4C0701C8"
-							pos (4237,920)
-							max_width 226
+							pos (4267,944)
+							positionBySuperclass FALSE
+							max_width 201
 							label "elevatorR1"
-							pctDist 0.157161
-							height 73)
+							pctDist 0.110259
+							height 55)
+						positionBySuperclass FALSE
 						client @293
-						supplier @491
+						supplier @477
 						vertices (list Points
-							(4302,1183)
+							(4324,1119)
 							(4319,599)
-							(5391,502))
+							(5391,608))
 						line_style 6144
-						label (object SegLabel @503
+						label (object SegLabel @489
 							quid "56DF4C0701C9"
-							pos (4223,1129)
+							pos (4621,561)
+							positionBySuperclass FALSE
 							anchor 1
 							max_width 15
 							label "2"
-							pctDist 0.031118
-							height 81))
-					(object CapsuleRoleRelVw ":Structure:floorR1" @504
+							pctDist 0.516118
+							height 41))
+					(object CapsuleRoleRelVw ":Structure:floorR1" @490
 						quid "56D86ADB0169"
 						uses_fill_color FALSE
 						quidu "56D86ADB016A"
-						label (object SegLabel @505
+						label (object SegLabel @491
 							quid "56D86ADB016F"
 							pos (8405,2940)
 							positionBySuperclass FALSE
-							max_width 148
+							max_width 131
 							label "floorR1"
 							pctDist 0.534526
 							height 96
@@ -6478,7 +6396,7 @@
 							(8298,3487)
 							(8319,2460))
 						line_style 6144
-						label (object SegLabel @506
+						label (object SegLabel @492
 							quid "56D86ADB0170"
 							pos (8360,3044)
 							hidden TRUE
@@ -6489,30 +6407,30 @@
 							pctDist 0.432407
 							height 53
 							orientation 1))
-					(object CapsuleRoleRelVw ":Structure:floorR1" @507
+					(object CapsuleRoleRelVw ":Structure:floorR1" @493
 						quid "56DF4CCF013E"
 						uses_fill_color FALSE
 						quidu "56DF4CCF013F"
-						label (object SegLabel @508
+						label (object SegLabel @494
 							quid "56DF4CCF014F"
 							pos (9764,4563)
 							positionBySuperclass FALSE
-							max_width 148
+							max_width 131
 							label "floorR1"
 							pctDist 0.155907
 							height 588)
 						positionBySuperclass FALSE
 						client @300
-						supplier @491
+						supplier @477
 						vertices (list Points
 							(8304,4080)
 							(8350,5146)
 							(12813,5163)
 							(12813,2479)
 							(10575,542)
-							(5850,484))
+							(5850,607))
 						line_style 6144
-						label (object SegLabel @509
+						label (object SegLabel @495
 							quid "56DF4CCF0150"
 							pos (12884,2755)
 							positionBySuperclass FALSE
@@ -6522,67 +6440,67 @@
 							pctDist 0.499277
 							height 71
 							orientation 1))
-					(object PortRelVw ":Structure:toCoordinator" @510
+					(object PortRelVw ":Structure:toCoordinator" @496
 						quid "56DF2D8A0320"
 						uses_fill_color FALSE
 						quidu "56DF2D8A0321"
-						label (object SegLabel @511
+						label (object SegLabel @497
 							quid "56DF2D8A0332"
-							pos (5504,1302)
+							pos (5467,1306)
 							positionBySuperclass FALSE
-							max_width 273
+							max_width 243
 							label "toCoordinator"
-							pctDist 0.463765
-							height 52
+							pctDist 0.464819
+							height 53
 							orientation 1)
 						positionBySuperclass FALSE
-						client @403
+						client @395
 						supplier @293
 						vertices (list Points
 							(6207,1287)
-							(4702,1432))
+							(4626,1441))
 						line_style 6144
-						label (object SegLabel @512
+						label (object SegLabel @498
 							quid "56DF2D8A0334"
-							pos (6075,1344)
+							pos (11492,2708)
 							hidden TRUE
 							positionBySuperclass FALSE
 							anchor 1
 							max_width 15
 							label ""
-							pctDist 0.090516
-							height 44)
-						label (object SegLabel @513
+							pctDist -3.224676
+							height 1927)
+						label (object SegLabel @499
 							quid "56DF2D8A0333"
-							pos (5459,1402)
+							pos (5422,1406)
 							positionBySuperclass FALSE
 							anchor 2
 							max_width 187
 							label "<<Port>>"
-							pctDist 0.499733
-							height 43))
-					(object PortRelVw ":Structure:toElevator" @514
+							pctDist 0.499117
+							height 42))
+					(object PortRelVw ":Structure:toElevator" @500
 						quid "56DF2D960290"
 						uses_fill_color FALSE
 						quidu "56DF2D960291"
-						label (object SegLabel @515
+						label (object SegLabel @501
 							quid "56DF2D9602A0"
 							pos (6906,1407)
 							positionBySuperclass FALSE
-							max_width 208
+							max_width 185
 							label "toElevator"
 							pctDist 0.150964
 							height 70
 							orientation 1)
 						positionBySuperclass FALSE
-						client @403
+						client @395
 						supplier @292
 						vertices (list Points
 							(6604,1295)
 							(8317,1533)
 							(8321,1887))
 						line_style 6144
-						label (object SegLabel @516
+						label (object SegLabel @502
 							quid "56DF2D9602A2"
 							pos (6663,1398)
 							hidden TRUE
@@ -6593,7 +6511,7 @@
 							pctDist 0.034851
 							height 94
 							orientation 1)
-						label (object SegLabel @517
+						label (object SegLabel @503
 							quid "56DF2D9602A1"
 							pos (7635,1397)
 							positionBySuperclass FALSE
@@ -6602,15 +6520,15 @@
 							label "<<Port>>"
 							pctDist 0.496858
 							height 40))
-					(object PortRelVw ":Structure:toController" @518
+					(object PortRelVw ":Structure:toController" @504
 						quid "56D86BA40042"
 						uses_fill_color FALSE
 						quidu "56D86BA40043"
-						label (object SegLabel @519
+						label (object SegLabel @505
 							quid "56D86BA40051"
 							pos (6597,3149)
 							positionBySuperclass FALSE
-							max_width 230
+							max_width 204
 							label "toController"
 							pctDist 0.526660
 							height 61)
@@ -6621,7 +6539,7 @@
 							(6612,3919)
 							(6700,2464))
 						line_style 6144
-						label (object SegLabel @520
+						label (object SegLabel @506
 							quid "56D86BA40053"
 							pos (6617,3153)
 							hidden TRUE
@@ -6631,7 +6549,7 @@
 							label ""
 							pctDist 0.524749
 							height 41)
-						label (object SegLabel @521
+						label (object SegLabel @507
 							quid "56D86BA40052"
 							pos (6690,3226)
 							positionBySuperclass FALSE
@@ -6641,15 +6559,15 @@
 							pctDist 0.477783
 							height 36
 							orientation 1))
-					(object PortRelVw ":Structure:toElevatorDoor" @522
+					(object PortRelVw ":Structure:toElevatorDoor" @508
 						quid "56DF24010291"
 						uses_fill_color FALSE
 						quidu "56DF24010292"
-						label (object SegLabel @523
+						label (object SegLabel @509
 							quid "56DF240102A1"
 							pos (5530,4034)
 							positionBySuperclass FALSE
-							max_width 308
+							max_width 274
 							label "toElevatorDoor"
 							pctDist 0.458800
 							height 41
@@ -6661,7 +6579,7 @@
 							(6463,4028)
 							(4434,4131))
 						line_style 6144
-						label (object SegLabel @524
+						label (object SegLabel @510
 							quid "56DF240102A3"
 							pos (5537,4252)
 							hidden TRUE
@@ -6671,7 +6589,7 @@
 							label ""
 							pctDist 0.460799
 							height 177)
-						label (object SegLabel @525
+						label (object SegLabel @511
 							quid "56DF240102A2"
 							pos (5418,4109)
 							positionBySuperclass FALSE
@@ -6679,7 +6597,151 @@
 							max_width 187
 							label "<<Port>>"
 							pctDist 0.515730
-							height 28))))))
+							height 28))
+					(object CapsuleRoleRelVw ":Structure:floorDoorR1" @512
+						quid "56D85F89023A"
+						uses_fill_color FALSE
+						quidu "56D85F89023B"
+						label (object SegLabel @513
+							quid "56D85F89023F"
+							pos (3818,5073)
+							positionBySuperclass FALSE
+							max_width 220
+							label "floorDoorR1"
+							pctDist 0.510435
+							height 173
+							orientation 1)
+						positionBySuperclass FALSE
+						client @295
+						supplier @291
+						vertices (list Points
+							(3509,5471)
+							(3791,4588))
+						line_style 6144
+						label (object SegLabel @514
+							quid "56D85F890240"
+							pos (5987,6539)
+							hidden TRUE
+							positionBySuperclass FALSE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist -0.284269
+							height 2685
+							orientation 1))
+					(object CapsuleRoleRelVw ":Structure:floorDoorR1" @515
+						quid "56DF3C6E00D3"
+						uses_fill_color FALSE
+						quidu "56DF3C6E00D4"
+						label (object SegLabel @516
+							quid "56DF3C6E00E7"
+							pos (2500,3538)
+							positionBySuperclass FALSE
+							max_width 220
+							label "floorDoorR1"
+							pctDist 0.315205
+							height 1762
+							orientation 1)
+						positionBySuperclass FALSE
+						client @295
+						supplier @293
+						vertices (list Points
+							(3071,5638)
+							(1135,5022)
+							(397,2788)
+							(413,1238)
+							(4031,1453))
+						line_style 6144
+						label (object SegLabel @517
+							quid "56DF3C6E00E8"
+							pos (344,2469)
+							positionBySuperclass FALSE
+							anchor 1
+							max_width 15
+							label "4"
+							pctDist 0.492041
+							height 56))
+					(object PortRelVw ":Structure:toArrivalSensor" @518
+						quid "56DF26360096"
+						uses_fill_color FALSE
+						quidu "56DF26360097"
+						label (object SegLabel @519
+							quid "56DF263600A9"
+							pos (5194,3969)
+							positionBySuperclass FALSE
+							max_width 274
+							label "toArrivalSensor"
+							pctDist 0.533722
+							height 44)
+						positionBySuperclass FALSE
+						client @382
+						supplier @291
+						vertices (list Points
+							(6047,3768)
+							(4434,4064))
+						line_style 6144
+						label (object SegLabel @520
+							quid "56DF263600B6"
+							pos (5179,3901)
+							hidden TRUE
+							positionBySuperclass FALSE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist 0.535235
+							height 25
+							orientation 1)
+						label (object SegLabel @521
+							quid "56DF263600B5"
+							pos (5308,3855)
+							positionBySuperclass FALSE
+							anchor 2
+							max_width 187
+							label "<<Port>>"
+							pctDist 0.452802
+							height 48
+							orientation 1))
+					(object PortRelVw ":Structure:toController" @522
+						quid "56DF263900C0"
+						uses_fill_color FALSE
+						quidu "56DF263900C1"
+						label (object SegLabel @523
+							quid "56DF263900D0"
+							pos (6089,3087)
+							positionBySuperclass FALSE
+							max_width 204
+							label "toController"
+							pctDist 0.483545
+							height 86
+							orientation 1)
+						positionBySuperclass FALSE
+						client @382
+						supplier @378
+						vertices (list Points
+							(6200,3647)
+							(5802,2550))
+						line_style 6144
+						label (object SegLabel @524
+							quid "56DF263900D2"
+							pos (12053,6223)
+							hidden TRUE
+							positionBySuperclass FALSE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist -3.785664
+							height 4623
+							orientation 1)
+						label (object SegLabel @525
+							quid "56DF263900D1"
+							pos (6031,3129)
+							positionBySuperclass FALSE
+							anchor 2
+							max_width 187
+							label "<<Port>>"
+							pctDist 0.466663
+							height 18
+							orientation 1))))))
 	root_subsystem (object SubSystem "Component View"
 		quid "56D85738032A"
 		physical_models (list unit_reference_list
