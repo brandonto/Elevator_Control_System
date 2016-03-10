@@ -29,6 +29,35 @@ a. Emergency brakes activated
 
 ==============================================================
 
+Use Case: Press Elevator Button Down
+
+Actor: User
+
+Precondition:
+- User is outside the elevator
+- Elevator call button not pressed
+
+Postcondition:
+- Elevator is open on floor of the user
+- User is inside the elevator
+
+Basic Flow:
+1. User presses elevator button dow
+2. Elevator motor moves
+    - Possible Exception Flow A
+3. Floor sensor senses arrival at floor
+4. Elevator motor stops
+    - Possible Exception Flow A
+5. Elevator door opens
+6. Floor door opens
+    - Possible Exception Flow A
+7. User enters elevator
+
+Exception Flow A:
+a. Emergency brakes activated
+
+==============================================================
+
 Use Case: Press Elevator Button
 
 Actor: User
@@ -86,5 +115,27 @@ a. Elevator door does not open if elevator motor is moving
 
 Exception Flow A:
 a. Emergency brakes activated
+
+==============================================================
+
+Use Case: Press Elevator Button Close
+
+Actor: User
+
+Precondition:
+- User is inside the elevator
+- Elevator door is open
+
+Postcondition:
+- Elevator door is closed
+
+Basic Flow:
+1. User presses elevator button close
+2. Elevator door closes if elevator motor is not moving
+3. Floor door closes if elevator motor is not moving
+    - Possible Alternate Flow A
+
+Alternate Flow A:
+a. Elevator motor moves if a floor is selected
 
 ==============================================================
