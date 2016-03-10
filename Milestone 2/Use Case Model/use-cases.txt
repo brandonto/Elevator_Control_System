@@ -26,6 +26,7 @@ Basic Flow:
 
 Exception Flow A:
 a. Emergency brakes activated
+b. End
 
 ==============================================================
 
@@ -55,6 +56,7 @@ Basic Flow:
 
 Exception Flow A:
 a. Emergency brakes activated
+b. End
 
 ==============================================================
 
@@ -89,6 +91,7 @@ c. Return to previous step
 
 Exception Flow A:
 a. Emergency brakes activated
+b. End
 
 ==============================================================
 
@@ -112,9 +115,11 @@ Basic Flow:
 
 Alternate Flow A:
 a. Elevator door does not open if elevator motor is moving
+b. End
 
 Exception Flow A:
 a. Emergency brakes activated
+b. End
 
 ==============================================================
 
@@ -131,11 +136,16 @@ Postcondition:
 
 Basic Flow:
 1. User presses elevator button close
+	- Possible Alternate Flow A
 2. Elevator door closes if elevator motor is not moving
 3. Floor door closes if elevator motor is not moving
-    - Possible Alternate Flow A
+    - Possible Alternate Flow B
 
 Alternate Flow A:
+a. Elevator door does not open if elevator motor is moving
+b. End
+
+Alternate Flow B:
 a. Elevator motor moves if a floor is selected
 
 ==============================================================
