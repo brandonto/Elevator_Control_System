@@ -1,0 +1,53 @@
+***************************************
+Stripped Down Elevator System Test Plan
+***************************************
+
+***************************************
+CentralCoordinator+LocalController
+***************************************
+1. Place Probe on insideButton port of centralOp
+2. Insert signal for insideButton
+
+Test Case 1
+===========
+Press button
+
+1. Inject insideButton
+
+Expected Result:
+LocalOp state goes from idle to floorButtonRequest, to moving
+CentralOp state goes from idle to handleRequest
+
+***************************************
+Local Controller+Motor
+***************************************
+1. Place Probe on motorS port of motorR1
+2. Insert signals for moveUp, moveDown, stop
+3. Open state diagram for motor.
+
+Test Case 1
+===========
+Turn On elevator motor in up direction
+
+1. Inject motorUp signal while state is in idle
+
+Expected result:
+transistion from idle to movingUp state
+
+Test Case 2
+===========
+Stop Elevator while moving in any direction
+
+1. Inject stop signal while motor is in movingUp or movingDown state
+
+Expected result:
+transition from movingUp or movingDown to idle
+
+Test Case 3
+===========
+Try to switch directions without coming to a stop first
+
+1. Inject motorUp signal while motor is in movingDown state (or motorDown in movingUp)
+
+Expected Result:
+Nothing happens

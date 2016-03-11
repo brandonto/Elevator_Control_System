@@ -1,0 +1,4360 @@
+
+(object PetalRT
+	version 60010
+	_written "Rose RealTime 6.5.825.0"
+	charSet 0)
+
+(object Design "Model"
+	generate_guids_all TRUE
+	is_unit TRUE
+	is_loaded TRUE
+	quid "515304A6010C"
+	defaults (object defaults
+		rightMargin 0.250000
+		leftMargin 0.250000
+		topMargin 0.250000
+		bottomMargin 0.500000
+		pageOverlap 0.250000
+		clipIconLabels TRUE
+		defaultFont (object Font
+			size 8
+			face "MS Sans Serif"
+			bold FALSE
+			italics FALSE
+			underline FALSE
+			strike FALSE
+			color 16711680
+			default_color TRUE)
+		showClassOfObject TRUE
+		notation "Unified")
+	root_usecase_package (object Class_Category "Use Case View"
+		quid "3619364703C6"
+		global TRUE
+		exportControl "Public"
+		logical_models (list unit_reference_list)
+		logical_presentations (list unit_reference_list
+			(object UseCaseDiagram "Main"
+				quid "3619364703E4")))
+	root_category (object Class_Category "Logical View"
+		quid "515304A6010D"
+		exportControl "Public"
+		logical_models (list unit_reference_list
+			(object Capsule "centralOpt"
+				quid "515305AC02E7"
+				structure (object CapsuleCollaboration "Structure"
+					quid "515305AC02EB"
+					classifierRoles (list classifierRolesList
+						(object CapsuleRole "centralOp"
+							quid "51530A9D0191"
+							classifier  "Logical View::localOpt"
+							quidu "515305B40076"
+							genericity "fixed"))
+					ports (list portsList
+						(object Port "local"
+							quid "51530B53001E"
+							classifier  "Logical View::testsig"
+							quidu "515309B7014B"
+							isConjugated TRUE
+							isRelay FALSE
+							visibility "Protected")
+						(object Port "log"
+							quid "51531198016F"
+							classifier  "Logical View::RTClasses::Log"
+							quidu "37E92926019B"
+							isRelay FALSE
+							isWired FALSE
+							visibility "Protected"))
+					connectors (list connectorsList
+						(object Connector "C515316BA000A"
+							quid "515316BA000A"
+							connectorCardinality  constValue "*"
+							ends (list endsList
+								ends  ":Structure:centralOp:toLocal"
+								ends  ":Structure:local"
+								quidu "51530B53001E"))))
+				class_attributes (list class_attribute_list
+					(object ClassAttribute "request"
+						quid "515312DC009D"
+						type "int"))
+				statemachine (object State_Machine
+					quid "515305AC02E8"
+					State (object State "TOP"
+						quid "515305AC02E9"
+						states (list States
+							(object InitialPt "Initial"
+								quid "515305AC02EA")
+							(object State "Idle"
+								quid "51530BF80300"
+								states (list States
+									(object InitialPt "Initial"
+										quid "51530BF80310")
+									(object JuncPt "J51530BFD018A"
+										quid "51530BFD018A"
+										isEntry TRUE
+										externallyVisible TRUE)
+									(object JuncPt "J51530C2303CD"
+										quid "51530C2303CD"
+										externallyVisible TRUE)))
+							(object State "Handlerequest"
+								quid "51530C0C035E"
+								entryAction (object Action
+									quid "51530F1F0055"
+									body 
+|
+|log.log("Button Pressed request CentralOPT: ");
+|log.log(request);
+|
+|local.move(request).send();
+									)
+								states (list States
+									(object InitialPt "Initial"
+										quid "51530C0C036F")
+									(object JuncPt "J51530C2303D2"
+										quid "51530C2303D2"
+										isEntry TRUE
+										externallyVisible TRUE))))
+						transitions (list transition_list
+							(object Trans "Initial"
+								quid "51530BFD0189"
+								source  ":TOP:Initial"
+								target  ":TOP:Idle:J51530BFD018A")
+							(object Trans "request"
+								quid "51530C2303CC"
+								source  ":TOP:Idle:J51530C2303CD"
+								target  ":TOP:Handlerequest:J51530C2303D2"
+								action (object Action
+									quid "515312D901E5"
+									body 
+|int data = *rtdata;
+|request = data;
+									)
+								eventGuards (list eventGuardsList
+									(object EventGuard
+										quid "51530C370052"
+										Event (object PortEvent
+											quid "51530C370053"
+											ports (list portsList
+												ports  ":Structure:local"
+												quidu "51530B53001E")
+											signals (list signalsList
+												signals  ":base:insideElev"
+												quidu "51530BC70001"))))))))
+				statediagram (object State_Diagram "State Diagram"
+					quid "515305AC02EC"
+					items (list diagram_item_list
+						(object StateView "Perimeter" "TOP" @1
+							quid "515305AC02EE"
+							pos (840,615)
+							quidu "515305AC02E9")
+						(object StateView "StartState" "Initial" @2
+							quid "515305AC02EF"
+							pos (180,180)
+							quidu "515305AC02EA")
+						(object StateView "Normal" "Idle" @3
+							quid "51530BF802C1"
+							pos (584,319)
+							quidu "51530BF80300"
+							label (object ItemLabel
+								quid "51530BF80301"
+								pos (584,274)
+								max_width 53)
+							boundIcons (list boundIconsList
+								(object JuncPtVw ":TOP:Idle:J51530BFD018A" @4
+									quid "51530BFD0192"
+									pos (464,281)
+									quidu "51530BFD018A"
+									boundIconAutoAdjust TRUE)
+								(object JuncPtVw ":TOP:Idle:J51530C2303CD" @5
+									quid "51530C2303D1"
+									pos (704,317)
+									quidu "51530C2303CD"
+									boundIconAutoAdjust TRUE))
+							statediagram (object State_Diagram ""
+								quid "51530BFD018B"
+								items (list diagram_item_list
+									(object StateView "Perimeter" "Idle" @6
+										quid "51530BFD018D"
+										pos (840,615)
+										quidu "51530BF80300"
+										boundIcons (list boundIconsList
+											(object JuncPtVw ":TOP:Idle:J51530BFD018A" @7
+												quid "51530BFD018F"
+												pos (96,395)
+												quidu "51530BFD018A"
+												juncPtIcon (object JuncPtIcon @8
+													quid "51530BFD0190"
+													pos (186,395)
+													label (object ItemLabel
+														quid "51530BFD0191"
+														pos (156,435)
+														max_width 75)))
+											(object JuncPtVw ":TOP:Idle:J51530C2303CD" @9
+												quid "51530C2303CE"
+												pos (1584,594)
+												quidu "51530C2303CD"
+												juncPtIcon (object JuncPtIcon @10
+													quid "51530C2303CF"
+													pos (1494,594)
+													label (object ItemLabel
+														quid "51530C2303D0"
+														pos (1524,634))))))
+									(object StateView "StartState" "Initial" @11
+										quid "51530BFD018E"
+										pos (180,180)
+										quidu "51530BF80310"))
+								filterFlags 1))
+						(object StateView "Normal" "Handlerequest" @12
+							quid "51530C0C0310"
+							pos (1168,313)
+							quidu "51530C0C035E"
+							label (object ItemLabel
+								quid "51530C0C036E"
+								pos (1168,268)
+								max_width 216)
+							positionBySuperclass FALSE
+							boundIcons (list boundIconsList
+								(object JuncPtVw ":TOP:Handlerequest:J51530C2303D2" @13
+									quid "51530C2303D6"
+									pos (1048,313)
+									quidu "51530C2303D2"
+									boundIconAutoAdjust TRUE))
+							statediagram (object State_Diagram ""
+								quid "51530C1200DE"
+								items (list diagram_item_list
+									(object StateView "Perimeter" "Handlerequest" @14
+										quid "51530C1200E0"
+										pos (840,615)
+										quidu "51530C0C035E"
+										boundIcons (list boundIconsList
+											(object JuncPtVw ":TOP:Handlerequest:J51530C2303D2" @15
+												quid "51530C2303D3"
+												pos (96,626)
+												quidu "51530C2303D2"
+												juncPtIcon (object JuncPtIcon @16
+													quid "51530C2303D4"
+													pos (186,626)
+													label (object ItemLabel
+														quid "51530C2303D5"
+														pos (156,666)
+														max_width 109)))))
+									(object StateView "StartState" "Initial" @17
+										quid "51530C1200E1"
+										pos (180,180)
+										quidu "51530C0C036F"))
+								filterFlags 1))
+						(object TransView ":TOP:Initial:Initial" @18
+							quid "51530BFC01A8"
+							uses_fill_color FALSE
+							quidu "51530BFD0189"
+							label (object SegLabel @19
+								quid "51530BFD0193"
+								pos (346,192)
+								max_width 75
+								pctDist 0.501617
+								height 44)
+							client @2
+							supplier @4
+							vertices (list Points
+								(207,189)
+								(455,277))
+							line_style 6144)
+						(object TransView ":TOP:Idle:J51530C2303CD:request" @20
+							quid "51530C2301A9"
+							uses_fill_color FALSE
+							quidu "51530C2303CC"
+							label (object SegLabel @21
+								quid "51530C2303D7"
+								pos (875,271)
+								max_width 109
+								pctDist 0.501228
+								height 43)
+							client @5
+							supplier @13
+							vertices (list Points
+								(712,316)
+								(1038,313))
+							line_style 6144))
+					filterFlags 1)
+				language "C++"
+				structureDiagram (object CollaborationDiagram "Structure Diagram"
+					quid "515305AC02F0"
+					items (list diagram_item_list
+						(object CapsulePerimeterVw "Structure" @22
+							quid "515305AC02F2"
+							pos (840,615)
+							quidu "515305AC02EB")
+						(object CapsuleRoleVw ":Structure:centralOp" @23
+							quid "51530A9D0192"
+							pos (1298,504)
+							quidu "51530A9D0191"
+							label (object ItemLabel
+								quid "51530A9D0193"
+								pos (1298,463)
+								positionBySuperclass FALSE
+								nlines 2
+								max_width 178
+								label "centralOp")
+							positionBySuperclass FALSE
+							boundIcons (list boundIconsList
+								(object ConnectionPtVw ":Structure:centralOp:insideButton" @24
+									quid "51530B100044"
+									pos (1212,414)
+									label (object ItemLabel
+										quid "51530B100048"
+										pos (1212,311)
+										positionBySuperclass FALSE
+										nlines 2
+										max_width 234
+										label "insideButton")
+									positionBySuperclass FALSE)
+								(object ConnectionPtVw ":Structure:centralOp:toLocal" @25
+									quid "51530B4E0391"
+									pos (1178,481)
+									label (object ItemLabel
+										quid "51530B4E039B"
+										pos (1157,502)
+										positionBySuperclass FALSE
+										nlines 2
+										max_width 163
+										label "toLocal")
+									positionBySuperclass FALSE)))
+						(object PortVw ":Structure:local" @26
+							quid "51530B53001F"
+							pos (828,138)
+							quidu "51530B53001E"
+							label (object ItemLabel
+								quid "51530B530021"
+								pos (837,174)
+								positionBySuperclass FALSE
+								nlines 2
+								max_width 144
+								label "local")
+							positionBySuperclass FALSE)
+						(object PortVw ":Structure:log" @27
+							quid "5153119A0150"
+							pos (194,530)
+							quidu "51531198016F"
+							label (object ItemLabel
+								quid "5153119A0152"
+								pos (203,566)
+								positionBySuperclass FALSE
+								max_width 184
+								label "log")
+							positionBySuperclass FALSE)
+						(object ConnectorVw ":Structure:C515316BA000A" @28
+							quid "515316B90097"
+							stereotype TRUE
+							uses_fill_color FALSE
+							quidu "515316BA000A"
+							label (object SegLabel @29
+								quid "515316BA001A"
+								pos (985,353)
+								max_width 256
+								pctDist 0.500000
+								height 45)
+							client @25
+							supplier @26
+							vertices (list Points
+								(1166,469)
+								(864,173))
+							line_style 6144))
+					filterFlags 521))
+			(object Capsule "localOpt"
+				quid "515305B40076"
+				structure (object CapsuleCollaboration "Structure"
+					quid "515305B4007A"
+					classifierRoles (list classifierRolesList
+						(object CapsuleRole "motorR1"
+							quid "51531F7800E1"
+							classifier  "Logical View::motor"
+							quidu "515317F90051"
+							genericity "fixed"))
+					ports (list portsList
+						(object Port "insideButton"
+							quid "51530B10003C"
+							classifier  "Logical View::buttons"
+							quidu "5153061A000B"
+							isRelay FALSE)
+						(object Port "toLocal"
+							quid "51530B4E0389"
+							classifier  "Logical View::testsig"
+							quidu "515309B7014B"
+							isRelay FALSE)
+						(object Port "log"
+							quid "5153127F01B4"
+							classifier  "Logical View::RTClasses::Log"
+							quidu "37E92926019B"
+							isRelay FALSE
+							isWired FALSE
+							visibility "Protected")
+						(object Port "motorE"
+							quid "51531AE900A4"
+							classifier  "Logical View::motorSig"
+							quidu "51531AC70351"
+							isConjugated TRUE
+							isRelay FALSE
+							visibility "Protected")
+						(object Port "time"
+							quid "51531CB300BE"
+							classifier  "Logical View::RTClasses::Timing"
+							quidu "37E9292C018C"
+							isRelay FALSE
+							isWired FALSE
+							visibility "Protected"))
+					connectors (list connectorsList
+						(object Connector "C5153202A02D8"
+							quid "5153202A02D8"
+							connectorCardinality  constValue "*"
+							ends (list endsList
+								ends  ":Structure:motorR1:motorS"
+								ends  ":Structure:motorE"
+								quidu "51531AE900A4"))))
+				class_attributes (list class_attribute_list
+					(object ClassAttribute "currentReq"
+						quid "515318F6020D"
+						type "int")
+					(object ClassAttribute "aa"
+						quid "51531E9D0270"
+						initv "true"
+						type "bool"))
+				statemachine (object State_Machine
+					quid "515305B40077"
+					State (object State "TOP"
+						quid "515305B40078"
+						states (list States
+							(object InitialPt "Initial"
+								quid "515305B40079")
+							(object State "idle"
+								quid "51530C4A0014"
+								states (list States
+									(object InitialPt "Initial"
+										quid "51530C4A0016")
+									(object JuncPt "J51530C4D0313"
+										quid "51530C4D0313"
+										isEntry TRUE
+										externallyVisible TRUE)
+									(object JuncPt "J51530CE8025B"
+										quid "51530CE8025B"
+										externallyVisible TRUE)))
+							(object State "floorButtonRequest"
+								quid "51530CC400B3"
+								states (list States
+									(object InitialPt "Initial"
+										quid "51530CC400B5")
+									(object JuncPt "J51530CE80260"
+										quid "51530CE80260"
+										isEntry TRUE
+										externallyVisible TRUE)
+									(object JuncPt "J5153184302C5"
+										quid "5153184302C5"
+										externallyVisible TRUE)))
+							(object State "moving"
+								quid "51531838019B"
+								entryAction (object Action
+									quid "51531C740139"
+									body 
+|if(aa == true){
+|	motorE.moveUp().send();
+|	log.log("Moving Up: ");
+|	RTTimespec threeseconds(3,0);
+|	time.informIn(threeseconds);
+|}else{
+|	motorE.stop().send();
+|	log.log("stop: ");
+|}
+|
+|
+									)
+								states (list States
+									(object InitialPt "Initial"
+										quid "51531838019D")
+									(object JuncPt "J5153184302CA"
+										quid "5153184302CA"
+										isEntry TRUE
+										externallyVisible TRUE)
+									(object JuncPt "J51531CAB02B4"
+										quid "51531CAB02B4"
+										externallyVisible TRUE)
+									(object JuncPt "J51531CAB02B9"
+										quid "51531CAB02B9"
+										isEntry TRUE
+										externallyVisible TRUE))))
+						transitions (list transition_list
+							(object Trans "Initial"
+								quid "51530C4D0312"
+								source  ":TOP:Initial"
+								target  ":TOP:idle:J51530C4D0313")
+							(object Trans "buttonPressed"
+								quid "51530CE8025A"
+								source  ":TOP:idle:J51530CE8025B"
+								target  ":TOP:floorButtonRequest:J51530CE80260"
+								action (object Action
+									quid "51530D3302E9"
+									body 
+|int data = *rtdata;
+|log.log("Button Pressed LocalOPT: ");
+|log.log(data);
+|
+|toLocal.insideElev(data).send();
+|
+									)
+								eventGuards (list eventGuardsList
+									(object EventGuard
+										quid "51530CFC028A"
+										Event (object PortEvent
+											quid "51530CFC028B"
+											ports (list portsList
+												ports  ":Structure:insideButton"
+												quidu "51530B10003C")
+											signals (list signalsList
+												signals  ":base:button"
+												quidu "5153062500B7")))))
+							(object Trans "move"
+								quid "5153184302C4"
+								source  ":TOP:floorButtonRequest:J5153184302C5"
+								target  ":TOP:moving:J5153184302CA"
+								action (object Action
+									quid "515318F20132"
+									body 
+|int data = *rtdata;
+|currentReq = data;
+|log.log("Recived move signal to floor: ");
+|log.log(currentReq);
+									)
+								eventGuards (list eventGuardsList
+									(object EventGuard
+										quid "515318D30316"
+										Event (object PortEvent
+											quid "515318D30317"
+											ports (list portsList
+												ports  ":Structure:toLocal"
+												quidu "51530B4E0389")
+											signals (list signalsList
+												signals  ":base:move"
+												quidu "5153185503DE")))))
+							(object Trans "timer"
+								quid "51531CAB02B3"
+								source  ":TOP:moving:J51531CAB02B4"
+								target  ":TOP:moving:J51531CAB02B9"
+								action (object Action
+									quid "51531DC30048"
+									body "aa = false;")
+								eventGuards (list eventGuardsList
+									(object EventGuard
+										quid "51531CC2017A"
+										Event (object PortEvent
+											quid "51531CC2017B"
+											ports (list portsList
+												ports  ":Structure:time"
+												quidu "51531CB300BE")
+											signals (list signalsList
+												signals  ":base:timeout"
+												quidu "3DF743000081"))))))))
+				statediagram (object State_Diagram "State Diagram"
+					quid "515305B4007B"
+					items (list diagram_item_list
+						(object StateView "Perimeter" "TOP" @30
+							quid "515305B4007D"
+							pos (840,615)
+							quidu "515305B40078")
+						(object StateView "StartState" "Initial" @31
+							quid "515305B4007E"
+							pos (180,180)
+							quidu "515305B40079")
+						(object StateView "Normal" "idle" @32
+							quid "51530C49039E"
+							pos (543,422)
+							quidu "51530C4A0014"
+							label (object ItemLabel
+								quid "51530C4A0015"
+								pos (543,377)
+								max_width 50)
+							positionBySuperclass FALSE
+							boundIcons (list boundIconsList
+								(object JuncPtVw ":TOP:idle:J51530C4D0313" @33
+									quid "51530C4D031B"
+									pos (440,337)
+									quidu "51530C4D0313"
+									boundIconAutoAdjust TRUE)
+								(object JuncPtVw ":TOP:idle:J51530CE8025B" @34
+									quid "51530CE8025F"
+									pos (663,421)
+									quidu "51530CE8025B"
+									boundIconAutoAdjust TRUE))
+							statediagram (object State_Diagram ""
+								quid "51530C4D0314"
+								items (list diagram_item_list
+									(object StateView "Perimeter" "idle" @35
+										quid "51530C4D0316"
+										pos (840,615)
+										quidu "51530C4A0014"
+										boundIcons (list boundIconsList
+											(object JuncPtVw ":TOP:idle:J51530C4D0313" @36
+												quid "51530C4D0318"
+												pos (96,279)
+												quidu "51530C4D0313"
+												juncPtIcon (object JuncPtIcon @37
+													quid "51530C4D0319"
+													pos (186,279)
+													label (object ItemLabel
+														quid "51530C4D031A"
+														pos (156,319))))
+											(object JuncPtVw ":TOP:idle:J51530CE8025B" @38
+												quid "51530CE8025C"
+												pos (1584,605)
+												quidu "51530CE8025B"
+												juncPtIcon (object JuncPtIcon @39
+													quid "51530CE8025D"
+													pos (1494,605)
+													label (object ItemLabel
+														quid "51530CE8025E"
+														pos (1524,645))))))
+									(object StateView "StartState" "Initial" @40
+										quid "51530C4D0317"
+										pos (180,180)
+										quidu "51530C4A0016"))
+								filterFlags 1))
+						(object StateView "Normal" "floorButtonRequest" @41
+							quid "51530CC40065"
+							pos (1257,419)
+							quidu "51530CC400B3"
+							width 314
+							label (object ItemLabel
+								quid "51530CC400B4"
+								pos (1257,374)
+								max_width 284)
+							positionBySuperclass FALSE
+							boundIcons (list boundIconsList
+								(object JuncPtVw ":TOP:floorButtonRequest:J51530CE80260" @42
+									quid "51530CE80268"
+									pos (1100,419)
+									quidu "51530CE80260"
+									boundIconAutoAdjust TRUE)
+								(object JuncPtVw ":TOP:floorButtonRequest:J5153184302C5" @43
+									quid "5153184302C9"
+									pos (1258,509)
+									quidu "5153184302C5"
+									boundIconAutoAdjust TRUE))
+							statediagram (object State_Diagram ""
+								quid "51530CE80261"
+								items (list diagram_item_list
+									(object StateView "Perimeter" "floorButtonRequest" @44
+										quid "51530CE80263"
+										pos (840,615)
+										quidu "51530CC400B3"
+										boundIcons (list boundIconsList
+											(object JuncPtVw ":TOP:floorButtonRequest:J51530CE80260" @45
+												quid "51530CE80265"
+												pos (96,615)
+												quidu "51530CE80260"
+												juncPtIcon (object JuncPtIcon @46
+													quid "51530CE80266"
+													pos (186,615)
+													label (object ItemLabel
+														quid "51530CE80267"
+														pos (156,655))))
+											(object JuncPtVw ":TOP:floorButtonRequest:J5153184302C5" @47
+												quid "5153184302C6"
+												pos (810,1134)
+												quidu "5153184302C5"
+												juncPtIcon (object JuncPtIcon @48
+													quid "5153184302C7"
+													pos (810,1044)
+													label (object ItemLabel
+														quid "5153184302C8"
+														pos (850,1074))))))
+									(object StateView "StartState" "Initial" @49
+										quid "51530CE80264"
+										pos (180,180)
+										quidu "51530CC400B5"))
+								filterFlags 1))
+						(object StateView "Normal" "moving" @50
+							quid "51531838014D"
+							pos (1265,825)
+							quidu "51531838019B"
+							label (object ItemLabel
+								quid "51531838019C"
+								pos (1265,780)
+								max_width 106)
+							positionBySuperclass FALSE
+							boundIcons (list boundIconsList
+								(object JuncPtVw ":TOP:moving:J5153184302CA" @51
+									quid "5153184302D2"
+									pos (1263,735)
+									quidu "5153184302CA"
+									boundIconAutoAdjust TRUE)
+								(object JuncPtVw ":TOP:moving:J51531CAB02B4" @52
+									quid "51531CAB02B8"
+									pos (1250,915)
+									quidu "51531CAB02B4"
+									boundIconAutoAdjust TRUE)
+								(object JuncPtVw ":TOP:moving:J51531CAB02B9" @53
+									quid "51531CAB02BD"
+									pos (1163,910)
+									quidu "51531CAB02B9"
+									boundIconAutoAdjust TRUE))
+							statediagram (object State_Diagram ""
+								quid "5153184302CB"
+								items (list diagram_item_list
+									(object StateView "Perimeter" "moving" @54
+										quid "5153184302CD"
+										pos (840,615)
+										quidu "51531838019B"
+										boundIcons (list boundIconsList
+											(object JuncPtVw ":TOP:moving:J5153184302CA" @55
+												quid "5153184302CF"
+												pos (870,96)
+												quidu "5153184302CA"
+												juncPtIcon (object JuncPtIcon @56
+													quid "5153184302D0"
+													pos (870,186)
+													label (object ItemLabel
+														quid "5153184302D1"
+														pos (910,156)
+														max_width 81)))
+											(object JuncPtVw ":TOP:moving:J51531CAB02B4" @57
+												quid "51531CAB02B5"
+												pos (750,1134)
+												quidu "51531CAB02B4"
+												juncPtIcon (object JuncPtIcon @58
+													quid "51531CAB02B6"
+													pos (750,1044)
+													label (object ItemLabel
+														quid "51531CAB02B7"
+														pos (790,1074)
+														max_width 69)))
+											(object JuncPtVw ":TOP:moving:J51531CAB02B9" @59
+												quid "51531CAB02BA"
+												pos (210,1134)
+												quidu "51531CAB02B9"
+												juncPtIcon (object JuncPtIcon @60
+													quid "51531CAB02BB"
+													pos (210,1044)
+													label (object ItemLabel
+														quid "51531CAB02BC"
+														pos (250,1074)
+														max_width 69)))))
+									(object StateView "StartState" "Initial" @61
+										quid "5153184302CE"
+										pos (180,180)
+										quidu "51531838019D"))
+								filterFlags 1))
+						(object TransView ":TOP:Initial:Initial" @62
+							quid "51530C4D012D"
+							uses_fill_color FALSE
+							quidu "51530C4D0312"
+							label (object SegLabel @63
+								quid "51530C4D031C"
+								pos (343,226)
+								max_width 75
+								pctDist 0.509671
+								height 44)
+							client @31
+							supplier @33
+							vertices (list Points
+								(204,194)
+								(431,332))
+							line_style 6144)
+						(object TransView ":TOP:idle:J51530CE8025B:buttonPressed" @64
+							quid "51530CE701FC"
+							uses_fill_color FALSE
+							quidu "51530CE8025A"
+							label (object SegLabel @65
+								quid "51530CE80269"
+								pos (881,375)
+								max_width 213
+								pctDist 0.501447
+								height 44)
+							client @34
+							supplier @42
+							vertices (list Points
+								(671,420)
+								(1090,419))
+							line_style 6144)
+						(object TransView ":TOP:floorButtonRequest:J5153184302C5:move" @66
+							quid "5153184202C4"
+							uses_fill_color FALSE
+							quidu "5153184302C4"
+							label (object SegLabel @67
+								quid "5153184302D3"
+								pos (1305,624)
+								max_width 81
+								pctDist 0.518577
+								height 45)
+							client @43
+							supplier @51
+							vertices (list Points
+								(1258,517)
+								(1262,725))
+							line_style 6144)
+						(object TransView ":TOP:moving:J51531CAB02B4:timer" @68
+							quid "51531CAB02B2"
+							uses_fill_color FALSE
+							quidu "51531CAB02B3"
+							label (object SegLabel @69
+								quid "51531CAB02BE"
+								pos (1162,1017)
+								max_width 69
+								pctDist 0.497696
+								height 44)
+							client @52
+							supplier @53
+							vertices (list Points
+								(1248,923)
+								(1238,989)
+								(1105,958)
+								(1156,915))
+							line_style 6144))
+					filterFlags 1)
+				language "C++"
+				structureDiagram (object CollaborationDiagram "Structure Diagram"
+					quid "515305B4007F"
+					items (list diagram_item_list
+						(object CapsulePerimeterVw "Structure" @70
+							quid "515305B40081"
+							pos (840,615)
+							quidu "515305B4007A"
+							boundIcons (list boundIconsList
+								(object PortVw ":Structure:insideButton" @71
+									quid "51530B10003D"
+									pos (306,96)
+									quidu "51530B10003C"
+									label (object ItemLabel
+										quid "51530B100045"
+										pos (315,132)
+										nlines 2
+										max_width 234
+										label "insideButton"))
+								(object PortVw ":Structure:toLocal" @72
+									quid "51530B4E038A"
+									pos (96,486)
+									quidu "51530B4E0389"
+									label (object ItemLabel
+										quid "51530B4E0398"
+										pos (105,522)
+										nlines 2
+										max_width 163
+										label "toLocal"))))
+						(object CapsuleRoleVw ":Structure:motorR1" @73
+							quid "51531F7800E2"
+							pos (1311,352)
+							quidu "51531F7800E1"
+							label (object ItemLabel
+								quid "51531F7800E6"
+								pos (1317,308)
+								positionBySuperclass FALSE
+								nlines 2
+								max_width 159
+								label "motorR1")
+							positionBySuperclass FALSE
+							boundIcons (list boundIconsList
+								(object ConnectionPtVw ":Structure:motorR1:motorS" @74
+									quid "51531F7800E4"
+									pos (1225,262)
+									label (object ItemLabel
+										quid "51531F7800E5"
+										pos (1225,159)
+										positionBySuperclass FALSE
+										nlines 2
+										max_width 156
+										label "motorS")
+									positionBySuperclass FALSE)))
+						(object PortVw ":Structure:log" @75
+							quid "51531281035A"
+							pos (576,486)
+							quidu "5153127F01B4"
+							label (object ItemLabel
+								quid "51531281035C"
+								pos (585,522)
+								max_width 184
+								label "log"))
+						(object PortVw ":Structure:motorE" @76
+							quid "51531AE900A5"
+							pos (846,138)
+							quidu "51531AE900A4"
+							label (object ItemLabel
+								quid "51531AE900B2"
+								pos (855,174)
+								nlines 2
+								max_width 178
+								label "motorE"))
+						(object PortVw ":Structure:time" @77
+							quid "51531CB5032F"
+							pos (1026,486)
+							quidu "51531CB300BE"
+							label (object ItemLabel
+								quid "51531CB50331"
+								pos (1035,522)
+								nlines 2
+								max_width 125
+								label "time"))
+						(object ConnectorVw ":Structure:C5153202A02D8" @78
+							quid "5153202902D8"
+							stereotype TRUE
+							uses_fill_color FALSE
+							quidu "5153202A02D8"
+							label (object SegLabel @79
+								quid "5153202A02D9"
+								pos (1035,247)
+								max_width 256
+								pctDist 0.500000
+								height 45)
+							client @74
+							supplier @76
+							vertices (list Points
+								(1213,258)
+								(882,149))
+							line_style 6144))
+					filterFlags 521))
+			(object Capsule "button"
+				quid "515305C60190"
+				structure (object CapsuleCollaboration "Structure"
+					quid "515305C60194")
+				statemachine (object State_Machine
+					quid "515305C60191"
+					State (object State "TOP"
+						quid "515305C60192"
+						states (list States
+							(object InitialPt "Initial"
+								quid "515305C60193"))))
+				statediagram (object State_Diagram "State Diagram"
+					quid "515305C60195"
+					items (list diagram_item_list
+						(object StateView "Perimeter" "TOP" @80
+							quid "515305C60197"
+							pos (840,615)
+							quidu "515305C60192")
+						(object StateView "StartState" "Initial" @81
+							quid "515305C60198"
+							pos (180,180)
+							quidu "515305C60193"))
+					filterFlags 1)
+				language "C++"
+				structureDiagram (object CollaborationDiagram "Structure Diagram"
+					quid "515305C60199"
+					items (list diagram_item_list
+						(object CapsulePerimeterVw "Structure" @82
+							quid "515305C6019B"
+							pos (840,615)
+							quidu "515305C60194"))
+					filterFlags 521))
+			(object Capsule "light"
+				quid "515305CF0122"
+				structure (object CapsuleCollaboration "Structure"
+					quid "515305CF0126")
+				statemachine (object State_Machine
+					quid "515305CF0123"
+					State (object State "TOP"
+						quid "515305CF0124"
+						states (list States
+							(object InitialPt "Initial"
+								quid "515305CF0125"))))
+				statediagram (object State_Diagram "State Diagram"
+					quid "515305CF0127"
+					items (list diagram_item_list
+						(object StateView "Perimeter" "TOP" @83
+							quid "515305CF0129"
+							pos (840,615)
+							quidu "515305CF0124")
+						(object StateView "StartState" "Initial" @84
+							quid "515305CF012A"
+							pos (180,180)
+							quidu "515305CF0125"))
+					filterFlags 1)
+				language "C++"
+				structureDiagram (object CollaborationDiagram "Structure Diagram"
+					quid "515305CF012B"
+					items (list diagram_item_list
+						(object CapsulePerimeterVw "Structure" @85
+							quid "515305CF012D"
+							pos (840,615)
+							quidu "515305CF0126"))
+					filterFlags 521))
+			(object Capsule "request"
+				quid "515305FE0124"
+				structure (object CapsuleCollaboration "Structure"
+					quid "515305FE0128")
+				statemachine (object State_Machine
+					quid "515305FE0125"
+					State (object State "TOP"
+						quid "515305FE0126"
+						states (list States
+							(object InitialPt "Initial"
+								quid "515305FE0127"))))
+				statediagram (object State_Diagram "State Diagram"
+					quid "515305FE0129"
+					items (list diagram_item_list
+						(object StateView "Perimeter" "TOP" @86
+							quid "515305FE012B"
+							pos (840,615)
+							quidu "515305FE0126")
+						(object StateView "StartState" "Initial" @87
+							quid "515305FE012C"
+							pos (180,180)
+							quidu "515305FE0127"))
+					filterFlags 1)
+				language "C++"
+				structureDiagram (object CollaborationDiagram "Structure Diagram"
+					quid "515305FE012D"
+					items (list diagram_item_list
+						(object CapsulePerimeterVw "Structure" @88
+							quid "515305FE012F"
+							pos (840,615)
+							quidu "515305FE0128"))
+					filterFlags 521))
+			(object Capsule "motor"
+				quid "515317F90051"
+				structure (object CapsuleCollaboration "Structure"
+					quid "515317F90055"
+					ports (list portsList
+						(object Port "motorS"
+							quid "51531AD903C0"
+							classifier  "Logical View::motorSig"
+							quidu "51531AC70351"
+							isRelay FALSE)))
+				statemachine (object State_Machine
+					quid "515317F90052"
+					State (object State "TOP"
+						quid "515317F90053"
+						states (list States
+							(object InitialPt "Initial"
+								quid "515317F90054")
+							(object State "movingUp"
+								quid "515319BF029F"
+								states (list States
+									(object InitialPt "Initial"
+										quid "515319BF02A1")
+									(object JuncPt "J51531A4602D1"
+										quid "51531A4602D1"
+										isEntry TRUE
+										externallyVisible TRUE)
+									(object JuncPt "J51531A8403BE"
+										quid "51531A8403BE"
+										externallyVisible TRUE)
+									(object JuncPt "J51531A940323"
+										quid "51531A940323"
+										externallyVisible TRUE)
+									(object JuncPt "J51531A940328"
+										quid "51531A940328"
+										isEntry TRUE
+										externallyVisible TRUE)))
+							(object State "idle"
+								quid "515319E0031D"
+								states (list States
+									(object InitialPt "Initial"
+										quid "515319E0031F")
+									(object JuncPt "J515319FD0234"
+										quid "515319FD0234"
+										isEntry TRUE
+										externallyVisible TRUE)
+									(object JuncPt "J51531A4602C2"
+										quid "51531A4602C2"
+										externallyVisible TRUE)
+									(object JuncPt "J51531A4A0301"
+										quid "51531A4A0301"
+										externallyVisible TRUE)
+									(object JuncPt "J51531A8403C3"
+										quid "51531A8403C3"
+										isEntry TRUE
+										externallyVisible TRUE)
+									(object JuncPt "J51531A8C0344"
+										quid "51531A8C0344"
+										isEntry TRUE
+										externallyVisible TRUE)))
+							(object State "movingDown"
+								quid "515319E40186"
+								states (list States
+									(object InitialPt "Initial"
+										quid "515319E40188")
+									(object JuncPt "J51531A4A0306"
+										quid "51531A4A0306"
+										isEntry TRUE
+										externallyVisible TRUE)
+									(object JuncPt "J51531A8C0332"
+										quid "51531A8C0332"
+										externallyVisible TRUE)
+									(object JuncPt "J51531AB60026"
+										quid "51531AB60026"
+										externallyVisible TRUE)
+									(object JuncPt "J51531AB6002B"
+										quid "51531AB6002B"
+										isEntry TRUE
+										externallyVisible TRUE))))
+						transitions (list transition_list
+							(object Trans "Initial"
+								quid "515319FD0233"
+								source  ":TOP:Initial"
+								target  ":TOP:idle:J515319FD0234")
+							(object Trans "moveup"
+								quid "51531A4602C1"
+								source  ":TOP:idle:J51531A4602C2"
+								target  ":TOP:movingUp:J51531A4602D1"
+								eventGuards (list eventGuardsList
+									(object EventGuard
+										quid "51531BA802CA"
+										Event (object PortEvent
+											quid "51531BA802CB"
+											ports (list portsList
+												ports  ":Structure:motorS"
+												quidu "51531AD903C0")
+											signals (list signalsList
+												signals  ":base:moveUp"
+												quidu "51531B1D00D3")))))
+							(object Trans "movedown"
+								quid "51531A4A0300"
+								source  ":TOP:idle:J51531A4A0301"
+								target  ":TOP:movingDown:J51531A4A0306"
+								eventGuards (list eventGuardsList
+									(object EventGuard
+										quid "51531B720336"
+										Event (object PortEvent
+											quid "51531B720337"
+											ports (list portsList
+												ports  ":Structure:motorS"
+												quidu "51531AD903C0")
+											signals (list signalsList
+												signals  ":base:moveDown"
+												quidu "51531B370354")))))
+							(object Trans "stop"
+								quid "51531A8403BD"
+								source  ":TOP:movingUp:J51531A8403BE"
+								target  ":TOP:idle:J51531A8403C3"
+								eventGuards (list eventGuardsList
+									(object EventGuard
+										quid "51531B990192"
+										Event (object PortEvent
+											quid "51531B990193"
+											ports (list portsList
+												ports  ":Structure:motorS"
+												quidu "51531AD903C0")
+											signals (list signalsList
+												signals  ":base:stop"
+												quidu "51531B4000A5")))))
+							(object Trans "stop"
+								quid "51531A8C0331"
+								source  ":TOP:movingDown:J51531A8C0332"
+								target  ":TOP:idle:J51531A8C0344"
+								eventGuards (list eventGuardsList
+									(object EventGuard
+										quid "51531B540384"
+										Event (object PortEvent
+											quid "51531B540385"
+											ports (list portsList
+												ports  ":Structure:motorS"
+												quidu "51531AD903C0")
+											signals (list signalsList
+												signals  ":base:stop"
+												quidu "51531B4000A5")))))
+							(object Trans "moveUp"
+								quid "51531A940322"
+								source  ":TOP:movingUp:J51531A940323"
+								target  ":TOP:movingUp:J51531A940328"
+								eventGuards (list eventGuardsList
+									(object EventGuard
+										quid "51531BB00386"
+										Event (object PortEvent
+											quid "51531BB00387"
+											ports (list portsList
+												ports  ":Structure:motorS"
+												quidu "51531AD903C0")
+											signals (list signalsList
+												signals  ":base:moveUp"
+												quidu "51531B1D00D3")))))
+							(object Trans "moveDown"
+								quid "51531AB60025"
+								source  ":TOP:movingDown:J51531AB60026"
+								target  ":TOP:movingDown:J51531AB6002B"
+								eventGuards (list eventGuardsList
+									(object EventGuard
+										quid "51531B7D027B"
+										Event (object PortEvent
+											quid "51531B7D027C"
+											ports (list portsList
+												ports  ":Structure:motorS"
+												quidu "51531AD903C0")
+											signals (list signalsList
+												signals  ":base:moveDown"
+												quidu "51531B370354"))))))))
+				statediagram (object State_Diagram "State Diagram"
+					quid "515317F90056"
+					items (list diagram_item_list
+						(object StateView "Perimeter" "TOP" @89
+							quid "515317F90058"
+							pos (840,615)
+							quidu "515317F90053")
+						(object StateView "StartState" "Initial" @90
+							quid "515317F90059"
+							pos (180,180)
+							quidu "515317F90054")
+						(object StateView "Normal" "movingUp" @91
+							quid "515319BF0251"
+							pos (1098,466)
+							quidu "515319BF029F"
+							label (object ItemLabel
+								quid "515319BF02A0"
+								pos (1098,421)
+								max_width 150)
+							positionBySuperclass FALSE
+							boundIcons (list boundIconsList
+								(object JuncPtVw ":TOP:movingUp:J51531A4602D1" @92
+									quid "51531A4602D9"
+									pos (978,465)
+									quidu "51531A4602D1"
+									positionBySuperclass FALSE
+									boundIconAutoAdjust TRUE)
+								(object JuncPtVw ":TOP:movingUp:J51531A8403BE" @93
+									quid "51531A8403C2"
+									pos (978,441)
+									quidu "51531A8403BE"
+									positionBySuperclass FALSE
+									boundIconAutoAdjust TRUE)
+								(object JuncPtVw ":TOP:movingUp:J51531A940323" @94
+									quid "51531A940327"
+									pos (1103,376)
+									quidu "51531A940323"
+									boundIconAutoAdjust TRUE)
+								(object JuncPtVw ":TOP:movingUp:J51531A940328" @95
+									quid "51531A94032C"
+									pos (1193,378)
+									quidu "51531A940328"
+									boundIconAutoAdjust TRUE))
+							statediagram (object State_Diagram ""
+								quid "51531A4602D2"
+								items (list diagram_item_list
+									(object StateView "Perimeter" "movingUp" @96
+										quid "51531A4602D4"
+										pos (840,615)
+										quidu "515319BF029F"
+										boundIcons (list boundIconsList
+											(object JuncPtVw ":TOP:movingUp:J51531A4602D1" @97
+												quid "51531A4602D6"
+												pos (96,605)
+												quidu "51531A4602D1"
+												juncPtIcon (object JuncPtIcon @98
+													quid "51531A4602D7"
+													pos (186,605)
+													label (object ItemLabel
+														quid "51531A4602D8"
+														pos (156,645)
+														max_width 119)))
+											(object JuncPtVw ":TOP:movingUp:J51531A8403BE" @99
+												quid "51531A8403BF"
+												pos (96,468)
+												quidu "51531A8403BE"
+												juncPtIcon (object JuncPtIcon @100
+													quid "51531A8403C0"
+													pos (186,468)
+													label (object ItemLabel
+														quid "51531A8403C1"
+														pos (156,508)
+														max_width 63)))
+											(object JuncPtVw ":TOP:movingUp:J51531A940323" @101
+												quid "51531A940324"
+												pos (870,96)
+												quidu "51531A940323"
+												juncPtIcon (object JuncPtIcon @102
+													quid "51531A940325"
+													pos (870,186)
+													label (object ItemLabel
+														quid "51531A940326"
+														pos (910,156)
+														max_width 125)))
+											(object JuncPtVw ":TOP:movingUp:J51531A940328" @103
+												quid "51531A940329"
+												pos (1440,96)
+												quidu "51531A940328"
+												juncPtIcon (object JuncPtIcon @104
+													quid "51531A94032A"
+													pos (1440,186)
+													label (object ItemLabel
+														quid "51531A94032B"
+														pos (1480,156)
+														max_width 125)))))
+									(object StateView "StartState" "Initial" @105
+										quid "51531A4602D5"
+										pos (180,180)
+										quidu "515319BF02A1"))
+								filterFlags 1))
+						(object StateView "Normal" "idle" @106
+							quid "515319E002DE"
+							pos (434,463)
+							quidu "515319E0031D"
+							label (object ItemLabel
+								quid "515319E0031E"
+								pos (434,418)
+								max_width 50)
+							positionBySuperclass FALSE
+							boundIcons (list boundIconsList
+								(object JuncPtVw ":TOP:idle:J515319FD0234" @107
+									quid "515319FD023C"
+									pos (369,373)
+									quidu "515319FD0234"
+									boundIconAutoAdjust TRUE)
+								(object JuncPtVw ":TOP:idle:J51531A4602C2" @108
+									quid "51531A4602C6"
+									pos (554,463)
+									quidu "51531A4602C2"
+									positionBySuperclass FALSE
+									boundIconAutoAdjust TRUE)
+								(object JuncPtVw ":TOP:idle:J51531A4A0301" @109
+									quid "51531A4A0305"
+									pos (517,553)
+									quidu "51531A4A0301"
+									positionBySuperclass FALSE
+									boundIconAutoAdjust TRUE)
+								(object JuncPtVw ":TOP:idle:J51531A8403C3" @110
+									quid "51531A8403C7"
+									pos (554,439)
+									quidu "51531A8403C3"
+									positionBySuperclass FALSE
+									boundIconAutoAdjust TRUE)
+								(object JuncPtVw ":TOP:idle:J51531A8C0344" @111
+									quid "51531A8C0348"
+									pos (493,553)
+									quidu "51531A8C0344"
+									boundIconAutoAdjust TRUE))
+							statediagram (object State_Diagram ""
+								quid "515319FD0235"
+								items (list diagram_item_list
+									(object StateView "Perimeter" "idle" @112
+										quid "515319FD0237"
+										pos (840,615)
+										quidu "515319E0031D"
+										boundIcons (list boundIconsList
+											(object JuncPtVw ":TOP:idle:J515319FD0234" @113
+												quid "515319FD0239"
+												pos (435,96)
+												quidu "515319FD0234"
+												juncPtIcon (object JuncPtIcon @114
+													quid "515319FD023A"
+													pos (435,186)
+													label (object ItemLabel
+														quid "515319FD023B"
+														pos (475,156))))
+											(object JuncPtVw ":TOP:idle:J51531A4602C2" @115
+												quid "51531A4602C3"
+												pos (1584,615)
+												quidu "51531A4602C2"
+												juncPtIcon (object JuncPtIcon @116
+													quid "51531A4602C4"
+													pos (1494,615)
+													label (object ItemLabel
+														quid "51531A4602C5"
+														pos (1524,655))))
+											(object JuncPtVw ":TOP:idle:J51531A4A0301" @117
+												quid "51531A4A0302"
+												pos (1365,1134)
+												quidu "51531A4A0301"
+												juncPtIcon (object JuncPtIcon @118
+													quid "51531A4A0303"
+													pos (1365,1044)
+													label (object ItemLabel
+														quid "51531A4A0304"
+														pos (1405,1074))))
+											(object JuncPtVw ":TOP:idle:J51531A8403C3" @119
+												quid "51531A8403C4"
+												pos (1584,479)
+												quidu "51531A8403C3"
+												juncPtIcon (object JuncPtIcon @120
+													quid "51531A8403C5"
+													pos (1494,479)
+													label (object ItemLabel
+														quid "51531A8403C6"
+														pos (1524,519))))
+											(object JuncPtVw ":TOP:idle:J51531A8C0344" @121
+												quid "51531A8C0345"
+												pos (1215,1134)
+												quidu "51531A8C0344"
+												juncPtIcon (object JuncPtIcon @122
+													quid "51531A8C0346"
+													pos (1215,1044)
+													label (object ItemLabel
+														quid "51531A8C0347"
+														pos (1255,1074))))))
+									(object StateView "StartState" "Initial" @123
+										quid "515319FD0238"
+										pos (180,180)
+										quidu "515319E0031F"))
+								filterFlags 1))
+						(object StateView "Normal" "movingDown" @124
+							quid "515319E40138"
+							pos (950,838)
+							quidu "515319E40186"
+							label (object ItemLabel
+								quid "515319E40187"
+								pos (950,793)
+								max_width 194)
+							positionBySuperclass FALSE
+							boundIcons (list boundIconsList
+								(object JuncPtVw ":TOP:movingDown:J51531A4A0306" @125
+									quid "51531A4A030E"
+									pos (866,748)
+									quidu "51531A4A0306"
+									positionBySuperclass FALSE
+									boundIconAutoAdjust TRUE)
+								(object JuncPtVw ":TOP:movingDown:J51531A8C0332" @126
+									quid "51531A8C0343"
+									pos (842,757)
+									quidu "51531A8C0332"
+									boundIconAutoAdjust TRUE)
+								(object JuncPtVw ":TOP:movingDown:J51531AB60026" @127
+									quid "51531AB6002A"
+									pos (969,928)
+									quidu "51531AB60026"
+									boundIconAutoAdjust TRUE)
+								(object JuncPtVw ":TOP:movingDown:J51531AB6002B" @128
+									quid "51531AB6002F"
+									pos (879,928)
+									quidu "51531AB6002B"
+									boundIconAutoAdjust TRUE))
+							statediagram (object State_Diagram ""
+								quid "51531A4A0307"
+								items (list diagram_item_list
+									(object StateView "Perimeter" "movingDown" @129
+										quid "51531A4A0309"
+										pos (840,615)
+										quidu "515319E40186"
+										boundIcons (list boundIconsList
+											(object JuncPtVw ":TOP:movingDown:J51531A4A0306" @130
+												quid "51531A4A030B"
+												pos (315,96)
+												quidu "51531A4A0306"
+												juncPtIcon (object JuncPtIcon @131
+													quid "51531A4A030C"
+													pos (315,186)
+													label (object ItemLabel
+														quid "51531A4A030D"
+														pos (355,156))))
+											(object JuncPtVw ":TOP:movingDown:J51531A8C0332" @132
+												quid "51531A8C0340"
+												pos (169,101)
+												quidu "51531A8C0332"
+												juncPtIcon (object JuncPtIcon @133
+													quid "51531A8C0341"
+													pos (196,187)
+													label (object ItemLabel
+														quid "51531A8C0342"
+														pos (236,157))))
+											(object JuncPtVw ":TOP:movingDown:J51531AB60026" @134
+												quid "51531AB60027"
+												pos (960,1134)
+												quidu "51531AB60026"
+												juncPtIcon (object JuncPtIcon @135
+													quid "51531AB60028"
+													pos (960,1044)
+													label (object ItemLabel
+														quid "51531AB60029"
+														pos (1000,1074))))
+											(object JuncPtVw ":TOP:movingDown:J51531AB6002B" @136
+												quid "51531AB6002C"
+												pos (390,1134)
+												quidu "51531AB6002B"
+												juncPtIcon (object JuncPtIcon @137
+													quid "51531AB6002D"
+													pos (390,1044)
+													label (object ItemLabel
+														quid "51531AB6002E"
+														pos (430,1074))))))
+									(object StateView "StartState" "Initial" @138
+										quid "51531A4A030A"
+										pos (180,180)
+										quidu "515319E40188"))
+								filterFlags 1))
+						(object TransView ":TOP:Initial:Initial" @139
+							quid "515319FC03D9"
+							uses_fill_color FALSE
+							quidu "515319FD0233"
+							label (object SegLabel @140
+								quid "515319FD0243"
+								pos (313,252)
+								max_width 75
+								pctDist 0.501882
+								height 45)
+							client @90
+							supplier @107
+							vertices (list Points
+								(200,201)
+								(362,365))
+							line_style 6144)
+						(object TransView ":TOP:idle:J51531A4602C2:moveup" @141
+							quid "51531A460179"
+							uses_fill_color FALSE
+							quidu "51531A4602C1"
+							label (object SegLabel @142
+								quid "51531A4602DA"
+								pos (730,510)
+								positionBySuperclass FALSE
+								max_width 119
+								pctDist 0.414076
+								height 47
+								orientation 1)
+							positionBySuperclass FALSE
+							client @108
+							supplier @92
+							vertices (list Points
+								(562,463)
+								(968,464))
+							line_style 6144)
+						(object TransView ":TOP:idle:J51531A4A0301:movedown" @143
+							quid "51531A49039C"
+							uses_fill_color FALSE
+							quidu "51531A4A0300"
+							label (object SegLabel @144
+								quid "51531A4A030F"
+								pos (752,611)
+								positionBySuperclass FALSE
+								max_width 163
+								pctDist 0.592045
+								height 64)
+							positionBySuperclass FALSE
+							client @109
+							supplier @125
+							vertices (list Points
+								(524,557)
+								(857,742))
+							line_style 6144)
+						(object TransView ":TOP:movingUp:J51531A8403BE:stop" @145
+							quid "51531A8303AD"
+							uses_fill_color FALSE
+							quidu "51531A8403BD"
+							label (object SegLabel @146
+								quid "51531A8403C8"
+								pos (768,398)
+								positionBySuperclass FALSE
+								max_width 63
+								pctDist 0.492863
+								height 42
+								orientation 1)
+							positionBySuperclass FALSE
+							client @93
+							supplier @110
+							vertices (list Points
+								(968,440)
+								(562,439))
+							line_style 6144)
+						(object TransView ":TOP:movingDown:J51531A8C0332:stop" @147
+							quid "51531A8C0071"
+							uses_fill_color FALSE
+							quidu "51531A8C0331"
+							label (object SegLabel @148
+								quid "51531A8C0349"
+								pos (644,693)
+								max_width 63
+								pctDist 0.499505
+								height 45)
+							client @126
+							supplier @111
+							vertices (list Points
+								(833,751)
+								(500,557))
+							line_style 6144)
+						(object TransView ":TOP:movingUp:J51531A940323:moveUp" @149
+							quid "51531A940321"
+							uses_fill_color FALSE
+							quidu "51531A940322"
+							label (object SegLabel @150
+								quid "51531A94032D"
+								pos (1188,271)
+								max_width 125
+								pctDist 0.505533
+								height 44)
+							client @94
+							supplier @95
+							vertices (list Points
+								(1103,366)
+								(1107,301)
+								(1248,327)
+								(1198,371))
+							line_style 6144)
+						(object TransView ":TOP:movingDown:J51531AB60026:moveDown" @151
+							quid "51531AB60024"
+							uses_fill_color FALSE
+							quidu "51531AB60025"
+							label (object SegLabel @152
+								quid "51531AB60030"
+								pos (924,1048)
+								max_width 169
+								pctDist 0.500000
+								height 45)
+							client @127
+							supplier @128
+							vertices (list Points
+								(969,936)
+								(969,1003)
+								(879,1003)
+								(879,936))
+							line_style 6144))
+					filterFlags 1)
+				language "C++"
+				structureDiagram (object CollaborationDiagram "Structure Diagram"
+					quid "515317F9005A"
+					items (list diagram_item_list
+						(object CapsulePerimeterVw "Structure" @153
+							quid "515317F9005C"
+							pos (840,615)
+							quidu "515317F90055"
+							boundIcons (list boundIconsList
+								(object PortVw ":Structure:motorS" @154
+									quid "51531AD903CF"
+									pos (306,96)
+									quidu "51531AD903C0"
+									label (object ItemLabel
+										quid "51531AD903D1"
+										pos (315,132)
+										nlines 2
+										max_width 156
+										label "motorS")))))
+					filterFlags 521))
+			(object Protocol "buttons"
+				quid "5153061A000B"
+				statemachine (object State_Machine
+					quid "5153061A000C"
+					State (object State "TOP"
+						quid "5153061A000D"
+						states (list States
+							(object InitialPt "Initial"
+								quid "5153061A000E"))))
+				collaborations (list collaborationsList
+					(object Collaboration "Collaboration1"
+						quid "5153061A000F"))
+				protocolRoles (list protocolRolesList
+					(object ProtocolRole "base"
+						quid "5153062500B8"
+						inSignals (list inSignalsList
+							(object Signal "button"
+								quid "5153062500B7"
+								dataType  "int"))))
+				statediagram (object State_Diagram "State Diagram"
+					quid "5153061A0010"
+					items (list diagram_item_list
+						(object StateView "Perimeter" "TOP" @155
+							quid "5153061A001A"
+							pos (840,615)
+							quidu "5153061A000D")
+						(object StateView "StartState" "Initial" @156
+							quid "5153061A001B"
+							pos (180,180)
+							quidu "5153061A000E"))
+					filterFlags 1)
+				language "C++")
+			(object Protocol "testsig"
+				quid "515309B7014B"
+				statemachine (object State_Machine
+					quid "515309B7014C"
+					State (object State "TOP"
+						quid "515309B7014D"
+						states (list States
+							(object InitialPt "Initial"
+								quid "515309B7014E"))))
+				collaborations (list collaborationsList
+					(object Collaboration "Collaboration1"
+						quid "515309B7014F"))
+				protocolRoles (list protocolRolesList
+					(object ProtocolRole "base"
+						quid "51530BC70002"
+						inSignals (list inSignalsList
+							(object Signal "move"
+								quid "5153185503DE"
+								dataType  "int"))
+						outSignals (list outSignalsList
+							(object Signal "insideElev"
+								quid "51530BC70001"
+								dataType  "int"))))
+				statediagram (object State_Diagram "State Diagram"
+					quid "515309B70150"
+					items (list diagram_item_list
+						(object StateView "Perimeter" "TOP" @157
+							quid "515309B70152"
+							pos (840,615)
+							quidu "515309B7014D")
+						(object StateView "StartState" "Initial" @158
+							quid "515309B70153"
+							pos (180,180)
+							quidu "515309B7014E"))
+					filterFlags 1)
+				language "C++")
+			(object Protocol "motorSig"
+				quid "51531AC70351"
+				statemachine (object State_Machine
+					quid "51531AC70352"
+					State (object State "TOP"
+						quid "51531AC70353"
+						states (list States
+							(object InitialPt "Initial"
+								quid "51531AC70354"))))
+				collaborations (list collaborationsList
+					(object Collaboration "Collaboration1"
+						quid "51531AC70355"))
+				protocolRoles (list protocolRolesList
+					(object ProtocolRole "base"
+						quid "51531B1D00D4"
+						inSignals (list inSignalsList
+							(object Signal "moveUp"
+								quid "51531B1D00D3"
+								dataType  "void")
+							(object Signal "moveDown"
+								quid "51531B370354"
+								dataType  "void")
+							(object Signal "stop"
+								quid "51531B4000A5"
+								dataType  "void"))))
+				statediagram (object State_Diagram "State Diagram"
+					quid "51531AC70356"
+					items (list diagram_item_list
+						(object StateView "Perimeter" "TOP" @159
+							quid "51531AC70358"
+							pos (840,615)
+							quidu "51531AC70353")
+						(object StateView "StartState" "Initial" @160
+							quid "51531AC70359"
+							pos (180,180)
+							quidu "51531AC70354"))
+					filterFlags 1)
+				language "C++")
+			(object Class_Category "RTClasses"
+				is_unit TRUE
+				is_loaded FALSE
+				file_name "$ROSERT_HOME\\C++\\RTClasses.rtlogpkg"
+				isOwned FALSE
+				quid "37F129B10358"))
+		logical_presentations (list unit_reference_list
+			(object ClassDiagram "Main"
+				quid "3619364703D4"
+				items (list diagram_item_list
+					(object CapsuleVw "centralOpt" @161
+						ShowCompartmentStereotypes TRUE
+						IncludeAttribute TRUE
+						IncludeOperation TRUE
+						showAggregations TRUE
+						quid "515305AC0298"
+						pos (920,352)
+						label (object ItemLabel
+							quid "515305AC0299"
+							pos (761,264)
+							max_width 318
+							label "centralOpt")
+						stereotype (object ItemLabel
+							quid "515305AC02F6"
+							pos (761,223)
+							anchor 10
+							max_width 318
+							label "<<Capsule>>")
+						icon_style "Decoration"
+						quidu "515305AC02E7"
+						compartment (object Compartment
+							quid "515305AC02E6"
+							pos (761,326)
+							anchor 2
+							nlines 6
+							max_width 328
+							justify 1)
+						width 336
+						height 416
+						annotation 8
+						autoResize TRUE
+						showPorts TRUE)
+					(object CapsuleVw "localOpt" @162
+						ShowCompartmentStereotypes TRUE
+						IncludeAttribute TRUE
+						IncludeOperation TRUE
+						showAggregations TRUE
+						quid "515305B40037"
+						pos (1981,354)
+						label (object ItemLabel
+							quid "515305B40038"
+							pos (1769,184)
+							max_width 424
+							label "localOpt")
+						stereotype (object ItemLabel
+							quid "515305B40085"
+							pos (1769,143)
+							anchor 10
+							max_width 424
+							label "<<Capsule>>")
+						icon_style "Decoration"
+						quidu "515305B40076"
+						compartment (object Compartment
+							quid "515305B40075"
+							pos (1769,246)
+							anchor 2
+							nlines 10
+							max_width 431
+							justify 1)
+						width 442
+						height 580
+						annotation 8
+						autoResize TRUE
+						showPorts TRUE)
+					(object ProtocolVw "buttons" @163
+						ShowCompartmentStereotypes TRUE
+						IncludeAttribute TRUE
+						IncludeOperation TRUE
+						showAggregations TRUE
+						quid "5153061903A5"
+						pos (1970,1175)
+						label (object ItemLabel
+							quid "5153061903A6"
+							pos (1865,1140)
+							max_width 210
+							label "buttons")
+						stereotype (object ItemLabel
+							quid "5153061A001C"
+							pos (1865,1099)
+							anchor 10
+							max_width 210
+							label "<<Protocol>>")
+						icon_style "Decoration"
+						quidu "5153061A000B"
+						compartment (object Compartment
+							quid "5153061A001D"
+							pos (1865,1202)
+							anchor 2
+							nlines 2
+							max_width 215
+							justify 1)
+						width 228
+						height 238
+						annotation 8
+						autoResize TRUE
+						showInSignals TRUE
+						showOutSignals TRUE)
+					(object ProtocolVw "testsig" @164
+						ShowCompartmentStereotypes TRUE
+						IncludeAttribute TRUE
+						IncludeOperation TRUE
+						showAggregations TRUE
+						quid "515309B7010D"
+						pos (923,983)
+						label (object ItemLabel
+							quid "515309B7010E"
+							pos (790,916)
+							max_width 266
+							label "testsig")
+						stereotype (object ItemLabel
+							quid "515309B70154"
+							pos (790,875)
+							anchor 10
+							max_width 266
+							label "<<Protocol>>")
+						icon_style "Decoration"
+						quidu "515309B7014B"
+						compartment (object Compartment
+							quid "515309B7015B"
+							pos (790,978)
+							anchor 2
+							nlines 3
+							max_width 271
+							justify 1)
+						width 284
+						height 300
+						annotation 8
+						autoResize TRUE
+						showInSignals TRUE
+						showOutSignals TRUE)
+					(object CapsuleRoleRelVw ":Structure:centralOp" @165
+						quid "51530A9D0190"
+						uses_fill_color FALSE
+						quidu "51530A9D0191"
+						label (object SegLabel @166
+							quid "51530A9D0194"
+							pos (1426,323)
+							positionBySuperclass FALSE
+							max_width 144
+							label "centralOp"
+							pctDist 0.496340
+							height 30
+							orientation 1)
+						positionBySuperclass FALSE
+						client @162
+						supplier @161
+						vertices (list Points
+							(1759,353)
+							(1088,352))
+						line_style 6144
+						label (object SegLabel @167
+							quid "51530A9D0195"
+							pos (2925,649)
+							hidden TRUE
+							positionBySuperclass FALSE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist -1.738358
+							height 294))
+					(object PortRelVw ":Structure:insideButton" @168
+						quid "51530B10003B"
+						uses_fill_color FALSE
+						quidu "51530B10003C"
+						label (object SegLabel @169
+							quid "51530B10004A"
+							pos (1724,934)
+							positionBySuperclass FALSE
+							max_width 181
+							label "insideButton"
+							pctDist 0.287050
+							height 248)
+						positionBySuperclass FALSE
+						client @163
+						supplier @162
+						vertices (list Points
+							(1971,1055)
+							(1976,644))
+						line_style 6144
+						label (object SegLabel @170
+							quid "51530B10004C"
+							pos (5822,2598)
+							hidden TRUE
+							positionBySuperclass FALSE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist -3.639731
+							height 3869
+							orientation 1)
+						label (object SegLabel @171
+							quid "51530B10004B"
+							pos (1844,844)
+							positionBySuperclass FALSE
+							anchor 2
+							max_width 134
+							label "<<Port>>"
+							pctDist 0.509547
+							height 130))
+					(object CapsuleVw "motor" @172
+						ShowCompartmentStereotypes TRUE
+						IncludeAttribute TRUE
+						IncludeOperation TRUE
+						showAggregations TRUE
+						quid "515317F90003"
+						pos (2832,349)
+						label (object ItemLabel
+							quid "515317F90004"
+							pos (2649,312)
+							max_width 366
+							label "motor")
+						stereotype (object ItemLabel
+							quid "515317F9005D"
+							pos (2649,271)
+							anchor 10
+							max_width 366
+							label "<<Capsule>>")
+						icon_style "Decoration"
+						quidu "515317F90051"
+						compartment (object Compartment
+							quid "515317F90041"
+							pos (2649,374)
+							anchor 2
+							nlines 4
+							max_width 371
+							justify 1)
+						width 384
+						height 314
+						annotation 8
+						autoResize TRUE
+						showPorts TRUE)
+					(object ProtocolVw "motorSig" @173
+						ShowCompartmentStereotypes TRUE
+						IncludeAttribute TRUE
+						IncludeOperation TRUE
+						showAggregations TRUE
+						quid "51531AC70313"
+						pos (2833,1088)
+						label (object ItemLabel
+							quid "51531AC70314"
+							pos (2677,1012)
+							max_width 312
+							label "motorSig")
+						stereotype (object ItemLabel
+							quid "51531AC7035A"
+							pos (2677,971)
+							anchor 10
+							max_width 312
+							label "<<Protocol>>")
+						icon_style "Decoration"
+						quidu "51531AC70351"
+						compartment (object Compartment
+							quid "51531AC7035B"
+							pos (2677,1074)
+							anchor 2
+							nlines 4
+							max_width 318
+							justify 1)
+						width 330
+						height 320
+						annotation 8
+						autoResize TRUE
+						showInSignals TRUE
+						showOutSignals TRUE)
+					(object PortRelVw ":Structure:motorS" @174
+						quid "51531AD903BF"
+						uses_fill_color FALSE
+						quidu "51531AD903C0"
+						label (object SegLabel @175
+							quid "51531AD903D2"
+							pos (2690,769)
+							positionBySuperclass FALSE
+							max_width 103
+							label "motorS"
+							pctDist 0.375297
+							height 142)
+						positionBySuperclass FALSE
+						client @173
+						supplier @172
+						vertices (list Points
+							(2832,927)
+							(2832,506))
+						line_style 6144
+						label (object SegLabel @176
+							quid "51531AD903DE"
+							pos (5480,1479)
+							hidden TRUE
+							positionBySuperclass FALSE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist -1.311164
+							height 2648
+							orientation 1)
+						label (object SegLabel @177
+							quid "51531AD903D3"
+							pos (2798,695)
+							positionBySuperclass FALSE
+							anchor 2
+							max_width 134
+							label "<<Port>>"
+							pctDist 0.551069
+							height 34))
+					(object PortRelVw ":Structure:motorE" @178
+						quid "51531AE900A3"
+						uses_fill_color FALSE
+						quidu "51531AE900A4"
+						label (object SegLabel @179
+							quid "51531AE900B4"
+							pos (2435,862)
+							positionBySuperclass FALSE
+							max_width 103
+							label "motorE"
+							pctDist 0.374412
+							height 89)
+						positionBySuperclass FALSE
+						client @173
+						supplier @162
+						vertices (list Points
+							(2667,945)
+							(2202,544))
+						line_style 6144
+						label (object SegLabel @180
+							quid "51531AE900B6"
+							pos (4819,1590)
+							hidden TRUE
+							positionBySuperclass FALSE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist -3.340154
+							height 917
+							orientation 1)
+						label (object SegLabel @181
+							quid "51531AE900B5"
+							pos (2408,776)
+							positionBySuperclass FALSE
+							anchor 2
+							max_width 134
+							label "<<Port>>"
+							pctDist 0.499180
+							height 41))
+					(object CapsuleRoleRelVw ":Structure:motorR1" @182
+						quid "51531F7800E0"
+						uses_fill_color FALSE
+						quidu "51531F7800E1"
+						label (object SegLabel @183
+							quid "51531F7800EF"
+							pos (2432,378)
+							positionBySuperclass FALSE
+							max_width 125
+							label "motorR1"
+							pctDist 0.473978
+							height 28)
+						positionBySuperclass FALSE
+						client @172
+						supplier @162
+						vertices (list Points
+							(2639,349)
+							(2202,351))
+						line_style 6144
+						label (object SegLabel @184
+							quid "51531F7800F0"
+							pos (5017,806)
+							hidden TRUE
+							positionBySuperclass FALSE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist -5.436748
+							height 468))
+					(object PortRelVw ":Structure:toLocal" @185
+						quid "51530B4E0388"
+						uses_fill_color FALSE
+						quidu "51530B4E0389"
+						label (object SegLabel @186
+							quid "51530B4E039C"
+							pos (1412,764)
+							positionBySuperclass FALSE
+							max_width 109
+							label "toLocal"
+							pctDist 0.453457
+							height 63
+							orientation 1)
+						positionBySuperclass FALSE
+						client @164
+						supplier @162
+						vertices (list Points
+							(1065,897)
+							(1759,484))
+						line_style 6144
+						label (object SegLabel @187
+							quid "51530B4E039E"
+							pos (2502,1514)
+							hidden TRUE
+							positionBySuperclass FALSE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist 1.138380
+							height 1265
+							orientation 1)
+						label (object SegLabel @188
+							quid "51530B4E039D"
+							pos (1392,654)
+							positionBySuperclass FALSE
+							anchor 2
+							max_width 134
+							label "<<Port>>"
+							pctDist 0.501831
+							height 42))
+					(object PortRelVw ":Structure:local" @189
+						quid "51530B53001D"
+						uses_fill_color FALSE
+						quidu "51530B53001E"
+						label (object SegLabel @190
+							quid "51530B530022"
+							pos (983,744)
+							positionBySuperclass FALSE
+							max_width 69
+							label "local"
+							pctDist 0.321863
+							height 62
+							orientation 1)
+						positionBySuperclass FALSE
+						client @164
+						supplier @161
+						vertices (list Points
+							(922,832)
+							(920,560))
+						line_style 6144
+						label (object SegLabel @191
+							quid "51530B53002E"
+							pos (2714,2279)
+							hidden TRUE
+							positionBySuperclass FALSE
+							anchor 1
+							max_width 15
+							label ""
+							pctDist -5.368006
+							height 1781
+							orientation 1)
+						label (object SegLabel @192
+							quid "51530B53002D"
+							pos (880,696)
+							positionBySuperclass FALSE
+							anchor 2
+							max_width 134
+							label "<<Port>>"
+							pctDist 0.501108
+							height 41))))))
+	root_subsystem (object SubSystem "Component View"
+		quid "515304A6010F"
+		physical_models (list unit_reference_list
+			(object Component "k"
+				attributes (list Attribute_Set
+					(object Attribute
+						tool "OT::CppExec"
+						name "TopCapsule"
+						value (value Event 
+|[event_ui
+|	description='centralOpt'
+|	caption='Select...']
+|"Logical View::centralOpt" 515305AC02E7
+						))
+					(object Attribute
+						tool "C++ Compilation"
+						name "TargetConfiguration"
+						value (value Event 
+|[event_ui
+|	description='NT40T.x86-VisualC++-6.0'
+|	caption='Select...']
+|NT40T.x86-VisualC++-6.0
+						)))
+				quid "515311D000C5"
+				stereotype ""
+				componentClassReferences (list componentClassReferencesList
+					componentClassReferences  "Logical View::centralOpt"
+					quidu "515305AC02E7"
+					componentClassReferences  "Logical View::testsig"
+					quidu "515309B7014B"
+					componentClassReferences  "Logical View::RTClasses::Log"
+					quidu "37E92926019B"
+					componentClassReferences  "Logical View::localOpt"
+					quidu "515305B40076"
+					componentClassReferences  "Logical View::buttons"
+					quidu "5153061A000B"
+					componentClassReferences  "Logical View::motorSig"
+					quidu "51531AC70351"
+					componentClassReferences  "Logical View::RTClasses::Timing"
+					quidu "37E9292C018C"
+					componentClassReferences  "Logical View::motor"
+					quidu "515317F90051")
+				componentType "C++ Executable"
+				componentEnvironment "C++ TargetRTS")
+			(object SubSystem "RTComponents"
+				is_unit TRUE
+				is_loaded FALSE
+				file_name "$ROSERT_HOME\\C++\\RTComponents.rtcmppkg"
+				isOwned FALSE
+				quid "37F129B1035A"))
+		physical_presentations (list unit_reference_list
+			(object Module_Diagram "Main"
+				quid "36641F810172")))
+	process_structure (object Processes "Deployment View"
+		quid "3619364703C8"
+		ProcsNDevs (list
+			(object Process_Diagram "Main"
+				quid "3619364703CA")))
+	properties (object Properties
+		attributes (list Attribute_Set
+			(object Attribute
+				tool "OT::C"
+				name "propertyId"
+				value "809135966")
+			(object Attribute
+				tool "C Version"
+				name "default__Version"
+				value (list Attribute_Set
+					(object Attribute
+						tool "C Version"
+						name "Version"
+						value 6404)))
+			(object Attribute
+				tool "OT::C"
+				name "default__Attribute"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::C"
+						name "AttributeKindSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "OT::C"
+								name "normal"
+								value 0)
+							(object Attribute
+								tool "OT::C"
+								name "constant"
+								value 2)))
+					(object Attribute
+						tool "OT::C"
+						name "AttributeKind"
+						value ("AttributeKindSet" 0))
+					(object Attribute
+						tool "OT::C"
+						name "InitializerKindSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "OT::C"
+								name "assignment"
+								value 0)
+							(object Attribute
+								tool "OT::C"
+								name "call construct function"
+								value 1)))
+					(object Attribute
+						tool "OT::C"
+						name "InitializerKind"
+						value ("InitializerKindSet" 0))
+					(object Attribute
+						tool "OT::C"
+						name "HeaderPreface"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::C"
+						name "HeaderEnding"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::C"
+						name "ImplementationPreface"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::C"
+						name "ImplementationEnding"
+						value (value Text ""))))
+			(object Attribute
+				tool "OT::C"
+				name "default__Capsule"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::C"
+						name "GenerateConstructFunction"
+						value TRUE)
+					(object Attribute
+						tool "OT::C"
+						name "GlobalPrefix"
+						value "")
+					(object Attribute
+						tool "OT::C"
+						name "HeaderPreface"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::C"
+						name "HeaderEnding"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::C"
+						name "ImplementationPreface"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::C"
+						name "ImplementationEnding"
+						value (value Text ""))))
+			(object Attribute
+				tool "OT::C"
+				name "default__Class"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::C"
+						name "GenerateClass"
+						value TRUE)
+					(object Attribute
+						tool "OT::C"
+						name "GenerateStateMachine"
+						value TRUE)
+					(object Attribute
+						tool "OT::C"
+						name "ClassKindSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "OT::C"
+								name "none (deprecated)"
+								value 4)
+							(object Attribute
+								tool "OT::C"
+								name "struct"
+								value 1)
+							(object Attribute
+								tool "OT::C"
+								name "typedef"
+								value 3)
+							(object Attribute
+								tool "OT::C"
+								name "union"
+								value 2)))
+					(object Attribute
+						tool "OT::C"
+						name "ClassKind"
+						value ("ClassKindSet" 1))
+					(object Attribute
+						tool "OT::C"
+						name "ImplementationType"
+						value "")
+					(object Attribute
+						tool "OT::C"
+						name "ConstructFunctionName"
+						value "${name}_construct")
+					(object Attribute
+						tool "OT::C"
+						name "GlobalPrefix"
+						value "")
+					(object Attribute
+						tool "OT::C"
+						name "HeaderPreface"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::C"
+						name "HeaderEnding"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::C"
+						name "ImplementationPreface"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::C"
+						name "ImplementationEnding"
+						value (value Text ""))))
+			(object Attribute
+				tool "OT::C"
+				name "default__Role"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::C"
+						name "AssociationEndKindSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "OT::C"
+								name "member"
+								value 0)
+							(object Attribute
+								tool "OT::C"
+								name "global"
+								value 1)))
+					(object Attribute
+						tool "OT::C"
+						name "AssociationEndKind"
+						value ("AssociationEndKindSet" 0))
+					(object Attribute
+						tool "OT::C"
+						name "InitializerKindSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "OT::C"
+								name "assignment"
+								value 0)
+							(object Attribute
+								tool "OT::C"
+								name "call construct function"
+								value 1)))
+					(object Attribute
+						tool "OT::C"
+						name "InitializerKind"
+						value ("InitializerKindSet" 0))
+					(object Attribute
+						tool "OT::C"
+						name "InitialValue"
+						value (value Text ""))))
+			(object Attribute
+				tool "OT::C"
+				name "default__Uses"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::C"
+						name "KindSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "OT::C"
+								name "none"
+								value 2)
+							(object Attribute
+								tool "OT::C"
+								name "forward reference"
+								value 1)
+							(object Attribute
+								tool "OT::C"
+								name "inclusion"
+								value 0)))
+					(object Attribute
+						tool "OT::C"
+						name "KindInHeader"
+						value ("KindSet" 1))
+					(object Attribute
+						tool "OT::C"
+						name "KindInImplementation"
+						value ("KindSet" 0))))
+			(object Attribute
+				tool "OT::C"
+				name "HiddenTool"
+				value FALSE)
+			(object Attribute
+				tool "OT::CExec"
+				name "propertyId"
+				value "809135966")
+			(object Attribute
+				tool "OT::CExec"
+				name "default__Capsule"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::CExec"
+						name "Capsule To Logical Thread Mapping"
+						value (value Event ""))))
+			(object Attribute
+				tool "OT::CExec"
+				name "default__Component"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::CExec"
+						name "TopCapsule"
+						value (value Event 
+|[event_ui
+|	description='<none selected>'
+|	caption='Select...']
+						))
+					(object Attribute
+						tool "OT::CExec"
+						name "PhysicalThreads"
+						value (value Event 
+|[MainThread
+|	Priority='DEFAULT_MAIN_PRIORITY'
+|	StackSize='20000'
+|	FreeMessageQueueSize='DEFAULT_FREE_MSGQ_SIZE']
+						))
+					(object Attribute
+						tool "OT::CExec"
+						name "ExecutableName"
+						value "$name$(EXEC_EXT)")
+					(object Attribute
+						tool "OT::CExec"
+						name "DefaultArguments"
+						value "")
+					(object Attribute
+						tool "OT::CExec"
+						name "LinkCommand"
+						value "$(LD)")
+					(object Attribute
+						tool "OT::CExec"
+						name "LinkArguments"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::CExec"
+						name "UserObjectFiles"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::CExec"
+						name "UserLibraries"
+						value (value Text ""))))
+			(object Attribute
+				tool "OT::CExec"
+				name "HiddenTool"
+				value FALSE)
+			(object Attribute
+				tool "OT::CExtLib"
+				name "propertyId"
+				value "809135966")
+			(object Attribute
+				tool "OT::CExtLib"
+				name "default__Component"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::CExtLib"
+						name "IncludeFilename"
+						value "")
+					(object Attribute
+						tool "OT::CExtLib"
+						name "GenerateClassInclusions"
+						value TRUE)
+					(object Attribute
+						tool "OT::CExtLib"
+						name "CodeGenDirName"
+						value "")
+					(object Attribute
+						tool "OT::CExtLib"
+						name "InclusionPaths"
+						value (value Event ""))
+					(object Attribute
+						tool "OT::CExtLib"
+						name "Libraries"
+						value (value Event ""))))
+			(object Attribute
+				tool "OT::CExtLib"
+				name "HiddenTool"
+				value FALSE)
+			(object Attribute
+				tool "OT::CLib"
+				name "propertyId"
+				value "809135966")
+			(object Attribute
+				tool "OT::CLib"
+				name "default__Component"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::CLib"
+						name "LibraryName"
+						value "$(LIB_PFX)$name$(LIB_EXT)")
+					(object Attribute
+						tool "OT::CLib"
+						name "BuildLibraryCommand"
+						value "$(AR_CMD)")
+					(object Attribute
+						tool "OT::CLib"
+						name "BuildLibraryArguments"
+						value (value Text ""))))
+			(object Attribute
+				tool "OT::CLib"
+				name "HiddenTool"
+				value FALSE)
+			(object Attribute
+				tool "OT::CTargetRSL"
+				name "propertyId"
+				value "809135966")
+			(object Attribute
+				tool "C Generation"
+				name "propertyId"
+				value "809135966")
+			(object Attribute
+				tool "C Compilation"
+				name "propertyId"
+				value "809135966")
+			(object Attribute
+				tool "OT::CTargetRSL"
+				name "default__Class"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::CTargetRSL"
+						name "GenerateDescriptorSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "OT::CTargetRSL"
+								name "True"
+								value 0)
+							(object Attribute
+								tool "OT::CTargetRSL"
+								name "DebugOnly"
+								value 1)
+							(object Attribute
+								tool "OT::CTargetRSL"
+								name "False"
+								value 2)
+							(object Attribute
+								tool "OT::CTargetRSL"
+								name "Manual"
+								value 3)))
+					(object Attribute
+						tool "OT::CTargetRSL"
+						name "GenerateDescriptor"
+						value ("GenerateDescriptorSet" 0))
+					(object Attribute
+						tool "OT::CTargetRSL"
+						name "Version"
+						value 0)
+					(object Attribute
+						tool "OT::CTargetRSL"
+						name "InitFunctionBody"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::CTargetRSL"
+						name "CopyFunctionBody"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::CTargetRSL"
+						name "DestroyFunctionBody"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::CTargetRSL"
+						name "DecodeFunctionBody"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::CTargetRSL"
+						name "EncodeFunctionBody"
+						value (value Text ""))))
+			(object Attribute
+				tool "OT::CTargetRSL"
+				name "default__Attribute"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::CTargetRSL"
+						name "GenerateDescriptor"
+						value TRUE)
+					(object Attribute
+						tool "OT::CTargetRSL"
+						name "TypeDescriptor"
+						value "")
+					(object Attribute
+						tool "OT::CTargetRSL"
+						name "GenerateTypeModifier"
+						value TRUE)
+					(object Attribute
+						tool "OT::CTargetRSL"
+						name "NumElementsFunctionBody"
+						value (value Text ""))))
+			(object Attribute
+				tool "OT::CTargetRSL"
+				name "default__Role"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::CTargetRSL"
+						name "GenerateDescriptor"
+						value TRUE)
+					(object Attribute
+						tool "OT::CTargetRSL"
+						name "TypeDescriptor"
+						value "")
+					(object Attribute
+						tool "OT::CTargetRSL"
+						name "GenerateTypeModifier"
+						value TRUE)
+					(object Attribute
+						tool "OT::CTargetRSL"
+						name "NumElementsFunctionBody"
+						value (value Text ""))))
+			(object Attribute
+				tool "C Generation"
+				name "default__Component"
+				value (list Attribute_Set
+					(object Attribute
+						tool "C Generation"
+						name "OutputDirectory"
+						value "$@/$name")
+					(object Attribute
+						tool "C Generation"
+						name "CodeGenDirName"
+						value "")
+					(object Attribute
+						tool "C Generation"
+						name "ComponentUnitDirectory"
+						value "RTSystem")
+					(object Attribute
+						tool "C Generation"
+						name "ComponentUnitName"
+						value "$name")
+					(object Attribute
+						tool "C Generation"
+						name "CommonPreface"
+						value (value Text ""))
+					(object Attribute
+						tool "C Generation"
+						name "MakeTypeSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "C Generation"
+								name "<default>"
+								value 100)
+							(object Attribute
+								tool "C Generation"
+								name "MS_nmake"
+								value 0)
+							(object Attribute
+								tool "C Generation"
+								name "Unix_make"
+								value 1)
+							(object Attribute
+								tool "C Generation"
+								name "Gnu_make"
+								value 2)
+							(object Attribute
+								tool "C Generation"
+								name "ClearCase_clearmake"
+								value 3)
+							(object Attribute
+								tool "C Generation"
+								name "ClearCase_omake"
+								value 4)))
+					(object Attribute
+						tool "C Generation"
+						name "CodeGenMakeType"
+						value ("MakeTypeSet" 100))
+					(object Attribute
+						tool "C Generation"
+						name "CodeGenMakeCommand"
+						value "$defaultMakeCommand")
+					(object Attribute
+						tool "C Generation"
+						name "CodeGenMakeArguments"
+						value "-s")
+					(object Attribute
+						tool "C Generation"
+						name "CodeGenMakeInsert"
+						value (value Text ""))
+					(object Attribute
+						tool "C Generation"
+						name "CodeSyncEnabled"
+						value TRUE)
+					(object Attribute
+						tool "C Generation"
+						name "Generate model tags"
+						value TRUE)
+					(object Attribute
+						tool "C Generation"
+						name "SingleDataCompilationUnit"
+						value FALSE)
+					(object Attribute
+						tool "C Generation"
+						name "DocumentationSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "C Generation"
+								name "do not generate"
+								value 0)
+							(object Attribute
+								tool "C Generation"
+								name "prefer in header"
+								value 1)
+							(object Attribute
+								tool "C Generation"
+								name "prefer in implementation"
+								value 2)
+							(object Attribute
+								tool "C Generation"
+								name "only in header"
+								value 3)
+							(object Attribute
+								tool "C Generation"
+								name "only in implementation"
+								value 4)))
+					(object Attribute
+						tool "C Generation"
+						name "Association end documentation"
+						value ("DocumentationSet" 0))
+					(object Attribute
+						tool "C Generation"
+						name "Attribute documentation"
+						value ("DocumentationSet" 0))
+					(object Attribute
+						tool "C Generation"
+						name "Capsule documentation"
+						value ("DocumentationSet" 0))
+					(object Attribute
+						tool "C Generation"
+						name "Capsule role documentation"
+						value ("DocumentationSet" 0))
+					(object Attribute
+						tool "C Generation"
+						name "Choice point documentation"
+						value ("DocumentationSet" 0))
+					(object Attribute
+						tool "C Generation"
+						name "Class documentation"
+						value ("DocumentationSet" 0))
+					(object Attribute
+						tool "C Generation"
+						name "Operation documentation"
+						value ("DocumentationSet" 0))
+					(object Attribute
+						tool "C Generation"
+						name "Port documentation"
+						value ("DocumentationSet" 0))
+					(object Attribute
+						tool "C Generation"
+						name "Protocol documentation"
+						value ("DocumentationSet" 0))
+					(object Attribute
+						tool "C Generation"
+						name "State documentation"
+						value ("DocumentationSet" 0))
+					(object Attribute
+						tool "C Generation"
+						name "Transition documentation"
+						value ("DocumentationSet" 0))))
+			(object Attribute
+				tool "C Compilation"
+				name "default__Component"
+				value (list Attribute_Set
+					(object Attribute
+						tool "C Compilation"
+						name "TargetServicesLibrary"
+						value "$ROSERT_HOME/C/TargetRTS")
+					(object Attribute
+						tool "C Compilation"
+						name "TargetConfiguration"
+						value (value Event 
+|[event_ui
+|	description='<none selected>'
+|	caption='Select...']
+						))
+					(object Attribute
+						tool "C Compilation"
+						name "MakeTypeSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "C Compilation"
+								name "<default>"
+								value 100)
+							(object Attribute
+								tool "C Compilation"
+								name "MS_nmake"
+								value 0)
+							(object Attribute
+								tool "C Compilation"
+								name "Unix_make"
+								value 1)
+							(object Attribute
+								tool "C Compilation"
+								name "Gnu_make"
+								value 2)
+							(object Attribute
+								tool "C Compilation"
+								name "ClearCase_clearmake"
+								value 3)
+							(object Attribute
+								tool "C Compilation"
+								name "ClearCase_omake"
+								value 4)))
+					(object Attribute
+						tool "C Compilation"
+						name "CompilationMakeType"
+						value ("MakeTypeSet" 100))
+					(object Attribute
+						tool "C Compilation"
+						name "CompilationMakeCommand"
+						value "rtperl -S rtsetup.pl $defaultMakeCommand")
+					(object Attribute
+						tool "C Compilation"
+						name "CompilationMakeArguments"
+						value "-k -s")
+					(object Attribute
+						tool "C Compilation"
+						name "CompilationMakeInsert"
+						value (value Text ""))
+					(object Attribute
+						tool "C Compilation"
+						name "CompileCommand"
+						value "$(CC)")
+					(object Attribute
+						tool "C Compilation"
+						name "CompileArguments"
+						value "$(DEBUG_TAG)")
+					(object Attribute
+						tool "C Compilation"
+						name "InclusionPaths"
+						value (value Event ""))))
+			(object Attribute
+				tool "OT::CTargetRSL"
+				name "HiddenTool"
+				value FALSE)
+			(object Attribute
+				tool "OT::Cpp"
+				name "propertyId"
+				value "809135966")
+			(object Attribute
+				tool "C++ Version"
+				name "default__Version"
+				value (list Attribute_Set
+					(object Attribute
+						tool "C++ Version"
+						name "Version"
+						value 6404)))
+			(object Attribute
+				tool "OT::Cpp"
+				name "default__Attribute"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::Cpp"
+						name "AttributeKindSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "OT::Cpp"
+								name "constant"
+								value 2)
+							(object Attribute
+								tool "OT::Cpp"
+								name "global"
+								value 1)
+							(object Attribute
+								tool "OT::Cpp"
+								name "member"
+								value 0)
+							(object Attribute
+								tool "OT::Cpp"
+								name "mutable member"
+								value 3)))
+					(object Attribute
+						tool "OT::Cpp"
+						name "AttributeKind"
+						value ("AttributeKindSet" 0))
+					(object Attribute
+						tool "OT::Cpp"
+						name "InitializerKindSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "OT::Cpp"
+								name "assignment"
+								value 0)
+							(object Attribute
+								tool "OT::Cpp"
+								name "constructor"
+								value 1)))
+					(object Attribute
+						tool "OT::Cpp"
+						name "InitializerKind"
+						value ("InitializerKindSet" 1))
+					(object Attribute
+						tool "OT::Cpp"
+						name "HeaderPreface"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::Cpp"
+						name "HeaderEnding"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::Cpp"
+						name "ImplementationPreface"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::Cpp"
+						name "ImplementationEnding"
+						value (value Text ""))))
+			(object Attribute
+				tool "OT::Cpp"
+				name "default__Capsule"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::Cpp"
+						name "HeaderPreface"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::Cpp"
+						name "HeaderEnding"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::Cpp"
+						name "ImplementationPreface"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::Cpp"
+						name "ImplementationEnding"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::Cpp"
+						name "PublicDeclarations"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::Cpp"
+						name "ProtectedDeclarations"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::Cpp"
+						name "PrivateDeclarations"
+						value (value Text ""))))
+			(object Attribute
+				tool "OT::Cpp"
+				name "default__Class"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::Cpp"
+						name "GenerateClass"
+						value TRUE)
+					(object Attribute
+						tool "OT::Cpp"
+						name "GenerateStateMachine"
+						value TRUE)
+					(object Attribute
+						tool "OT::Cpp"
+						name "ClassKindSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "OT::Cpp"
+								name "none (deprecated)"
+								value 4)
+							(object Attribute
+								tool "OT::Cpp"
+								name "class"
+								value 0)
+							(object Attribute
+								tool "OT::Cpp"
+								name "struct"
+								value 1)
+							(object Attribute
+								tool "OT::Cpp"
+								name "typedef"
+								value 3)
+							(object Attribute
+								tool "OT::Cpp"
+								name "union"
+								value 2)))
+					(object Attribute
+						tool "OT::Cpp"
+						name "ClassKind"
+						value ("ClassKindSet" 0))
+					(object Attribute
+						tool "OT::Cpp"
+						name "ImplementationType"
+						value "")
+					(object Attribute
+						tool "OT::Cpp"
+						name "HeaderPreface"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::Cpp"
+						name "HeaderEnding"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::Cpp"
+						name "ImplementationPreface"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::Cpp"
+						name "ImplementationEnding"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::Cpp"
+						name "PublicDeclarations"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::Cpp"
+						name "ProtectedDeclarations"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::Cpp"
+						name "PrivateDeclarations"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::Cpp"
+						name "VisibilitySet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "OT::Cpp"
+								name "public"
+								value 0)
+							(object Attribute
+								tool "OT::Cpp"
+								name "protected"
+								value 1)
+							(object Attribute
+								tool "OT::Cpp"
+								name "private"
+								value 2)))
+					(object Attribute
+						tool "OT::Cpp"
+						name "GenerateDefaultConstructor"
+						value TRUE)
+					(object Attribute
+						tool "OT::Cpp"
+						name "DefaultConstructorVisibility"
+						value ("VisibilitySet" 0))
+					(object Attribute
+						tool "OT::Cpp"
+						name "DefaultConstructorExplicit"
+						value FALSE)
+					(object Attribute
+						tool "OT::Cpp"
+						name "DefaultConstructorInline"
+						value FALSE)
+					(object Attribute
+						tool "OT::Cpp"
+						name "GenerateCopyConstructor"
+						value TRUE)
+					(object Attribute
+						tool "OT::Cpp"
+						name "CopyConstructorVisibility"
+						value ("VisibilitySet" 0))
+					(object Attribute
+						tool "OT::Cpp"
+						name "CopyConstructorExplicit"
+						value FALSE)
+					(object Attribute
+						tool "OT::Cpp"
+						name "CopyConstructorInline"
+						value FALSE)
+					(object Attribute
+						tool "OT::Cpp"
+						name "GenerateDestructor"
+						value TRUE)
+					(object Attribute
+						tool "OT::Cpp"
+						name "DestructorVisibility"
+						value ("VisibilitySet" 0))
+					(object Attribute
+						tool "OT::Cpp"
+						name "DestructorVirtual"
+						value TRUE)
+					(object Attribute
+						tool "OT::Cpp"
+						name "DestructorInline"
+						value FALSE)
+					(object Attribute
+						tool "OT::Cpp"
+						name "GenerateAssignmentOperator"
+						value TRUE)
+					(object Attribute
+						tool "OT::Cpp"
+						name "AssignmentOperatorVisibility"
+						value ("VisibilitySet" 0))
+					(object Attribute
+						tool "OT::Cpp"
+						name "AssignmentOperatorInline"
+						value FALSE)
+					(object Attribute
+						tool "OT::Cpp"
+						name "GenerateEqualityOperator"
+						value FALSE)
+					(object Attribute
+						tool "OT::Cpp"
+						name "EqualityOperatorsVisibility"
+						value ("VisibilitySet" 0))
+					(object Attribute
+						tool "OT::Cpp"
+						name "EqualityOperatorInline"
+						value FALSE)
+					(object Attribute
+						tool "OT::Cpp"
+						name "GenerateInequalityOperator"
+						value FALSE)
+					(object Attribute
+						tool "OT::Cpp"
+						name "InequalityOperatorsVisibility"
+						value ("VisibilitySet" 0))
+					(object Attribute
+						tool "OT::Cpp"
+						name "InequalityOperatorInline"
+						value FALSE)))
+			(object Attribute
+				tool "OT::Cpp"
+				name "default__Inherit"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::Cpp"
+						name "InstanceArguments"
+						value (value Text ""))))
+			(object Attribute
+				tool "OT::Cpp"
+				name "default__Operation"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::Cpp"
+						name "OperationKindSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "OT::Cpp"
+								name "friend"
+								value 2)
+							(object Attribute
+								tool "OT::Cpp"
+								name "global"
+								value 1)
+							(object Attribute
+								tool "OT::Cpp"
+								name "member"
+								value 0)))
+					(object Attribute
+						tool "OT::Cpp"
+						name "OperationKind"
+						value ("OperationKindSet" 0))
+					(object Attribute
+						tool "OT::Cpp"
+						name "GenerateKindSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "OT::Cpp"
+								name "declaration and definition"
+								value 0)
+							(object Attribute
+								tool "OT::Cpp"
+								name "declaration only"
+								value 1)))
+					(object Attribute
+						tool "OT::Cpp"
+						name "Generate"
+						value ("GenerateKindSet" 0))
+					(object Attribute
+						tool "OT::Cpp"
+						name "Inline"
+						value FALSE)
+					(object Attribute
+						tool "OT::Cpp"
+						name "ConstructorExplicit"
+						value FALSE)
+					(object Attribute
+						tool "OT::Cpp"
+						name "ConstructorInitializer"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::Cpp"
+						name "CallFromDestructor"
+						value FALSE)
+					(object Attribute
+						tool "OT::Cpp"
+						name "Declare exceptions"
+						value FALSE)
+					(object Attribute
+						tool "OT::Cpp"
+						name "Exceptions"
+						value (value Text ""))))
+			(object Attribute
+				tool "OT::Cpp"
+				name "default__Role"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::Cpp"
+						name "AssociationEndKindSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "OT::Cpp"
+								name "global"
+								value 1)
+							(object Attribute
+								tool "OT::Cpp"
+								name "member"
+								value 0)
+							(object Attribute
+								tool "OT::Cpp"
+								name "mutable member"
+								value 3)))
+					(object Attribute
+						tool "OT::Cpp"
+						name "AssociationEndKind"
+						value ("AssociationEndKindSet" 0))
+					(object Attribute
+						tool "OT::Cpp"
+						name "InitializerKindSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "OT::Cpp"
+								name "assignment"
+								value 0)
+							(object Attribute
+								tool "OT::Cpp"
+								name "constructor"
+								value 1)))
+					(object Attribute
+						tool "OT::Cpp"
+						name "InitializerKind"
+						value ("InitializerKindSet" 1))
+					(object Attribute
+						tool "OT::Cpp"
+						name "InitialValue"
+						value (value Text ""))))
+			(object Attribute
+				tool "OT::Cpp"
+				name "default__Uses"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::Cpp"
+						name "KindSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "OT::Cpp"
+								name "none"
+								value 2)
+							(object Attribute
+								tool "OT::Cpp"
+								name "forward reference"
+								value 1)
+							(object Attribute
+								tool "OT::Cpp"
+								name "inclusion"
+								value 0)))
+					(object Attribute
+						tool "OT::Cpp"
+						name "KindInHeader"
+						value ("KindSet" 1))
+					(object Attribute
+						tool "OT::Cpp"
+						name "KindInImplementation"
+						value ("KindSet" 0))))
+			(object Attribute
+				tool "OT::Cpp"
+				name "HiddenTool"
+				value FALSE)
+			(object Attribute
+				tool "OT::CppExec"
+				name "propertyId"
+				value "809135966")
+			(object Attribute
+				tool "OT::CppExec"
+				name "default__Component"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::CppExec"
+						name "TopCapsule"
+						value (value Event 
+|[event_ui 
+|	description='<none selected>'
+|	caption='Select...']
+						))
+					(object Attribute
+						tool "OT::CppExec"
+						name "PhysicalThreads"
+						value (value Event 
+|[MainThread
+|	Priority='DEFAULT_MAIN_PRIORITY'
+|	StackSize='20000'
+|	ImplementationClass='RTPeerController']
+|[TimerThread
+|	Priority='DEFAULT_TIMER_PRIORITY'
+|	StackSize='20000'
+|	ImplementationClass='RTTimerController']
+						))
+					(object Attribute
+						tool "OT::CppExec"
+						name "ExecutableName"
+						value "$name$(EXEC_EXT)")
+					(object Attribute
+						tool "OT::CppExec"
+						name "DefaultArguments"
+						value "")
+					(object Attribute
+						tool "OT::CppExec"
+						name "LinkCommand"
+						value "$(LD)")
+					(object Attribute
+						tool "OT::CppExec"
+						name "LinkArguments"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::CppExec"
+						name "UserObjectFiles"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::CppExec"
+						name "UserLibraries"
+						value (value Text ""))))
+			(object Attribute
+				tool "OT::CppExec"
+				name "HiddenTool"
+				value FALSE)
+			(object Attribute
+				tool "OT::CppExtLib"
+				name "propertyId"
+				value "809135966")
+			(object Attribute
+				tool "OT::CppExtLib"
+				name "default__Component"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::CppExtLib"
+						name "IncludeFilename"
+						value "")
+					(object Attribute
+						tool "OT::CppExtLib"
+						name "GenerateClassInclusions"
+						value TRUE)
+					(object Attribute
+						tool "OT::CppExtLib"
+						name "CodeGenDirName"
+						value "")
+					(object Attribute
+						tool "OT::CppExtLib"
+						name "InclusionPaths"
+						value (value Event ""))
+					(object Attribute
+						tool "OT::CppExtLib"
+						name "Libraries"
+						value (value Event ""))
+					(object Attribute
+						tool "OT::CppExtLib"
+						name "LogicalThreads"
+						value (value Text ""))))
+			(object Attribute
+				tool "OT::CppExtLib"
+				name "HiddenTool"
+				value FALSE)
+			(object Attribute
+				tool "OT::CppLib"
+				name "propertyId"
+				value "809135966")
+			(object Attribute
+				tool "OT::CppLib"
+				name "default__Component"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::CppLib"
+						name "LibraryName"
+						value "$(LIB_PFX)$name$(LIB_EXT)")
+					(object Attribute
+						tool "OT::CppLib"
+						name "BuildLibraryCommand"
+						value "$(AR_CMD)")
+					(object Attribute
+						tool "OT::CppLib"
+						name "BuildLibraryArguments"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::CppLib"
+						name "LogicalThreads"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::CppLib"
+						name "InterfaceVisibilityKindSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "OT::CppLib"
+								name "Public"
+								value 0)
+							(object Attribute
+								tool "OT::CppLib"
+								name "Limited Public"
+								value 1)
+							(object Attribute
+								tool "OT::CppLib"
+								name "Private"
+								value 2)))
+					(object Attribute
+						tool "OT::CppLib"
+						name "DefaultInterfaceVisibility"
+						value ("InterfaceVisibilityKindSet" 1))
+					(object Attribute
+						tool "OT::CppLib"
+						name "SharedLogicalViewPackageName"
+						value "")
+					(object Attribute
+						tool "OT::CppLib"
+						name "SharedComponentViewPackageName"
+						value "")
+					(object Attribute
+						tool "OT::CppLib"
+						name "SetInterface"
+						value (value Event 
+|[event_ui 
+|	caption='Edit...']
+						))
+					(object Attribute
+						tool "OT::CppLib"
+						name "InclusionPaths"
+						value (value Event ""))
+					(object Attribute
+						tool "OT::CppLib"
+						name "Libraries"
+						value (value Event ""))))
+			(object Attribute
+				tool "OT::CppLib"
+				name "HiddenTool"
+				value FALSE)
+			(object Attribute
+				tool "OT::CppTargetRTS"
+				name "propertyId"
+				value "809135966")
+			(object Attribute
+				tool "C++ Generation"
+				name "propertyId"
+				value "809135966")
+			(object Attribute
+				tool "C++ Compilation"
+				name "propertyId"
+				value "809135966")
+			(object Attribute
+				tool "OT::CppTargetRTS"
+				name "default__Class"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::CppTargetRTS"
+						name "GenerateDescriptorSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "OT::CppTargetRTS"
+								name "True"
+								value 0)
+							(object Attribute
+								tool "OT::CppTargetRTS"
+								name "DebugOnly"
+								value 1)
+							(object Attribute
+								tool "OT::CppTargetRTS"
+								name "False"
+								value 2)
+							(object Attribute
+								tool "OT::CppTargetRTS"
+								name "Manual"
+								value 3)))
+					(object Attribute
+						tool "OT::CppTargetRTS"
+						name "GenerateDescriptor"
+						value ("GenerateDescriptorSet" 0))
+					(object Attribute
+						tool "OT::CppTargetRTS"
+						name "Version"
+						value 0)
+					(object Attribute
+						tool "OT::CppTargetRTS"
+						name "InitFunctionBody"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::CppTargetRTS"
+						name "CopyFunctionBody"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::CppTargetRTS"
+						name "DestroyFunctionBody"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::CppTargetRTS"
+						name "DecodeFunctionBody"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::CppTargetRTS"
+						name "EncodeFunctionBody"
+						value (value Text ""))))
+			(object Attribute
+				tool "OT::CppTargetRTS"
+				name "default__Attribute"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::CppTargetRTS"
+						name "GenerateDescriptor"
+						value TRUE)
+					(object Attribute
+						tool "OT::CppTargetRTS"
+						name "TypeDescriptor"
+						value "")
+					(object Attribute
+						tool "OT::CppTargetRTS"
+						name "GenerateTypeModifier"
+						value TRUE)
+					(object Attribute
+						tool "OT::CppTargetRTS"
+						name "NumElementsFunctionBody"
+						value (value Text ""))))
+			(object Attribute
+				tool "OT::CppTargetRTS"
+				name "default__Role"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::CppTargetRTS"
+						name "GenerateDescriptor"
+						value TRUE)
+					(object Attribute
+						tool "OT::CppTargetRTS"
+						name "TypeDescriptor"
+						value "")
+					(object Attribute
+						tool "OT::CppTargetRTS"
+						name "GenerateTypeModifier"
+						value TRUE)
+					(object Attribute
+						tool "OT::CppTargetRTS"
+						name "NumElementsFunctionBody"
+						value (value Text ""))))
+			(object Attribute
+				tool "OT::CppTargetRTS"
+				name "default__Protocol"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::CppTargetRTS"
+						name "Version"
+						value 0)
+					(object Attribute
+						tool "OT::CppTargetRTS"
+						name "BackwardsCompatible"
+						value FALSE)
+					(object Attribute
+						tool "OT::CppTargetRTS"
+						name "RunTimeBackwardsCompatible"
+						value FALSE)
+					(object Attribute
+						tool "OT::CppTargetRTS"
+						name "TypeSafeSignals"
+						value TRUE)))
+			(object Attribute
+				tool "C++ Generation"
+				name "default__Component"
+				value (list Attribute_Set
+					(object Attribute
+						tool "C++ Generation"
+						name "OutputDirectory"
+						value "$@/$name")
+					(object Attribute
+						tool "C++ Generation"
+						name "CodeGenDirName"
+						value "")
+					(object Attribute
+						tool "C++ Generation"
+						name "ComponentUnitDirectory"
+						value "RTSystem")
+					(object Attribute
+						tool "C++ Generation"
+						name "ComponentUnitName"
+						value "$name")
+					(object Attribute
+						tool "C++ Generation"
+						name "CommonPreface"
+						value (value Text ""))
+					(object Attribute
+						tool "C++ Generation"
+						name "MakeTypeSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "C++ Generation"
+								name "<default>"
+								value 100)
+							(object Attribute
+								tool "C++ Generation"
+								name "MS_nmake"
+								value 0)
+							(object Attribute
+								tool "C++ Generation"
+								name "Unix_make"
+								value 1)
+							(object Attribute
+								tool "C++ Generation"
+								name "Gnu_make"
+								value 2)
+							(object Attribute
+								tool "C++ Generation"
+								name "ClearCase_clearmake"
+								value 3)
+							(object Attribute
+								tool "C++ Generation"
+								name "ClearCase_omake"
+								value 4)))
+					(object Attribute
+						tool "C++ Generation"
+						name "CodeGenMakeType"
+						value ("MakeTypeSet" 100))
+					(object Attribute
+						tool "C++ Generation"
+						name "CodeGenMakeCommand"
+						value "$defaultMakeCommand")
+					(object Attribute
+						tool "C++ Generation"
+						name "CodeGenMakeArguments"
+						value "-s")
+					(object Attribute
+						tool "C++ Generation"
+						name "CodeGenMakeInsert"
+						value (value Text ""))
+					(object Attribute
+						tool "C++ Generation"
+						name "CodeSyncEnabled"
+						value TRUE)
+					(object Attribute
+						tool "C++ Generation"
+						name "Generate model tags"
+						value TRUE)
+					(object Attribute
+						tool "C++ Generation"
+						name "SingleDataCompilationUnit"
+						value FALSE)
+					(object Attribute
+						tool "C++ Generation"
+						name "DocumentationSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "C++ Generation"
+								name "do not generate"
+								value 0)
+							(object Attribute
+								tool "C++ Generation"
+								name "prefer in header"
+								value 1)
+							(object Attribute
+								tool "C++ Generation"
+								name "prefer in implementation"
+								value 2)
+							(object Attribute
+								tool "C++ Generation"
+								name "only in header"
+								value 3)
+							(object Attribute
+								tool "C++ Generation"
+								name "only in implementation"
+								value 4)))
+					(object Attribute
+						tool "C++ Generation"
+						name "Association end documentation"
+						value ("DocumentationSet" 0))
+					(object Attribute
+						tool "C++ Generation"
+						name "Attribute documentation"
+						value ("DocumentationSet" 0))
+					(object Attribute
+						tool "C++ Generation"
+						name "Capsule documentation"
+						value ("DocumentationSet" 0))
+					(object Attribute
+						tool "C++ Generation"
+						name "Capsule role documentation"
+						value ("DocumentationSet" 0))
+					(object Attribute
+						tool "C++ Generation"
+						name "Choice point documentation"
+						value ("DocumentationSet" 0))
+					(object Attribute
+						tool "C++ Generation"
+						name "Class documentation"
+						value ("DocumentationSet" 0))
+					(object Attribute
+						tool "C++ Generation"
+						name "Operation documentation"
+						value ("DocumentationSet" 0))
+					(object Attribute
+						tool "C++ Generation"
+						name "Port documentation"
+						value ("DocumentationSet" 0))
+					(object Attribute
+						tool "C++ Generation"
+						name "Protocol documentation"
+						value ("DocumentationSet" 0))
+					(object Attribute
+						tool "C++ Generation"
+						name "State documentation"
+						value ("DocumentationSet" 0))
+					(object Attribute
+						tool "C++ Generation"
+						name "Transition documentation"
+						value ("DocumentationSet" 0))))
+			(object Attribute
+				tool "C++ Compilation"
+				name "default__Component"
+				value (list Attribute_Set
+					(object Attribute
+						tool "C++ Compilation"
+						name "TargetServicesLibrary"
+						value "$ROSERT_HOME/C++/TargetRTS")
+					(object Attribute
+						tool "C++ Compilation"
+						name "TargetConfiguration"
+						value (value Event 
+|[event_ui
+|	description='<none selected>'
+|	caption='Select...']
+						))
+					(object Attribute
+						tool "C++ Compilation"
+						name "MakeTypeSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "C++ Compilation"
+								name "<default>"
+								value 100)
+							(object Attribute
+								tool "C++ Compilation"
+								name "MS_nmake"
+								value 0)
+							(object Attribute
+								tool "C++ Compilation"
+								name "Unix_make"
+								value 1)
+							(object Attribute
+								tool "C++ Compilation"
+								name "Gnu_make"
+								value 2)
+							(object Attribute
+								tool "C++ Compilation"
+								name "ClearCase_clearmake"
+								value 3)
+							(object Attribute
+								tool "C++ Compilation"
+								name "ClearCase_omake"
+								value 4)))
+					(object Attribute
+						tool "C++ Compilation"
+						name "CompilationMakeType"
+						value ("MakeTypeSet" 100))
+					(object Attribute
+						tool "C++ Compilation"
+						name "CompilationMakeCommand"
+						value "rtperl -S rtsetup.pl $defaultMakeCommand")
+					(object Attribute
+						tool "C++ Compilation"
+						name "CompilationMakeArguments"
+						value "-k -s")
+					(object Attribute
+						tool "C++ Compilation"
+						name "CompilationMakeInsert"
+						value (value Text ""))
+					(object Attribute
+						tool "C++ Compilation"
+						name "CompileCommand"
+						value "$(CC)")
+					(object Attribute
+						tool "C++ Compilation"
+						name "CompileArguments"
+						value "$(DEBUG_TAG)")
+					(object Attribute
+						tool "C++ Compilation"
+						name "InclusionPaths"
+						value (value Event ""))))
+			(object Attribute
+				tool "OT::CppTargetRTS"
+				name "HiddenTool"
+				value FALSE)
+			(object Attribute
+				tool "TestRT::C++TestRT"
+				name "propertyId"
+				value "809135966")
+			(object Attribute
+				tool "TestRT::C++TestRT"
+				name "default__Component"
+				value (list Attribute_Set
+					(object Attribute
+						tool "TestRT::C++TestRT"
+						name "Add Target Deployment Port Object Files"
+						value TRUE)
+					(object Attribute
+						tool "TestRT::C++TestRT"
+						name "Enable Component Instrumentation"
+						value FALSE)
+					(object Attribute
+						tool "TestRT::C++TestRT"
+						name "coverageOption"
+						value (list Attribute_Set
+							(object Attribute
+								tool "TestRT::C++TestRT"
+								name "<< No Coverage >>"
+								value 100)
+							(object Attribute
+								tool "TestRT::C++TestRT"
+								name "Model and Statement Level Coverage"
+								value 0)
+							(object Attribute
+								tool "TestRT::C++TestRT"
+								name "Model and Decision Level Coverage"
+								value 1)
+							(object Attribute
+								tool "TestRT::C++TestRT"
+								name "Model and Loop Level Coverage"
+								value 2)))
+					(object Attribute
+						tool "TestRT::C++TestRT"
+						name "Coverage"
+						value ("coverageOption" 100))
+					(object Attribute
+						tool "TestRT::C++TestRT"
+						name "Enable Memory Profiling"
+						value FALSE)
+					(object Attribute
+						tool "TestRT::C++TestRT"
+						name "Enable Performance Profiling"
+						value FALSE)
+					(object Attribute
+						tool "TestRT::C++TestRT"
+						name "Enable Runtime Tracing"
+						value FALSE)
+					(object Attribute
+						tool "TestRT::C++TestRT"
+						name "Additional Options"
+						value "")
+					(object Attribute
+						tool "TestRT::C++TestRT"
+						name "Support Multi-threaded Code Generation"
+						value TRUE)
+					(object Attribute
+						tool "TestRT::C++TestRT"
+						name "Output Trace File Name"
+						value "")
+					(object Attribute
+						tool "TestRT::C++TestRT"
+						name "Override TDP Directory"
+						value FALSE)
+					(object Attribute
+						tool "TestRT::C++TestRT"
+						name "TDP Directory"
+						value "")
+					(object Attribute
+						tool "TestRT::C++TestRT"
+						name "Create Static file Directories"
+						value TRUE)
+					(object Attribute
+						tool "TestRT::C++TestRT"
+						name "Path to Static file Directories"
+						value "")))
+			(object Attribute
+				tool "TestRT::C++TestRT"
+				name "HiddenTool"
+				value FALSE)
+			(object Attribute
+				tool "OT::QualityArchitectRT"
+				name "propertyId"
+				value "809135966")
+			(object Attribute
+				tool "OT::QualityArchitectRT"
+				name "default__InteractionInstance"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::QualityArchitectRT"
+						name "Attributes"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::QualityArchitectRT"
+						name "Minimum Run Time"
+						value 0)
+					(object Attribute
+						tool "OT::QualityArchitectRT"
+						name "Cardinality Index Path"
+						value (value Event ""))
+					(object Attribute
+						tool "OT::QualityArchitectRT"
+						name "DependencyList"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::QualityArchitectRT"
+						name "HeaderPreface"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::QualityArchitectRT"
+						name "HeaderEnding"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::QualityArchitectRT"
+						name "ImplementationPreface"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::QualityArchitectRT"
+						name "ImplementationEnding"
+						value (value Text ""))))
+			(object Attribute
+				tool "OT::QualityArchitectRT"
+				name "default__CreateAction"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::QualityArchitectRT"
+						name "Capsule Class"
+						value "")
+					(object Attribute
+						tool "OT::QualityArchitectRT"
+						name "Initial Data"
+						value "")
+					(object Attribute
+						tool "OT::QualityArchitectRT"
+						name "Data Descriptor"
+						value "")
+					(object Attribute
+						tool "OT::QualityArchitectRT"
+						name "Thread"
+						value "")))
+			(object Attribute
+				tool "OT::QualityArchitectRT"
+				name "default__UninterpretedAction"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::QualityArchitectRT"
+						name "Code"
+						value (value Text ""))))
+			(object Attribute
+				tool "OT::QualityArchitectRT"
+				name "default__SendAction"
+				value (list Attribute_Set
+					(object Attribute
+						tool "OT::QualityArchitectRT"
+						name "Sender Test Driver Code"
+						value (value Text ""))
+					(object Attribute
+						tool "OT::QualityArchitectRT"
+						name "Receiver Test Driver Code"
+						value (value Text ""))))
+			(object Attribute
+				tool "OT::QualityArchitectRT"
+				name "HiddenTool"
+				value FALSE)
+			(object Attribute
+				tool "RTJava"
+				name "propertyId"
+				value "809135966")
+			(object Attribute
+				tool "RTJava"
+				name "default__Class"
+				value (list Attribute_Set
+					(object Attribute
+						tool "RTJava"
+						name "JavaStatic"
+						value FALSE)
+					(object Attribute
+						tool "RTJava"
+						name "JavaFinal"
+						value FALSE)
+					(object Attribute
+						tool "RTJava"
+						name "JavaStrictfp"
+						value FALSE)
+					(object Attribute
+						tool "RTJava"
+						name "GenerateDefaultConstructor"
+						value FALSE)
+					(object Attribute
+						tool "RTJava"
+						name "VisibilitySet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "RTJava"
+								name "public"
+								value 0)
+							(object Attribute
+								tool "RTJava"
+								name "protected"
+								value 1)
+							(object Attribute
+								tool "RTJava"
+								name "private"
+								value 2)
+							(object Attribute
+								tool "RTJava"
+								name "package"
+								value 3)))
+					(object Attribute
+						tool "RTJava"
+						name "DefaultConstructorVisibility"
+						value ("VisibilitySet" 0))
+					(object Attribute
+						tool "RTJava"
+						name "ClassFileHeader"
+						value (value Text ""))
+					(object Attribute
+						tool "RTJava"
+						name "StaticInitializerHeader"
+						value (value Text ""))
+					(object Attribute
+						tool "RTJava"
+						name "StaticInitializerFooter"
+						value (value Text ""))
+					(object Attribute
+						tool "RTJava"
+						name "InstanceInitializerHeader"
+						value (value Text ""))
+					(object Attribute
+						tool "RTJava"
+						name "InstanceInitializerFooter"
+						value (value Text ""))))
+			(object Attribute
+				tool "RTJava"
+				name "default__Attribute"
+				value (list Attribute_Set
+					(object Attribute
+						tool "RTJava"
+						name "JavaVolatile"
+						value FALSE)
+					(object Attribute
+						tool "RTJava"
+						name "JavaTransient"
+						value FALSE)
+					(object Attribute
+						tool "RTJava"
+						name "InitializationCode"
+						value (value Text ""))))
+			(object Attribute
+				tool "RTJava"
+				name "default__Role"
+				value (list Attribute_Set
+					(object Attribute
+						tool "RTJava"
+						name "JavaFinal"
+						value FALSE)
+					(object Attribute
+						tool "RTJava"
+						name "JavaVolatile"
+						value FALSE)
+					(object Attribute
+						tool "RTJava"
+						name "JavaTransient"
+						value FALSE)
+					(object Attribute
+						tool "RTJava"
+						name "InitialValue"
+						value "")
+					(object Attribute
+						tool "RTJava"
+						name "InitializationCode"
+						value (value Text ""))
+					(object Attribute
+						tool "RTJava"
+						name "NameScopeSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "RTJava"
+								name "fully qualify"
+								value 0)
+							(object Attribute
+								tool "RTJava"
+								name "import"
+								value 1)))
+					(object Attribute
+						tool "RTJava"
+						name "NameQualification"
+						value ("NameScopeSet" 0))))
+			(object Attribute
+				tool "RTJava"
+				name "default__Operation"
+				value (list Attribute_Set
+					(object Attribute
+						tool "RTJava"
+						name "JavaFinal"
+						value FALSE)
+					(object Attribute
+						tool "RTJava"
+						name "JavaNative"
+						value FALSE)
+					(object Attribute
+						tool "RTJava"
+						name "JavaStrictfp"
+						value FALSE)
+					(object Attribute
+						tool "RTJava"
+						name "JavaThrows"
+						value (value Text ""))))
+			(object Attribute
+				tool "RTJava"
+				name "default__Inherit"
+				value (list Attribute_Set
+					(object Attribute
+						tool "RTJava"
+						name "NameScopeSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "RTJava"
+								name "fully qualify"
+								value 0)
+							(object Attribute
+								tool "RTJava"
+								name "import"
+								value 1)))
+					(object Attribute
+						tool "RTJava"
+						name "NameQualification"
+						value ("NameScopeSet" 0))))
+			(object Attribute
+				tool "RTJava"
+				name "default__Uses"
+				value (list Attribute_Set
+					(object Attribute
+						tool "RTJava"
+						name "NameScopeSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "RTJava"
+								name "fully qualify"
+								value 0)
+							(object Attribute
+								tool "RTJava"
+								name "import"
+								value 1)))
+					(object Attribute
+						tool "RTJava"
+						name "NameQualification"
+						value ("NameScopeSet" 1))))
+			(object Attribute
+				tool "RTJava"
+				name "default__Category"
+				value (list Attribute_Set
+					(object Attribute
+						tool "RTJava"
+						name "Java Package"
+						value FALSE)))
+			(object Attribute
+				tool "RTJava"
+				name "default__StateTransition"
+				value (list Attribute_Set
+					(object Attribute
+						tool "RTJava"
+						name "GenerateDataParameter"
+						value FALSE)
+					(object Attribute
+						tool "RTJava"
+						name "GeneratePortParameter"
+						value FALSE)))
+			(object Attribute
+				tool "RTJava"
+				name "default__BinaryBranch"
+				value (list Attribute_Set
+					(object Attribute
+						tool "RTJava"
+						name "GenerateDataParameter"
+						value FALSE)
+					(object Attribute
+						tool "RTJava"
+						name "GeneratePortParameter"
+						value FALSE)))
+			(object Attribute
+				tool "RTJava"
+				name "HiddenTool"
+				value FALSE)
+			(object Attribute
+				tool "RTJava External Project"
+				name "propertyId"
+				value "809135966")
+			(object Attribute
+				tool "RTJava External Project"
+				name "default__Component"
+				value (list Attribute_Set
+					(object Attribute
+						tool "RTJava External Project"
+						name "ClassPath"
+						value "")))
+			(object Attribute
+				tool "RTJava External Project"
+				name "HiddenTool"
+				value FALSE)
+			(object Attribute
+				tool "RTJava Project"
+				name "propertyId"
+				value "809135966")
+			(object Attribute
+				tool "RTJava Project"
+				name "default__Component"
+				value (list Attribute_Set
+					(object Attribute
+						tool "RTJava Project"
+						name "JavaVersionSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "RTJava Project"
+								name "1.1"
+								value 11)
+							(object Attribute
+								tool "RTJava Project"
+								name "1.2"
+								value 12)
+							(object Attribute
+								tool "RTJava Project"
+								name "1.3"
+								value 13)
+							(object Attribute
+								tool "RTJava Project"
+								name "1.4"
+								value 14)))
+					(object Attribute
+						tool "RTJava Project"
+						name "Java Version"
+						value ("JavaVersionSet" 14))
+					(object Attribute
+						tool "RTJava Project"
+						name "BuildJar"
+						value FALSE)
+					(object Attribute
+						tool "RTJava Project"
+						name "OutputJarFilepath"
+						value "$modelDir/$compName.jar")
+					(object Attribute
+						tool "RTJava Project"
+						name "JarCommand"
+						value "jar cvf ${dq}$(JAR_TARGET)${dq} -C ${dq}$(OUTPUT_CLASS_DIR)${dq} .")
+					(object Attribute
+						tool "RTJava Project"
+						name "OutputClassDir"
+						value "$modelDir/$compName")
+					(object Attribute
+						tool "RTJava Project"
+						name "JavaCompiler"
+						value "javac -d ${dq}$(OUTPUT_CLASS_DIR)${dq}")
+					(object Attribute
+						tool "RTJava Project"
+						name "OutputDirectory"
+						value "$modelDir/$compName")
+					(object Attribute
+						tool "RTJava Project"
+						name "BootstrapCommand"
+						value "rtjavagen -makegen -model ${dq}$modelFile${dq} -component ${dq}$qualifiedName${dq}")
+					(object Attribute
+						tool "RTJava Project"
+						name "GenerateCommand"
+						value "$defaultMake RTgenerate")
+					(object Attribute
+						tool "RTJava Project"
+						name "CompileCommand"
+						value "$defaultMake RTcompile")
+					(object Attribute
+						tool "RTJava Project"
+						name "CleanAllCommand"
+						value "$defaultMake RTcleanall")
+					(object Attribute
+						tool "RTJava Project"
+						name "MakeTypeSet"
+						value (list Attribute_Set
+							(object Attribute
+								tool "RTJava Project"
+								name "DefaultMakeType"
+								value 0)
+							(object Attribute
+								tool "RTJava Project"
+								name "Gnu_make"
+								value 3)
+							(object Attribute
+								tool "RTJava Project"
+								name "MS_nmake"
+								value 4)
+							(object Attribute
+								tool "RTJava Project"
+								name "Unix_make"
+								value 5)))
+					(object Attribute
+						tool "RTJava Project"
+						name "MakeType"
+						value ("MakeTypeSet" 0))
+					(object Attribute
+						tool "RTJava Project"
+						name "ComponentMakeInsert"
+						value (value Text ""))
+					(object Attribute
+						tool "RTJava Project"
+						name "CodeGenMakeInsert"
+						value (value Text ""))
+					(object Attribute
+						tool "RTJava Project"
+						name "CompileMakeInsert"
+						value (value Text ""))))
+			(object Attribute
+				tool "RTJava Project"
+				name "HiddenTool"
+				value FALSE))
+		quid "515304A60111"))
