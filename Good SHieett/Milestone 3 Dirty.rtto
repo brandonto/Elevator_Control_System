@@ -1,0 +1,142 @@
+
+(object PetalRT
+	version 60010
+	_written "Rose RealTime 6.5.825.0"
+	charSet 0)
+
+(list toUnit
+	capsulePaths (list capsulePathsList
+		(object CapsulePath "/System_Elevators:1/elevator_body:0/Elevator_Door:0"
+			capsulePathProcess "Deployment View::LOCALHOST::Milestone3Dirty_ComponentInstance"
+			quid "5160B9B600B2"
+			classifier  "Logical View::Central_Controller"
+			quidu "51599F2F021D"
+			capsulePaths (list capsulePathsList
+				(object CapsulePathElement ""
+					quid "5160B9B600B3"
+					classifier  "Logical View::Elevator_Handler"
+					quidu "5158744F000A"
+					capsuleRole  ":Structure:System_Elevators"
+					quidu "51599F3B0314"
+					capsuleRoleCardinality 1)
+				(object CapsulePathElement ""
+					quid "5160B9B600B4"
+					classifier  "Logical View::Elevator"
+					quidu "5154B01E0390"
+					capsuleRole  ":Structure:elevator_body"
+					quidu "51599D5802F8"
+					capsuleRoleCardinality 0)
+				(object CapsulePathElement ""
+					quid "5160B9B600B5"
+					classifier  "Logical View::Door"
+					quidu "5154A18A01ED"
+					capsuleRole  ":Structure:Elevator_Door"
+					quidu "5154B7E6016C"
+					capsuleRoleCardinality 0))
+			capsulePathString "0/Elevator_Door:Door")
+		(object CapsulePath "/System_Elevators:1/elevator_body:0"
+			capsulePathProcess "Deployment View::LOCALHOST::Milestone3Dirty_ComponentInstance"
+			quid "5160AB8E0310"
+			classifier  "Logical View::Central_Controller"
+			quidu "51599F2F021D"
+			capsulePaths (list capsulePathsList
+				(object CapsulePathElement ""
+					quid "5160AB8E0311"
+					classifier  "Logical View::Elevator_Handler"
+					quidu "5158744F000A"
+					capsuleRole  ":Structure:System_Elevators"
+					quidu "51599F3B0314"
+					capsuleRoleCardinality 1)
+				(object CapsulePathElement ""
+					quid "5160AB8E0312"
+					classifier  "Logical View::Elevator"
+					quidu "5154B01E0390"
+					capsuleRole  ":Structure:elevator_body"
+					quidu "51599D5802F8"
+					capsuleRoleCardinality 0))
+			capsulePathString "0/elevator_body:Elevator")
+		(object CapsulePath "/System_Elevators:0/elevator_body:0"
+			capsulePathProcess "Deployment View::LOCALHOST::Milestone3Dirty_ComponentInstance"
+			quid "5160AB8D00D8"
+			classifier  "Logical View::Central_Controller"
+			quidu "51599F2F021D"
+			capsulePaths (list capsulePathsList
+				(object CapsulePathElement ""
+					quid "5160AB8D00D9"
+					classifier  "Logical View::Elevator_Handler"
+					quidu "5158744F000A"
+					capsuleRole  ":Structure:System_Elevators"
+					quidu "51599F3B0314"
+					capsuleRoleCardinality 0)
+				(object CapsulePathElement ""
+					quid "5160AB8D00DA"
+					classifier  "Logical View::Elevator"
+					quidu "5154B01E0390"
+					capsuleRole  ":Structure:elevator_body"
+					quidu "51599D5802F8"
+					capsuleRoleCardinality 0))
+			capsulePathString "0/elevator_body:Elevator")
+		(object CapsulePath "/"
+			capsulePathProcess "Deployment View::LOCALHOST::Milestone3Dirty_ComponentInstance"
+			quid "51607E4202B9"
+			classifier  "Logical View::Central_Controller"
+			quidu "51599F2F021D"
+			capsulePathString ":Central_Controller"))
+	daemons (list daemonsList
+		(object PortDaemon "0/Elevator_Test/System_Elevators:1/elevator_body:0_Probe"
+			daemonProcess "Deployment View::LOCALHOST::Milestone3Dirty_ComponentInstance"
+			quid "5160BB290077"
+			capsuleInstance  "/System_Elevators:1/elevator_body:0"
+			quidu "5160AB8E0310"
+			classifier  "Logical View::Elevator"
+			quidu "5154B01E0390"
+			port  ":Structure:Elevator_Test"
+			quidu "51560BCA0093"
+			injectMessages (list injectMessagesList
+				(object InjectMessage "Elevator_Test/TEST_Doors_Open"
+					quid "5160BB3601EE"
+					msgSignal  ":base:TEST_Doors_Open"
+					quidu "51560BA80017"
+					msgPriority "General"
+					msgData "bool true"
+					msgDirection 1)))
+		(object PortDaemon "0/Door_Test/System_Elevators:1/elevator_body:0/Elevator_Door:0_Probe"
+			daemonProcess "Deployment View::LOCALHOST::Milestone3Dirty_ComponentInstance"
+			quid "5160B9C20286"
+			capsuleInstance  "/System_Elevators:1/elevator_body:0/Elevator_Door:0"
+			quidu "5160B9B600B2"
+			classifier  "Logical View::Door"
+			quidu "5154A18A01ED"
+			port  ":Structure:Door_Test"
+			quidu "5154A2E302D8"
+			injectMessages (list injectMessagesList
+				(object InjectMessage "Door_Test/TEST_Door_Obstructed"
+					quid "5160B9CD0238"
+					msgSignal  ":base:TEST_Door_Obstructed"
+					quidu "5154A30300A0"
+					msgPriority "General"
+					msgData "bool true"
+					msgDirection 1)))
+		(object BehaviorDaemon "0/elevator_body:Elevator-TOP"
+			daemonProcess "Deployment View::LOCALHOST::Milestone3Dirty_ComponentInstance"
+			quid "5160ABC00143"
+			capsuleInstance  "/System_Elevators:1/elevator_body:0"
+			quidu "5160AB8E0310"
+			State  ":TOP")
+		(object BehaviorDaemon "0/elevator_body:Elevator-TOP"
+			daemonProcess "Deployment View::LOCALHOST::Milestone3Dirty_ComponentInstance"
+			quid "5160AB9F03C5"
+			capsuleInstance  "/System_Elevators:0/elevator_body:0"
+			quidu "5160AB8D00D8"
+			State  ":TOP")
+		(object BehaviorDaemon "0/Elevator_Door:Door-TOP"
+			daemonProcess "Deployment View::LOCALHOST::Milestone3Dirty_ComponentInstance"
+			quid "5162C07B0082"
+			capsuleInstance  "/System_Elevators:1/elevator_body:0/Elevator_Door:0"
+			quidu "5160B9B600B2"
+			State  ":TOP")
+		(object StructureDaemon ":Central_Controller"
+			daemonProcess "Deployment View::LOCALHOST::Milestone3Dirty_ComponentInstance"
+			quid "56F990870007"
+			capsuleInstance  "/"
+			quidu "51607E4202B9")))

@@ -1,0 +1,13 @@
+[General]
+ModelFile=M:\SYSC 4805\Elevator Project Part Deux\source-archive\team13\trunk\Milestone 3\RT Model Dirty\Elevator Control Project - Team 13\Milestone 3 Dirty.rtmdl
+Version=Rational Rose RealTime 6.5
+DefaultLanguage=C++
+DefaultRTS=C++ TargetRTS
+[CMConfiguration]
+CM_EditOnlyCheckedOut=Yes
+CM_CheckOutOnEdit=Yes
+CM_CheckOutAfterTouch=Yes
+CM_AddOnFirstSave=No
+CM_RefreshSharedUnitStatusOnLoad=No
+CM_ProviderType=CM_ProviderType_None
+CM_ScriptPath=
