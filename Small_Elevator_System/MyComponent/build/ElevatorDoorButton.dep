@@ -1,0 +1,6 @@
+ElevatorDoorButton_DEPS = \
+	../src/ElevatorDoorButton.cpp \
+	../src/RTSystem/MyComponent.h \
+	../src/ElevatorDoorButton.h \
+	../src/LEDBProtocol.h \
+	../src/UEDBProtocol.h

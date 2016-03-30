@@ -57,17 +57,17 @@ protected:
 	// {{{RME port 'LEDPort'
 	LEDProtocol::Base LEDPort;
 	// }}}RME
-	// {{{RME port 'doorTimer'
-	Timing::Base doorTimer;
-	// }}}RME
-	// {{{RME port 'log'
-	Log::Base log;
-	// }}}RME
 	// {{{RME port 'EDDSPort'
 	EDDSProtocol::Conjugate EDDSPort;
 	// }}}RME
+	// {{{RME port 'doorTimer'
+	Timing::Base doorTimer;
+	// }}}RME
 	// {{{RME port 'closeTimer'
 	Timing::Base closeTimer;
+	// }}}RME
+	// {{{RME port 'log'
+	Log::Base log;
 	// }}}RME
 
 public:
@@ -95,19 +95,23 @@ protected:
 	// {{{RME transition ':TOP:Closing:J56FBF27D0218:impede'
 	INLINE_METHODS void transition9_impede( const void * rtdata, EDDSProtocol::Conjugate * rtport );
 	// }}}RME
+	// {{{RME transition ':TOP:Closing:J56FC59A200D0:openDoor'
+	INLINE_METHODS void transition11_openDoor( const void * rtdata, LEDProtocol::Base * rtport );
+	// }}}RME
 
 private:
 	INLINE_CHAINS void chain1_Initial( void );
 	INLINE_CHAINS void chain4_init( void );
 	INLINE_CHAINS void chain2_openDoor( void );
-	INLINE_CHAINS void chain5_ignoreImpede( void );
+	INLINE_CHAINS void chain5_ignore( void );
+	INLINE_CHAINS void chain10_ignore( void );
 	INLINE_CHAINS void chain3_closeDoor( void );
-	INLINE_CHAINS void chain10_ignoreImpede( void );
-	INLINE_CHAINS void chain11_ignoreCloseTimer( void );
+	INLINE_CHAINS void chain11_openDoor( void );
+	INLINE_CHAINS void chain12_ignoreClose( void );
 	INLINE_CHAINS void chain9_impede( void );
 	INLINE_CHAINS void chain8_doorClosed( void );
+	INLINE_CHAINS void chain7_ignore( void );
 	INLINE_CHAINS void chain6_doorOpened( void );
-	INLINE_CHAINS void chain7_ignoreImpede( void );
 
 public:
 	virtual void rtsBehavior( int signalIndex, int portIndex );

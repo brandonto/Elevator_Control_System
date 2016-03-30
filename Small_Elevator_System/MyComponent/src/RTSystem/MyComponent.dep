@@ -32,6 +32,8 @@ MyComponent_SYSDEPS_CS = \
 	ElevatorControlSystem.h \
 	ElevatorDoor.cpp \
 	ElevatorDoor.h \
+	ElevatorDoorButton.cpp \
+	ElevatorDoorButton.h \
 	ElevatorMotor.cpp \
 	ElevatorMotor.h \
 	ElevatorStatus.cpp \
@@ -54,6 +56,8 @@ MyComponent_SYSDEPS_CS = \
 	LEBProtocol.h \
 	LEBRProtocol.cpp \
 	LEBRProtocol.h \
+	LEDBProtocol.cpp \
+	LEDBProtocol.h \
 	LEDProtocol.cpp \
 	LEDProtocol.h \
 	LEMProtocol.cpp \
@@ -66,6 +70,8 @@ MyComponent_SYSDEPS_CS = \
 	UDSProtocol.h \
 	UEBProtocol.cpp \
 	UEBProtocol.h \
+	UEDBProtocol.cpp \
+	UEDBProtocol.h \
 	UFBPort.cpp \
 	UFBPort.h
 

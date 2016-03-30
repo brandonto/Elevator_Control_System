@@ -13,7 +13,7 @@ const RTProtocolDescriptor LEDProtocol::Base::rt_class =
   , &LEDProtocol::Conjugate::rt_class
   , "LEDProtocol"
   , 0
-  , 4
+  , 5
   , LEDProtocol::Base::rt_signals
 #if RTRUNTIMEBC
   , &RTProtocolDescriptor::getUnknownGlobalSignal, &RTProtocolDescriptor::getUnknownLocalSignal
@@ -23,6 +23,11 @@ const RTProtocolDescriptor LEDProtocol::Base::rt_class =
 const RTSignalDescriptor LEDProtocol::Base::rt_signals[] =
 {
 	{
+		"closeDoor"
+	  , &RTType_void
+	  , LEDProtocol::Base::rti_closeDoor
+	}
+  , {
 		"init"
 	  , (const RTObject_class *)0
 	  , LEDProtocol::Base::rti_init

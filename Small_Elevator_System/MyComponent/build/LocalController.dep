@@ -6,6 +6,7 @@ LocalController_DEPS = \
 	../src/ElevatorStatus.h \
 	../src/LEBProtocol.h \
 	../src/LEBRProtocol.h \
+	../src/LEDBProtocol.h \
 	../src/LEDProtocol.h \
 	../src/LEMProtocol.h \
 	../src/LEProtocol.h \

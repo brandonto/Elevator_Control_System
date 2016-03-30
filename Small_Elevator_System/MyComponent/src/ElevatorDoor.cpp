@@ -207,6 +207,19 @@ INLINE_METHODS void ElevatorDoor_Actor::transition9_impede( const void * rtdata,
 }
 // }}}RME
 
+// {{{RME transition ':TOP:Closing:J56FC59A200D0:openDoor'
+INLINE_METHODS void ElevatorDoor_Actor::transition11_openDoor( const void * rtdata, LEDProtocol::Base * rtport )
+{
+	// {{{USR
+	doorTimer.informIn(RTTimespec(3,0));
+	log.show("Elevator [");
+	log.show(id);
+	log.show("] door opened.\n");
+	es->doorOpen = true;
+	// }}}USR
+}
+// }}}RME
+
 INLINE_CHAINS void ElevatorDoor_Actor::chain1_Initial( void )
 {
 	// transition ':TOP:Initial:Initial'
@@ -238,14 +251,24 @@ INLINE_CHAINS void ElevatorDoor_Actor::chain2_openDoor( void )
 	enterState( 5 );
 }
 
-INLINE_CHAINS void ElevatorDoor_Actor::chain5_ignoreImpede( void )
+INLINE_CHAINS void ElevatorDoor_Actor::chain5_ignore( void )
 {
-	// transition ':TOP:Closed:J56FBEDAA03E9:ignoreImpede'
-	rtgChainBegin( 2, "ignoreImpede" );
+	// transition ':TOP:Closed:J56FBEDAA03E9:ignore'
+	rtgChainBegin( 2, "ignore" );
 	exitState( rtg_parent_state );
 	rtgTransitionBegin();
 	rtgTransitionEnd();
 	enterState( 2 );
+}
+
+INLINE_CHAINS void ElevatorDoor_Actor::chain10_ignore( void )
+{
+	// transition ':TOP:Opened:J56FBF2A10398:ignore'
+	rtgChainBegin( 3, "ignore" );
+	exitState( rtg_parent_state );
+	rtgTransitionBegin();
+	rtgTransitionEnd();
+	enterState( 3 );
 }
 
 INLINE_CHAINS void ElevatorDoor_Actor::chain3_closeDoor( void )
@@ -259,24 +282,25 @@ INLINE_CHAINS void ElevatorDoor_Actor::chain3_closeDoor( void )
 	enterState( 4 );
 }
 
-INLINE_CHAINS void ElevatorDoor_Actor::chain10_ignoreImpede( void )
+INLINE_CHAINS void ElevatorDoor_Actor::chain11_openDoor( void )
 {
-	// transition ':TOP:Opened:J56FBF2A10398:ignoreImpede'
-	rtgChainBegin( 3, "ignoreImpede" );
+	// transition ':TOP:Closing:J56FC59A200D0:openDoor'
+	rtgChainBegin( 4, "openDoor" );
 	exitState( rtg_parent_state );
 	rtgTransitionBegin();
+	transition11_openDoor( msg->data, (LEDProtocol::Base *)msg->sap() );
 	rtgTransitionEnd();
 	enterState( 3 );
 }
 
-INLINE_CHAINS void ElevatorDoor_Actor::chain11_ignoreCloseTimer( void )
+INLINE_CHAINS void ElevatorDoor_Actor::chain12_ignoreClose( void )
 {
-	// transition ':TOP:Opened:J56FBF2B1032D:ignoreCloseTimer'
-	rtgChainBegin( 3, "ignoreCloseTimer" );
+	// transition ':TOP:Closing:J56FC59C80360:ignoreClose'
+	rtgChainBegin( 4, "ignoreClose" );
 	exitState( rtg_parent_state );
 	rtgTransitionBegin();
 	rtgTransitionEnd();
-	enterState( 3 );
+	enterState( 4 );
 }
 
 INLINE_CHAINS void ElevatorDoor_Actor::chain9_impede( void )
@@ -301,6 +325,16 @@ INLINE_CHAINS void ElevatorDoor_Actor::chain8_doorClosed( void )
 	enterState( 2 );
 }
 
+INLINE_CHAINS void ElevatorDoor_Actor::chain7_ignore( void )
+{
+	// transition ':TOP:Opening:J56FBEFD60316:ignore'
+	rtgChainBegin( 5, "ignore" );
+	exitState( rtg_parent_state );
+	rtgTransitionBegin();
+	rtgTransitionEnd();
+	enterState( 5 );
+}
+
 INLINE_CHAINS void ElevatorDoor_Actor::chain6_doorOpened( void )
 {
 	// transition ':TOP:Opening:J56FBEF9B0125:doorOpened'
@@ -310,16 +344,6 @@ INLINE_CHAINS void ElevatorDoor_Actor::chain6_doorOpened( void )
 	transition6_doorOpened( msg->data, (Timing::Base *)msg->sap() );
 	rtgTransitionEnd();
 	enterState( 3 );
-}
-
-INLINE_CHAINS void ElevatorDoor_Actor::chain7_ignoreImpede( void )
-{
-	// transition ':TOP:Opening:J56FBEFD60316:ignoreImpede'
-	rtgChainBegin( 5, "ignoreImpede" );
-	exitState( rtg_parent_state );
-	rtgTransitionBegin();
-	rtgTransitionEnd();
-	enterState( 5 );
 }
 
 void ElevatorDoor_Actor::rtsBehavior( int signalIndex, int portIndex )
@@ -370,17 +394,20 @@ void ElevatorDoor_Actor::rtsBehavior( int signalIndex, int portIndex )
 				case LEDProtocol::Base::rti_openDoor:
 					chain2_openDoor();
 					return;
+				case LEDProtocol::Base::rti_closeDoor:
+					chain5_ignore();
+					return;
 				default:
 					break;
 				}
 				break;
 				// }}}RME
-			case 4:
+			case 2:
 				// {{{RME port 'EDDSPort'
 				switch( signalIndex )
 				{
 				case EDDSProtocol::Conjugate::rti_impede:
-					chain5_ignoreImpede();
+					chain5_ignore();
 					return;
 				default:
 					break;
@@ -405,7 +432,31 @@ void ElevatorDoor_Actor::rtsBehavior( int signalIndex, int portIndex )
 					break;
 				}
 				break;
+			case 1:
+				// {{{RME port 'LEDPort'
+				switch( signalIndex )
+				{
+				case LEDProtocol::Base::rti_openDoor:
+					chain10_ignore();
+					return;
+				default:
+					break;
+				}
+				break;
+				// }}}RME
 			case 2:
+				// {{{RME port 'EDDSPort'
+				switch( signalIndex )
+				{
+				case EDDSProtocol::Conjugate::rti_impede:
+					chain10_ignore();
+					return;
+				default:
+					break;
+				}
+				break;
+				// }}}RME
+			case 3:
 				// {{{RME port 'doorTimer'
 				switch( signalIndex )
 				{
@@ -418,23 +469,11 @@ void ElevatorDoor_Actor::rtsBehavior( int signalIndex, int portIndex )
 				break;
 				// }}}RME
 			case 4:
-				// {{{RME port 'EDDSPort'
-				switch( signalIndex )
-				{
-				case EDDSProtocol::Conjugate::rti_impede:
-					chain10_ignoreImpede();
-					return;
-				default:
-					break;
-				}
-				break;
-				// }}}RME
-			case 5:
 				// {{{RME port 'closeTimer'
 				switch( signalIndex )
 				{
 				case Timing::Base::rti_timeout:
-					chain11_ignoreCloseTimer();
+					chain10_ignore();
 					return;
 				default:
 					break;
@@ -459,7 +498,22 @@ void ElevatorDoor_Actor::rtsBehavior( int signalIndex, int portIndex )
 					break;
 				}
 				break;
-			case 4:
+			case 1:
+				// {{{RME port 'LEDPort'
+				switch( signalIndex )
+				{
+				case LEDProtocol::Base::rti_openDoor:
+					chain11_openDoor();
+					return;
+				case LEDProtocol::Base::rti_closeDoor:
+					chain12_ignoreClose();
+					return;
+				default:
+					break;
+				}
+				break;
+				// }}}RME
+			case 2:
 				// {{{RME port 'EDDSPort'
 				switch( signalIndex )
 				{
@@ -471,7 +525,7 @@ void ElevatorDoor_Actor::rtsBehavior( int signalIndex, int portIndex )
 				}
 				break;
 				// }}}RME
-			case 5:
+			case 4:
 				// {{{RME port 'closeTimer'
 				switch( signalIndex )
 				{
@@ -501,24 +555,39 @@ void ElevatorDoor_Actor::rtsBehavior( int signalIndex, int portIndex )
 					break;
 				}
 				break;
-			case 2:
-				// {{{RME port 'doorTimer'
+			case 1:
+				// {{{RME port 'LEDPort'
 				switch( signalIndex )
 				{
-				case Timing::Base::rti_timeout:
-					chain6_doorOpened();
+				case LEDProtocol::Base::rti_openDoor:
+					chain7_ignore();
+					return;
+				case LEDProtocol::Base::rti_closeDoor:
+					chain7_ignore();
 					return;
 				default:
 					break;
 				}
 				break;
 				// }}}RME
-			case 4:
+			case 2:
 				// {{{RME port 'EDDSPort'
 				switch( signalIndex )
 				{
 				case EDDSProtocol::Conjugate::rti_impede:
-					chain7_ignoreImpede();
+					chain7_ignore();
+					return;
+				default:
+					break;
+				}
+				break;
+				// }}}RME
+			case 3:
+				// {{{RME port 'doorTimer'
+				switch( signalIndex )
+				{
+				case Timing::Base::rti_timeout:
+					chain6_doorOpened();
 					return;
 				default:
 					break;
@@ -596,12 +665,30 @@ const RTPortDescriptor ElevatorDoor_Actor::rtg_ports[] =
 	  , RTPortDescriptor::KindWired + RTPortDescriptor::NotificationDisabled + RTPortDescriptor::RegisterNotPermitted + RTPortDescriptor::VisibilityPublic
 	}
   , {
+		"EDDSPort"
+	  , (const char *)0
+	  , &EDDSProtocol::Conjugate::rt_class
+	  , RTOffsetOf( ElevatorDoor_Actor, ElevatorDoor_Actor::EDDSPort )
+	  , 1 // cardinality
+	  , 2
+	  , RTPortDescriptor::KindWired + RTPortDescriptor::NotificationDisabled + RTPortDescriptor::RegisterNotPermitted + RTPortDescriptor::VisibilityProtected
+	}
+  , {
 		"doorTimer"
 	  , (const char *)0
 	  , &Timing::Base::rt_class
 	  , RTOffsetOf( ElevatorDoor_Actor, ElevatorDoor_Actor::doorTimer )
 	  , 1 // cardinality
-	  , 2
+	  , 3
+	  , RTPortDescriptor::KindSpecial + RTPortDescriptor::NotificationDisabled + RTPortDescriptor::RegisterNotPermitted + RTPortDescriptor::VisibilityProtected
+	}
+  , {
+		"closeTimer"
+	  , (const char *)0
+	  , &Timing::Base::rt_class
+	  , RTOffsetOf( ElevatorDoor_Actor, ElevatorDoor_Actor::closeTimer )
+	  , 1 // cardinality
+	  , 4
 	  , RTPortDescriptor::KindSpecial + RTPortDescriptor::NotificationDisabled + RTPortDescriptor::RegisterNotPermitted + RTPortDescriptor::VisibilityProtected
 	}
   , {
@@ -609,24 +696,6 @@ const RTPortDescriptor ElevatorDoor_Actor::rtg_ports[] =
 	  , (const char *)0
 	  , &Log::Base::rt_class
 	  , RTOffsetOf( ElevatorDoor_Actor, ElevatorDoor_Actor::log )
-	  , 1 // cardinality
-	  , 3
-	  , RTPortDescriptor::KindSpecial + RTPortDescriptor::NotificationDisabled + RTPortDescriptor::RegisterNotPermitted + RTPortDescriptor::VisibilityProtected
-	}
-  , {
-		"EDDSPort"
-	  , (const char *)0
-	  , &EDDSProtocol::Conjugate::rt_class
-	  , RTOffsetOf( ElevatorDoor_Actor, ElevatorDoor_Actor::EDDSPort )
-	  , 1 // cardinality
-	  , 4
-	  , RTPortDescriptor::KindWired + RTPortDescriptor::NotificationDisabled + RTPortDescriptor::RegisterNotPermitted + RTPortDescriptor::VisibilityProtected
-	}
-  , {
-		"closeTimer"
-	  , (const char *)0
-	  , &Timing::Base::rt_class
-	  , RTOffsetOf( ElevatorDoor_Actor, ElevatorDoor_Actor::closeTimer )
 	  , 1 // cardinality
 	  , 5
 	  , RTPortDescriptor::KindSpecial + RTPortDescriptor::NotificationDisabled + RTPortDescriptor::RegisterNotPermitted + RTPortDescriptor::VisibilityProtected

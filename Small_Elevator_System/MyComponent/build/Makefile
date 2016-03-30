@@ -30,6 +30,7 @@ ALL_OBJS = \
 	ElevatorButtonLamp$(OBJ_EXT) \
 	ElevatorControlSystem$(OBJ_EXT) \
 	ElevatorDoor$(OBJ_EXT) \
+	ElevatorDoorButton$(OBJ_EXT) \
 	ElevatorMotor$(OBJ_EXT) \
 	ElevatorStatus$(OBJ_EXT) \
 	EmergencyBrake$(OBJ_EXT) \
@@ -41,12 +42,14 @@ ALL_OBJS = \
 	FloorButtonLamp$(OBJ_EXT) \
 	LEBProtocol$(OBJ_EXT) \
 	LEBRProtocol$(OBJ_EXT) \
+	LEDBProtocol$(OBJ_EXT) \
 	LEDProtocol$(OBJ_EXT) \
 	LEMProtocol$(OBJ_EXT) \
 	LEProtocol$(OBJ_EXT) \
 	LocalController$(OBJ_EXT) \
 	UDSProtocol$(OBJ_EXT) \
 	UEBProtocol$(OBJ_EXT) \
+	UEDBProtocol$(OBJ_EXT) \
 	UFBPort$(OBJ_EXT) \
 	RTSystem/MyComponent$(OBJ_EXT)
 
@@ -70,6 +73,7 @@ include <ElevatorButton.dep>
 include <ElevatorButtonLamp.dep>
 include <ElevatorControlSystem.dep>
 include <ElevatorDoor.dep>
+include <ElevatorDoorButton.dep>
 include <ElevatorMotor.dep>
 include <ElevatorStatus.dep>
 include <EmergencyBrake.dep>
@@ -81,12 +85,14 @@ include <FloorButton.dep>
 include <FloorButtonLamp.dep>
 include <LEBProtocol.dep>
 include <LEBRProtocol.dep>
+include <LEDBProtocol.dep>
 include <LEDProtocol.dep>
 include <LEMProtocol.dep>
 include <LEProtocol.dep>
 include <LocalController.dep>
 include <UDSProtocol.dep>
 include <UEBProtocol.dep>
+include <UEDBProtocol.dep>
 include <UFBPort.dep>
 include <RTSystem/MyComponent.dep>
 include <$(RTS_HOME)/codegen/ms_nmake.mk>
@@ -179,6 +185,12 @@ ElevatorDoor$(OBJ_EXT) : $(ElevatorDoor_DEPS) $(RTCOMPILE_DAT)
 		$(USER_CC) $(CC_HEAD) $(USER_CCFLAGS) $(USER_INCPATHS) \
 		 $(SOURCE_DIR)/ElevatorDoor.cpp $(CC_TAIL)
 
+ElevatorDoorButton$(OBJ_EXT) : $(ElevatorDoorButton_DEPS) $(RTCOMPILE_DAT)
+	$(RTCOMP) -vendor $(VENDOR) $(SPACEDEPS) $(USER_DEPPATHS) \
+		-component $(RTCOMPONENT) -src ElevatorDoorButton $(SOURCE_DIR)/ElevatorDoorButton.cpp -- \
+		$(USER_CC) $(CC_HEAD) $(USER_CCFLAGS) $(USER_INCPATHS) \
+		 $(SOURCE_DIR)/ElevatorDoorButton.cpp $(CC_TAIL)
+
 ElevatorMotor$(OBJ_EXT) : $(ElevatorMotor_DEPS) $(RTCOMPILE_DAT)
 	$(RTCOMP) -vendor $(VENDOR) $(SPACEDEPS) $(USER_DEPPATHS) \
 		-component $(RTCOMPONENT) -src ElevatorMotor $(SOURCE_DIR)/ElevatorMotor.cpp -- \
@@ -245,6 +257,12 @@ LEBRProtocol$(OBJ_EXT) : $(LEBRProtocol_DEPS) $(RTCOMPILE_DAT)
 		$(USER_CC) $(CC_HEAD) $(USER_CCFLAGS) $(USER_INCPATHS) \
 		 $(SOURCE_DIR)/LEBRProtocol.cpp $(CC_TAIL)
 
+LEDBProtocol$(OBJ_EXT) : $(LEDBProtocol_DEPS) $(RTCOMPILE_DAT)
+	$(RTCOMP) -vendor $(VENDOR) $(SPACEDEPS) $(USER_DEPPATHS) \
+		-component $(RTCOMPONENT) -src LEDBProtocol $(SOURCE_DIR)/LEDBProtocol.cpp -- \
+		$(USER_CC) $(CC_HEAD) $(USER_CCFLAGS) $(USER_INCPATHS) \
+		 $(SOURCE_DIR)/LEDBProtocol.cpp $(CC_TAIL)
+
 LEDProtocol$(OBJ_EXT) : $(LEDProtocol_DEPS) $(RTCOMPILE_DAT)
 	$(RTCOMP) -vendor $(VENDOR) $(SPACEDEPS) $(USER_DEPPATHS) \
 		-component $(RTCOMPONENT) -src LEDProtocol $(SOURCE_DIR)/LEDProtocol.cpp -- \
@@ -280,6 +298,12 @@ UEBProtocol$(OBJ_EXT) : $(UEBProtocol_DEPS) $(RTCOMPILE_DAT)
 		-component $(RTCOMPONENT) -src UEBProtocol $(SOURCE_DIR)/UEBProtocol.cpp -- \
 		$(USER_CC) $(CC_HEAD) $(USER_CCFLAGS) $(USER_INCPATHS) \
 		 $(SOURCE_DIR)/UEBProtocol.cpp $(CC_TAIL)
+
+UEDBProtocol$(OBJ_EXT) : $(UEDBProtocol_DEPS) $(RTCOMPILE_DAT)
+	$(RTCOMP) -vendor $(VENDOR) $(SPACEDEPS) $(USER_DEPPATHS) \
+		-component $(RTCOMPONENT) -src UEDBProtocol $(SOURCE_DIR)/UEDBProtocol.cpp -- \
+		$(USER_CC) $(CC_HEAD) $(USER_CCFLAGS) $(USER_INCPATHS) \
+		 $(SOURCE_DIR)/UEDBProtocol.cpp $(CC_TAIL)
 
 UFBPort$(OBJ_EXT) : $(UFBPort_DEPS) $(RTCOMPILE_DAT)
 	$(RTCOMP) -vendor $(VENDOR) $(SPACEDEPS) $(USER_DEPPATHS) \

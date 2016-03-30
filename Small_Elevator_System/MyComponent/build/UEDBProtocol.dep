@@ -1,0 +1,4 @@
+UEDBProtocol_DEPS = \
+	../src/UEDBProtocol.cpp \
+	../src/RTSystem/MyComponent.h \
+	../src/UEDBProtocol.h

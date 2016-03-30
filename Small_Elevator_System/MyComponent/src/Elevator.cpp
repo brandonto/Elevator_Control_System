@@ -250,6 +250,7 @@ INLINE_METHODS void Elevator_Actor::transition1_Initial( const void * rtdata, RT
 	{
 		es->destinationFloors[i] = 0;
 	}
+	es->emergencyBrakesOn = false;
 
 	log.show("Elevator [");
 	log.show(es->id);

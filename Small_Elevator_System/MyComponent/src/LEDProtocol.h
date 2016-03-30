@@ -20,14 +20,16 @@ struct LEDProtocol
 		{
 			rti_init = rtiLast_RTRootProtocol + 1
 		  , rti_openDoor
+		  , rti_closeDoor
 		};
 
 	protected:
-		enum { rtiLast_LEDProtocol = rti_openDoor };
+		enum { rtiLast_LEDProtocol = rti_closeDoor };
 
 	public:
 		inline RTInSignal init( void );
 		inline RTInSignal openDoor( void );
+		inline RTInSignal closeDoor( void );
 		inline RTOutSignal doorClosed( void );
 		static const RTProtocolDescriptor rt_class;
 
@@ -49,6 +51,7 @@ struct LEDProtocol
 		inline RTOutSignal init( const RTTypedValue & value );
 		inline RTOutSignal init( void );
 		inline RTOutSignal openDoor( void );
+		inline RTOutSignal closeDoor( void );
 		static const RTProtocolDescriptor rt_class;
 
 	private:
@@ -73,6 +76,11 @@ inline RTInSignal LEDProtocol::Base::init( void )
 inline RTInSignal LEDProtocol::Base::openDoor( void )
 {
 	return RTInSignal( this, rti_openDoor );
+}
+
+inline RTInSignal LEDProtocol::Base::closeDoor( void )
+{
+	return RTInSignal( this, rti_closeDoor );
 }
 
 inline RTOutSignal LEDProtocol::Base::doorClosed( void )
@@ -107,6 +115,11 @@ inline RTOutSignal LEDProtocol::Conjugate::init( void )
 inline RTOutSignal LEDProtocol::Conjugate::openDoor( void )
 {
 	return RTOutSignal( this, Base::rti_openDoor, (const void *)0, &RTType_void );
+}
+
+inline RTOutSignal LEDProtocol::Conjugate::closeDoor( void )
+{
+	return RTOutSignal( this, Base::rti_closeDoor, (const void *)0, &RTType_void );
 }
 
 #endif /* LEDProtocol_H */

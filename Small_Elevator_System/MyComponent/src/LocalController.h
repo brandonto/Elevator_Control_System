@@ -10,6 +10,7 @@
 #include <RTSystem/MyComponent.h>
 #include <LEBProtocol.h>
 #include <LEBRProtocol.h>
+#include <LEDBProtocol.h>
 #include <LEDProtocol.h>
 #include <LEMProtocol.h>
 #include <LEProtocol.h>
@@ -50,6 +51,9 @@ private:
 	// {{{RME classAttribute 'id'
 	int id;
 	// }}}RME
+	// {{{RME classAttribute 'es'
+	ElevatorStatus * es;
+	// }}}RME
 
 protected:
 	// {{{RME capsuleRole 'elevatorMotor'
@@ -63,6 +67,9 @@ protected:
 	// }}}RME
 	// {{{RME capsuleRole 'elevatorButton'
 	RTActorRef elevatorButton;
+	// }}}RME
+	// {{{RME capsuleRole 'elevatorDoorButton'
+	RTActorRef elevatorDoorButton;
 	// }}}RME
 	// {{{RME port 'LEPort'
 	LEProtocol::Base LEPort;
@@ -78,6 +85,9 @@ protected:
 	// }}}RME
 	// {{{RME port 'LEBPort'
 	LEBProtocol::Conjugate LEBPort;
+	// }}}RME
+	// {{{RME port 'LEDBPort'
+	LEDBProtocol::Conjugate LEDBPort;
 	// }}}RME
 	// {{{RME port 'log'
 	Log::Base log;
@@ -111,6 +121,9 @@ protected:
 	// {{{RME transition ':TOP:Ready:J56FC4FA0036C:clearButton'
 	INLINE_METHODS void transition8_clearButton( const int * rtdata, LEProtocol::Base * rtport );
 	// }}}RME
+	// {{{RME transition ':TOP:Ready:J56FC58A900F1:doorButtonPressed'
+	INLINE_METHODS void transition9_doorButtonPressed( const int * rtdata, LEDBProtocol::Conjugate * rtport );
+	// }}}RME
 
 private:
 	INLINE_CHAINS void chain1_Initial( void );
@@ -121,6 +134,7 @@ private:
 	INLINE_CHAINS void chain4_arrivedAtFloor( void );
 	INLINE_CHAINS void chain6_doorClosed( void );
 	INLINE_CHAINS void chain2_elevatorButtonPressed( void );
+	INLINE_CHAINS void chain9_doorButtonPressed( void );
 
 public:
 	virtual void rtsBehavior( int signalIndex, int portIndex );

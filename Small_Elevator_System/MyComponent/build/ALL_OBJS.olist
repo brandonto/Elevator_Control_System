@@ -10,6 +10,7 @@ ElevatorButton
 ElevatorButtonLamp
 ElevatorControlSystem
 ElevatorDoor
+ElevatorDoorButton
 ElevatorMotor
 ElevatorStatus
 EmergencyBrake
@@ -21,11 +22,13 @@ FloorButton
 FloorButtonLamp
 LEBProtocol
 LEBRProtocol
+LEDBProtocol
 LEDProtocol
 LEMProtocol
 LEProtocol
 LocalController
 UDSProtocol
 UEBProtocol
+UEDBProtocol
 UFBPort
 RTSystem/MyComponent
