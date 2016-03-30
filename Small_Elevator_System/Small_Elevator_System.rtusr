@@ -487,9 +487,11 @@ MyComponentInstance:Structure:/elevator:0/localController:0/elevatorDoor:0/doorS
 MyComponentInstance:Behavior:1/floorButton:FloorButton-TOP:/centralController:0/floor:0/floorButton:1=118 118 806 589 100 0 0 1 -1 1 -1 -1 0
 MyComponentInstance:Behavior:0/floorButton:FloorButton-TOP:/centralController:0/floor:0/floorButton:0=118 118 806 589 100 0 0 1 -1 1 -1 -1 0
 MyComponentInstance:Behavior:1/floorButton:FloorButton-TOP:/centralController:0/floor:9/floorButton:1=204 181 892 652 100 0 0 1 -1 1 -1 -1 0
-MyComponentInstance:Behavior:0/floorButton:FloorButton-TOP:/centralController:0/floor:9/floorButton:0=-124 16 564 487 100 0 0 0 -1 1 -1 -1 0
+MyComponentInstance:Behavior:0/floorButton:FloorButton-TOP:/centralController:0/floor:9/floorButton:0=44 16 732 487 100 0 0 0 -1 1 -1 -1 0
 MyComponentInstance:Behavior:0/floorButton:FloorButton-TOP:/centralController:0/floor:8/floorButton:0=118 118 806 589 100 0 0 1 -1 1 -1 -1 0
 MyComponentInstance:Behavior:1/floorButton:FloorButton-TOP:/centralController:0/floor:8/floorButton:1=118 118 806 589 100 0 0 1 -1 1 -1 -1 0
 MyComponentInstance:Structure:/centralController:0/floor:9/floorButton:0=118 118 806 589 100 0 0 1 -1 1 -1 -1 0
-MyComponentInstance:Behavior:0/floorButtonLamp:FloorButtonLamp-TOP:/centralController:0/floor:9/floorButton:0/floorButtonLamp:0=554 20 1242 491 100 0 0 0 -1 1 -1 -1 0
+MyComponentInstance:Behavior:0/floorButtonLamp:FloorButtonLamp-TOP:/centralController:0/floor:9/floorButton:0/floorButtonLamp:0=722 20 1410 491 100 0 0 0 -1 1 -1 -1 0
 MyComponentInstance:Structure:/centralController:0/floor:8/floorButton:1=180 180 868 651 100 0 0 1 -1 1 -1 -1 0
+MyComponentInstance:Structure:/centralController:0/floor:2/floorButton:1=288 144 976 615 100 0 0 0 -1 1 -1 -1 0
+MyComponentInstance:Structure:/centralController:0/floor:5/floorButton:0=180 180 868 651 100 0 0 1 -1 1 -1 -1 0
