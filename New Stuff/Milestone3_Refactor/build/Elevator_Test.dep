@@ -1,0 +1,4 @@
+Elevator_Test_DEPS = \
+	../src/Elevator_Test.cpp \
+	../src/RTSystem/Milestone3_Refactor.h \
+	../src/Elevator_Test.h

@@ -1,0 +1,7 @@
+Elevator_Buttons_DEPS = \
+	../src/Elevator_Buttons.cpp \
+	../src/RTSystem/Milestone3_Refactor.h \
+	../src/Elevator_Buttons.h \
+	../src/E_Buttons.h \
+	../src/Elevator_Request_Protocol.h \
+	../src/System_Constants.h

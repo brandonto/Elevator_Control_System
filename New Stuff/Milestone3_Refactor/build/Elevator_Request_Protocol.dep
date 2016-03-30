@@ -1,0 +1,4 @@
+Elevator_Request_Protocol_DEPS = \
+	../src/Elevator_Request_Protocol.cpp \
+	../src/RTSystem/Milestone3_Refactor.h \
+	../src/Elevator_Request_Protocol.h

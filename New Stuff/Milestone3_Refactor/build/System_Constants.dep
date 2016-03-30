@@ -1,0 +1,4 @@
+System_Constants_DEPS = \
+	../src/System_Constants.cpp \
+	../src/RTSystem/Milestone3_Refactor.h \
+	../src/System_Constants.h

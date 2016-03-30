@@ -1,0 +1,8 @@
+Central_Coordinator_DEPS = \
+	../src/Central_Coordinator.cpp \
+	../src/RTSystem/Milestone3_Refactor.h \
+	../src/Central_Coordinator.h \
+	../src/Elevator_Request_Protocol.h \
+	../src/F_Buttons.h \
+	../src/Service_Modes.h \
+	../src/System_Constants.h

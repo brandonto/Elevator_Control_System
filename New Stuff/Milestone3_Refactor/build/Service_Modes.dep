@@ -1,0 +1,4 @@
+Service_Modes_DEPS = \
+	../src/Service_Modes.cpp \
+	../src/RTSystem/Milestone3_Refactor.h \
+	../src/Service_Modes.h

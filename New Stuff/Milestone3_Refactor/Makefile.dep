@@ -1,0 +1,10 @@
+Makefile_TARGETS = \
+	Makefile.dep \
+	src/Makefile \
+	build/Makefile
+
+Makefile_DEPS = \
+	"M:/SYSC 4805/Elevator Project Part Deux/New Stuff/Milestone 3 - March 29.rtmdl" \
+	"C:/Program Files/Rational/Rose RealTime/C++/RTComponents.rtcmppkg" \
+	"C:/Program Files/Rational/Rose RealTime/C++/RTClasses.rtlogpkg"
+

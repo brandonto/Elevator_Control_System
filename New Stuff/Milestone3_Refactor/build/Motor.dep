@@ -1,0 +1,5 @@
+Motor_DEPS = \
+	../src/Motor.cpp \
+	../src/RTSystem/Milestone3_Refactor.h \
+	../src/Motor.h \
+	../src/Motor_Protocol.h

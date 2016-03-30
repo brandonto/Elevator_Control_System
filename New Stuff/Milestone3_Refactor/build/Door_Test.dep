@@ -1,0 +1,4 @@
+Door_Test_DEPS = \
+	../src/Door_Test.cpp \
+	../src/RTSystem/Milestone3_Refactor.h \
+	../src/Door_Test.h

@@ -1,0 +1,4 @@
+Elevator_Internals_DEPS = \
+	../src/Elevator_Internals.cpp \
+	../src/RTSystem/Milestone3_Refactor.h \
+	../src/Elevator_Internals.h

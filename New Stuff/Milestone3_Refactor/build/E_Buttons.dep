@@ -1,0 +1,4 @@
+E_Buttons_DEPS = \
+	../src/E_Buttons.cpp \
+	../src/RTSystem/Milestone3_Refactor.h \
+	../src/E_Buttons.h

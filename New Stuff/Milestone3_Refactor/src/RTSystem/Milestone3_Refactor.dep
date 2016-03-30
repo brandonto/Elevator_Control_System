@@ -1,0 +1,45 @@
+Milestone3_Refactor_SYSTARGET = RTSystem/Milestone3_Refactor.dep
+Milestone3_Refactor_SYSDEPS = \
+	"M:/SYSC 4805/Elevator Project Part Deux/New Stuff/Milestone 3 - March 29.rtmdl" \
+	"C:/Program Files/Rational/Rose RealTime/C++/RTComponents.rtcmppkg" \
+	"C:/Program Files/Rational/Rose RealTime/C++/RTClasses.rtlogpkg"
+
+Milestone3_Refactor_SYSTARGET_CS = RTSystem/Milestone3_Refactor.dep
+Milestone3_Refactor_SYSDEPS_CS = \
+	RTSystem/Milestone3_Refactor.cpp \
+	RTSystem/Milestone3_Refactor.h \
+	Central_Coordinator.cpp \
+	Central_Coordinator.h \
+	Door.cpp \
+	Door.h \
+	Door_Protocol.cpp \
+	Door_Protocol.h \
+	Door_Test.cpp \
+	Door_Test.h \
+	E_Buttons.cpp \
+	E_Buttons.h \
+	Elevator.cpp \
+	Elevator.h \
+	Elevator_Buttons.cpp \
+	Elevator_Buttons.h \
+	Elevator_Internals.cpp \
+	Elevator_Internals.h \
+	Elevator_Request_Protocol.cpp \
+	Elevator_Request_Protocol.h \
+	Elevator_Test.cpp \
+	Elevator_Test.h \
+	F_Buttons.cpp \
+	F_Buttons.h \
+	Local_Controller.cpp \
+	Local_Controller.h \
+	Motor.cpp \
+	Motor.h \
+	Motor_Protocol.cpp \
+	Motor_Protocol.h \
+	Service_Modes.cpp \
+	Service_Modes.h \
+	System_Constants.cpp \
+	System_Constants.h \
+	TopLevelCapsule.cpp \
+	TopLevelCapsule.h
+

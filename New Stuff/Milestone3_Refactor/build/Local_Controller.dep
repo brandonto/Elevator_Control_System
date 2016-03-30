@@ -1,0 +1,11 @@
+Local_Controller_DEPS = \
+	../src/Local_Controller.cpp \
+	../src/RTSystem/Milestone3_Refactor.h \
+	../src/Local_Controller.h \
+	../src/Elevator.h \
+	../src/Elevator_Internals.h \
+	../src/Elevator_Request_Protocol.h \
+	../src/System_Constants.h \
+	../src/Door_Protocol.h \
+	../src/Elevator_Test.h \
+	../src/Motor_Protocol.h
