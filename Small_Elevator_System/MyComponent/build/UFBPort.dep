@@ -1,0 +1,4 @@
+UFBPort_DEPS = \
+	../src/UFBPort.cpp \
+	../src/RTSystem/MyComponent.h \
+	../src/UFBPort.h

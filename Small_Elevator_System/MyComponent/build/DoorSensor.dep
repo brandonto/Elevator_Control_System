@@ -1,0 +1,8 @@
+DoorSensor_DEPS = \
+	../src/DoorSensor.cpp \
+	../src/RTSystem/MyComponent.h \
+	../src/DoorSensor.h \
+	../src/ElevatorStatus.h \
+	../src/EDDSProtocol.h \
+	../src/UDSProtocol.h \
+	../src/Constants.h

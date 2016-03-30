@@ -1,0 +1,8 @@
+FloorButton_DEPS = \
+	../src/FloorButton.cpp \
+	../src/RTSystem/MyComponent.h \
+	../src/FloorButton.h \
+	../src/Constants.h \
+	../src/FBFProtocol.h \
+	../src/FBLFBProtocol.h \
+	../src/UFBPort.h

@@ -1,0 +1,7 @@
+ElevatorMotor_DEPS = \
+	../src/ElevatorMotor.cpp \
+	../src/RTSystem/MyComponent.h \
+	../src/ElevatorMotor.h \
+	../src/ElevatorStatus.h \
+	../src/LEMProtocol.h \
+	../src/Constants.h

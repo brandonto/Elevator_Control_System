@@ -1,0 +1,4 @@
+UFProtocol_DEPS = \
+	../src/UFProtocol.cpp \
+	../src/RTSystem/MyComponent.h \
+	../src/UFProtocol.h

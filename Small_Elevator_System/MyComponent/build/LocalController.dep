@@ -1,0 +1,11 @@
+LocalController_DEPS = \
+	../src/LocalController.cpp \
+	../src/RTSystem/MyComponent.h \
+	../src/LocalController.h \
+	../src/ButtonInfo.h \
+	../src/ElevatorStatus.h \
+	../src/LEDProtocol.h \
+	../src/LEMProtocol.h \
+	../src/LEProtocol.h \
+	../src/ULProtocol.h \
+	../src/Constants.h

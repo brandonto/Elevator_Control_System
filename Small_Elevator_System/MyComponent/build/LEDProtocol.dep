@@ -1,0 +1,4 @@
+LEDProtocol_DEPS = \
+	../src/LEDProtocol.cpp \
+	../src/RTSystem/MyComponent.h \
+	../src/LEDProtocol.h

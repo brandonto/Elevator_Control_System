@@ -1,0 +1,5 @@
+FloorButtonLamp_DEPS = \
+	../src/FloorButtonLamp.cpp \
+	../src/RTSystem/MyComponent.h \
+	../src/FloorButtonLamp.h \
+	../src/FBLFBProtocol.h

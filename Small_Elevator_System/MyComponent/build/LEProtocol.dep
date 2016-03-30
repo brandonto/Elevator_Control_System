@@ -1,0 +1,5 @@
+LEProtocol_DEPS = \
+	../src/LEProtocol.cpp \
+	../src/RTSystem/MyComponent.h \
+	../src/LEProtocol.h \
+	../src/ButtonInfo.h

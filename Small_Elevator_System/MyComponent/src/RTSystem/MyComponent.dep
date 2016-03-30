@@ -1,0 +1,59 @@
+MyComponent_SYSTARGET = RTSystem/MyComponent.dep
+MyComponent_SYSDEPS = \
+	"C:/Documents and Settings/student/My Documents/Small_Elevator_System/Small_Elevator_System.rtmdl" \
+	"C:/Program Files/Rational/Rose RealTime/C++/RTComponents.rtcmppkg" \
+	"C:/Program Files/Rational/Rose RealTime/C++/RTClasses.rtlogpkg"
+
+MyComponent_SYSTARGET_CS = RTSystem/MyComponent.dep
+MyComponent_SYSDEPS_CS = \
+	RTSystem/MyComponent.cpp \
+	RTSystem/MyComponent.h \
+	ButtonInfo.cpp \
+	ButtonInfo.h \
+	CentralController.cpp \
+	CentralController.h \
+	Constants.cpp \
+	Constants.h \
+	DoorSensor.cpp \
+	DoorSensor.h \
+	EDDSProtocol.cpp \
+	EDDSProtocol.h \
+	EPProtocol.cpp \
+	EPProtocol.h \
+	Elevator.cpp \
+	Elevator.h \
+	ElevatorControlSystem.cpp \
+	ElevatorControlSystem.h \
+	ElevatorDoor.cpp \
+	ElevatorDoor.h \
+	ElevatorMotor.cpp \
+	ElevatorMotor.h \
+	ElevatorStatus.cpp \
+	ElevatorStatus.h \
+	FBFProtocol.cpp \
+	FBFProtocol.h \
+	FBLFBProtocol.cpp \
+	FBLFBProtocol.h \
+	FCProtocol.cpp \
+	FCProtocol.h \
+	Floor.cpp \
+	Floor.h \
+	FloorButton.cpp \
+	FloorButton.h \
+	FloorButtonLamp.cpp \
+	FloorButtonLamp.h \
+	LEDProtocol.cpp \
+	LEDProtocol.h \
+	LEMProtocol.cpp \
+	LEMProtocol.h \
+	LEProtocol.cpp \
+	LEProtocol.h \
+	LocalController.cpp \
+	LocalController.h \
+	UDSProtocol.cpp \
+	UDSProtocol.h \
+	UFBPort.cpp \
+	UFBPort.h \
+	ULProtocol.cpp \
+	ULProtocol.h
+

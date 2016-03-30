@@ -1,0 +1,7 @@
+Floor_DEPS = \
+	../src/Floor.cpp \
+	../src/RTSystem/MyComponent.h \
+	../src/Floor.h \
+	../src/ButtonInfo.h \
+	../src/FBFProtocol.h \
+	../src/FCProtocol.h

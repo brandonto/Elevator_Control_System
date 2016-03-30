@@ -1,0 +1,4 @@
+FBFProtocol_DEPS = \
+	../src/FBFProtocol.cpp \
+	../src/RTSystem/MyComponent.h \
+	../src/FBFProtocol.h

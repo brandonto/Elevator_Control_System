@@ -1,0 +1,6 @@
+ElevatorControlSystem_DEPS = \
+	../src/ElevatorControlSystem.cpp \
+	../src/RTSystem/MyComponent.h \
+	../src/ElevatorControlSystem.h \
+	../src/EPProtocol.h \
+	../src/ButtonInfo.h

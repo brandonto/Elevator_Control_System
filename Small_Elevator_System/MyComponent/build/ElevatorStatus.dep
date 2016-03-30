@@ -1,0 +1,5 @@
+ElevatorStatus_DEPS = \
+	../src/ElevatorStatus.cpp \
+	../src/RTSystem/MyComponent.h \
+	../src/ElevatorStatus.h \
+	../src/Constants.h

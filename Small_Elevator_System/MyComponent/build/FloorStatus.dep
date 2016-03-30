@@ -1,0 +1,4 @@
+FloorStatus_DEPS = \
+	../src/FloorStatus.cpp \
+	../src/RTSystem/MyComponent.h \
+	../src/FloorStatus.h

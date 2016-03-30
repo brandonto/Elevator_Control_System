@@ -1,0 +1,5 @@
+EPProtocol_DEPS = \
+	../src/EPProtocol.cpp \
+	../src/RTSystem/MyComponent.h \
+	../src/EPProtocol.h \
+	../src/ButtonInfo.h

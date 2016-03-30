@@ -1,0 +1,4 @@
+ButtonInfo_DEPS = \
+	../src/ButtonInfo.cpp \
+	../src/RTSystem/MyComponent.h \
+	../src/ButtonInfo.h

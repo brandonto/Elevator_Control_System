@@ -1,0 +1,10 @@
+Makefile_TARGETS = \
+	Makefile.dep \
+	src/Makefile \
+	build/Makefile
+
+Makefile_DEPS = \
+	"C:/Documents and Settings/student/My Documents/Small_Elevator_System/Small_Elevator_System.rtmdl" \
+	"C:/Program Files/Rational/Rose RealTime/C++/RTComponents.rtcmppkg" \
+	"C:/Program Files/Rational/Rose RealTime/C++/RTClasses.rtlogpkg"
+

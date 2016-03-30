@@ -1,0 +1,4 @@
+LEMProtocol_DEPS = \
+	../src/LEMProtocol.cpp \
+	../src/RTSystem/MyComponent.h \
+	../src/LEMProtocol.h

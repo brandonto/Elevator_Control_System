@@ -1,0 +1,4 @@
+Constants_DEPS = \
+	../src/Constants.cpp \
+	../src/RTSystem/MyComponent.h \
+	../src/Constants.h

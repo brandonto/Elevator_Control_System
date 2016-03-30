@@ -1,0 +1,8 @@
+ElevatorDoor_DEPS = \
+	../src/ElevatorDoor.cpp \
+	../src/RTSystem/MyComponent.h \
+	../src/ElevatorDoor.h \
+	../src/ElevatorStatus.h \
+	../src/EDDSProtocol.h \
+	../src/LEDProtocol.h \
+	../src/Constants.h

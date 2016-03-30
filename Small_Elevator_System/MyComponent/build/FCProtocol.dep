@@ -1,0 +1,5 @@
+FCProtocol_DEPS = \
+	../src/FCProtocol.cpp \
+	../src/RTSystem/MyComponent.h \
+	../src/FCProtocol.h \
+	../src/ButtonInfo.h

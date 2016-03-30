@@ -1,0 +1,3 @@
+MyComponent_SYSDEPS = \
+	../src/RTSystem/MyComponent.cpp \
+	../src/RTSystem/MyComponent.h

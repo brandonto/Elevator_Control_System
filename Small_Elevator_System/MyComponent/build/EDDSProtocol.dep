@@ -1,0 +1,4 @@
+EDDSProtocol_DEPS = \
+	../src/EDDSProtocol.cpp \
+	../src/RTSystem/MyComponent.h \
+	../src/EDDSProtocol.h

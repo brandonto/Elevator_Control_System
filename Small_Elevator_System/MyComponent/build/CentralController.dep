@@ -1,0 +1,9 @@
+CentralController_DEPS = \
+	../src/CentralController.cpp \
+	../src/RTSystem/MyComponent.h \
+	../src/CentralController.h \
+	../src/ButtonInfo.h \
+	../src/ElevatorStatus.h \
+	../src/Constants.h \
+	../src/EPProtocol.h \
+	../src/FCProtocol.h

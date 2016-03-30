@@ -1,0 +1,4 @@
+ULProtocol_DEPS = \
+	../src/ULProtocol.cpp \
+	../src/RTSystem/MyComponent.h \
+	../src/ULProtocol.h

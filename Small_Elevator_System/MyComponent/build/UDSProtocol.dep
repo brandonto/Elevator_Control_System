@@ -1,0 +1,4 @@
+UDSProtocol_DEPS = \
+	../src/UDSProtocol.cpp \
+	../src/RTSystem/MyComponent.h \
+	../src/UDSProtocol.h
