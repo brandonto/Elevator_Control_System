@@ -23,9 +23,9 @@ const RTProtocolDescriptor EPProtocol::Base::rt_class =
 const RTSignalDescriptor EPProtocol::Base::rt_signals[] =
 {
 	{
-		"arrivedAtFloor"
+		"clearButton"
 	  , &RTType_ButtonInfo
-	  , EPProtocol::Base::rti_arrivedAtFloor
+	  , EPProtocol::Base::rti_clearButton
 	}
   , {
 		"elevatorButtonPressed"
@@ -75,9 +75,9 @@ const RTProtocolDescriptor EPProtocol::Conjugate::rt_class =
 const RTSignalDescriptor EPProtocol::Conjugate::rt_signals[] =
 {
 	{
-		"arrivedAtFloor"
+		"clearButton"
 	  , &RTType_ButtonInfo
-	  , EPProtocol::Conjugate::rti_arrivedAtFloor
+	  , EPProtocol::Conjugate::rti_clearButton
 	}
   , {
 		"elevatorButtonPressed"

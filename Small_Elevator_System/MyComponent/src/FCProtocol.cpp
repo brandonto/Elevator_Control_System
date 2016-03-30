@@ -23,9 +23,9 @@ const RTProtocolDescriptor FCProtocol::Base::rt_class =
 const RTSignalDescriptor FCProtocol::Base::rt_signals[] =
 {
 	{
-		"arrivedAtFloor"
+		"clearButton"
 	  , &RTType_ButtonInfo
-	  , FCProtocol::Base::rti_arrivedAtFloor
+	  , FCProtocol::Base::rti_clearButton
 	}
   , {
 		"rtBound"

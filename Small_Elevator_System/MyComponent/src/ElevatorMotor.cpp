@@ -44,6 +44,14 @@ static const char * const rtg_state_names[] =
   , "Stopped"
   , "MoveUp"
   , "MoveDown"
+  , "EmergencyBrakesActivated"
+};
+
+const RTTypeModifier rtg_tm_ElevatorMotor_Actor_es =
+{
+	RTNumberConstant
+  , 1
+  , 1
 };
 
 #define SUPER RTActor
@@ -155,7 +163,7 @@ INLINE_METHODS void ElevatorMotor_Actor::transition8_ignoreTimeout( const void *
 INLINE_METHODS void ElevatorMotor_Actor::transition12_init( const void * rtdata, LEMProtocol::Base * rtport )
 {
 	// {{{USR
-	ElevatorStatus *es = (ElevatorStatus*)rtdata;
+	es = (ElevatorStatus*)rtdata;
 	id = es->id;
 	// }}}USR
 }
@@ -213,6 +221,16 @@ INLINE_CHAINS void ElevatorMotor_Actor::chain9_ignoreStop( void )
 	enterState( 2 );
 }
 
+INLINE_CHAINS void ElevatorMotor_Actor::chain14_activateEmergencyBrakes( void )
+{
+	// transition ':TOP:Stopped:J56FC3CDC02A4:activateEmergencyBrakes'
+	rtgChainBegin( 2, "activateEmergencyBrakes" );
+	exitState( rtg_parent_state );
+	rtgTransitionBegin();
+	rtgTransitionEnd();
+	enterState( 5 );
+}
+
 INLINE_CHAINS void ElevatorMotor_Actor::chain8_ignoreTimeout( void )
 {
 	// transition ':TOP:Stopped:J56FAF85402D3:ignoreTimeout'
@@ -243,6 +261,16 @@ INLINE_CHAINS void ElevatorMotor_Actor::chain4_stop( void )
 	transition4_stop( msg->data, (LEMProtocol::Base *)msg->sap() );
 	rtgTransitionEnd();
 	enterState( 2 );
+}
+
+INLINE_CHAINS void ElevatorMotor_Actor::chain13_activateEmergencyBrakes( void )
+{
+	// transition ':TOP:MoveUp:J56FC3CD10212:activateEmergencyBrakes'
+	rtgChainBegin( 3, "activateEmergencyBrakes" );
+	exitState( rtg_parent_state );
+	rtgTransitionBegin();
+	rtgTransitionEnd();
+	enterState( 5 );
 }
 
 INLINE_CHAINS void ElevatorMotor_Actor::chain6_arrivedAtFloor( void )
@@ -277,6 +305,16 @@ INLINE_CHAINS void ElevatorMotor_Actor::chain5_stop( void )
 	enterState( 2 );
 }
 
+INLINE_CHAINS void ElevatorMotor_Actor::chain15_activateEmergencyBrakes( void )
+{
+	// transition ':TOP:MoveDown:J56FC3CEF00A2:activateEmergencyBrakes'
+	rtgChainBegin( 4, "activateEmergencyBrakes" );
+	exitState( rtg_parent_state );
+	rtgTransitionBegin();
+	rtgTransitionEnd();
+	enterState( 5 );
+}
+
 INLINE_CHAINS void ElevatorMotor_Actor::chain7_arriveAtFloor( void )
 {
 	// transition ':TOP:MoveDown:J56FAF5B702A9:arriveAtFloor'
@@ -286,6 +324,16 @@ INLINE_CHAINS void ElevatorMotor_Actor::chain7_arriveAtFloor( void )
 	transition7_arriveAtFloor( msg->data, (Timing::Base *)msg->sap() );
 	rtgTransitionEnd();
 	enterState( 4 );
+}
+
+INLINE_CHAINS void ElevatorMotor_Actor::chain16_ignoreEverything( void )
+{
+	// transition ':TOP:EmergencyBrakesActivated:J56FC3D1800D4:ignoreEverything'
+	rtgChainBegin( 5, "ignoreEverything" );
+	exitState( rtg_parent_state );
+	rtgTransitionBegin();
+	rtgTransitionEnd();
+	enterState( 5 );
 }
 
 void ElevatorMotor_Actor::rtsBehavior( int signalIndex, int portIndex )
@@ -342,6 +390,9 @@ void ElevatorMotor_Actor::rtsBehavior( int signalIndex, int portIndex )
 				case LEMProtocol::Base::rti_stopElevator:
 					chain9_ignoreStop();
 					return;
+				case LEMProtocol::Base::rti_activateEmergencyBrakes:
+					chain14_activateEmergencyBrakes();
+					return;
 				default:
 					break;
 				}
@@ -386,6 +437,9 @@ void ElevatorMotor_Actor::rtsBehavior( int signalIndex, int portIndex )
 					return;
 				case LEMProtocol::Base::rti_stopElevator:
 					chain4_stop();
+					return;
+				case LEMProtocol::Base::rti_activateEmergencyBrakes:
+					chain13_activateEmergencyBrakes();
 					return;
 				default:
 					break;
@@ -432,6 +486,9 @@ void ElevatorMotor_Actor::rtsBehavior( int signalIndex, int portIndex )
 				case LEMProtocol::Base::rti_stopElevator:
 					chain5_stop();
 					return;
+				case LEMProtocol::Base::rti_activateEmergencyBrakes:
+					chain15_activateEmergencyBrakes();
+					return;
 				default:
 					break;
 				}
@@ -443,6 +500,57 @@ void ElevatorMotor_Actor::rtsBehavior( int signalIndex, int portIndex )
 				{
 				case Timing::Base::rti_timeout:
 					chain7_arriveAtFloor();
+					return;
+				default:
+					break;
+				}
+				break;
+				// }}}RME
+			default:
+				break;
+			}
+			break;
+			// }}}RME
+		case 5:
+			// {{{RME state ':TOP:EmergencyBrakesActivated'
+			switch( portIndex )
+			{
+			case 0:
+				switch( signalIndex )
+				{
+				case 1:
+					return;
+				default:
+					break;
+				}
+				break;
+			case 1:
+				// {{{RME port 'LEMPort'
+				switch( signalIndex )
+				{
+				case LEMProtocol::Base::rti_moveElevatorUp:
+					chain16_ignoreEverything();
+					return;
+				case LEMProtocol::Base::rti_moveElevatorDown:
+					chain16_ignoreEverything();
+					return;
+				case LEMProtocol::Base::rti_stopElevator:
+					chain16_ignoreEverything();
+					return;
+				case LEMProtocol::Base::rti_activateEmergencyBrakes:
+					chain16_ignoreEverything();
+					return;
+				default:
+					break;
+				}
+				break;
+				// }}}RME
+			case 2:
+				// {{{RME port 'moveTimer'
+				switch( signalIndex )
+				{
+				case Timing::Base::rti_timeout:
+					chain16_ignoreEverything();
 					return;
 				default:
 					break;
@@ -469,7 +577,7 @@ const RTActor_class ElevatorMotor_Actor::rtg_class =
 {
 	(const RTActor_class *)0
   , rtg_state_names
-  , 4
+  , 5
   , ElevatorMotor_Actor::rtg_parent_state
   , &ElevatorMotor
   , 0
@@ -478,13 +586,14 @@ const RTActor_class ElevatorMotor_Actor::rtg_class =
   , ElevatorMotor_Actor::rtg_ports
   , 0
   , (const RTLocalBindingDescriptor *)0
-  , 1
+  , 2
   , ElevatorMotor_Actor::rtg_ElevatorMotor_fields
 };
 
 const RTStateId ElevatorMotor_Actor::rtg_parent_state[] =
 {
 	0
+  , 1
   , 1
   , 1
   , 1
@@ -532,6 +641,18 @@ const RTFieldDescriptor ElevatorMotor_Actor::rtg_ElevatorMotor_fields[] =
 		// }}}RME
 		// {{{RME tool 'OT::CppTargetRTS' property 'GenerateTypeModifier'
 	  , (const RTTypeModifier *)0
+		// }}}RME
+	}
+	// }}}RME
+	// {{{RME classAttribute 'es'
+  , {
+		"es"
+	  , RTOffsetOf( ElevatorMotor_Actor, es )
+		// {{{RME tool 'OT::CppTargetRTS' property 'TypeDescriptor'
+	  , &RTType_ElevatorStatus
+		// }}}RME
+		// {{{RME tool 'OT::CppTargetRTS' property 'GenerateTypeModifier'
+	  , &rtg_tm_ElevatorMotor_Actor_es
 		// }}}RME
 	}
 	// }}}RME

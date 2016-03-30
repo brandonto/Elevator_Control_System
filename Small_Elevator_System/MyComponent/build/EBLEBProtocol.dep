@@ -1,0 +1,4 @@
+EBLEBProtocol_DEPS = \
+	../src/EBLEBProtocol.cpp \
+	../src/RTSystem/MyComponent.h \
+	../src/EBLEBProtocol.h

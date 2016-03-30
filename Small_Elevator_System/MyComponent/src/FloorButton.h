@@ -106,6 +106,7 @@ protected:
 private:
 	INLINE_CHAINS void chain5_True( void );
 	INLINE_CHAINS void chain6_False( void );
+	INLINE_CHAINS void chain8_ignorePress( void );
 
 public:
 	virtual void rtsBehavior( int signalIndex, int portIndex );

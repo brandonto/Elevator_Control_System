@@ -1,0 +1,5 @@
+ElevatorButtonLamp_DEPS = \
+	../src/ElevatorButtonLamp.cpp \
+	../src/RTSystem/MyComponent.h \
+	../src/ElevatorButtonLamp.h \
+	../src/EBLEBProtocol.h

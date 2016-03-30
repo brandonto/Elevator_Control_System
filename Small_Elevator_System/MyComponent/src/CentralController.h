@@ -89,15 +89,15 @@ protected:
 	// {{{RME transition ':TOP:Ready:J56FB3A78010C:floorButtonPressed'
 	INLINE_METHODS void transition4_floorButtonPressed( const ButtonInfo * rtdata, FCProtocol::Conjugate * rtport );
 	// }}}RME
-	// {{{RME transition ':TOP:Ready:J56FC1D970385:arrivedAtFloor'
-	INLINE_METHODS void transition5_arrivedAtFloor( const ButtonInfo * rtdata, EPProtocol::Conjugate * rtport );
+	// {{{RME transition ':TOP:Ready:J56FC1D970385:clearButton'
+	INLINE_METHODS void transition5_clearButton( const ButtonInfo * rtdata, EPProtocol::Conjugate * rtport );
 	// }}}RME
 
 private:
 	INLINE_CHAINS void chain1_Initial( void );
 	INLINE_CHAINS void chain3_elevatorInit( void );
 	INLINE_CHAINS void chain2_elevatorButtonPressed( void );
-	INLINE_CHAINS void chain5_arrivedAtFloor( void );
+	INLINE_CHAINS void chain5_clearButton( void );
 	INLINE_CHAINS void chain4_floorButtonPressed( void );
 
 public:

@@ -112,6 +112,11 @@ void CentralController_Actor::schedule( int floorId, bool upDir )
 	int suitabilityScore[NUM_ELEVATORS];
 	for (i=0; i<NUM_ELEVATORS; i++)
 	{
+		if (esList[i]->emergencyBrakesOn)
+		{
+			continue;
+		}
+
 		// Special Case (1), elevator is not moving
 		if (esList[i]->direction == 0)
 		{
@@ -141,6 +146,11 @@ void CentralController_Actor::schedule( int floorId, bool upDir )
 	int indexOfHighest = -1;
 	for (i=0; i<NUM_ELEVATORS; i++)
 	{
+		if (esList[i]->emergencyBrakesOn)
+		{
+			continue;
+		}
+
 		if (suitabilityScore[i] > highestSuitabilityScore)
 		{
 			highestSuitabilityScore = suitabilityScore[i];
@@ -151,22 +161,17 @@ void CentralController_Actor::schedule( int floorId, bool upDir )
 	// If no highest suitability score was found
 	if (indexOfHighest != -1)
 	{
-		/*if (upDir)
+		if (!esList[indexOfHighest]->emergencyBrakesOn)
 		{
-			esList[indexOfHighest]->destinationFloors[floorId] = RQ_TYPE_FB_U;
+			esList[indexOfHighest]->destinationFloors[floorId] = upDir?RQ_TYPE_FB_U:RQ_TYPE_FB_D;
+			log.show("Floor number [");
+			log.show(floorNum);
+			log.show("] has been added to Elevator [");
+			log.show(esList[indexOfHighest]->id);
+			log.show("]'s list of destination floors.\n");
+			EPPort.update().sendAt(esList[indexOfHighest]->id);
+			return;
 		}
-		else
-		{
-			esList[indexOfHighest]->destinationFloors[floorId] = RQ_TYPE_FB_D;
-		}*/
-		esList[indexOfHighest]->destinationFloors[floorId] = upDir?RQ_TYPE_FB_U:RQ_TYPE_FB_D;
-		log.show("Floor number [");
-		log.show(floorNum);
-		log.show("] has been added to Elevator [");
-		log.show(esList[indexOfHighest]->id);
-		log.show("]'s list of destination floors.\n");
-		EPPort.update().sendAt(esList[indexOfHighest]->id);
-		return;
 	}
 
 
@@ -175,6 +180,11 @@ void CentralController_Actor::schedule( int floorId, bool upDir )
 	int distanceToLastDest[NUM_ELEVATORS];
 	for (i=0; i<NUM_ELEVATORS; i++)
 	{
+		if (esList[i]->emergencyBrakesOn)
+		{
+			continue;
+		}
+
 		distanceToLastDest[i] = NUM_FLOORS;	
 		if (esList[i]->direction == 1)
 		{
@@ -204,6 +214,11 @@ void CentralController_Actor::schedule( int floorId, bool upDir )
 	int indexOfLowest = -1;
 	for (i=0; i<NUM_ELEVATORS; i++)
 	{	
+		if (esList[i]->emergencyBrakesOn)
+		{
+			continue;
+		}
+
 		if (distanceToLastDest[i] < lowestDistance)
 		{
 			lowestDistance = distanceToLastDest[i];
@@ -211,6 +226,10 @@ void CentralController_Actor::schedule( int floorId, bool upDir )
 		}
 	}
 
+	if (indexOfLowest == -1)
+	{
+		return;
+	}
 
 	esList[indexOfLowest]->destinationFloors[floorId] = upDir?RQ_TYPE_FB_U:RQ_TYPE_FB_D;
 	log.show("Floor number [");
@@ -309,12 +328,12 @@ INLINE_METHODS void CentralController_Actor::transition4_floorButtonPressed( con
 }
 // }}}RME
 
-// {{{RME transition ':TOP:Ready:J56FC1D970385:arrivedAtFloor'
-INLINE_METHODS void CentralController_Actor::transition5_arrivedAtFloor( const ButtonInfo * rtdata, EPProtocol::Conjugate * rtport )
+// {{{RME transition ':TOP:Ready:J56FC1D970385:clearButton'
+INLINE_METHODS void CentralController_Actor::transition5_clearButton( const ButtonInfo * rtdata, EPProtocol::Conjugate * rtport )
 {
 	// {{{USR
 	const ButtonInfo *bi = (ButtonInfo *)rtdata;
-	FCPort.arrivedAtFloor(*bi).sendAt(bi->floorId);
+	FCPort.clearButton(*bi).sendAt(bi->floorId);
 	// }}}USR
 }
 // }}}RME
@@ -350,13 +369,13 @@ INLINE_CHAINS void CentralController_Actor::chain2_elevatorButtonPressed( void )
 	enterState( 2 );
 }
 
-INLINE_CHAINS void CentralController_Actor::chain5_arrivedAtFloor( void )
+INLINE_CHAINS void CentralController_Actor::chain5_clearButton( void )
 {
-	// transition ':TOP:Ready:J56FC1D970385:arrivedAtFloor'
-	rtgChainBegin( 2, "arrivedAtFloor" );
+	// transition ':TOP:Ready:J56FC1D970385:clearButton'
+	rtgChainBegin( 2, "clearButton" );
 	exitState( rtg_parent_state );
 	rtgTransitionBegin();
-	transition5_arrivedAtFloor( (const ButtonInfo *)msg->data, (EPProtocol::Conjugate *)msg->sap() );
+	transition5_clearButton( (const ButtonInfo *)msg->data, (EPProtocol::Conjugate *)msg->sap() );
 	rtgTransitionEnd();
 	enterState( 2 );
 }
@@ -420,8 +439,8 @@ void CentralController_Actor::rtsBehavior( int signalIndex, int portIndex )
 				case EPProtocol::Conjugate::rti_elevatorButtonPressed:
 					chain2_elevatorButtonPressed();
 					return;
-				case EPProtocol::Conjugate::rti_arrivedAtFloor:
-					chain5_arrivedAtFloor();
+				case EPProtocol::Conjugate::rti_clearButton:
+					chain5_clearButton();
 					return;
 				default:
 					break;

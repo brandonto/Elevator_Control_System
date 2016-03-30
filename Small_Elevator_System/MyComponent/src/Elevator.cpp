@@ -52,10 +52,6 @@ static const RTInterfaceDescriptor rtg_interfaces_localController[] =
 		"LEPort"
 	  , 1
 	}
-  , {
-		"ULPort"
-	  , 0
-	}
 };
 
 static const RTBindingDescriptor rtg_bindings_localController[] =
@@ -285,7 +281,7 @@ INLINE_METHODS void Elevator_Actor::transition2_elevatorButtonPressed( const But
 }
 // }}}RME
 
-// {{{RME transition ':TOP:Ready:J56FAF42100F6:arrivedAtFloor'
+// {{{RME transition ':TOP:Ready:J56FC4E3D0305:arrivedAtFloor'
 INLINE_METHODS void Elevator_Actor::transition3_arrivedAtFloor( const void * rtdata, LEProtocol::Conjugate * rtport )
 {
 	// {{{USR
@@ -311,14 +307,16 @@ INLINE_METHODS void Elevator_Actor::transition3_arrivedAtFloor( const void * rtd
 			{
 				bi.upDir = false;
 			}
-			EPPort.arrivedAtFloor(bi).send();
+			EPPort.clearButton(bi).send();
 		}
 
 		// Clear destination floor
 		es->destinationFloors[es->currentFloor-1] = 0;
+		es->nextDestFloor = -1;
 
 		// Open door
 		LEPort.openDoor().send();
+		LEPort.clearButton(es->currentFloor).send();
 
 		log.show("Elevator [");
 		log.show(es->id);
@@ -364,14 +362,16 @@ INLINE_METHODS void Elevator_Actor::transition4_update( const void * rtdata, EPP
 			{
 				bi.upDir = false;
 			}
-			EPPort.arrivedAtFloor(bi).send();
+			EPPort.clearButton(bi).send();
 		}
 
 		// Clear destination floor
 		es->destinationFloors[es->currentFloor-1] = 0;
+		es->nextDestFloor = -1;
 
 		// Open door
 		LEPort.openDoor().send();
+		LEPort.clearButton(es->currentFloor).send();
 
 		log.show("Elevator [");
 		log.show(es->id);
@@ -394,11 +394,6 @@ INLINE_METHODS void Elevator_Actor::transition4_update( const void * rtdata, EPP
 INLINE_METHODS void Elevator_Actor::transition5_doorClosed( const void * rtdata, LEProtocol::Conjugate * rtport )
 {
 	// {{{USR
-	/*update();
-	if (!es->doorOpen)
-	{
-		LEPort.moveElevator(es->direction).send();
-	}*/
 	update();
 	if (es->nextDestFloor == es->currentFloor)
 	{
@@ -408,9 +403,11 @@ INLINE_METHODS void Elevator_Actor::transition5_doorClosed( const void * rtdata,
 
 		// Clear destination floor
 		es->destinationFloors[es->currentFloor-1] = 0;
+		es->nextDestFloor = -1;
 
 		// Open door
 		LEPort.openDoor().send();
+		LEPort.clearButton(es->currentFloor).send();
 
 		log.show("Elevator [");
 		log.show(es->id);
@@ -462,7 +459,7 @@ INLINE_CHAINS void Elevator_Actor::chain2_elevatorButtonPressed( void )
 
 INLINE_CHAINS void Elevator_Actor::chain3_arrivedAtFloor( void )
 {
-	// transition ':TOP:Ready:J56FAF42100F6:arrivedAtFloor'
+	// transition ':TOP:Ready:J56FC4E3D0305:arrivedAtFloor'
 	rtgChainBegin( 2, "arrivedAtFloor" );
 	exitState( rtg_parent_state );
 	rtgTransitionBegin();
@@ -633,7 +630,7 @@ const RTComponentDescriptor Elevator_Actor::rtg_capsule_roles[] =
 	  , RTComponentDescriptor::Fixed
 	  , 1
 	  , 1 // cardinality
-	  , 2
+	  , 1
 	  , rtg_interfaces_localController
 	  , 1
 	  , rtg_bindings_localController

@@ -277,6 +277,16 @@ INLINE_CHAINS void FloorButton_Actor::chain6_False( void )
 	enterState( 4 );
 }
 
+INLINE_CHAINS void FloorButton_Actor::chain8_ignorePress( void )
+{
+	// transition ':TOP:inactive:J56FC3B710098:ignorePress'
+	rtgChainBegin( 4, "ignorePress" );
+	exitState( rtg_parent_state );
+	rtgTransitionBegin();
+	rtgTransitionEnd();
+	enterState( 4 );
+}
+
 void FloorButton_Actor::rtsBehavior( int signalIndex, int portIndex )
 {
 	for( int stateIndex = getCurrentState(); ; stateIndex = rtg_parent_state[ stateIndex - 1 ] )
@@ -393,6 +403,18 @@ void FloorButton_Actor::rtsBehavior( int signalIndex, int portIndex )
 				{
 				case FBFProtocol::Base::rti_init:
 					chain1_init();
+					return;
+				default:
+					break;
+				}
+				break;
+				// }}}RME
+			case 2:
+				// {{{RME port 'UFBPort'
+				switch( signalIndex )
+				{
+				case UFBPort::Base::rti_pressFloorButton:
+					chain8_ignorePress();
 					return;
 				default:
 					break;

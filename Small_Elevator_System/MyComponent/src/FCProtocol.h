@@ -17,13 +17,13 @@ struct FCProtocol
 	public:
 		inline Base( void );
 		inline ~Base( void );
-		enum { rti_arrivedAtFloor = rtiLast_RTRootProtocol + 1 };
+		enum { rti_clearButton = rtiLast_RTRootProtocol + 1 };
 
 	protected:
-		enum { rtiLast_FCProtocol = rti_arrivedAtFloor };
+		enum { rtiLast_FCProtocol = rti_clearButton };
 
 	public:
-		inline RTInSignal arrivedAtFloor( void );
+		inline RTInSignal clearButton( void );
 		inline RTOutSignal floorButtonPressed( const RTTypedValue_ButtonInfo & data );
 		static const RTProtocolDescriptor rt_class;
 
@@ -42,7 +42,7 @@ struct FCProtocol
 
 	public:
 		inline RTInSignal floorButtonPressed( void );
-		inline RTOutSignal arrivedAtFloor( const RTTypedValue_ButtonInfo & data );
+		inline RTOutSignal clearButton( const RTTypedValue_ButtonInfo & data );
 		static const RTProtocolDescriptor rt_class;
 
 	private:
@@ -59,9 +59,9 @@ inline FCProtocol::Base::~Base( void )
 {
 }
 
-inline RTInSignal FCProtocol::Base::arrivedAtFloor( void )
+inline RTInSignal FCProtocol::Base::clearButton( void )
 {
-	return RTInSignal( this, rti_arrivedAtFloor );
+	return RTInSignal( this, rti_clearButton );
 }
 
 inline RTOutSignal FCProtocol::Base::floorButtonPressed( const RTTypedValue_ButtonInfo & data )
@@ -83,9 +83,9 @@ inline RTInSignal FCProtocol::Conjugate::floorButtonPressed( void )
 	return RTInSignal( this, rti_floorButtonPressed );
 }
 
-inline RTOutSignal FCProtocol::Conjugate::arrivedAtFloor( const RTTypedValue_ButtonInfo & data )
+inline RTOutSignal FCProtocol::Conjugate::clearButton( const RTTypedValue_ButtonInfo & data )
 {
-	return RTOutSignal( this, Base::rti_arrivedAtFloor, data.data, data.type );
+	return RTOutSignal( this, Base::rti_clearButton, data.data, data.type );
 }
 
 #endif /* FCProtocol_H */

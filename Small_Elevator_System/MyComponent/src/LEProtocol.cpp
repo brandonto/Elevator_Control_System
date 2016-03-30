@@ -13,7 +13,7 @@ const RTProtocolDescriptor LEProtocol::Base::rt_class =
   , &LEProtocol::Conjugate::rt_class
   , "LEProtocol"
   , 0
-  , 5
+  , 6
   , LEProtocol::Base::rt_signals
 #if RTRUNTIMEBC
   , &RTProtocolDescriptor::getUnknownGlobalSignal, &RTProtocolDescriptor::getUnknownLocalSignal
@@ -23,6 +23,11 @@ const RTProtocolDescriptor LEProtocol::Base::rt_class =
 const RTSignalDescriptor LEProtocol::Base::rt_signals[] =
 {
 	{
+		"clearButton"
+	  , &RTType_int
+	  , LEProtocol::Base::rti_clearButton
+	}
+  , {
 		"init"
 	  , (const RTObject_class *)0
 	  , LEProtocol::Base::rti_init
@@ -55,7 +60,7 @@ const RTProtocolDescriptor LEProtocol::Conjugate::rt_class =
   , &LEProtocol::Base::rt_class
   , "LEProtocol"
   , 0
-  , 5
+  , 6
   , LEProtocol::Conjugate::rt_signals
 #if RTRUNTIMEBC
   , &RTProtocolDescriptor::getUnknownGlobalSignal, &RTProtocolDescriptor::getUnknownLocalSignal
@@ -65,6 +70,11 @@ const RTProtocolDescriptor LEProtocol::Conjugate::rt_class =
 const RTSignalDescriptor LEProtocol::Conjugate::rt_signals[] =
 {
 	{
+		"activateEmergencyBrakes"
+	  , &RTType_void
+	  , LEProtocol::Conjugate::rti_activateEmergencyBrakes
+	}
+  , {
 		"arrivedAtFloor"
 	  , &RTType_void
 	  , LEProtocol::Conjugate::rti_arrivedAtFloor

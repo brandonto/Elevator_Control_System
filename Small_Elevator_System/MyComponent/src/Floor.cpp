@@ -160,8 +160,8 @@ INLINE_METHODS void Floor_Actor::transition3_init( const void * rtdata, Timing::
 }
 // }}}RME
 
-// {{{RME transition ':TOP:Ready:J56FC1E960292:arrivedAtFloor'
-INLINE_METHODS void Floor_Actor::transition4_arrivedAtFloor( const ButtonInfo * rtdata, FCProtocol::Base * rtport )
+// {{{RME transition ':TOP:Ready:J56FC1E960292:clearButton'
+INLINE_METHODS void Floor_Actor::transition4_clearButton( const ButtonInfo * rtdata, FCProtocol::Base * rtport )
 {
 	// {{{USR
 	const ButtonInfo *bi = (ButtonInfo*)rtdata;
@@ -180,13 +180,13 @@ INLINE_CHAINS void Floor_Actor::chain1_Initial( void )
 	enterState( 2 );
 }
 
-INLINE_CHAINS void Floor_Actor::chain4_arrivedAtFloor( void )
+INLINE_CHAINS void Floor_Actor::chain4_clearButton( void )
 {
-	// transition ':TOP:Ready:J56FC1E960292:arrivedAtFloor'
-	rtgChainBegin( 2, "arrivedAtFloor" );
+	// transition ':TOP:Ready:J56FC1E960292:clearButton'
+	rtgChainBegin( 2, "clearButton" );
 	exitState( rtg_parent_state );
 	rtgTransitionBegin();
-	transition4_arrivedAtFloor( (const ButtonInfo *)msg->data, (FCProtocol::Base *)msg->sap() );
+	transition4_clearButton( (const ButtonInfo *)msg->data, (FCProtocol::Base *)msg->sap() );
 	rtgTransitionEnd();
 	enterState( 2 );
 }
@@ -255,8 +255,8 @@ void Floor_Actor::rtsBehavior( int signalIndex, int portIndex )
 				// {{{RME port 'FCPort'
 				switch( signalIndex )
 				{
-				case FCProtocol::Base::rti_arrivedAtFloor:
-					chain4_arrivedAtFloor();
+				case FCProtocol::Base::rti_clearButton:
+					chain4_clearButton();
 					return;
 				default:
 					break;

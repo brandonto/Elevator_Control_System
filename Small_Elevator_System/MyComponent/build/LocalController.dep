@@ -4,8 +4,9 @@ LocalController_DEPS = \
 	../src/LocalController.h \
 	../src/ButtonInfo.h \
 	../src/ElevatorStatus.h \
+	../src/LEBProtocol.h \
+	../src/LEBRProtocol.h \
 	../src/LEDProtocol.h \
 	../src/LEMProtocol.h \
 	../src/LEProtocol.h \
-	../src/ULProtocol.h \
 	../src/Constants.h

@@ -45,6 +45,9 @@ private:
 	// {{{RME classAttribute 'id'
 	int id;
 	// }}}RME
+	// {{{RME classAttribute 'es'
+	ElevatorStatus * es;
+	// }}}RME
 
 protected:
 	// {{{RME port 'LEMPort'
@@ -94,13 +97,17 @@ private:
 	INLINE_CHAINS void chain2_moveUp( void );
 	INLINE_CHAINS void chain3_moveDown( void );
 	INLINE_CHAINS void chain9_ignoreStop( void );
+	INLINE_CHAINS void chain14_activateEmergencyBrakes( void );
 	INLINE_CHAINS void chain8_ignoreTimeout( void );
 	INLINE_CHAINS void chain10_ignoreMoveUp( void );
 	INLINE_CHAINS void chain4_stop( void );
+	INLINE_CHAINS void chain13_activateEmergencyBrakes( void );
 	INLINE_CHAINS void chain6_arrivedAtFloor( void );
 	INLINE_CHAINS void chain11_ignoreMoveDown( void );
 	INLINE_CHAINS void chain5_stop( void );
+	INLINE_CHAINS void chain15_activateEmergencyBrakes( void );
 	INLINE_CHAINS void chain7_arriveAtFloor( void );
+	INLINE_CHAINS void chain16_ignoreEverything( void );
 
 public:
 	virtual void rtsBehavior( int signalIndex, int portIndex );

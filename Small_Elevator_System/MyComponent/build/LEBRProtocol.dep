@@ -1,0 +1,4 @@
+LEBRProtocol_DEPS = \
+	../src/LEBRProtocol.cpp \
+	../src/RTSystem/MyComponent.h \
+	../src/LEBRProtocol.h

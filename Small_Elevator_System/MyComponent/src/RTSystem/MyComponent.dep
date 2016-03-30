@@ -16,12 +16,18 @@ MyComponent_SYSDEPS_CS = \
 	Constants.h \
 	DoorSensor.cpp \
 	DoorSensor.h \
+	EBLEBProtocol.cpp \
+	EBLEBProtocol.h \
 	EDDSProtocol.cpp \
 	EDDSProtocol.h \
 	EPProtocol.cpp \
 	EPProtocol.h \
 	Elevator.cpp \
 	Elevator.h \
+	ElevatorButton.cpp \
+	ElevatorButton.h \
+	ElevatorButtonLamp.cpp \
+	ElevatorButtonLamp.h \
 	ElevatorControlSystem.cpp \
 	ElevatorControlSystem.h \
 	ElevatorDoor.cpp \
@@ -30,6 +36,8 @@ MyComponent_SYSDEPS_CS = \
 	ElevatorMotor.h \
 	ElevatorStatus.cpp \
 	ElevatorStatus.h \
+	EmergencyBrake.cpp \
+	EmergencyBrake.h \
 	FBFProtocol.cpp \
 	FBFProtocol.h \
 	FBLFBProtocol.cpp \
@@ -42,6 +50,10 @@ MyComponent_SYSDEPS_CS = \
 	FloorButton.h \
 	FloorButtonLamp.cpp \
 	FloorButtonLamp.h \
+	LEBProtocol.cpp \
+	LEBProtocol.h \
+	LEBRProtocol.cpp \
+	LEBRProtocol.h \
 	LEDProtocol.cpp \
 	LEDProtocol.h \
 	LEMProtocol.cpp \
@@ -52,8 +64,8 @@ MyComponent_SYSDEPS_CS = \
 	LocalController.h \
 	UDSProtocol.cpp \
 	UDSProtocol.h \
+	UEBProtocol.cpp \
+	UEBProtocol.h \
 	UFBPort.cpp \
-	UFBPort.h \
-	ULProtocol.cpp \
-	ULProtocol.h
+	UFBPort.h
 

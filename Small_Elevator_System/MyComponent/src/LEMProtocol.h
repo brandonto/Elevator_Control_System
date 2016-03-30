@@ -22,16 +22,18 @@ struct LEMProtocol
 		  , rti_moveElevatorUp
 		  , rti_moveElevatorDown
 		  , rti_stopElevator
+		  , rti_activateEmergencyBrakes
 		};
 
 	protected:
-		enum { rtiLast_LEMProtocol = rti_stopElevator };
+		enum { rtiLast_LEMProtocol = rti_activateEmergencyBrakes };
 
 	public:
 		inline RTInSignal init( void );
 		inline RTInSignal moveElevatorUp( void );
 		inline RTInSignal moveElevatorDown( void );
 		inline RTInSignal stopElevator( void );
+		inline RTInSignal activateEmergencyBrakes( void );
 		inline RTOutSignal arrivedAtFloor( void );
 		static const RTProtocolDescriptor rt_class;
 
@@ -55,6 +57,7 @@ struct LEMProtocol
 		inline RTOutSignal moveElevatorUp( void );
 		inline RTOutSignal moveElevatorDown( void );
 		inline RTOutSignal stopElevator( void );
+		inline RTOutSignal activateEmergencyBrakes( void );
 		static const RTProtocolDescriptor rt_class;
 
 	private:
@@ -89,6 +92,11 @@ inline RTInSignal LEMProtocol::Base::moveElevatorDown( void )
 inline RTInSignal LEMProtocol::Base::stopElevator( void )
 {
 	return RTInSignal( this, rti_stopElevator );
+}
+
+inline RTInSignal LEMProtocol::Base::activateEmergencyBrakes( void )
+{
+	return RTInSignal( this, rti_activateEmergencyBrakes );
 }
 
 inline RTOutSignal LEMProtocol::Base::arrivedAtFloor( void )
@@ -133,6 +141,11 @@ inline RTOutSignal LEMProtocol::Conjugate::moveElevatorDown( void )
 inline RTOutSignal LEMProtocol::Conjugate::stopElevator( void )
 {
 	return RTOutSignal( this, Base::rti_stopElevator, (const void *)0, &RTType_void );
+}
+
+inline RTOutSignal LEMProtocol::Conjugate::activateEmergencyBrakes( void )
+{
+	return RTOutSignal( this, Base::rti_activateEmergencyBrakes, (const void *)0, &RTType_void );
 }
 
 #endif /* LEMProtocol_H */

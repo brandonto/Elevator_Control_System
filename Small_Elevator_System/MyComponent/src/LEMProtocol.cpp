@@ -13,7 +13,7 @@ const RTProtocolDescriptor LEMProtocol::Base::rt_class =
   , &LEMProtocol::Conjugate::rt_class
   , "LEMProtocol"
   , 0
-  , 6
+  , 7
   , LEMProtocol::Base::rt_signals
 #if RTRUNTIMEBC
   , &RTProtocolDescriptor::getUnknownGlobalSignal, &RTProtocolDescriptor::getUnknownLocalSignal
@@ -23,6 +23,11 @@ const RTProtocolDescriptor LEMProtocol::Base::rt_class =
 const RTSignalDescriptor LEMProtocol::Base::rt_signals[] =
 {
 	{
+		"activateEmergencyBrakes"
+	  , &RTType_void
+	  , LEMProtocol::Base::rti_activateEmergencyBrakes
+	}
+  , {
 		"init"
 	  , (const RTObject_class *)0
 	  , LEMProtocol::Base::rti_init

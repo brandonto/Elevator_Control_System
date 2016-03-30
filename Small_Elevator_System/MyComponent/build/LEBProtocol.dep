@@ -1,0 +1,4 @@
+LEBProtocol_DEPS = \
+	../src/LEBProtocol.cpp \
+	../src/RTSystem/MyComponent.h \
+	../src/LEBProtocol.h

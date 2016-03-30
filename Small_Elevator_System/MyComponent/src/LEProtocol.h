@@ -22,18 +22,21 @@ struct LEProtocol
 			rti_init = rtiLast_RTRootProtocol + 1
 		  , rti_moveElevator
 		  , rti_openDoor
+		  , rti_clearButton
 		};
 
 	protected:
-		enum { rtiLast_LEProtocol = rti_openDoor };
+		enum { rtiLast_LEProtocol = rti_clearButton };
 
 	public:
 		inline RTInSignal init( void );
 		inline RTInSignal moveElevator( void );
 		inline RTInSignal openDoor( void );
+		inline RTInSignal clearButton( void );
 		inline RTOutSignal elevatorButtonPressed( const RTTypedValue_ButtonInfo & data );
 		inline RTOutSignal arrivedAtFloor( void );
 		inline RTOutSignal doorClosed( void );
+		inline RTOutSignal activateEmergencyBrakes( void );
 		static const RTProtocolDescriptor rt_class;
 
 	private:
@@ -49,19 +52,22 @@ struct LEProtocol
 			rti_elevatorButtonPressed = rtiLast_RTRootProtocol + 1
 		  , rti_arrivedAtFloor
 		  , rti_doorClosed
+		  , rti_activateEmergencyBrakes
 		};
 
 	protected:
-		enum { rtiLast_LEProtocol = rti_doorClosed };
+		enum { rtiLast_LEProtocol = rti_activateEmergencyBrakes };
 
 	public:
 		inline RTInSignal elevatorButtonPressed( void );
 		inline RTInSignal arrivedAtFloor( void );
 		inline RTInSignal doorClosed( void );
+		inline RTInSignal activateEmergencyBrakes( void );
 		inline RTOutSignal init( const RTTypedValue & value );
 		inline RTOutSignal init( void );
 		inline RTOutSignal moveElevator( const int & data );
 		inline RTOutSignal openDoor( void );
+		inline RTOutSignal clearButton( const int & data );
 		static const RTProtocolDescriptor rt_class;
 
 	private:
@@ -93,6 +99,11 @@ inline RTInSignal LEProtocol::Base::openDoor( void )
 	return RTInSignal( this, rti_openDoor );
 }
 
+inline RTInSignal LEProtocol::Base::clearButton( void )
+{
+	return RTInSignal( this, rti_clearButton );
+}
+
 inline RTOutSignal LEProtocol::Base::elevatorButtonPressed( const RTTypedValue_ButtonInfo & data )
 {
 	return RTOutSignal( this, Conjugate::rti_elevatorButtonPressed, data.data, data.type );
@@ -106,6 +117,11 @@ inline RTOutSignal LEProtocol::Base::arrivedAtFloor( void )
 inline RTOutSignal LEProtocol::Base::doorClosed( void )
 {
 	return RTOutSignal( this, Conjugate::rti_doorClosed, (const void *)0, &RTType_void );
+}
+
+inline RTOutSignal LEProtocol::Base::activateEmergencyBrakes( void )
+{
+	return RTOutSignal( this, Conjugate::rti_activateEmergencyBrakes, (const void *)0, &RTType_void );
 }
 
 inline LEProtocol::Conjugate::Conjugate( void )
@@ -132,6 +148,11 @@ inline RTInSignal LEProtocol::Conjugate::doorClosed( void )
 	return RTInSignal( this, rti_doorClosed );
 }
 
+inline RTInSignal LEProtocol::Conjugate::activateEmergencyBrakes( void )
+{
+	return RTInSignal( this, rti_activateEmergencyBrakes );
+}
+
 inline RTOutSignal LEProtocol::Conjugate::init( const RTTypedValue & value )
 {
 	return RTOutSignal( this, Base::rti_init, value.data, value.type );
@@ -150,6 +171,11 @@ inline RTOutSignal LEProtocol::Conjugate::moveElevator( const int & data )
 inline RTOutSignal LEProtocol::Conjugate::openDoor( void )
 {
 	return RTOutSignal( this, Base::rti_openDoor, (const void *)0, &RTType_void );
+}
+
+inline RTOutSignal LEProtocol::Conjugate::clearButton( const int & data )
+{
+	return RTOutSignal( this, Base::rti_clearButton, &data, &RTType_int );
 }
 
 #endif /* LEProtocol_H */

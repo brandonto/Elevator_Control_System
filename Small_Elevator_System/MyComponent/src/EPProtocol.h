@@ -23,22 +23,22 @@ struct EPProtocol
 		  , rti_elevatorButtonPressed
 		  , rti_moveElevator
 		  , rti_update
-		  , rti_arrivedAtFloor
+		  , rti_clearButton
 		};
 
 	protected:
-		enum { rtiLast_EPProtocol = rti_arrivedAtFloor };
+		enum { rtiLast_EPProtocol = rti_clearButton };
 
 	public:
 		inline RTSymmetricSignal init( void );
 		inline RTInSignal elevatorButtonPressed( void );
 		inline RTInSignal moveElevator( void );
 		inline RTSymmetricSignal update( void );
-		inline RTInSignal arrivedAtFloor( void );
+		inline RTInSignal clearButton( void );
 		inline RTOutSignal init( const RTTypedValue & value );
 		inline RTOutSignal elevatorButtonPressed( const RTTypedValue_ButtonInfo & data );
 		inline RTOutSignal moveElevator( const int & data );
-		inline RTOutSignal arrivedAtFloor( const RTTypedValue_ButtonInfo & data );
+		inline RTOutSignal clearButton( const RTTypedValue_ButtonInfo & data );
 		static const RTProtocolDescriptor rt_class;
 
 	private:
@@ -55,22 +55,22 @@ struct EPProtocol
 		  , rti_elevatorButtonPressed
 		  , rti_moveElevator
 		  , rti_update
-		  , rti_arrivedAtFloor
+		  , rti_clearButton
 		};
 
 	protected:
-		enum { rtiLast_EPProtocol = rti_arrivedAtFloor };
+		enum { rtiLast_EPProtocol = rti_clearButton };
 
 	public:
 		inline RTSymmetricSignal init( void );
 		inline RTInSignal elevatorButtonPressed( void );
 		inline RTInSignal moveElevator( void );
 		inline RTSymmetricSignal update( void );
-		inline RTInSignal arrivedAtFloor( void );
+		inline RTInSignal clearButton( void );
 		inline RTOutSignal init( const RTTypedValue & value );
 		inline RTOutSignal elevatorButtonPressed( const RTTypedValue_ButtonInfo & data );
 		inline RTOutSignal moveElevator( const int & data );
-		inline RTOutSignal arrivedAtFloor( const RTTypedValue_ButtonInfo & data );
+		inline RTOutSignal clearButton( const RTTypedValue_ButtonInfo & data );
 		static const RTProtocolDescriptor rt_class;
 
 	private:
@@ -107,9 +107,9 @@ inline RTSymmetricSignal EPProtocol::Base::update( void )
 	return RTSymmetricSignal( this, rti_update, Conjugate::rti_update );
 }
 
-inline RTInSignal EPProtocol::Base::arrivedAtFloor( void )
+inline RTInSignal EPProtocol::Base::clearButton( void )
 {
-	return RTInSignal( this, rti_arrivedAtFloor );
+	return RTInSignal( this, rti_clearButton );
 }
 
 inline RTOutSignal EPProtocol::Base::init( const RTTypedValue & value )
@@ -127,9 +127,9 @@ inline RTOutSignal EPProtocol::Base::moveElevator( const int & data )
 	return RTOutSignal( this, Conjugate::rti_moveElevator, &data, &RTType_int );
 }
 
-inline RTOutSignal EPProtocol::Base::arrivedAtFloor( const RTTypedValue_ButtonInfo & data )
+inline RTOutSignal EPProtocol::Base::clearButton( const RTTypedValue_ButtonInfo & data )
 {
-	return RTOutSignal( this, Conjugate::rti_arrivedAtFloor, data.data, data.type );
+	return RTOutSignal( this, Conjugate::rti_clearButton, data.data, data.type );
 }
 
 inline EPProtocol::Conjugate::Conjugate( void )
@@ -161,9 +161,9 @@ inline RTSymmetricSignal EPProtocol::Conjugate::update( void )
 	return RTSymmetricSignal( this, rti_update, Base::rti_update );
 }
 
-inline RTInSignal EPProtocol::Conjugate::arrivedAtFloor( void )
+inline RTInSignal EPProtocol::Conjugate::clearButton( void )
 {
-	return RTInSignal( this, rti_arrivedAtFloor );
+	return RTInSignal( this, rti_clearButton );
 }
 
 inline RTOutSignal EPProtocol::Conjugate::init( const RTTypedValue & value )
@@ -181,9 +181,9 @@ inline RTOutSignal EPProtocol::Conjugate::moveElevator( const int & data )
 	return RTOutSignal( this, Base::rti_moveElevator, &data, &RTType_int );
 }
 
-inline RTOutSignal EPProtocol::Conjugate::arrivedAtFloor( const RTTypedValue_ButtonInfo & data )
+inline RTOutSignal EPProtocol::Conjugate::clearButton( const RTTypedValue_ButtonInfo & data )
 {
-	return RTOutSignal( this, Base::rti_arrivedAtFloor, data.data, data.type );
+	return RTOutSignal( this, Base::rti_clearButton, data.data, data.type );
 }
 
 #endif /* EPProtocol_H */

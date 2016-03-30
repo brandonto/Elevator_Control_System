@@ -86,7 +86,7 @@ protected:
 	// {{{RME transition ':TOP:Ready:J56FC070100AE:elevatorButtonPressed'
 	INLINE_METHODS void transition2_elevatorButtonPressed( const ButtonInfo * rtdata, LEProtocol::Conjugate * rtport );
 	// }}}RME
-	// {{{RME transition ':TOP:Ready:J56FAF42100F6:arrivedAtFloor'
+	// {{{RME transition ':TOP:Ready:J56FC4E3D0305:arrivedAtFloor'
 	INLINE_METHODS void transition3_arrivedAtFloor( const void * rtdata, LEProtocol::Conjugate * rtport );
 	// }}}RME
 	// {{{RME transition ':TOP:Ready:J56FB04610211:update'

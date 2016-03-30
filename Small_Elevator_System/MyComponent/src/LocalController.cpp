@@ -8,8 +8,10 @@
 #include <LocalController.h>
 #include <ButtonInfo.h>
 #include <ElevatorStatus.h>
+extern const RTActorClass ElevatorButton;
 extern const RTActorClass ElevatorDoor;
 extern const RTActorClass ElevatorMotor;
+extern const RTActorClass EmergencyBrake;
 
 // {{{RME tool 'OT::Cpp' property 'ImplementationPreface'
 // {{{USR
@@ -24,11 +26,6 @@ static const RTRelayDescriptor rtg_relays[] =
 	  , &LEProtocol::Base::rt_class
 	  , 1 // cardinality
 	}
-  , {
-		"ULPort"
-	  , &ULProtocol::Base::rt_class
-	  , 1 // cardinality
-	}
 };
 
 static RTActor * new_LocalController_Actor( RTController * _rts, RTActorRef * _ref )
@@ -41,7 +38,7 @@ const RTActorClass LocalController =
 	(const RTActorClass *)0
   , "LocalController"
   , (RTVersionId)0
-  , 2
+  , 1
   , rtg_relays
   , new_LocalController_Actor
 };
@@ -84,6 +81,42 @@ static const RTBindingDescriptor rtg_bindings_elevatorDoor[] =
 	}
 };
 
+static const RTInterfaceDescriptor rtg_interfaces_emergencyBrake[] =
+{
+	{
+		"LEBRPort"
+	  , 1
+	}
+};
+
+static const RTBindingDescriptor rtg_bindings_emergencyBrake[] =
+{
+	{
+		0
+	  , &LEBRProtocol::Conjugate::rt_class
+	}
+};
+
+static const RTInterfaceDescriptor rtg_interfaces_elevatorButton[] =
+{
+	{
+		"LEBPort"
+	  , 1
+	}
+  , {
+		"UEBPort"
+	  , 0
+	}
+};
+
+static const RTBindingDescriptor rtg_bindings_elevatorButton[] =
+{
+	{
+		0
+	  , &LEBProtocol::Conjugate::rt_class
+	}
+};
+
 #define SUPER RTActor
 
 LocalController_Actor::LocalController_Actor( RTController * rtg_rts, RTActorRef * rtg_ref )
@@ -104,15 +137,6 @@ int LocalController_Actor::_followInV( RTBindingEnd & rtg_end, int rtg_portId, i
 		if( rtg_repIndex < 1 )
 		{
 			rtg_end.port = &LEPort;
-			rtg_end.index = rtg_repIndex;
-			return 1;
-		}
-		break;
-	case 1:
-		// ULPort
-		if( rtg_repIndex < 1 )
-		{
-			rtg_end.port = &ULPort;
 			rtg_end.index = rtg_repIndex;
 			return 1;
 		}
@@ -161,14 +185,48 @@ int LocalController_Actor::_followOutV( RTBindingEnd & rtg_end, int rtg_compId, 
 		default:
 			break;
 		}
+	case 3:
+		// emergencyBrake
+		switch( rtg_portId )
+		{
+		case 0:
+			// LEBRPort
+			if( rtg_repIndex < 1 )
+			{
+				// LEBRPort
+				rtg_end.port = &LEBRPort;
+				rtg_end.index = rtg_repIndex;
+				return 1;
+			}
+			break;
+		default:
+			break;
+		}
+	case 4:
+		// elevatorButton
+		switch( rtg_portId )
+		{
+		case 0:
+			// LEBPort
+			if( rtg_repIndex < 10 )
+			{
+				// LEBPort
+				rtg_end.port = &LEBPort;
+				rtg_end.index = rtg_repIndex;
+				return 1;
+			}
+			break;
+		default:
+			break;
+		}
 	default:
 		break;
 	}
 	return RTActor::_followOutV( rtg_end, rtg_compId, rtg_portId, rtg_repIndex );
 }
 
-// {{{RME transition ':TOP:Ready:J56FC05E3011B:pressElevatorButton'
-INLINE_METHODS void LocalController_Actor::transition2_pressElevatorButton( const int * rtdata, ULProtocol::Base * rtport )
+// {{{RME transition ':TOP:Ready:J56FC05E3011B:elevatorButtonPressed'
+INLINE_METHODS void LocalController_Actor::transition2_elevatorButtonPressed( const int * rtdata, LEBProtocol::Conjugate * rtport )
 {
 	// {{{USR
 	//int destinationFloor = *rtdata;
@@ -238,6 +296,16 @@ INLINE_METHODS void LocalController_Actor::transition7_init( const void * rtdata
 	id = es->id;
 	LEMPort.init(es).send();
 	LEDPort.init(es).send();
+	LEBRPort.init(es).send();
+	// }}}USR
+}
+// }}}RME
+
+// {{{RME transition ':TOP:Ready:J56FC4FA0036C:clearButton'
+INLINE_METHODS void LocalController_Actor::transition8_clearButton( const int * rtdata, LEProtocol::Base * rtport )
+{
+	// {{{USR
+	LEBPort.clearButton().sendAt(*rtdata-1);
 	// }}}USR
 }
 // }}}RME
@@ -284,13 +352,13 @@ INLINE_CHAINS void LocalController_Actor::chain5_openDoor( void )
 	enterState( 2 );
 }
 
-INLINE_CHAINS void LocalController_Actor::chain2_pressElevatorButton( void )
+INLINE_CHAINS void LocalController_Actor::chain8_clearButton( void )
 {
-	// transition ':TOP:Ready:J56FC05E3011B:pressElevatorButton'
-	rtgChainBegin( 2, "pressElevatorButton" );
+	// transition ':TOP:Ready:J56FC4FA0036C:clearButton'
+	rtgChainBegin( 2, "clearButton" );
 	exitState( rtg_parent_state );
 	rtgTransitionBegin();
-	transition2_pressElevatorButton( (const int *)msg->data, (ULProtocol::Base *)msg->sap() );
+	transition8_clearButton( (const int *)msg->data, (LEProtocol::Base *)msg->sap() );
 	rtgTransitionEnd();
 	enterState( 2 );
 }
@@ -313,6 +381,17 @@ INLINE_CHAINS void LocalController_Actor::chain6_doorClosed( void )
 	exitState( rtg_parent_state );
 	rtgTransitionBegin();
 	transition6_doorClosed( msg->data, (LEDProtocol::Conjugate *)msg->sap() );
+	rtgTransitionEnd();
+	enterState( 2 );
+}
+
+INLINE_CHAINS void LocalController_Actor::chain2_elevatorButtonPressed( void )
+{
+	// transition ':TOP:Ready:J56FC05E3011B:elevatorButtonPressed'
+	rtgChainBegin( 2, "elevatorButtonPressed" );
+	exitState( rtg_parent_state );
+	rtgTransitionBegin();
+	transition2_elevatorButtonPressed( (const int *)msg->data, (LEBProtocol::Conjugate *)msg->sap() );
 	rtgTransitionEnd();
 	enterState( 2 );
 }
@@ -368,24 +447,15 @@ void LocalController_Actor::rtsBehavior( int signalIndex, int portIndex )
 				case LEProtocol::Base::rti_openDoor:
 					chain5_openDoor();
 					return;
-				default:
-					break;
-				}
-				break;
-				// }}}RME
-			case 2:
-				// {{{RME port 'ULPort'
-				switch( signalIndex )
-				{
-				case ULProtocol::Base::rti_pressElevatorButton:
-					chain2_pressElevatorButton();
+				case LEProtocol::Base::rti_clearButton:
+					chain8_clearButton();
 					return;
 				default:
 					break;
 				}
 				break;
 				// }}}RME
-			case 3:
+			case 2:
 				// {{{RME port 'LEMPort'
 				switch( signalIndex )
 				{
@@ -397,12 +467,24 @@ void LocalController_Actor::rtsBehavior( int signalIndex, int portIndex )
 				}
 				break;
 				// }}}RME
-			case 4:
+			case 3:
 				// {{{RME port 'LEDPort'
 				switch( signalIndex )
 				{
 				case LEDProtocol::Conjugate::rti_doorClosed:
 					chain6_doorClosed();
+					return;
+				default:
+					break;
+				}
+				break;
+				// }}}RME
+			case 5:
+				// {{{RME port 'LEBPort'
+				switch( signalIndex )
+				{
+				case LEBProtocol::Conjugate::rti_elevatorButtonPressed:
+					chain2_elevatorButtonPressed();
 					return;
 				default:
 					break;
@@ -432,9 +514,9 @@ const RTActor_class LocalController_Actor::rtg_class =
   , 2
   , LocalController_Actor::rtg_parent_state
   , &LocalController
-  , 2
+  , 4
   , LocalController_Actor::rtg_capsule_roles
-  , 5
+  , 6
   , LocalController_Actor::rtg_ports
   , 0
   , (const RTLocalBindingDescriptor *)0
@@ -476,6 +558,32 @@ const RTComponentDescriptor LocalController_Actor::rtg_capsule_roles[] =
 	  , 1
 	  , rtg_bindings_elevatorDoor
 	}
+  , {
+		"emergencyBrake"
+	  , &EmergencyBrake
+	  , RTOffsetOf( LocalController_Actor, emergencyBrake )
+	  , 3
+	  , RTComponentDescriptor::Fixed
+	  , 1
+	  , 1 // cardinality
+	  , 1
+	  , rtg_interfaces_emergencyBrake
+	  , 1
+	  , rtg_bindings_emergencyBrake
+	}
+  , {
+		"elevatorButton"
+	  , &ElevatorButton
+	  , RTOffsetOf( LocalController_Actor, elevatorButton )
+	  , 4
+	  , RTComponentDescriptor::Fixed
+	  , 1
+	  , 10 // cardinality
+	  , 2
+	  , rtg_interfaces_elevatorButton
+	  , 1
+	  , rtg_bindings_elevatorButton
+	}
 };
 
 const RTPortDescriptor LocalController_Actor::rtg_ports[] =
@@ -490,21 +598,12 @@ const RTPortDescriptor LocalController_Actor::rtg_ports[] =
 	  , RTPortDescriptor::KindWired + RTPortDescriptor::NotificationDisabled + RTPortDescriptor::RegisterNotPermitted + RTPortDescriptor::VisibilityPublic
 	}
   , {
-		"ULPort"
-	  , (const char *)0
-	  , &ULProtocol::Base::rt_class
-	  , RTOffsetOf( LocalController_Actor, LocalController_Actor::ULPort )
-	  , 1 // cardinality
-	  , 2
-	  , RTPortDescriptor::KindWired + RTPortDescriptor::NotificationDisabled + RTPortDescriptor::RegisterNotPermitted + RTPortDescriptor::VisibilityPublic
-	}
-  , {
 		"LEMPort"
 	  , (const char *)0
 	  , &LEMProtocol::Conjugate::rt_class
 	  , RTOffsetOf( LocalController_Actor, LocalController_Actor::LEMPort )
 	  , 1 // cardinality
-	  , 3
+	  , 2
 	  , RTPortDescriptor::KindWired + RTPortDescriptor::NotificationDisabled + RTPortDescriptor::RegisterNotPermitted + RTPortDescriptor::VisibilityProtected
 	}
   , {
@@ -513,7 +612,25 @@ const RTPortDescriptor LocalController_Actor::rtg_ports[] =
 	  , &LEDProtocol::Conjugate::rt_class
 	  , RTOffsetOf( LocalController_Actor, LocalController_Actor::LEDPort )
 	  , 1 // cardinality
+	  , 3
+	  , RTPortDescriptor::KindWired + RTPortDescriptor::NotificationDisabled + RTPortDescriptor::RegisterNotPermitted + RTPortDescriptor::VisibilityProtected
+	}
+  , {
+		"LEBRPort"
+	  , (const char *)0
+	  , &LEBRProtocol::Conjugate::rt_class
+	  , RTOffsetOf( LocalController_Actor, LocalController_Actor::LEBRPort )
+	  , 1 // cardinality
 	  , 4
+	  , RTPortDescriptor::KindWired + RTPortDescriptor::NotificationDisabled + RTPortDescriptor::RegisterNotPermitted + RTPortDescriptor::VisibilityProtected
+	}
+  , {
+		"LEBPort"
+	  , (const char *)0
+	  , &LEBProtocol::Conjugate::rt_class
+	  , RTOffsetOf( LocalController_Actor, LocalController_Actor::LEBPort )
+	  , 10 // cardinality
+	  , 5
 	  , RTPortDescriptor::KindWired + RTPortDescriptor::NotificationDisabled + RTPortDescriptor::RegisterNotPermitted + RTPortDescriptor::VisibilityProtected
 	}
   , {
@@ -522,7 +639,7 @@ const RTPortDescriptor LocalController_Actor::rtg_ports[] =
 	  , &Log::Base::rt_class
 	  , RTOffsetOf( LocalController_Actor, LocalController_Actor::log )
 	  , 1 // cardinality
-	  , 5
+	  , 6
 	  , RTPortDescriptor::KindSpecial + RTPortDescriptor::NotificationDisabled + RTPortDescriptor::RegisterNotPermitted + RTPortDescriptor::VisibilityProtected
 	}
 };

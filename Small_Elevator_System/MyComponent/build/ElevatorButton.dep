@@ -1,0 +1,7 @@
+ElevatorButton_DEPS = \
+	../src/ElevatorButton.cpp \
+	../src/RTSystem/MyComponent.h \
+	../src/ElevatorButton.h \
+	../src/EBLEBProtocol.h \
+	../src/LEBProtocol.h \
+	../src/UEBProtocol.h

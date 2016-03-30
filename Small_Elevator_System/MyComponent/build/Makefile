@@ -22,26 +22,32 @@ ALL_OBJS = \
 	CentralController$(OBJ_EXT) \
 	Constants$(OBJ_EXT) \
 	DoorSensor$(OBJ_EXT) \
+	EBLEBProtocol$(OBJ_EXT) \
 	EDDSProtocol$(OBJ_EXT) \
 	EPProtocol$(OBJ_EXT) \
 	Elevator$(OBJ_EXT) \
+	ElevatorButton$(OBJ_EXT) \
+	ElevatorButtonLamp$(OBJ_EXT) \
 	ElevatorControlSystem$(OBJ_EXT) \
 	ElevatorDoor$(OBJ_EXT) \
 	ElevatorMotor$(OBJ_EXT) \
 	ElevatorStatus$(OBJ_EXT) \
+	EmergencyBrake$(OBJ_EXT) \
 	FBFProtocol$(OBJ_EXT) \
 	FBLFBProtocol$(OBJ_EXT) \
 	FCProtocol$(OBJ_EXT) \
 	Floor$(OBJ_EXT) \
 	FloorButton$(OBJ_EXT) \
 	FloorButtonLamp$(OBJ_EXT) \
+	LEBProtocol$(OBJ_EXT) \
+	LEBRProtocol$(OBJ_EXT) \
 	LEDProtocol$(OBJ_EXT) \
 	LEMProtocol$(OBJ_EXT) \
 	LEProtocol$(OBJ_EXT) \
 	LocalController$(OBJ_EXT) \
 	UDSProtocol$(OBJ_EXT) \
+	UEBProtocol$(OBJ_EXT) \
 	UFBPort$(OBJ_EXT) \
-	ULProtocol$(OBJ_EXT) \
 	RTSystem/MyComponent$(OBJ_EXT)
 
 ALL_OBJS_LISTFILE = ALL_OBJS.olist
@@ -56,26 +62,32 @@ include <ButtonInfo.dep>
 include <CentralController.dep>
 include <Constants.dep>
 include <DoorSensor.dep>
+include <EBLEBProtocol.dep>
 include <EDDSProtocol.dep>
 include <EPProtocol.dep>
 include <Elevator.dep>
+include <ElevatorButton.dep>
+include <ElevatorButtonLamp.dep>
 include <ElevatorControlSystem.dep>
 include <ElevatorDoor.dep>
 include <ElevatorMotor.dep>
 include <ElevatorStatus.dep>
+include <EmergencyBrake.dep>
 include <FBFProtocol.dep>
 include <FBLFBProtocol.dep>
 include <FCProtocol.dep>
 include <Floor.dep>
 include <FloorButton.dep>
 include <FloorButtonLamp.dep>
+include <LEBProtocol.dep>
+include <LEBRProtocol.dep>
 include <LEDProtocol.dep>
 include <LEMProtocol.dep>
 include <LEProtocol.dep>
 include <LocalController.dep>
 include <UDSProtocol.dep>
+include <UEBProtocol.dep>
 include <UFBPort.dep>
-include <ULProtocol.dep>
 include <RTSystem/MyComponent.dep>
 include <$(RTS_HOME)/codegen/ms_nmake.mk>
 
@@ -119,6 +131,12 @@ DoorSensor$(OBJ_EXT) : $(DoorSensor_DEPS) $(RTCOMPILE_DAT)
 		$(USER_CC) $(CC_HEAD) $(USER_CCFLAGS) $(USER_INCPATHS) \
 		 $(SOURCE_DIR)/DoorSensor.cpp $(CC_TAIL)
 
+EBLEBProtocol$(OBJ_EXT) : $(EBLEBProtocol_DEPS) $(RTCOMPILE_DAT)
+	$(RTCOMP) -vendor $(VENDOR) $(SPACEDEPS) $(USER_DEPPATHS) \
+		-component $(RTCOMPONENT) -src EBLEBProtocol $(SOURCE_DIR)/EBLEBProtocol.cpp -- \
+		$(USER_CC) $(CC_HEAD) $(USER_CCFLAGS) $(USER_INCPATHS) \
+		 $(SOURCE_DIR)/EBLEBProtocol.cpp $(CC_TAIL)
+
 EDDSProtocol$(OBJ_EXT) : $(EDDSProtocol_DEPS) $(RTCOMPILE_DAT)
 	$(RTCOMP) -vendor $(VENDOR) $(SPACEDEPS) $(USER_DEPPATHS) \
 		-component $(RTCOMPONENT) -src EDDSProtocol $(SOURCE_DIR)/EDDSProtocol.cpp -- \
@@ -136,6 +154,18 @@ Elevator$(OBJ_EXT) : $(Elevator_DEPS) $(RTCOMPILE_DAT)
 		-component $(RTCOMPONENT) -src Elevator $(SOURCE_DIR)/Elevator.cpp -- \
 		$(USER_CC) $(CC_HEAD) $(USER_CCFLAGS) $(USER_INCPATHS) \
 		 $(SOURCE_DIR)/Elevator.cpp $(CC_TAIL)
+
+ElevatorButton$(OBJ_EXT) : $(ElevatorButton_DEPS) $(RTCOMPILE_DAT)
+	$(RTCOMP) -vendor $(VENDOR) $(SPACEDEPS) $(USER_DEPPATHS) \
+		-component $(RTCOMPONENT) -src ElevatorButton $(SOURCE_DIR)/ElevatorButton.cpp -- \
+		$(USER_CC) $(CC_HEAD) $(USER_CCFLAGS) $(USER_INCPATHS) \
+		 $(SOURCE_DIR)/ElevatorButton.cpp $(CC_TAIL)
+
+ElevatorButtonLamp$(OBJ_EXT) : $(ElevatorButtonLamp_DEPS) $(RTCOMPILE_DAT)
+	$(RTCOMP) -vendor $(VENDOR) $(SPACEDEPS) $(USER_DEPPATHS) \
+		-component $(RTCOMPONENT) -src ElevatorButtonLamp $(SOURCE_DIR)/ElevatorButtonLamp.cpp -- \
+		$(USER_CC) $(CC_HEAD) $(USER_CCFLAGS) $(USER_INCPATHS) \
+		 $(SOURCE_DIR)/ElevatorButtonLamp.cpp $(CC_TAIL)
 
 ElevatorControlSystem$(OBJ_EXT) : $(ElevatorControlSystem_DEPS) $(RTCOMPILE_DAT)
 	$(RTCOMP) -vendor $(VENDOR) $(SPACEDEPS) $(USER_DEPPATHS) \
@@ -160,6 +190,12 @@ ElevatorStatus$(OBJ_EXT) : $(ElevatorStatus_DEPS) $(RTCOMPILE_DAT)
 		-component $(RTCOMPONENT) -src ElevatorStatus $(SOURCE_DIR)/ElevatorStatus.cpp -- \
 		$(USER_CC) $(CC_HEAD) $(USER_CCFLAGS) $(USER_INCPATHS) \
 		 $(SOURCE_DIR)/ElevatorStatus.cpp $(CC_TAIL)
+
+EmergencyBrake$(OBJ_EXT) : $(EmergencyBrake_DEPS) $(RTCOMPILE_DAT)
+	$(RTCOMP) -vendor $(VENDOR) $(SPACEDEPS) $(USER_DEPPATHS) \
+		-component $(RTCOMPONENT) -src EmergencyBrake $(SOURCE_DIR)/EmergencyBrake.cpp -- \
+		$(USER_CC) $(CC_HEAD) $(USER_CCFLAGS) $(USER_INCPATHS) \
+		 $(SOURCE_DIR)/EmergencyBrake.cpp $(CC_TAIL)
 
 FBFProtocol$(OBJ_EXT) : $(FBFProtocol_DEPS) $(RTCOMPILE_DAT)
 	$(RTCOMP) -vendor $(VENDOR) $(SPACEDEPS) $(USER_DEPPATHS) \
@@ -197,6 +233,18 @@ FloorButtonLamp$(OBJ_EXT) : $(FloorButtonLamp_DEPS) $(RTCOMPILE_DAT)
 		$(USER_CC) $(CC_HEAD) $(USER_CCFLAGS) $(USER_INCPATHS) \
 		 $(SOURCE_DIR)/FloorButtonLamp.cpp $(CC_TAIL)
 
+LEBProtocol$(OBJ_EXT) : $(LEBProtocol_DEPS) $(RTCOMPILE_DAT)
+	$(RTCOMP) -vendor $(VENDOR) $(SPACEDEPS) $(USER_DEPPATHS) \
+		-component $(RTCOMPONENT) -src LEBProtocol $(SOURCE_DIR)/LEBProtocol.cpp -- \
+		$(USER_CC) $(CC_HEAD) $(USER_CCFLAGS) $(USER_INCPATHS) \
+		 $(SOURCE_DIR)/LEBProtocol.cpp $(CC_TAIL)
+
+LEBRProtocol$(OBJ_EXT) : $(LEBRProtocol_DEPS) $(RTCOMPILE_DAT)
+	$(RTCOMP) -vendor $(VENDOR) $(SPACEDEPS) $(USER_DEPPATHS) \
+		-component $(RTCOMPONENT) -src LEBRProtocol $(SOURCE_DIR)/LEBRProtocol.cpp -- \
+		$(USER_CC) $(CC_HEAD) $(USER_CCFLAGS) $(USER_INCPATHS) \
+		 $(SOURCE_DIR)/LEBRProtocol.cpp $(CC_TAIL)
+
 LEDProtocol$(OBJ_EXT) : $(LEDProtocol_DEPS) $(RTCOMPILE_DAT)
 	$(RTCOMP) -vendor $(VENDOR) $(SPACEDEPS) $(USER_DEPPATHS) \
 		-component $(RTCOMPONENT) -src LEDProtocol $(SOURCE_DIR)/LEDProtocol.cpp -- \
@@ -227,17 +275,17 @@ UDSProtocol$(OBJ_EXT) : $(UDSProtocol_DEPS) $(RTCOMPILE_DAT)
 		$(USER_CC) $(CC_HEAD) $(USER_CCFLAGS) $(USER_INCPATHS) \
 		 $(SOURCE_DIR)/UDSProtocol.cpp $(CC_TAIL)
 
+UEBProtocol$(OBJ_EXT) : $(UEBProtocol_DEPS) $(RTCOMPILE_DAT)
+	$(RTCOMP) -vendor $(VENDOR) $(SPACEDEPS) $(USER_DEPPATHS) \
+		-component $(RTCOMPONENT) -src UEBProtocol $(SOURCE_DIR)/UEBProtocol.cpp -- \
+		$(USER_CC) $(CC_HEAD) $(USER_CCFLAGS) $(USER_INCPATHS) \
+		 $(SOURCE_DIR)/UEBProtocol.cpp $(CC_TAIL)
+
 UFBPort$(OBJ_EXT) : $(UFBPort_DEPS) $(RTCOMPILE_DAT)
 	$(RTCOMP) -vendor $(VENDOR) $(SPACEDEPS) $(USER_DEPPATHS) \
 		-component $(RTCOMPONENT) -src UFBPort $(SOURCE_DIR)/UFBPort.cpp -- \
 		$(USER_CC) $(CC_HEAD) $(USER_CCFLAGS) $(USER_INCPATHS) \
 		 $(SOURCE_DIR)/UFBPort.cpp $(CC_TAIL)
-
-ULProtocol$(OBJ_EXT) : $(ULProtocol_DEPS) $(RTCOMPILE_DAT)
-	$(RTCOMP) -vendor $(VENDOR) $(SPACEDEPS) $(USER_DEPPATHS) \
-		-component $(RTCOMPONENT) -src ULProtocol $(SOURCE_DIR)/ULProtocol.cpp -- \
-		$(USER_CC) $(CC_HEAD) $(USER_CCFLAGS) $(USER_INCPATHS) \
-		 $(SOURCE_DIR)/ULProtocol.cpp $(CC_TAIL)
 
 RTSystem/MyComponent$(OBJ_EXT) : $(MyComponent_SYSDEPS) $(RTCOMPILE_DAT)
 	$(RTCOMP) -vendor $(VENDOR) $(SPACEDEPS) $(USER_DEPPATHS) \

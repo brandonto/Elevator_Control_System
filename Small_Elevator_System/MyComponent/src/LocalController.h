@@ -8,10 +8,11 @@
 #endif
 
 #include <RTSystem/MyComponent.h>
+#include <LEBProtocol.h>
+#include <LEBRProtocol.h>
 #include <LEDProtocol.h>
 #include <LEMProtocol.h>
 #include <LEProtocol.h>
-#include <ULProtocol.h>
 class ButtonInfo;
 class ElevatorStatus;
 
@@ -57,17 +58,26 @@ protected:
 	// {{{RME capsuleRole 'elevatorDoor'
 	RTActorRef elevatorDoor;
 	// }}}RME
+	// {{{RME capsuleRole 'emergencyBrake'
+	RTActorRef emergencyBrake;
+	// }}}RME
+	// {{{RME capsuleRole 'elevatorButton'
+	RTActorRef elevatorButton;
+	// }}}RME
 	// {{{RME port 'LEPort'
 	LEProtocol::Base LEPort;
-	// }}}RME
-	// {{{RME port 'ULPort'
-	ULProtocol::Base ULPort;
 	// }}}RME
 	// {{{RME port 'LEMPort'
 	LEMProtocol::Conjugate LEMPort;
 	// }}}RME
 	// {{{RME port 'LEDPort'
 	LEDProtocol::Conjugate LEDPort;
+	// }}}RME
+	// {{{RME port 'LEBRPort'
+	LEBRProtocol::Conjugate LEBRPort;
+	// }}}RME
+	// {{{RME port 'LEBPort'
+	LEBProtocol::Conjugate LEBPort;
 	// }}}RME
 	// {{{RME port 'log'
 	Log::Base log;
@@ -80,8 +90,8 @@ public:
 	virtual int _followOutV( RTBindingEnd & rtg_end, int rtg_compId, int rtg_portId, int rtg_repIndex );
 
 protected:
-	// {{{RME transition ':TOP:Ready:J56FC05E3011B:pressElevatorButton'
-	INLINE_METHODS void transition2_pressElevatorButton( const int * rtdata, ULProtocol::Base * rtport );
+	// {{{RME transition ':TOP:Ready:J56FC05E3011B:elevatorButtonPressed'
+	INLINE_METHODS void transition2_elevatorButtonPressed( const int * rtdata, LEBProtocol::Conjugate * rtport );
 	// }}}RME
 	// {{{RME transition ':TOP:Ready:J56E0AD2E0043:moveElevator'
 	INLINE_METHODS void transition3_moveElevator( const int * rtdata, LEProtocol::Base * rtport );
@@ -98,15 +108,19 @@ protected:
 	// {{{RME transition ':TOP:Ready:J56FB2DA700CA:init'
 	INLINE_METHODS void transition7_init( const void * rtdata, LEProtocol::Base * rtport );
 	// }}}RME
+	// {{{RME transition ':TOP:Ready:J56FC4FA0036C:clearButton'
+	INLINE_METHODS void transition8_clearButton( const int * rtdata, LEProtocol::Base * rtport );
+	// }}}RME
 
 private:
 	INLINE_CHAINS void chain1_Initial( void );
 	INLINE_CHAINS void chain7_init( void );
 	INLINE_CHAINS void chain3_moveElevator( void );
 	INLINE_CHAINS void chain5_openDoor( void );
-	INLINE_CHAINS void chain2_pressElevatorButton( void );
+	INLINE_CHAINS void chain8_clearButton( void );
 	INLINE_CHAINS void chain4_arrivedAtFloor( void );
 	INLINE_CHAINS void chain6_doorClosed( void );
+	INLINE_CHAINS void chain2_elevatorButtonPressed( void );
 
 public:
 	virtual void rtsBehavior( int signalIndex, int portIndex );

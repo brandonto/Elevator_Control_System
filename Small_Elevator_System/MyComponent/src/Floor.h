@@ -80,13 +80,13 @@ protected:
 	// {{{RME transition ':TOP:Ready:J56FC0E900351:init'
 	INLINE_METHODS void transition3_init( const void * rtdata, Timing::Base * rtport );
 	// }}}RME
-	// {{{RME transition ':TOP:Ready:J56FC1E960292:arrivedAtFloor'
-	INLINE_METHODS void transition4_arrivedAtFloor( const ButtonInfo * rtdata, FCProtocol::Base * rtport );
+	// {{{RME transition ':TOP:Ready:J56FC1E960292:clearButton'
+	INLINE_METHODS void transition4_clearButton( const ButtonInfo * rtdata, FCProtocol::Base * rtport );
 	// }}}RME
 
 private:
 	INLINE_CHAINS void chain1_Initial( void );
-	INLINE_CHAINS void chain4_arrivedAtFloor( void );
+	INLINE_CHAINS void chain4_clearButton( void );
 	INLINE_CHAINS void chain2_pressFloorButton( void );
 	INLINE_CHAINS void chain3_init( void );
 

@@ -1,0 +1,7 @@
+EmergencyBrake_DEPS = \
+	../src/EmergencyBrake.cpp \
+	../src/RTSystem/MyComponent.h \
+	../src/EmergencyBrake.h \
+	../src/ElevatorStatus.h \
+	../src/LEBRProtocol.h \
+	../src/Constants.h
