@@ -158,7 +158,7 @@ void CentralController_Actor::schedule( int floorId, bool upDir )
 		}
 	}
 
-	// If no highest suitability score was found
+	// If a highest suitability score was found
 	if (indexOfHighest != -1)
 	{
 		if (!esList[indexOfHighest]->emergencyBrakesOn)

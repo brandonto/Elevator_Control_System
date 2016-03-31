@@ -1,0 +1,5 @@
+File: M:\SYSC 4805\ElevatorProject\Elevator_Control_System\Small_Elevator_System\MyComponent\build\MyComponent.EXE
+Time: Wednesday, March 30, 2016 07:49:25 PM
+Command:
+  "C:\Program Files\Rational\PurifyPlus\purifye.exe" -purify -purify_home="C:\Program Files\Rational\PurifyPlus" /pwq-instance=0 /AllocCallStackLength=10 /ErrorCallStackLength=10 /PurifyDefaultInstrumentationType=precise /Out="M:/SYSC 4805/ElevatorProject/Elevator_Control_System/Small_Elevator_System/MyComponent/build/Purify_MyComponent.EXE" /SaveTextData="M:\SYSC 4805\ElevatorProject\Elevator_Control_System\Small_Elevator_System\MyComponent\build\Purify_MyComponent.txt"  -first-search-dir="M:\SYSC 4805\ElevatorProject\Elevator_Control_System\Small_Elevator_System\MyComponent\build" -out="M:\SYSC 4805\ElevatorProject\Elevator_Control_System\Small_Elevator_System\MyComponent\build\Purify_MyComponent.EXE" -exe_ini_filename="M:\SYSC 4805\ElevatorProject\Elevator_Control_System\Small_Elevator_System\MyComponent\build\MyComponent_pure.ini" "M:\SYSC 4805\ElevatorProject\Elevator_Control_System\Small_Elevator_System\MyComponent\build\MyComponent.EXE"
+

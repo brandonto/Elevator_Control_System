@@ -48,6 +48,9 @@ private:
 	// {{{RME classAttribute 'es'
 	ElevatorStatus * es;
 	// }}}RME
+	// {{{RME classAttribute 'malfunctioning'
+	bool malfunctioning;
+	// }}}RME
 
 protected:
 	// {{{RME port 'LEMPort'

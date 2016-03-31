@@ -13,7 +13,7 @@ const RTProtocolDescriptor ULPort::Base::rt_class =
   , &ULPort::Conjugate::rt_class
   , "ULPort"
   , 0
-  , 3
+  , 5
   , ULPort::Base::rt_signals
 #if RTRUNTIMEBC
   , &RTProtocolDescriptor::getUnknownGlobalSignal, &RTProtocolDescriptor::getUnknownLocalSignal
@@ -26,6 +26,16 @@ const RTSignalDescriptor ULPort::Base::rt_signals[] =
 		"forceDoorOpen"
 	  , &RTType_void
 	  , ULPort::Base::rti_forceDoorOpen
+	}
+  , {
+		"forceMotorDown"
+	  , &RTType_void
+	  , ULPort::Base::rti_forceMotorDown
+	}
+  , {
+		"forceMotorUp"
+	  , &RTType_void
+	  , ULPort::Base::rti_forceMotorUp
 	}
   , {
 		"rtBound"

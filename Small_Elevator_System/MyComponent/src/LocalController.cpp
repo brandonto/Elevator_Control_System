@@ -423,6 +423,48 @@ INLINE_METHODS void LocalController_Actor::transition10_forceDoorOpen( const voi
 }
 // }}}RME
 
+// {{{RME transition ':TOP:Ready:J56FC73A00319:forceMotorUp'
+INLINE_METHODS void LocalController_Actor::transition11_forceMotorUp( const void * rtdata, ULPort::Base * rtport )
+{
+	// {{{USR
+	// If elevator is at the top floor
+	if (es->currentFloor == NUM_FLOORS-1)
+	{
+		// Activate emergency brakes
+		LEBRPort.activateEmergencyBrakes().send();
+		LEMPort.activateEmergencyBrakes().send();
+		LEPort.activateEmergencyBrakes().send();
+	}
+	else
+	{
+		// Move motor up as normal
+		LEMPort.moveElevatorUp().send();
+	}
+	// }}}USR
+}
+// }}}RME
+
+// {{{RME transition ':TOP:Ready:J56FC759F0378:forceMotorDown'
+INLINE_METHODS void LocalController_Actor::transition12_forceMotorDown( const void * rtdata, ULPort::Base * rtport )
+{
+	// {{{USR
+	// If elevator is at the bottom floor
+	if (es->currentFloor == 1)
+	{
+		// Activate emergency brakes
+		LEBRPort.activateEmergencyBrakes().send();
+		LEMPort.activateEmergencyBrakes().send();
+		LEPort.activateEmergencyBrakes().send();
+	}
+	else
+	{
+		// Move motor up as normal
+		LEMPort.moveElevatorDown().send();
+	}
+	// }}}USR
+}
+// }}}RME
+
 INLINE_CHAINS void LocalController_Actor::chain1_Initial( void )
 {
 	// transition ':TOP:Initial:Initial'
@@ -527,6 +569,28 @@ INLINE_CHAINS void LocalController_Actor::chain10_forceDoorOpen( void )
 	exitState( rtg_parent_state );
 	rtgTransitionBegin();
 	transition10_forceDoorOpen( msg->data, (ULPort::Base *)msg->sap() );
+	rtgTransitionEnd();
+	enterState( 2 );
+}
+
+INLINE_CHAINS void LocalController_Actor::chain11_forceMotorUp( void )
+{
+	// transition ':TOP:Ready:J56FC73A00319:forceMotorUp'
+	rtgChainBegin( 2, "forceMotorUp" );
+	exitState( rtg_parent_state );
+	rtgTransitionBegin();
+	transition11_forceMotorUp( msg->data, (ULPort::Base *)msg->sap() );
+	rtgTransitionEnd();
+	enterState( 2 );
+}
+
+INLINE_CHAINS void LocalController_Actor::chain12_forceMotorDown( void )
+{
+	// transition ':TOP:Ready:J56FC759F0378:forceMotorDown'
+	rtgChainBegin( 2, "forceMotorDown" );
+	exitState( rtg_parent_state );
+	rtgTransitionBegin();
+	transition12_forceMotorDown( msg->data, (ULPort::Base *)msg->sap() );
 	rtgTransitionEnd();
 	enterState( 2 );
 }
@@ -644,6 +708,12 @@ void LocalController_Actor::rtsBehavior( int signalIndex, int portIndex )
 				{
 				case ULPort::Base::rti_forceDoorOpen:
 					chain10_forceDoorOpen();
+					return;
+				case ULPort::Base::rti_forceMotorUp:
+					chain11_forceMotorUp();
+					return;
+				case ULPort::Base::rti_forceMotorDown:
+					chain12_forceMotorDown();
 					return;
 				default:
 					break;

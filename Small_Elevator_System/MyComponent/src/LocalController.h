@@ -131,6 +131,12 @@ protected:
 	// {{{RME transition ':TOP:Ready:J56FC62D103D4:forceDoorOpen'
 	INLINE_METHODS void transition10_forceDoorOpen( const void * rtdata, ULPort::Base * rtport );
 	// }}}RME
+	// {{{RME transition ':TOP:Ready:J56FC73A00319:forceMotorUp'
+	INLINE_METHODS void transition11_forceMotorUp( const void * rtdata, ULPort::Base * rtport );
+	// }}}RME
+	// {{{RME transition ':TOP:Ready:J56FC759F0378:forceMotorDown'
+	INLINE_METHODS void transition12_forceMotorDown( const void * rtdata, ULPort::Base * rtport );
+	// }}}RME
 
 private:
 	INLINE_CHAINS void chain1_Initial( void );
@@ -143,6 +149,8 @@ private:
 	INLINE_CHAINS void chain2_elevatorButtonPressed( void );
 	INLINE_CHAINS void chain9_doorButtonPressed( void );
 	INLINE_CHAINS void chain10_forceDoorOpen( void );
+	INLINE_CHAINS void chain11_forceMotorUp( void );
+	INLINE_CHAINS void chain12_forceMotorDown( void );
 
 public:
 	virtual void rtsBehavior( int signalIndex, int portIndex );

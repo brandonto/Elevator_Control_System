@@ -53,6 +53,9 @@ protected:
 	// {{{RME port 'LEBRPort'
 	LEBRProtocol::Base LEBRPort;
 	// }}}RME
+	// {{{RME port 'log'
+	Log::Base log;
+	// }}}RME
 
 public:
 	EmergencyBrake_Actor( RTController * rtg_rts, RTActorRef * rtg_ref );

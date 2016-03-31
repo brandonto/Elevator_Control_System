@@ -586,7 +586,7 @@ const RTActor_class ElevatorMotor_Actor::rtg_class =
   , ElevatorMotor_Actor::rtg_ports
   , 0
   , (const RTLocalBindingDescriptor *)0
-  , 2
+  , 3
   , ElevatorMotor_Actor::rtg_ElevatorMotor_fields
 };
 
@@ -653,6 +653,18 @@ const RTFieldDescriptor ElevatorMotor_Actor::rtg_ElevatorMotor_fields[] =
 		// }}}RME
 		// {{{RME tool 'OT::CppTargetRTS' property 'GenerateTypeModifier'
 	  , &rtg_tm_ElevatorMotor_Actor_es
+		// }}}RME
+	}
+	// }}}RME
+	// {{{RME classAttribute 'malfunctioning'
+  , {
+		"malfunctioning"
+	  , RTOffsetOf( ElevatorMotor_Actor, malfunctioning )
+		// {{{RME tool 'OT::CppTargetRTS' property 'TypeDescriptor'
+	  , &RTType_bool
+		// }}}RME
+		// {{{RME tool 'OT::CppTargetRTS' property 'GenerateTypeModifier'
+	  , (const RTTypeModifier *)0
 		// }}}RME
 	}
 	// }}}RME

@@ -97,6 +97,9 @@ INLINE_METHODS void EmergencyBrake_Actor::transition3_activateEmergencyBrakes( c
 {
 	// {{{USR
 	es->emergencyBrakesOn = true;
+	log.show("ELEVATOR [");
+	log.show(es->id);
+	log.show("]'S EMERGENCY BRAKES ACTIVATED.\n");
 	// }}}USR
 }
 // }}}RME
@@ -228,7 +231,7 @@ const RTActor_class EmergencyBrake_Actor::rtg_class =
   , &EmergencyBrake
   , 0
   , (const RTComponentDescriptor *)0
-  , 1
+  , 2
   , EmergencyBrake_Actor::rtg_ports
   , 0
   , (const RTLocalBindingDescriptor *)0
@@ -253,6 +256,15 @@ const RTPortDescriptor EmergencyBrake_Actor::rtg_ports[] =
 	  , 1 // cardinality
 	  , 1
 	  , RTPortDescriptor::KindWired + RTPortDescriptor::NotificationDisabled + RTPortDescriptor::RegisterNotPermitted + RTPortDescriptor::VisibilityPublic
+	}
+  , {
+		"log"
+	  , (const char *)0
+	  , &Log::Base::rt_class
+	  , RTOffsetOf( EmergencyBrake_Actor, EmergencyBrake_Actor::log )
+	  , 1 // cardinality
+	  , 2
+	  , RTPortDescriptor::KindSpecial + RTPortDescriptor::NotificationDisabled + RTPortDescriptor::RegisterNotPermitted + RTPortDescriptor::VisibilityProtected
 	}
 };
 
