@@ -494,3 +494,10 @@ ItemDiagramPair16BrowserCount=1
 ItemDiagramPair16Browser0Data=1 0 0 336 990 15
 [History]
 NumSpecHistEntries=0
+[RTSDiagrams]
+MyComponentInstance:Structure:/elevator:0/localController:0/elevatorButton:1=90 90 778 561 100 0 0 1 -1 1 -1 -1 0
+MyComponentInstance:Structure:/centralController:0/floor:5/floorButton:0=60 60 748 531 100 0 0 1 -1 1 -1 -1 0
+MyComponentInstance:Structure:/elevator:0/localController:0=120 120 808 591 100 0 0 1 -1 1 -1 -1 0
+MyComponentInstance:Behavior:3/elevatorButton:ElevatorButton-TOP:/elevator:0/localController:0/elevatorButton:3=16 378 704 849 100 0 0 0 -1 1 -1 -1 0
+MyComponentInstance:Behavior:0/elevatorButtonLamp:ElevatorButtonLamp-TOP:/elevator:0/localController:0/elevatorButton:3/elevatorButtonLamp:0=811 -10 1499 461 100 0 0 0 -1 1 -1 -1 0
+MyComponentInstance:Behavior:0/emergencyBrake:EmergencyBrake-TOP:/elevator:0/localController:0/emergencyBrake:0=15 24 703 495 100 0 0 0 -1 1 -1 -1 0

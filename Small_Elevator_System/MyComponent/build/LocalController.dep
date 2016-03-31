@@ -10,4 +10,5 @@ LocalController_DEPS = \
 	../src/LEDProtocol.h \
 	../src/LEMProtocol.h \
 	../src/LEProtocol.h \
+	../src/ULPort.h \
 	../src/Constants.h

@@ -73,5 +73,7 @@ MyComponent_SYSDEPS_CS = \
 	UEDBProtocol.cpp \
 	UEDBProtocol.h \
 	UFBPort.cpp \
-	UFBPort.h
+	UFBPort.h \
+	ULPort.cpp \
+	ULPort.h
 

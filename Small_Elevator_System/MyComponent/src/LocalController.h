@@ -14,6 +14,7 @@
 #include <LEDProtocol.h>
 #include <LEMProtocol.h>
 #include <LEProtocol.h>
+#include <ULPort.h>
 class ButtonInfo;
 class ElevatorStatus;
 
@@ -92,6 +93,9 @@ protected:
 	// {{{RME port 'log'
 	Log::Base log;
 	// }}}RME
+	// {{{RME port 'ULPort'
+	ULPort::Base ULPort;
+	// }}}RME
 
 public:
 	LocalController_Actor( RTController * rtg_rts, RTActorRef * rtg_ref );
@@ -124,6 +128,9 @@ protected:
 	// {{{RME transition ':TOP:Ready:J56FC58A900F1:doorButtonPressed'
 	INLINE_METHODS void transition9_doorButtonPressed( const int * rtdata, LEDBProtocol::Conjugate * rtport );
 	// }}}RME
+	// {{{RME transition ':TOP:Ready:J56FC62D103D4:forceDoorOpen'
+	INLINE_METHODS void transition10_forceDoorOpen( const void * rtdata, ULPort::Base * rtport );
+	// }}}RME
 
 private:
 	INLINE_CHAINS void chain1_Initial( void );
@@ -135,6 +142,7 @@ private:
 	INLINE_CHAINS void chain6_doorClosed( void );
 	INLINE_CHAINS void chain2_elevatorButtonPressed( void );
 	INLINE_CHAINS void chain9_doorButtonPressed( void );
+	INLINE_CHAINS void chain10_forceDoorOpen( void );
 
 public:
 	virtual void rtsBehavior( int signalIndex, int portIndex );

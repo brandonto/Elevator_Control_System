@@ -27,6 +27,11 @@ static const RTRelayDescriptor rtg_relays[] =
 	  , &LEProtocol::Base::rt_class
 	  , 1 // cardinality
 	}
+  , {
+		"ULPort"
+	  , &ULPort::Base::rt_class
+	  , 1 // cardinality
+	}
 };
 
 static RTActor * new_LocalController_Actor( RTController * _rts, RTActorRef * _ref )
@@ -39,7 +44,7 @@ const RTActorClass LocalController =
 	(const RTActorClass *)0
   , "LocalController"
   , (RTVersionId)0
-  , 1
+  , 2
   , rtg_relays
   , new_LocalController_Actor
 };
@@ -169,6 +174,15 @@ int LocalController_Actor::_followInV( RTBindingEnd & rtg_end, int rtg_portId, i
 			return 1;
 		}
 		break;
+	case 1:
+		// ULPort
+		if( rtg_repIndex < 1 )
+		{
+			rtg_end.port = &ULPort;
+			rtg_end.index = rtg_repIndex;
+			return 1;
+		}
+		break;
 	default:
 		break;
 	}
@@ -275,6 +289,12 @@ INLINE_METHODS void LocalController_Actor::transition2_elevatorButtonPressed( co
 {
 	// {{{USR
 	//int destinationFloor = *rtdata;
+
+	if (es->emergencyBrakesOn)
+	{
+		return;
+	}
+
 	ButtonInfo bi;
 	bi.floorNum = *rtdata;
 	bi.floorId = bi.floorNum - 1;
@@ -289,6 +309,11 @@ INLINE_METHODS void LocalController_Actor::transition2_elevatorButtonPressed( co
 INLINE_METHODS void LocalController_Actor::transition3_moveElevator( const int * rtdata, LEProtocol::Base * rtport )
 {
 	// {{{USR
+	if (es->emergencyBrakesOn)
+	{
+		return;
+	}
+
 	int direction = *rtdata;
 	if (direction == 1)
 	{
@@ -372,6 +397,27 @@ INLINE_METHODS void LocalController_Actor::transition9_doorButtonPressed( const 
 		{
 			LEDPort.closeDoor().send();
 		}
+	}
+	// }}}USR
+}
+// }}}RME
+
+// {{{RME transition ':TOP:Ready:J56FC62D103D4:forceDoorOpen'
+INLINE_METHODS void LocalController_Actor::transition10_forceDoorOpen( const void * rtdata, ULPort::Base * rtport )
+{
+	// {{{USR
+	// If elevator is moving
+	if (es->direction)
+	{
+		// Activate emergency brakes
+		LEBRPort.activateEmergencyBrakes().send();
+		LEMPort.activateEmergencyBrakes().send();
+		LEPort.activateEmergencyBrakes().send();
+	}
+	else
+	{
+		// Open door as normal
+		LEDPort.openDoor().send();
 	}
 	// }}}USR
 }
@@ -470,6 +516,17 @@ INLINE_CHAINS void LocalController_Actor::chain9_doorButtonPressed( void )
 	exitState( rtg_parent_state );
 	rtgTransitionBegin();
 	transition9_doorButtonPressed( (const int *)msg->data, (LEDBProtocol::Conjugate *)msg->sap() );
+	rtgTransitionEnd();
+	enterState( 2 );
+}
+
+INLINE_CHAINS void LocalController_Actor::chain10_forceDoorOpen( void )
+{
+	// transition ':TOP:Ready:J56FC62D103D4:forceDoorOpen'
+	rtgChainBegin( 2, "forceDoorOpen" );
+	exitState( rtg_parent_state );
+	rtgTransitionBegin();
+	transition10_forceDoorOpen( msg->data, (ULPort::Base *)msg->sap() );
 	rtgTransitionEnd();
 	enterState( 2 );
 }
@@ -581,6 +638,18 @@ void LocalController_Actor::rtsBehavior( int signalIndex, int portIndex )
 				}
 				break;
 				// }}}RME
+			case 8:
+				// {{{RME port 'ULPort'
+				switch( signalIndex )
+				{
+				case ULPort::Base::rti_forceDoorOpen:
+					chain10_forceDoorOpen();
+					return;
+				default:
+					break;
+				}
+				break;
+				// }}}RME
 			default:
 				break;
 			}
@@ -606,7 +675,7 @@ const RTActor_class LocalController_Actor::rtg_class =
   , &LocalController
   , 5
   , LocalController_Actor::rtg_capsule_roles
-  , 7
+  , 8
   , LocalController_Actor::rtg_ports
   , 0
   , (const RTLocalBindingDescriptor *)0
@@ -753,6 +822,15 @@ const RTPortDescriptor LocalController_Actor::rtg_ports[] =
 	  , 1 // cardinality
 	  , 7
 	  , RTPortDescriptor::KindSpecial + RTPortDescriptor::NotificationDisabled + RTPortDescriptor::RegisterNotPermitted + RTPortDescriptor::VisibilityProtected
+	}
+  , {
+		"ULPort"
+	  , (const char *)0
+	  , &ULPort::Base::rt_class
+	  , RTOffsetOf( LocalController_Actor, LocalController_Actor::ULPort )
+	  , 1 // cardinality
+	  , 8
+	  , RTPortDescriptor::KindWired + RTPortDescriptor::NotificationDisabled + RTPortDescriptor::RegisterNotPermitted + RTPortDescriptor::VisibilityPublic
 	}
 };
 

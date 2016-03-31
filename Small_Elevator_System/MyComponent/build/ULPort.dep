@@ -1,0 +1,4 @@
+ULPort_DEPS = \
+	../src/ULPort.cpp \
+	../src/RTSystem/MyComponent.h \
+	../src/ULPort.h

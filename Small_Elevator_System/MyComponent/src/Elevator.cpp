@@ -52,6 +52,10 @@ static const RTInterfaceDescriptor rtg_interfaces_localController[] =
 		"LEPort"
 	  , 1
 	}
+  , {
+		"ULPort"
+	  , 0
+	}
 };
 
 static const RTBindingDescriptor rtg_bindings_localController[] =
@@ -437,6 +441,28 @@ INLINE_METHODS void Elevator_Actor::transition6_init( const void * rtdata, Timin
 }
 // }}}RME
 
+// {{{RME transition ':TOP:Ready:J56FC665B02FB:activateEmergencyBrakes'
+INLINE_METHODS void Elevator_Actor::transition7_activateEmergencyBrakes( const void * rtdata, LEProtocol::Conjugate * rtport )
+{
+	// {{{USR
+	// Turns off all floor button lights
+	for (int i=0; i<NUM_FLOORS; i++)
+	{
+		// Floor button light is currently on
+		if (es->destinationFloors[i] > RQ_TYPE_EB)
+		{
+			ButtonInfo bi;
+			bi.floorId = i;
+			bi.floorNum = bi.floorId+1;
+			bi.floorButton = true;
+			bi.upDir = (es->destinationFloors[i]==RQ_TYPE_FB_U)?true:false;
+			EPPort.clearButton(bi).send();
+		}
+	}
+	// }}}USR
+}
+// }}}RME
+
 INLINE_CHAINS void Elevator_Actor::chain1_Initial( void )
 {
 	// transition ':TOP:Initial:Initial'
@@ -476,6 +502,17 @@ INLINE_CHAINS void Elevator_Actor::chain5_doorClosed( void )
 	exitState( rtg_parent_state );
 	rtgTransitionBegin();
 	transition5_doorClosed( msg->data, (LEProtocol::Conjugate *)msg->sap() );
+	rtgTransitionEnd();
+	enterState( 2 );
+}
+
+INLINE_CHAINS void Elevator_Actor::chain7_activateEmergencyBrakes( void )
+{
+	// transition ':TOP:Ready:J56FC665B02FB:activateEmergencyBrakes'
+	rtgChainBegin( 2, "activateEmergencyBrakes" );
+	exitState( rtg_parent_state );
+	rtgTransitionBegin();
+	transition7_activateEmergencyBrakes( msg->data, (LEProtocol::Conjugate *)msg->sap() );
 	rtgTransitionEnd();
 	enterState( 2 );
 }
@@ -552,6 +589,9 @@ void Elevator_Actor::rtsBehavior( int signalIndex, int portIndex )
 					return;
 				case LEProtocol::Conjugate::rti_doorClosed:
 					chain5_doorClosed();
+					return;
+				case LEProtocol::Conjugate::rti_activateEmergencyBrakes:
+					chain7_activateEmergencyBrakes();
 					return;
 				default:
 					break;
@@ -631,7 +671,7 @@ const RTComponentDescriptor Elevator_Actor::rtg_capsule_roles[] =
 	  , RTComponentDescriptor::Fixed
 	  , 1
 	  , 1 // cardinality
-	  , 1
+	  , 2
 	  , rtg_interfaces_localController
 	  , 1
 	  , rtg_bindings_localController

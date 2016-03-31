@@ -98,12 +98,16 @@ protected:
 	// {{{RME transition ':TOP:Ready:J56FB25B10282:init'
 	INLINE_METHODS void transition6_init( const void * rtdata, Timing::Base * rtport );
 	// }}}RME
+	// {{{RME transition ':TOP:Ready:J56FC665B02FB:activateEmergencyBrakes'
+	INLINE_METHODS void transition7_activateEmergencyBrakes( const void * rtdata, LEProtocol::Conjugate * rtport );
+	// }}}RME
 
 private:
 	INLINE_CHAINS void chain1_Initial( void );
 	INLINE_CHAINS void chain2_elevatorButtonPressed( void );
 	INLINE_CHAINS void chain3_arrivedAtFloor( void );
 	INLINE_CHAINS void chain5_doorClosed( void );
+	INLINE_CHAINS void chain7_activateEmergencyBrakes( void );
 	INLINE_CHAINS void chain4_update( void );
 	INLINE_CHAINS void chain6_init( void );
 

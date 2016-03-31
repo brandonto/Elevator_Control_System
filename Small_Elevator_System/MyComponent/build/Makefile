@@ -51,6 +51,7 @@ ALL_OBJS = \
 	UEBProtocol$(OBJ_EXT) \
 	UEDBProtocol$(OBJ_EXT) \
 	UFBPort$(OBJ_EXT) \
+	ULPort$(OBJ_EXT) \
 	RTSystem/MyComponent$(OBJ_EXT)
 
 ALL_OBJS_LISTFILE = ALL_OBJS.olist
@@ -94,6 +95,7 @@ include <UDSProtocol.dep>
 include <UEBProtocol.dep>
 include <UEDBProtocol.dep>
 include <UFBPort.dep>
+include <ULPort.dep>
 include <RTSystem/MyComponent.dep>
 include <$(RTS_HOME)/codegen/ms_nmake.mk>
 
@@ -310,6 +312,12 @@ UFBPort$(OBJ_EXT) : $(UFBPort_DEPS) $(RTCOMPILE_DAT)
 		-component $(RTCOMPONENT) -src UFBPort $(SOURCE_DIR)/UFBPort.cpp -- \
 		$(USER_CC) $(CC_HEAD) $(USER_CCFLAGS) $(USER_INCPATHS) \
 		 $(SOURCE_DIR)/UFBPort.cpp $(CC_TAIL)
+
+ULPort$(OBJ_EXT) : $(ULPort_DEPS) $(RTCOMPILE_DAT)
+	$(RTCOMP) -vendor $(VENDOR) $(SPACEDEPS) $(USER_DEPPATHS) \
+		-component $(RTCOMPONENT) -src ULPort $(SOURCE_DIR)/ULPort.cpp -- \
+		$(USER_CC) $(CC_HEAD) $(USER_CCFLAGS) $(USER_INCPATHS) \
+		 $(SOURCE_DIR)/ULPort.cpp $(CC_TAIL)
 
 RTSystem/MyComponent$(OBJ_EXT) : $(MyComponent_SYSDEPS) $(RTCOMPILE_DAT)
 	$(RTCOMP) -vendor $(VENDOR) $(SPACEDEPS) $(USER_DEPPATHS) \
