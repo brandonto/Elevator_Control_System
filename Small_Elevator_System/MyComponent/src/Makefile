@@ -1,6 +1,6 @@
 RTS_HOME = C:/Program Files/Rational/Rose RealTime/C++/TargetRTS
 include <$(RTS_HOME)/codegen/rtgen.mk>
-MODEL = "C:/Documents and Settings/student/My Documents/Small_Elevator_System/Small_Elevator_System.rtmdl"
+MODEL = "M:/SYSC 4805/ElevatorProject/Elevator_Control_System/Small_Elevator_System/Small_Elevator_System.rtmdl"
 COMPONENT = "Component View::MyComponent"
 RTGEN_FLAGS = -model $(MODEL) -component $(COMPONENT) -spacedeps dq
 include <RTSystem/MyComponent.dep>

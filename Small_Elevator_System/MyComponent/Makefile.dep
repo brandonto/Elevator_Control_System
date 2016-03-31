@@ -4,7 +4,7 @@ Makefile_TARGETS = \
 	build/Makefile
 
 Makefile_DEPS = \
-	"C:/Documents and Settings/student/My Documents/Small_Elevator_System/Small_Elevator_System.rtmdl" \
+	"M:/SYSC 4805/ElevatorProject/Elevator_Control_System/Small_Elevator_System/Small_Elevator_System.rtmdl" \
 	"C:/Program Files/Rational/Rose RealTime/C++/RTComponents.rtcmppkg" \
 	"C:/Program Files/Rational/Rose RealTime/C++/RTClasses.rtlogpkg"
 

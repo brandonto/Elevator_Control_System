@@ -250,7 +250,7 @@ int LocalController_Actor::_followOutV( RTBindingEnd & rtg_end, int rtg_compId, 
 		{
 		case 0:
 			// LEBPort
-			if( rtg_repIndex < 10 )
+			if( rtg_repIndex < 25 )
 			{
 				// LEBPort
 				rtg_end.port = &LEBPort;
@@ -428,7 +428,7 @@ INLINE_METHODS void LocalController_Actor::transition11_forceMotorUp( const void
 {
 	// {{{USR
 	// If elevator is at the top floor
-	if (es->currentFloor == NUM_FLOORS-1)
+	if (es->currentFloor == NUM_FLOORS)
 	{
 		// Activate emergency brakes
 		LEBRPort.activateEmergencyBrakes().send();
@@ -807,7 +807,7 @@ const RTComponentDescriptor LocalController_Actor::rtg_capsule_roles[] =
 	  , 4
 	  , RTComponentDescriptor::Fixed
 	  , 1
-	  , 10 // cardinality
+	  , 25 // cardinality
 	  , 2
 	  , rtg_interfaces_elevatorButton
 	  , 1
@@ -871,7 +871,7 @@ const RTPortDescriptor LocalController_Actor::rtg_ports[] =
 	  , (const char *)0
 	  , &LEBProtocol::Conjugate::rt_class
 	  , RTOffsetOf( LocalController_Actor, LocalController_Actor::LEBPort )
-	  , 10 // cardinality
+	  , 25 // cardinality
 	  , 5
 	  , RTPortDescriptor::KindWired + RTPortDescriptor::NotificationDisabled + RTPortDescriptor::RegisterNotPermitted + RTPortDescriptor::VisibilityProtected
 	}

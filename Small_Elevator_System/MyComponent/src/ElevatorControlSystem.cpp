@@ -40,7 +40,7 @@ static const RTInterfaceDescriptor rtg_interfaces_centralController[] =
 {
 	{
 		"EPPort"
-	  , 2
+	  , 3
 	}
 };
 
@@ -89,7 +89,7 @@ int ElevatorControlSystem_Actor::_followOutV( RTBindingEnd & rtg_end, int rtg_co
 		{
 		case 0:
 			// EPPort
-			if( rtg_repIndex < 2 )
+			if( rtg_repIndex < 3 )
 			{
 				// elevator/EPPort
 				return elevator._followIn( rtg_end, 0, rtg_repIndex );
@@ -104,7 +104,7 @@ int ElevatorControlSystem_Actor::_followOutV( RTBindingEnd & rtg_end, int rtg_co
 		{
 		case 0:
 			// EPPort
-			if( rtg_repIndex < 2 )
+			if( rtg_repIndex < 3 )
 			{
 				// centralController/EPPort
 				return centralController._followIn( rtg_end, 0, rtg_repIndex );
@@ -198,7 +198,7 @@ const RTComponentDescriptor ElevatorControlSystem_Actor::rtg_capsule_roles[] =
 	  , 2
 	  , RTComponentDescriptor::Fixed
 	  , 1
-	  , 2 // cardinality
+	  , 3 // cardinality
 	  , 1
 	  , rtg_interfaces_elevator
 	  , 1

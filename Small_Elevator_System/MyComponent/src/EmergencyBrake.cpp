@@ -135,6 +135,16 @@ INLINE_CHAINS void EmergencyBrake_Actor::chain3_activateEmergencyBrakes( void )
 	enterState( 3 );
 }
 
+INLINE_CHAINS void EmergencyBrake_Actor::chain4_ignoreEverything( void )
+{
+	// transition ':TOP:Activated:J56FD44160393:ignoreEverything'
+	rtgChainBegin( 3, "ignoreEverything" );
+	exitState( rtg_parent_state );
+	rtgTransitionBegin();
+	rtgTransitionEnd();
+	enterState( 3 );
+}
+
 void EmergencyBrake_Actor::rtsBehavior( int signalIndex, int portIndex )
 {
 	for( int stateIndex = getCurrentState(); ; stateIndex = rtg_parent_state[ stateIndex - 1 ] )
@@ -206,6 +216,18 @@ void EmergencyBrake_Actor::rtsBehavior( int signalIndex, int portIndex )
 					break;
 				}
 				break;
+			case 1:
+				// {{{RME port 'LEBRPort'
+				switch( signalIndex )
+				{
+				case LEBRProtocol::Base::rti_activateEmergencyBrakes:
+					chain4_ignoreEverything();
+					return;
+				default:
+					break;
+				}
+				break;
+				// }}}RME
 			default:
 				break;
 			}

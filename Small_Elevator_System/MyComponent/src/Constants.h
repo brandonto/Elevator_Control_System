@@ -16,11 +16,11 @@
 // }}}RME
 
 // {{{RME classAttribute 'NUM_FLOORS'
-#define NUM_FLOORS 10
+#define NUM_FLOORS 25
 // }}}RME
 
 // {{{RME classAttribute 'NUM_ELEVATORS'
-#define NUM_ELEVATORS 2
+#define NUM_ELEVATORS 3
 // }}}RME
 
 extern const RTObject_class RTType_Constants;

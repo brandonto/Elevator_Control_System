@@ -74,6 +74,7 @@ private:
 	INLINE_CHAINS void chain1_Initial( void );
 	INLINE_CHAINS void chain2_init( void );
 	INLINE_CHAINS void chain3_activateEmergencyBrakes( void );
+	INLINE_CHAINS void chain4_ignoreEverything( void );
 
 public:
 	virtual void rtsBehavior( int signalIndex, int portIndex );

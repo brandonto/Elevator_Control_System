@@ -3,7 +3,7 @@ include <$(RTS_HOME)/codegen/rtgen.mk>
 PERL = rtperl
 IN = $(PERL) "$(ROSERT_HOME)/codegen/chdir_run.pl"
 NOP = $(PERL) "$(ROSERT_HOME)/codegen/nop.pl"
-MODEL = C:/Documents and Settings/student/My Documents/Small_Elevator_System/Small_Elevator_System.rtmdl
+MODEL = M:/SYSC 4805/ElevatorProject/Elevator_Control_System/Small_Elevator_System/Small_Elevator_System.rtmdl
 COMPONENT = Component View::MyComponent
 RTcompile : RTgenerate
 	$(IN) build rtperl -S rtsetup.pl nmake -nologo -k -s RTcompile

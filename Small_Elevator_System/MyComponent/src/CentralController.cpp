@@ -21,7 +21,7 @@ static const RTRelayDescriptor rtg_relays[] =
 	{
 		"EPPort"
 	  , &EPProtocol::Conjugate::rt_class
-	  , 2 // cardinality
+	  , 3 // cardinality
 	}
 };
 
@@ -120,13 +120,13 @@ void CentralController_Actor::schedule( int floorId, bool upDir )
 		// Special Case (1), elevator is not moving
 		if (esList[i]->direction == 0)
 		{
-			suitabilityScore[i] = ((NUM_FLOORS - 1) + 2) - abs(esList[i]->currentFloor - floorNum);
+			suitabilityScore[i] = ((NUM_FLOORS - 1) + 2) - abs(esList[i]->currentFloor - floorNum) + 4;
 		}
 		// Case (1)
 		else if (((esList[i]->currentFloor >= floorNum) && (esList[i]->direction == -1) && (!upDir && (esList[i]->direction == -1))) ||
 			((esList[i]->currentFloor < floorNum) && (esList[i]->direction == 1) && (upDir && (esList[i]->direction == 1))))
 		{
-			suitabilityScore[i] = ((NUM_FLOORS - 1) + 2) - abs(esList[i]->currentFloor - floorNum);
+			suitabilityScore[i] = ((NUM_FLOORS - 1) + 2) - abs(esList[i]->currentFloor - floorNum) + 3;
 		}
 		// Case (2)
 		else if (((esList[i]->currentFloor >= floorNum) && (esList[i]->direction == -1)) ||
@@ -258,7 +258,7 @@ int CentralController_Actor::_followInV( RTBindingEnd & rtg_end, int rtg_portId,
 	{
 	case 0:
 		// EPPort
-		if( rtg_repIndex < 2 )
+		if( rtg_repIndex < 3 )
 		{
 			rtg_end.port = &EPPort;
 			rtg_end.index = rtg_repIndex;
@@ -281,7 +281,7 @@ int CentralController_Actor::_followOutV( RTBindingEnd & rtg_end, int rtg_compId
 		{
 		case 0:
 			// FCPort
-			if( rtg_repIndex < 10 )
+			if( rtg_repIndex < 25 )
 			{
 				// FCPort
 				rtg_end.port = &FCPort;
@@ -507,7 +507,7 @@ const RTComponentDescriptor CentralController_Actor::rtg_capsule_roles[] =
 	  , 1
 	  , RTComponentDescriptor::Fixed
 	  , 1
-	  , 10 // cardinality
+	  , 25 // cardinality
 	  , 1
 	  , rtg_interfaces_floor
 	  , 1
@@ -522,7 +522,7 @@ const RTPortDescriptor CentralController_Actor::rtg_ports[] =
 	  , (const char *)0
 	  , &EPProtocol::Conjugate::rt_class
 	  , RTOffsetOf( CentralController_Actor, CentralController_Actor::EPPort )
-	  , 2 // cardinality
+	  , 3 // cardinality
 	  , 1
 	  , RTPortDescriptor::KindWired + RTPortDescriptor::NotificationDisabled + RTPortDescriptor::RegisterNotPermitted + RTPortDescriptor::VisibilityPublic
 	}
@@ -540,7 +540,7 @@ const RTPortDescriptor CentralController_Actor::rtg_ports[] =
 	  , (const char *)0
 	  , &FCProtocol::Conjugate::rt_class
 	  , RTOffsetOf( CentralController_Actor, CentralController_Actor::FCPort )
-	  , 10 // cardinality
+	  , 25 // cardinality
 	  , 3
 	  , RTPortDescriptor::KindWired + RTPortDescriptor::NotificationDisabled + RTPortDescriptor::RegisterNotPermitted + RTPortDescriptor::VisibilityProtected
 	}
