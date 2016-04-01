@@ -1,0 +1,82 @@
+//
+// ==============================================================================
+// Scheduling Algorithm
+// ==============================================================================
+//
+// Compute suitability score for each elevator with the following algorithm:
+//
+// (1) Elevator heading towards floor, same direction of button pressed
+//	 score = ((NUM_FLOORS - 1) + 2) - DIFF
+//
+// (2) Elevator heading towards floor, opposite direction of button pressed
+//	 score = ((NUM_FLOORS - 1) + 2) - DIFF
+//
+// (3) Elevator headind away from floor
+//	 score = 1
+//
+// Assign floor to elevator with the highest suitability score.
+//
+// If suitability score of all elevators is 1, then assign floor to elevator that
+// is closest to it's last destination
+//
+
+We chose the scheduling algorithm above because it is one that is commonly used
+in commercial elevator systems. We had to make a few tweaks to the algorithm to
+get the behaviour that we desired for the project. Any elevators that have their
+emergency brakes activated will be ignored by the algorithm. The source code for
+the algorithm can be found in CentralController::schedule().
+
+//
+// ElevatorStatus data structure
+//
+
+The ElevatorStatus data structure stores the following information:
+
+- id
+- direction
+- current floor
+- list of destination floors assigned
+- next destination floor to go to
+- most recent button pressed
+- flag indicating if the door is open
+- flag indicating if the emergency brakes on activated
+
+This data structure is an integral part of our system. Every Elevator has an
+instance of this class. The CentralController stores an array of references to
+this class and uses it in the scheduling algorithm described above. Many parts
+of the Elevator also stores a reference to this class so they can modify the
+Elevator state. For example, the ElevatorMotor modifies the direction field, the
+the ElevatorDoor modifies the doorOpen field, the ElevatorButton modifies the
+mostRecentButton field, and the EmergencyBrakes modifies the
+emergencyBrakeActivated field.
+
+//
+// ButtonInfo data structure
+//
+
+The ButtonInfo data structure stores the following information:
+
+- floor id
+- floor number
+- a flag indicating if the button is a floor button
+- a flag indicating if the button pressed is up (it is down if this flag is not
+  not)
+
+This data structure is passed from the Floor to the CentralController when a
+FloorButton is pressed to identify which FloorButton was pressed. It is also
+passed from the CentralController to the Floor when the Elevator reaches the
+destination Floor to indicate which FloorButtonLamp to unlight.
+
+//
+// Miscellaneous
+//
+
+- All communication between Elevator components are done through the
+LocalController.
+
+- ElevatorDoorSensors can impede the door
+
+- ElevatorButtonLamps light and unlight when appropriate.
+
+- FloorButtonLamps light and unlight when appropriate.
+
