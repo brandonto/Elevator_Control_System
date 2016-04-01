@@ -1,0 +1,40 @@
+//
+// Usage instructions
+//
+
+1. The number of elevators and number of floor are configurable by changing the
+   NUM_ELEVATORS and NUM_FLOORS constants in the Constants class.
+
+2. After configuring those, build and run the system.
+
+3. Click on the play button to start the system.
+
+4. Insert probes on the protocols that start with a U (User). These are the
+   user interface to the system. Do not probe any ports that don't start with
+   a U, as these other ports are used by the system itself.
+
+- For ElevatorButton, insert a probe on the UEBPort (User-ElevatorButton).
+
+		These signals represent pressing the buttons inside the elevator.
+
+- For ElevatorDoorButton, insert a probe on the UEDBPort (User-ElevatorDoorButton).
+    Index 0 = close, Index 1 = open.
+
+		These signals represent pressing the door buttons inside the elevator
+
+- For FloorButton, insert a prove on the UFBPort (User-FloorButton).
+    Index 0 = down, Index 1 = up.
+
+		These signals represent pressing the button on the floor.
+
+- For DoorSensor, insert a probe on the UDSPort (User-DoorSensor).
+
+		These signals represent impeding the door from closing
+
+- For LocalController, insert a probe on the ULPort (User-LocalController).
+
+		These signals represent triggering the emergency brakes under certain
+		circumstances
+
+5. Send signals according to your needs.
+
